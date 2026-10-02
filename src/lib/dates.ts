@@ -106,3 +106,17 @@ export function localTimeKey(instant: Date, timeZone: string): string {
   const { hour, minute } = toLocal(instant, timeZone);
   return `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`;
 }
+
+/** "YYYY-MM-DD" plus et antal kalenderdage. */
+export function addDaysToKey(dateKey: string, days: number): string {
+  const [year, month, day] = dateKey.split("-").map(Number) as [number, number, number];
+  return new Date(Date.UTC(year, month - 1, day + days)).toISOString().slice(0, 10);
+}
+
+/** Starten (inkl.) og slutningen (ekskl.) af en lokal kalenderdag; tager højde for sommertid. */
+export function localDayBounds(dateKey: string, timeZone: string): { start: Date; end: Date } {
+  return {
+    start: fromLocal(dateKey, "00:00", timeZone),
+    end: fromLocal(addDaysToKey(dateKey, 1), "00:00", timeZone),
+  };
+}

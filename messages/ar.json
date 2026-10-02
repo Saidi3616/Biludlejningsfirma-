@@ -285,7 +285,10 @@
     "nav": {
       "label": "قائمة الإدارة",
       "dashboard": "نظرة عامة",
-      "security": "الأمان"
+      "security": "الأمان",
+      "calendar": "التقويم",
+      "bookings": "الحجوزات",
+      "customers": "العملاء"
     },
     "toSite": "إلى الموقع",
     "roles": {
@@ -296,7 +299,6 @@
     },
     "dashboard": {
       "title": "نظرة عامة",
-      "intro": "سيتم بناء لوحة الإدارة في المراحل القادمة. هنا يمكنك رؤية ما يتيحه دورك.",
       "role": "دورك: {role}",
       "permissionsTitle": "صلاحيات دورك",
       "permission": "الإجراء",
@@ -325,6 +327,43 @@
         "gdpr:anonymize": "إخفاء هوية العملاء",
         "users:manage": "إدارة الموظفين والأدوار",
         "settings:write": "تغيير الإعدادات"
+      },
+      "location": "الفرع",
+      "allLocations": "كل الفروع",
+      "show": "عرض",
+      "counts": {
+        "pickups": "الاستلام اليوم",
+        "returns": "الإرجاع اليوم",
+        "active": "مؤجرة الآن",
+        "available": "سيارات متاحة",
+        "inService": "في الورشة"
+      },
+      "attentionTitle": "يتطلب إجراء",
+      "attention": {
+        "unpaid": "{count} حجوزات غير مدفوعة",
+        "pendingRefunds": "{count} مبالغ مستردة قيد الانتظار",
+        "failedNotifications": "{count} رسائل تعذر إرسالها",
+        "newMessages": "{count} استفسارات جديدة"
+      },
+      "todayTitle": "اليوم",
+      "todayEmpty": "لا توجد عمليات استلام أو إرجاع اليوم.",
+      "columns": {
+        "time": "الوقت",
+        "what": "النوع",
+        "booking": "الحجز",
+        "customer": "العميل",
+        "car": "السيارة",
+        "status": "الحالة"
+      },
+      "kind": {
+        "pickup": "استلام",
+        "return": "إرجاع"
+      },
+      "kpiTitle": "هذا الشهر",
+      "kpi": {
+        "revenue": "الإيرادات",
+        "outstanding": "المستحقات",
+        "newCustomers": "عملاء جدد"
       }
     },
     "security": {
@@ -341,6 +380,198 @@
       "backupTitle": "احفظ رموزك الاحتياطية",
       "backupBody": "يعمل كل رمز مرة واحدة إذا فقدت هاتفك. احفظها في مكان آمن. لن تظهر إلا الآن.",
       "done": "لقد حفظت الرموز"
+    },
+    "bookings": {
+      "title": "الحجوزات",
+      "search": "بحث",
+      "searchHint": "رقم الحجز أو الاسم أو البريد الإلكتروني أو الهاتف أو رقم اللوحة.",
+      "status": "الحالة",
+      "allStatuses": "الكل (عدا المنتهية)",
+      "location": "الفرع",
+      "allLocations": "كل الفروع",
+      "submit": "بحث",
+      "count": "{count, plural, one {حجز واحد} other {# حجوزات}}",
+      "empty": "لا توجد حجوزات تطابق البحث.",
+      "columns": {
+        "reference": "الحجز",
+        "customer": "العميل",
+        "car": "السيارة",
+        "period": "الفترة",
+        "status": "الحالة",
+        "total": "المبلغ"
+      },
+      "previous": "السابق",
+      "next": "التالي",
+      "page": "صفحة {page} من {pages}"
+    },
+    "booking": {
+      "back": "كل الحجوزات",
+      "title": "الحجز {reference}",
+      "created": "أُنشئ في {date}",
+      "rentalTitle": "الإيجار",
+      "car": "السيارة",
+      "fulfilment": "التسليم",
+      "delivery": "توصيل إلى {address}",
+      "pickupAtOffice": "الاستلام من المكتب",
+      "pickup": "الاستلام",
+      "return": "الإرجاع",
+      "discount": "رمز الخصم",
+      "deposit": "التأمين",
+      "depositStatus": {
+        "NOT_REQUIRED": "غير مطلوب",
+        "PENDING": "قيد الانتظار",
+        "HELD": "محجوز",
+        "CAPTURED": "مُحصّل",
+        "RELEASED": "مُفرج عنه"
+      },
+      "total": "الإجمالي",
+      "paymentsTitle": "المدفوعات",
+      "noPayments": "لا توجد مدفوعات بعد.",
+      "columns": {
+        "date": "التاريخ",
+        "kind": "النوع",
+        "status": "الحالة",
+        "method": "الطريقة",
+        "amount": "المبلغ"
+      },
+      "paymentKinds": {
+        "CHARGE": "دفعة",
+        "DEPOSIT_HOLD": "حجز التأمين",
+        "DEPOSIT_CAPTURE": "تحصيل التأمين",
+        "REFUND": "استرداد",
+        "MANUAL": "دفعة يدوية"
+      },
+      "paymentStatus": {
+        "PENDING": "قيد الانتظار",
+        "REQUIRES_ACTION": "يتطلب إجراء",
+        "SUCCEEDED": "ناجحة",
+        "FAILED": "فاشلة",
+        "CANCELLED": "ملغاة"
+      },
+      "methods": {
+        "CARD": "بطاقة",
+        "MOBILEPAY": "MobilePay",
+        "APPLE_PAY": "Apple Pay",
+        "GOOGLE_PAY": "Google Pay",
+        "CASH": "نقدًا",
+        "BANK_TRANSFER": "تحويل بنكي"
+      },
+      "historyTitle": "السجل",
+      "system": "النظام",
+      "messagesTitle": "الرسائل والإشعارات",
+      "noMessages": "لا توجد رسائل بعد.",
+      "channels": {
+        "CONTACT_FORM": "نموذج التواصل",
+        "EMAIL": "البريد الإلكتروني",
+        "WHATSAPP": "واتساب",
+        "SMS": "رسالة نصية",
+        "PHONE_NOTE": "ملاحظة مكالمة"
+      },
+      "direction": {
+        "INBOUND": "من العميل",
+        "OUTBOUND": "إلى العميل"
+      },
+      "templates": {
+        "BOOKING_CONFIRMED": "تأكيد",
+        "PAYMENT_RECEIVED": "تم استلام الدفعة",
+        "CAR_READY": "السيارة جاهزة",
+        "PICKUP_REMINDER": "تذكير بالاستلام",
+        "RETURN_REMINDER": "تذكير بالإرجاع",
+        "THANK_YOU": "شكرًا",
+        "REVIEW_REQUEST": "تقييم",
+        "BOOKING_CANCELLED": "إلغاء"
+      },
+      "notificationStatus": {
+        "PENDING": "مجدول",
+        "SENDING": "قيد الإرسال",
+        "SENT": "أُرسل",
+        "FAILED": "فشل",
+        "SKIPPED": "تم تخطيه"
+      },
+      "message": {
+        "title": "أرسل بريدًا إلكترونيًا إلى العميل",
+        "subject": "الموضوع",
+        "body": "الرسالة",
+        "bodyHint": "يُرسل بقالب لغة العميل مع نصك. لا تكتب أبدًا بيانات البطاقة أو كلمات المرور.",
+        "submit": "إرسال البريد",
+        "sent": "تم إرسال البريد الإلكتروني.",
+        "error": "تعذر إرسال البريد الإلكتروني. حاول مرة أخرى.",
+        "required": "حقل مطلوب."
+      },
+      "customerTitle": "العميل",
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "language": "اللغة",
+      "account": "الحساب",
+      "hasAccount": "لديه حساب",
+      "guest": "ضيف",
+      "whatsappPrefill": "مرحبًا {name}، معك شركة التأجير بخصوص حجزك {reference}.",
+      "call": "اتصال",
+      "whatsapp": "واتساب",
+      "sendEmail": "كتابة بريد"
+    },
+    "customers": {
+      "title": "العملاء",
+      "search": "بحث",
+      "searchHint": "الاسم أو البريد الإلكتروني أو الهاتف.",
+      "submit": "بحث",
+      "count": "{count, plural, one {عميل واحد} other {# عملاء}}",
+      "empty": "لا يوجد عملاء يطابقون البحث.",
+      "columns": {
+        "name": "الاسم",
+        "contact": "التواصل",
+        "bookings": "الحجوزات",
+        "account": "الحساب",
+        "created": "تاريخ الإنشاء"
+      },
+      "anonymized": "مجهول الهوية",
+      "hasAccount": "لديه حساب",
+      "guest": "ضيف",
+      "previous": "السابق",
+      "next": "التالي",
+      "page": "صفحة {page} من {pages}"
+    },
+    "customer": {
+      "metaTitle": "العميل",
+      "back": "كل العملاء",
+      "anonymized": "تم إخفاء هوية هذا العميل.",
+      "bookingsTitle": "الحجوزات ({count})",
+      "noBookings": "لا توجد حجوزات.",
+      "columns": {
+        "reference": "الحجز",
+        "car": "السيارة",
+        "pickup": "الاستلام",
+        "status": "الحالة",
+        "total": "المبلغ"
+      },
+      "messagesTitle": "أحدث الرسائل",
+      "noMessages": "لا توجد رسائل.",
+      "profileTitle": "البيانات",
+      "lastLogin": "آخر تسجيل دخول {date}",
+      "created": "تاريخ الإنشاء",
+      "whatsappPrefill": "مرحبًا {name}، معك شركة التأجير."
+    },
+    "calendar": {
+      "title": "التقويم",
+      "location": "الفرع",
+      "allLocations": "كل الفروع",
+      "range": "الفترة",
+      "week": "أسبوع",
+      "twoWeeks": "أسبوعان",
+      "show": "عرض",
+      "previous": "السابق",
+      "next": "التالي",
+      "period": "من {from} إلى {to}",
+      "car": "السيارة",
+      "empty": "لا توجد سيارات في هذا الفرع.",
+      "legend": "كل صف يمثل سيارة. تظهر الحجوزات وزيارات الورشة على الأيام التي تكون فيها السيارة مشغولة.",
+      "maintenance": {
+        "SERVICE": "صيانة",
+        "INSPECTION_SYN": "فحص دوري",
+        "TYRES": "تغيير الإطارات",
+        "REPAIR": "إصلاح",
+        "CLEANING": "تنظيف"
+      }
     }
   },
   "email": {

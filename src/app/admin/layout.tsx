@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { site } from "@/config/site";
 import { requireStaff } from "@/server/auth/session";
+import { AdminNav } from "@/components/features/admin/admin-nav";
 import { LogoutButton } from "@/components/features/auth/logout-button";
 import { geistSans, plexArabic } from "../fonts";
 import "../globals.css";
@@ -24,6 +25,9 @@ export default async function AdminLayout({ children }: LayoutProps<"/admin">) {
   const t = await getTranslations("admin");
   const nav = [
     { href: "/admin", label: t("nav.dashboard") },
+    { href: "/admin/calendar", label: t("nav.calendar") },
+    { href: "/admin/bookings", label: t("nav.bookings") },
+    { href: "/admin/customers", label: t("nav.customers") },
     { href: "/admin/security", label: t("nav.security") },
   ];
 
@@ -39,24 +43,11 @@ export default async function AdminLayout({ children }: LayoutProps<"/admin">) {
           </a>
           <header className="border-b border-border bg-white">
             <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+              <div className="flex min-w-0 flex-wrap items-center gap-x-6 gap-y-2">
                 <span className="font-semibold text-ink-900">
                   {site.name} · {t("title")}
                 </span>
-                <nav aria-label={t("nav.label")}>
-                  <ul className="flex gap-1">
-                    {nav.map((item) => (
-                      <li key={item.href}>
-                        <Link
-                          href={item.href}
-                          className="rounded-md px-3 py-2 text-sm font-medium text-ink-700 hover:bg-ink-50 hover:text-ink-900"
-                        >
-                          {item.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
+                <AdminNav label={t("nav.label")} items={nav} />
               </div>
               <div className="flex flex-wrap items-center gap-3">
                 <span className="text-sm text-muted">{t("signedInAs", { email: user.email })}</span>

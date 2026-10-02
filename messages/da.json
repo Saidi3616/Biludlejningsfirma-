@@ -285,7 +285,10 @@
     "nav": {
       "label": "Adminmenu",
       "dashboard": "Overblik",
-      "security": "Sikkerhed"
+      "security": "Sikkerhed",
+      "calendar": "Kalender",
+      "bookings": "Bookinger",
+      "customers": "Kunder"
     },
     "toSite": "Til hjemmesiden",
     "roles": {
@@ -296,7 +299,6 @@
     },
     "dashboard": {
       "title": "Overblik",
-      "intro": "Adminpanelet bygges i de næste milestones. Her kan du se, hvad din rolle giver adgang til.",
       "role": "Din rolle: {role}",
       "permissionsTitle": "Adgang for din rolle",
       "permission": "Handling",
@@ -325,6 +327,43 @@
         "gdpr:anonymize": "Anonymisere kunder",
         "users:manage": "Administrere medarbejdere og roller",
         "settings:write": "Ændre indstillinger"
+      },
+      "location": "Lokation",
+      "allLocations": "Alle lokationer",
+      "show": "Vis",
+      "counts": {
+        "pickups": "Afhentninger i dag",
+        "returns": "Afleveringer i dag",
+        "active": "Udlejet nu",
+        "available": "Ledige biler",
+        "inService": "På værksted"
+      },
+      "attentionTitle": "Kræver handling",
+      "attention": {
+        "unpaid": "{count} ubetalte bookinger",
+        "pendingRefunds": "{count} refusioner venter",
+        "failedNotifications": "{count} beskeder kunne ikke sendes",
+        "newMessages": "{count} nye henvendelser"
+      },
+      "todayTitle": "I dag",
+      "todayEmpty": "Ingen afhentninger eller afleveringer i dag.",
+      "columns": {
+        "time": "Tid",
+        "what": "Hvad",
+        "booking": "Booking",
+        "customer": "Kunde",
+        "car": "Bil",
+        "status": "Status"
+      },
+      "kind": {
+        "pickup": "Afhentning",
+        "return": "Aflevering"
+      },
+      "kpiTitle": "Denne måned",
+      "kpi": {
+        "revenue": "Omsætning",
+        "outstanding": "Udestående",
+        "newCustomers": "Nye kunder"
       }
     },
     "security": {
@@ -341,6 +380,198 @@
       "backupTitle": "Gem dine backupkoder",
       "backupBody": "Hver kode kan bruges én gang, hvis du mister din telefon. Gem dem et sikkert sted. De vises kun nu.",
       "done": "Jeg har gemt koderne"
+    },
+    "bookings": {
+      "title": "Bookinger",
+      "search": "Søg",
+      "searchHint": "Bookingnummer, navn, e-mail, telefon eller nummerplade.",
+      "status": "Status",
+      "allStatuses": "Alle (undtagen udløbne)",
+      "location": "Lokation",
+      "allLocations": "Alle lokationer",
+      "submit": "Søg",
+      "count": "{count, plural, one {# booking} other {# bookinger}}",
+      "empty": "Ingen bookinger matcher søgningen.",
+      "columns": {
+        "reference": "Booking",
+        "customer": "Kunde",
+        "car": "Bil",
+        "period": "Periode",
+        "status": "Status",
+        "total": "Beløb"
+      },
+      "previous": "Forrige",
+      "next": "Næste",
+      "page": "Side {page} af {pages}"
+    },
+    "booking": {
+      "back": "Alle bookinger",
+      "title": "Booking {reference}",
+      "created": "Oprettet {date}",
+      "rentalTitle": "Leje",
+      "car": "Bil",
+      "fulfilment": "Udlevering",
+      "delivery": "Levering til {address}",
+      "pickupAtOffice": "Afhentning på kontoret",
+      "pickup": "Afhentning",
+      "return": "Aflevering",
+      "discount": "Rabatkode",
+      "deposit": "Depositum",
+      "depositStatus": {
+        "NOT_REQUIRED": "Ikke krævet",
+        "PENDING": "Afventer",
+        "HELD": "Reserveret",
+        "CAPTURED": "Trukket",
+        "RELEASED": "Frigivet"
+      },
+      "total": "I alt",
+      "paymentsTitle": "Betalinger",
+      "noPayments": "Ingen betalinger endnu.",
+      "columns": {
+        "date": "Dato",
+        "kind": "Type",
+        "status": "Status",
+        "method": "Metode",
+        "amount": "Beløb"
+      },
+      "paymentKinds": {
+        "CHARGE": "Betaling",
+        "DEPOSIT_HOLD": "Depositum reserveret",
+        "DEPOSIT_CAPTURE": "Depositum trukket",
+        "REFUND": "Refusion",
+        "MANUAL": "Manuel betaling"
+      },
+      "paymentStatus": {
+        "PENDING": "Afventer",
+        "REQUIRES_ACTION": "Kræver handling",
+        "SUCCEEDED": "Gennemført",
+        "FAILED": "Fejlet",
+        "CANCELLED": "Annulleret"
+      },
+      "methods": {
+        "CARD": "Kort",
+        "MOBILEPAY": "MobilePay",
+        "APPLE_PAY": "Apple Pay",
+        "GOOGLE_PAY": "Google Pay",
+        "CASH": "Kontant",
+        "BANK_TRANSFER": "Bankoverførsel"
+      },
+      "historyTitle": "Historik",
+      "system": "System",
+      "messagesTitle": "Beskeder og notifikationer",
+      "noMessages": "Ingen beskeder endnu.",
+      "channels": {
+        "CONTACT_FORM": "Kontaktformular",
+        "EMAIL": "E-mail",
+        "WHATSAPP": "WhatsApp",
+        "SMS": "SMS",
+        "PHONE_NOTE": "Telefonnotat"
+      },
+      "direction": {
+        "INBOUND": "Fra kunden",
+        "OUTBOUND": "Til kunden"
+      },
+      "templates": {
+        "BOOKING_CONFIRMED": "Bekræftelse",
+        "PAYMENT_RECEIVED": "Betaling modtaget",
+        "CAR_READY": "Bilen er klar",
+        "PICKUP_REMINDER": "Påmindelse om afhentning",
+        "RETURN_REMINDER": "Påmindelse om aflevering",
+        "THANK_YOU": "Tak for lejen",
+        "REVIEW_REQUEST": "Anmeldelse",
+        "BOOKING_CANCELLED": "Annullering"
+      },
+      "notificationStatus": {
+        "PENDING": "Planlagt",
+        "SENDING": "Sendes",
+        "SENT": "Sendt",
+        "FAILED": "Fejlet",
+        "SKIPPED": "Sprunget over"
+      },
+      "message": {
+        "title": "Send e-mail til kunden",
+        "subject": "Emne",
+        "body": "Besked",
+        "bodyHint": "Sendes på kundens sprog-skabelon med din tekst. Skriv ikke kortoplysninger eller passwords.",
+        "submit": "Send e-mail",
+        "sent": "E-mailen er sendt.",
+        "error": "E-mailen kunne ikke sendes. Prøv igen.",
+        "required": "Skal udfyldes."
+      },
+      "customerTitle": "Kunde",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "language": "Sprog",
+      "account": "Konto",
+      "hasAccount": "Har konto",
+      "guest": "Gæst",
+      "whatsappPrefill": "Hej {name}, det er udlejningen angående din booking {reference}.",
+      "call": "Ring op",
+      "whatsapp": "WhatsApp",
+      "sendEmail": "Skriv e-mail"
+    },
+    "customers": {
+      "title": "Kunder",
+      "search": "Søg",
+      "searchHint": "Navn, e-mail eller telefon.",
+      "submit": "Søg",
+      "count": "{count, plural, one {# kunde} other {# kunder}}",
+      "empty": "Ingen kunder matcher søgningen.",
+      "columns": {
+        "name": "Navn",
+        "contact": "Kontakt",
+        "bookings": "Bookinger",
+        "account": "Konto",
+        "created": "Oprettet"
+      },
+      "anonymized": "Anonymiseret",
+      "hasAccount": "Har konto",
+      "guest": "Gæst",
+      "previous": "Forrige",
+      "next": "Næste",
+      "page": "Side {page} af {pages}"
+    },
+    "customer": {
+      "metaTitle": "Kunde",
+      "back": "Alle kunder",
+      "anonymized": "Kunden er anonymiseret.",
+      "bookingsTitle": "Bookinger ({count})",
+      "noBookings": "Ingen bookinger.",
+      "columns": {
+        "reference": "Booking",
+        "car": "Bil",
+        "pickup": "Afhentning",
+        "status": "Status",
+        "total": "Beløb"
+      },
+      "messagesTitle": "Seneste beskeder",
+      "noMessages": "Ingen beskeder.",
+      "profileTitle": "Oplysninger",
+      "lastLogin": "Sidst logget ind {date}",
+      "created": "Oprettet",
+      "whatsappPrefill": "Hej {name}, det er udlejningen."
+    },
+    "calendar": {
+      "title": "Kalender",
+      "location": "Lokation",
+      "allLocations": "Alle lokationer",
+      "range": "Periode",
+      "week": "1 uge",
+      "twoWeeks": "2 uger",
+      "show": "Vis",
+      "previous": "Forrige",
+      "next": "Næste",
+      "period": "{from} til {to}",
+      "car": "Bil",
+      "empty": "Ingen biler på denne lokation.",
+      "legend": "Hver række er en bil. Bookinger og værkstedsbesøg vises over de dage, bilen er optaget.",
+      "maintenance": {
+        "SERVICE": "Service",
+        "INSPECTION_SYN": "Syn",
+        "TYRES": "Dækskift",
+        "REPAIR": "Reparation",
+        "CLEANING": "Rengøring"
+      }
     }
   },
   "email": {

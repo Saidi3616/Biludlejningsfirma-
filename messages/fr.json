@@ -285,7 +285,10 @@
     "nav": {
       "label": "Menu admin",
       "dashboard": "Vue d'ensemble",
-      "security": "Sécurité"
+      "security": "Sécurité",
+      "calendar": "Calendrier",
+      "bookings": "Réservations",
+      "customers": "Clients"
     },
     "toSite": "Aller au site",
     "roles": {
@@ -296,7 +299,6 @@
     },
     "dashboard": {
       "title": "Vue d'ensemble",
-      "intro": "Le panneau d'administration sera construit dans les prochaines étapes. Voici ce que votre rôle permet.",
       "role": "Votre rôle : {role}",
       "permissionsTitle": "Accès de votre rôle",
       "permission": "Action",
@@ -325,6 +327,43 @@
         "gdpr:anonymize": "Anonymiser des clients",
         "users:manage": "Gérer les employés et les rôles",
         "settings:write": "Modifier les paramètres"
+      },
+      "location": "Agence",
+      "allLocations": "Toutes les agences",
+      "show": "Afficher",
+      "counts": {
+        "pickups": "Retraits aujourd'hui",
+        "returns": "Retours aujourd'hui",
+        "active": "En location",
+        "available": "Voitures disponibles",
+        "inService": "À l'atelier"
+      },
+      "attentionTitle": "À traiter",
+      "attention": {
+        "unpaid": "{count} réservations impayées",
+        "pendingRefunds": "{count} remboursements en attente",
+        "failedNotifications": "{count} messages non envoyés",
+        "newMessages": "{count} nouvelles demandes"
+      },
+      "todayTitle": "Aujourd'hui",
+      "todayEmpty": "Aucun retrait ni retour aujourd'hui.",
+      "columns": {
+        "time": "Heure",
+        "what": "Quoi",
+        "booking": "Réservation",
+        "customer": "Client",
+        "car": "Voiture",
+        "status": "Statut"
+      },
+      "kind": {
+        "pickup": "Retrait",
+        "return": "Retour"
+      },
+      "kpiTitle": "Ce mois-ci",
+      "kpi": {
+        "revenue": "Chiffre d'affaires",
+        "outstanding": "Impayés",
+        "newCustomers": "Nouveaux clients"
       }
     },
     "security": {
@@ -341,6 +380,198 @@
       "backupTitle": "Enregistrez vos codes de secours",
       "backupBody": "Chaque code fonctionne une fois si vous perdez votre téléphone. Conservez-les en lieu sûr. Ils ne sont affichés que maintenant.",
       "done": "J'ai enregistré les codes"
+    },
+    "bookings": {
+      "title": "Réservations",
+      "search": "Rechercher",
+      "searchHint": "Numéro de réservation, nom, e-mail, téléphone ou immatriculation.",
+      "status": "Statut",
+      "allStatuses": "Toutes (sauf expirées)",
+      "location": "Agence",
+      "allLocations": "Toutes les agences",
+      "submit": "Rechercher",
+      "count": "{count, plural, one {# réservation} other {# réservations}}",
+      "empty": "Aucune réservation ne correspond à la recherche.",
+      "columns": {
+        "reference": "Réservation",
+        "customer": "Client",
+        "car": "Voiture",
+        "period": "Période",
+        "status": "Statut",
+        "total": "Montant"
+      },
+      "previous": "Précédent",
+      "next": "Suivant",
+      "page": "Page {page} sur {pages}"
+    },
+    "booking": {
+      "back": "Toutes les réservations",
+      "title": "Réservation {reference}",
+      "created": "Créée le {date}",
+      "rentalTitle": "Location",
+      "car": "Voiture",
+      "fulfilment": "Remise",
+      "delivery": "Livraison à {address}",
+      "pickupAtOffice": "Retrait à l'agence",
+      "pickup": "Retrait",
+      "return": "Retour",
+      "discount": "Code promo",
+      "deposit": "Caution",
+      "depositStatus": {
+        "NOT_REQUIRED": "Non requise",
+        "PENDING": "En attente",
+        "HELD": "Bloquée",
+        "CAPTURED": "Encaissée",
+        "RELEASED": "Libérée"
+      },
+      "total": "Total",
+      "paymentsTitle": "Paiements",
+      "noPayments": "Aucun paiement pour l'instant.",
+      "columns": {
+        "date": "Date",
+        "kind": "Type",
+        "status": "Statut",
+        "method": "Moyen",
+        "amount": "Montant"
+      },
+      "paymentKinds": {
+        "CHARGE": "Paiement",
+        "DEPOSIT_HOLD": "Caution bloquée",
+        "DEPOSIT_CAPTURE": "Caution encaissée",
+        "REFUND": "Remboursement",
+        "MANUAL": "Paiement manuel"
+      },
+      "paymentStatus": {
+        "PENDING": "En attente",
+        "REQUIRES_ACTION": "Action requise",
+        "SUCCEEDED": "Réussi",
+        "FAILED": "Échoué",
+        "CANCELLED": "Annulé"
+      },
+      "methods": {
+        "CARD": "Carte",
+        "MOBILEPAY": "MobilePay",
+        "APPLE_PAY": "Apple Pay",
+        "GOOGLE_PAY": "Google Pay",
+        "CASH": "Espèces",
+        "BANK_TRANSFER": "Virement"
+      },
+      "historyTitle": "Historique",
+      "system": "Système",
+      "messagesTitle": "Messages et notifications",
+      "noMessages": "Aucun message pour l'instant.",
+      "channels": {
+        "CONTACT_FORM": "Formulaire de contact",
+        "EMAIL": "E-mail",
+        "WHATSAPP": "WhatsApp",
+        "SMS": "SMS",
+        "PHONE_NOTE": "Note d'appel"
+      },
+      "direction": {
+        "INBOUND": "Du client",
+        "OUTBOUND": "Au client"
+      },
+      "templates": {
+        "BOOKING_CONFIRMED": "Confirmation",
+        "PAYMENT_RECEIVED": "Paiement reçu",
+        "CAR_READY": "Voiture prête",
+        "PICKUP_REMINDER": "Rappel de retrait",
+        "RETURN_REMINDER": "Rappel de retour",
+        "THANK_YOU": "Remerciement",
+        "REVIEW_REQUEST": "Avis",
+        "BOOKING_CANCELLED": "Annulation"
+      },
+      "notificationStatus": {
+        "PENDING": "Planifiée",
+        "SENDING": "En cours d'envoi",
+        "SENT": "Envoyée",
+        "FAILED": "Échouée",
+        "SKIPPED": "Ignorée"
+      },
+      "message": {
+        "title": "Envoyer un e-mail au client",
+        "subject": "Objet",
+        "body": "Message",
+        "bodyHint": "Envoyé avec le modèle dans la langue du client et votre texte. N'écrivez jamais de données de carte ni de mots de passe.",
+        "submit": "Envoyer l'e-mail",
+        "sent": "L'e-mail a été envoyé.",
+        "error": "L'e-mail n'a pas pu être envoyé. Réessayez.",
+        "required": "Champ obligatoire."
+      },
+      "customerTitle": "Client",
+      "email": "E-mail",
+      "phone": "Téléphone",
+      "language": "Langue",
+      "account": "Compte",
+      "hasAccount": "A un compte",
+      "guest": "Invité",
+      "whatsappPrefill": "Bonjour {name}, ici l'agence de location au sujet de votre réservation {reference}.",
+      "call": "Appeler",
+      "whatsapp": "WhatsApp",
+      "sendEmail": "Écrire un e-mail"
+    },
+    "customers": {
+      "title": "Clients",
+      "search": "Rechercher",
+      "searchHint": "Nom, e-mail ou téléphone.",
+      "submit": "Rechercher",
+      "count": "{count, plural, one {# client} other {# clients}}",
+      "empty": "Aucun client ne correspond à la recherche.",
+      "columns": {
+        "name": "Nom",
+        "contact": "Contact",
+        "bookings": "Réservations",
+        "account": "Compte",
+        "created": "Créé le"
+      },
+      "anonymized": "Anonymisé",
+      "hasAccount": "A un compte",
+      "guest": "Invité",
+      "previous": "Précédent",
+      "next": "Suivant",
+      "page": "Page {page} sur {pages}"
+    },
+    "customer": {
+      "metaTitle": "Client",
+      "back": "Tous les clients",
+      "anonymized": "Ce client a été anonymisé.",
+      "bookingsTitle": "Réservations ({count})",
+      "noBookings": "Aucune réservation.",
+      "columns": {
+        "reference": "Réservation",
+        "car": "Voiture",
+        "pickup": "Retrait",
+        "status": "Statut",
+        "total": "Montant"
+      },
+      "messagesTitle": "Derniers messages",
+      "noMessages": "Aucun message.",
+      "profileTitle": "Informations",
+      "lastLogin": "Dernière connexion le {date}",
+      "created": "Créé le",
+      "whatsappPrefill": "Bonjour {name}, ici l'agence de location."
+    },
+    "calendar": {
+      "title": "Calendrier",
+      "location": "Agence",
+      "allLocations": "Toutes les agences",
+      "range": "Période",
+      "week": "1 semaine",
+      "twoWeeks": "2 semaines",
+      "show": "Afficher",
+      "previous": "Précédent",
+      "next": "Suivant",
+      "period": "Du {from} au {to}",
+      "car": "Voiture",
+      "empty": "Aucune voiture dans cette agence.",
+      "legend": "Chaque ligne est une voiture. Les réservations et passages à l'atelier couvrent les jours où la voiture est occupée.",
+      "maintenance": {
+        "SERVICE": "Entretien",
+        "INSPECTION_SYN": "Contrôle technique",
+        "TYRES": "Pneus",
+        "REPAIR": "Réparation",
+        "CLEANING": "Nettoyage"
+      }
     }
   },
   "email": {
