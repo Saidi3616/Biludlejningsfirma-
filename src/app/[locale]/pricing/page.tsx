@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
+import { pageMetadata } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Card, CardBody, CardHeader, CardTitle } from "@/components/ui/card";
 import { Container } from "@/components/ui/layout";
@@ -16,7 +17,10 @@ export async function generateMetadata({
 }: PageProps<"/[locale]/pricing">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale: locale as Locale, namespace: "pricing" });
-  return { title: t("title"), description: t("description") };
+  return pageMetadata(locale as Locale, "/pricing", {
+    title: t("title"),
+    description: t("description"),
+  });
 }
 
 export default async function PricingPage({ params }: PageProps<"/[locale]/pricing">) {

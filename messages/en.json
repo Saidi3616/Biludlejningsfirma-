@@ -1,7 +1,9 @@
 {
   "meta": {
     "title": "Car rental",
-    "description": "Find your car. Book in minutes."
+    "description": "Find your car. Book in minutes.",
+    "shortName": "Car rental",
+    "tagline": "Rent a car in minutes"
   },
   "common": {
     "close": "Close",
@@ -2037,7 +2039,8 @@
       "PARTNER": "Partner"
     },
     "findCars": "Find cars in {name}",
-    "contact": "Contact"
+    "contact": "Contact",
+    "pageDescription": "Car rental at {name}, {address}. See opening hours and book a car for pick-up here."
   },
   "about": {
     "title": "About us",
@@ -2506,5 +2509,10 @@
     "unsigned": "Not signed yet.",
     "page": "Page {page} of {total}",
     "download": "Rental agreement (PDF)"
+  },
+  "offline": {
+    "title": "You are offline",
+    "body": "There is no internet connection right now. Prices and available cars need a connection, so try again when you are online.",
+    "retry": "Try again"
   }
 }

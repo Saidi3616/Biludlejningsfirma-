@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
@@ -8,6 +9,9 @@ import { Container, Section } from "@/components/ui/layout";
 import { CarCard } from "@/components/features/cars/car-card";
 import { HowItWorks, WhatsAppCta, WhyUs } from "@/components/features/home/sections";
 import { ReviewCard } from "@/components/features/reviews/review-card";
+import { JsonLd } from "@/components/features/seo/json-ld";
+import { pageMetadata } from "@/lib/seo";
+import { organizationJsonLd } from "@/lib/structured-data";
 import { SearchForm } from "@/components/features/search/search-form";
 import {
   businessToday,
@@ -18,6 +22,15 @@ import {
 
 // Priser og ledighed ændrer sig; siden bygges ved hver forespørgsel.
 export const dynamic = "force-dynamic";
+
+export async function generateMetadata({ params }: PageProps<"/[locale]">): Promise<Metadata> {
+  const { locale } = (await params) as { locale: Locale };
+  const t = await getTranslations({ locale, namespace: "meta" });
+  return pageMetadata(locale, "/", {
+    title: { absolute: t("title") },
+    description: t("description"),
+  });
+}
 
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const { locale } = (await params) as { locale: Locale };
@@ -31,6 +44,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
 
   return (
     <>
+      <JsonLd data={organizationJsonLd()} />
       <section className="bg-brand-900 text-white">
         <Container className="grid gap-10 py-12 sm:py-16 lg:grid-cols-[1fr_28rem] lg:items-center lg:py-20">
           <div className="flex flex-col gap-4">

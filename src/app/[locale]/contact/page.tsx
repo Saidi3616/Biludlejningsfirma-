@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Mail, Phone } from "lucide-react";
 import type { Locale } from "@/i18n/routing";
+import { pageMetadata } from "@/lib/seo";
 import { site, whatsappLink } from "@/config/site";
 import { Card, CardBody } from "@/components/ui/card";
 import { Container } from "@/components/ui/layout";
@@ -14,7 +15,10 @@ export async function generateMetadata({
 }: PageProps<"/[locale]/contact">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale: locale as Locale, namespace: "contact" });
-  return { title: t("title"), description: t("description") };
+  return pageMetadata(locale as Locale, "/contact", {
+    title: t("title"),
+    description: t("description"),
+  });
 }
 
 export default async function ContactPage({ params }: PageProps<"/[locale]/contact">) {

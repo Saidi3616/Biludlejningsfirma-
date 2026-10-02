@@ -156,6 +156,15 @@ Forretningslogik hører til i `src/server`, aldrig i komponenter. Se [09-mappest
 - Følsomme kundefelter krypteres med `FIELD_ENCRYPTION_KEY` (32 bytes, `openssl rand -base64 32`). Nøglen er påkrævet uden for local og må aldrig skiftes uden at genkryptere data.
 - Ledere ser audit-loggen på `/admin/audit-log`.
 
+### SEO og app (PWA)
+
+- Hver offentlig side har titel, beskrivelse, canonical og `hreflang` for alle fire sprog (`src/lib/seo.ts`). Login-, konto- og bookingsider har `noindex`.
+- `/sitemap.xml` lister offentlige sider, biler og lokationer på alle sprog. `/robots.txt` tillader kun indeksering, når `APP_ENV=production`.
+- Strukturerede data (JSON-LD) ligger i `src/lib/structured-data.ts`: virksomhed (forside), bil (Product/Car), lokation (AutoRental med åbningstider) og FAQ.
+- Delingsbilledet laves af `src/app/[locale]/opengraph-image.tsx`; bil-sider bruger bilens foto.
+- Appen kan installeres (`src/app/manifest.ts`). Service workeren `public/sw.js` viser `/offline` uden net og cacher kun Next.js' statiske filer; sider hentes altid fra serveren, så priser og ledighed er friske.
+- Ikonerne laves med `node scripts/generate-icons.mjs`. Logoet er en pladsholder, indtil virksomheden leverer sit eget.
+
 ## Test
 
 ```bash
@@ -179,7 +188,7 @@ E2E-tests kræver Chromium (`pnpm exec playwright install chromium`). Har du all
 
 Planen er Vercel (region `fra1`) med Postgres hos Neon i EU. Production deployes fra `main`, staging fra `development`, og hver PR får et preview-miljø. Migrationer køres med `pnpm db:deploy` før en ny version går live. Appen bygges som `standalone`, så den også kan køre i en Docker-container.
 
-Hvert miljø skal have sit eget `AUTH_SECRET` og et `AUTH_URL`, der er præcis den adresse, siden åbnes på. Ellers afviser login-API'et kaldene (CSRF-beskyttelse), og links i e-mails peger forkert. Rate limiting af login læser klientens IP fra `x-forwarded-for`, som Vercel sætter; kører appen bag en anden proxy, skal den sætte headeren.
+Hvert miljø skal have sit eget `AUTH_SECRET` og et `AUTH_URL`, der er præcis den adresse, siden åbnes på. `AUTH_URL` skal også være sat under build, fordi canonical-adresser bygges ind i de statiske sider; et production-build uden den stopper med en fejl. Ellers afviser login-API'et kaldene (CSRF-beskyttelse), og links i e-mails peger forkert. Rate limiting af login læser klientens IP fra `x-forwarded-for`, som Vercel sætter; kører appen bag en anden proxy, skal den sætte headeren.
 
 Cron-jobbet `/api/cron/expire-reservations` skal sættes op til at køre hvert minut med `CRON_SECRET` (mindst 16 tegn, forskellig pr. miljø).
 

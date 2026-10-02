@@ -1,7 +1,9 @@
 {
   "meta": {
     "title": "Location de voitures",
-    "description": "Trouvez votre voiture. Réservez en quelques minutes."
+    "description": "Trouvez votre voiture. Réservez en quelques minutes.",
+    "shortName": "Location de voitures",
+    "tagline": "Louez une voiture en quelques minutes"
   },
   "common": {
     "close": "Fermer",
@@ -2037,7 +2039,8 @@
       "PARTNER": "Partenaire"
     },
     "findCars": "Voitures à {name}",
-    "contact": "Contact"
+    "contact": "Contact",
+    "pageDescription": "Location de voitures à {name}, {address}. Consultez les horaires et réservez une voiture à retirer ici."
   },
   "about": {
     "title": "À propos",
@@ -2506,5 +2509,10 @@
     "unsigned": "Pas encore signé.",
     "page": "Page {page} sur {total}",
     "download": "Contrat de location (PDF)"
+  },
+  "offline": {
+    "title": "Vous êtes hors ligne",
+    "body": "Il n'y a pas de connexion Internet pour le moment. Les prix et les voitures disponibles nécessitent une connexion : réessayez une fois en ligne.",
+    "retry": "Réessayer"
   }
 }

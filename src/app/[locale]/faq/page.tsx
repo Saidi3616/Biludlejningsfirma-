@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
+import { pageMetadata } from "@/lib/seo";
+import { faqJsonLd } from "@/lib/structured-data";
+import { JsonLd } from "@/components/features/seo/json-ld";
 import {
   Accordion,
   AccordionContent,
@@ -12,7 +15,10 @@ import { Container } from "@/components/ui/layout";
 export async function generateMetadata({ params }: PageProps<"/[locale]/faq">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale: locale as Locale, namespace: "faq" });
-  return { title: t("title"), description: t("description") };
+  return pageMetadata(locale as Locale, "/faq", {
+    title: t("title"),
+    description: t("description"),
+  });
 }
 
 export default async function FaqPage({ params }: PageProps<"/[locale]/faq">) {
@@ -22,6 +28,7 @@ export default async function FaqPage({ params }: PageProps<"/[locale]/faq">) {
   const items = t.raw("items") as { q: string; a: string }[];
   return (
     <Container className="flex max-w-3xl flex-col gap-8 py-12">
+      <JsonLd data={faqJsonLd(items)} />
       <header className="flex flex-col gap-3">
         <h1 className="text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl">
           {t("title")}
@@ -31,7 +38,7 @@ export default async function FaqPage({ params }: PageProps<"/[locale]/faq">) {
       <Accordion type="multiple">
         {items.map((item, index) => (
           <AccordionItem key={item.q} value={`item-${index}`}>
-            <AccordionTrigger>{item.q}</AccordionTrigger>
+            <AccordionTrigger headingLevel={2}>{item.q}</AccordionTrigger>
             <AccordionContent>{item.a}</AccordionContent>
           </AccordionItem>
         ))}

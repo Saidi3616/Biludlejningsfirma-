@@ -1,7 +1,9 @@
 {
   "meta": {
     "title": "Biludlejning",
-    "description": "Find din bil. Book på få minutter."
+    "description": "Find din bil. Book på få minutter.",
+    "shortName": "Biludlejning",
+    "tagline": "Lej en bil på få minutter"
   },
   "common": {
     "close": "Luk",
@@ -2037,7 +2039,8 @@
       "PARTNER": "Partner"
     },
     "findCars": "Find biler i {name}",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "pageDescription": "Biludlejning på {name}, {address}. Se åbningstider, og book en bil til afhentning her."
   },
   "about": {
     "title": "Om os",
@@ -2506,5 +2509,10 @@
     "unsigned": "Ikke underskrevet endnu.",
     "page": "Side {page} af {total}",
     "download": "Lejekontrakt (PDF)"
+  },
+  "offline": {
+    "title": "Du er offline",
+    "body": "Der er ingen forbindelse til internettet lige nu. Priser og ledige biler kræver forbindelse, så prøv igen, når du er online.",
+    "retry": "Prøv igen"
   }
 }

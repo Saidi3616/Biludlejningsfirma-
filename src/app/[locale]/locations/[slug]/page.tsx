@@ -5,6 +5,9 @@ import { MapPin, Phone, Truck } from "lucide-react";
 import type { Locale } from "@/i18n/routing";
 import { localizedPath } from "@/i18n/paths";
 import { site } from "@/config/site";
+import { absoluteUrl, pageMetadata } from "@/lib/seo";
+import { locationJsonLd } from "@/lib/structured-data";
+import { JsonLd } from "@/components/features/seo/json-ld";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardBody } from "@/components/ui/card";
 import { Container } from "@/components/ui/layout";
@@ -17,10 +20,19 @@ export const dynamic = "force-dynamic";
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/locations/[slug]">): Promise<Metadata> {
-  const { slug } = await params;
-  const location = await getLocation(slug);
+  const { locale, slug } = (await params) as { locale: Locale; slug: string };
+  const [location, t] = await Promise.all([
+    getLocation(slug),
+    getTranslations({ locale, namespace: "locations" }),
+  ]);
   if (!location) return {};
-  return { title: location.name };
+  return pageMetadata(locale, `/locations/${slug}`, {
+    title: location.name,
+    description: t("pageDescription", {
+      name: location.name,
+      address: `${location.address}, ${location.postalCode} ${location.city}`,
+    }),
+  });
 }
 
 export default async function LocationPage({ params }: PageProps<"/[locale]/locations/[slug]">) {
@@ -34,6 +46,9 @@ export default async function LocationPage({ params }: PageProps<"/[locale]/loca
 
   return (
     <Container className="grid gap-10 py-12 lg:grid-cols-[1fr_26rem] lg:items-start">
+      <JsonLd
+        data={locationJsonLd(location, absoluteUrl(localizedPath(locale, `/locations/${slug}`)))}
+      />
       <div className="flex flex-col gap-6">
         <header className="flex flex-col gap-3">
           <Badge tone="brand" className="self-start">
