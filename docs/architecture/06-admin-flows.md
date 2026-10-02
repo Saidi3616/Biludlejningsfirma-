@@ -126,6 +126,8 @@ Booking → "Annullér" → årsag → politik foreslår refusionsbeløb (kan ov
 - **Rabatter:** kode, procent/fast, periode, minimum, maks. brug, begrænsning til kategorier/modeller; viser antal brug.
 - **Lokationer:** opret/redigér/deaktivér, åbningstider + særlige dage, leveringszoner med gebyr.
 
+MVP (M13 del 1): `/admin/pricing` viser kategoriens pristrappe med standardpriser, modelpriser og sæsoner (gyldig fra/til, prioritet), advarer når kategorien mangler en standardpris for 1 dag, og har en forhåndsvisning med samme trappe som prismotoren. `/admin/extras` opretter og retter ekstraudstyr; udstyr, der har været booket, kan kun skjules. Lagerantal gemmes til overblik, men håndhæves ikke ved booking endnu. Begge kræver MANAGER (`catalog:write`) og logges i audit-loggen. Rabatkoder og lokationer følger i del 2, brugere i del 3.
+
 ## F9. Beskeder og notifikationer
 
 - `/admin/messages`: indbakke for kontaktformular (status: ny → i gang → besvaret). Svar sendes pr. e-mail fra systemet og logges.

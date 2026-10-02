@@ -300,7 +300,8 @@
       "calendar": "Calendar",
       "bookings": "Bookings",
       "customers": "Customers",
-      "fleet": "Fleet"
+      "fleet": "Fleet",
+      "pricing": "Prices"
     },
     "toSite": "Go to website",
     "roles": {
@@ -1230,6 +1231,192 @@
         "conflict": "The agreement cannot be signed now. Reload the page.",
         "forbidden": "Your role does not have access to that action.",
         "failed": "Something went wrong. Please try again."
+      }
+    },
+    "catalog": {
+      "tabs": {
+        "label": "Prices and extras",
+        "pricing": "Prices",
+        "extras": "Extras"
+      }
+    },
+    "pricing": {
+      "title": "Prices",
+      "intro": "Prices include VAT. Changes only apply to new bookings; existing bookings keep their price.",
+      "categories": "Categories",
+      "noCategories": "There are no categories yet.",
+      "rulesTitle": "Price ladder for {category}",
+      "empty": "The category has no prices yet.",
+      "wholeCategory": "Whole category",
+      "always": "All year",
+      "season": "{from} – {to}",
+      "days": "{days, plural, one {# day} other {# days}}",
+      "edit": "Edit",
+      "editLabel": "Edit the price for {days, plural, one {# day} other {# days}}, {scope}",
+      "columns": {
+        "scope": "Applies to",
+        "season": "Period",
+        "minDays": "From",
+        "package": "Package price",
+        "perDay": "Daily price",
+        "priority": "Priority",
+        "actions": "Actions"
+      },
+      "warnings": {
+        "noBase": "The category has no standard price. Customers cannot book cars in it until there is a price without a model and period.",
+        "noOneDay": "The category has no standard price for 1 day. Customers cannot book short rentals until it is created."
+      },
+      "preview": {
+        "title": "Try a price",
+        "model": "Model",
+        "days": "Number of days",
+        "date": "Pick-up date",
+        "submit": "Calculate",
+        "result": "A customer renting for {days, plural, one {# day} other {# days}} pays:",
+        "package": "This is the package price for {days, plural, one {# day} other {# days}}.",
+        "perDay": "The daily price from the {days, plural, one {# day} other {# days}} step.",
+        "capped": "The price is lowered to a larger package because it is cheaper.",
+        "none": "There is no price for {days, plural, one {# day} other {# days}}. Create a standard price for 1 day.",
+        "invalid": "Choose a model, a number of days (1–365) and a date."
+      },
+      "newTitle": "New price",
+      "editTitle": "Edit price",
+      "editIntro": "The change only applies to new bookings.",
+      "back": "Back to {category}",
+      "delete": "Delete the price",
+      "notices": {
+        "created": "The price has been created.",
+        "saved": "The price has been saved.",
+        "deleted": "The price has been deleted.",
+        "forbidden": "Your role does not have access to that action.",
+        "failed": "Something went wrong. Please try again."
+      },
+      "form": {
+        "categoryId": "Category",
+        "carModelId": "Applies to",
+        "carModelIdHint": "Choose a model to give it its own price.",
+        "wholeCategory": "Whole category",
+        "inactiveModel": "{name} (hidden)",
+        "minDays": "From number of days",
+        "minDaysHint": "E.g. 1, 3, 7 or 30.",
+        "packagePrice": "Package price",
+        "packagePriceHint": "The price for exactly that number of days.",
+        "perDayPrice": "Daily price",
+        "perDayPriceHint": "Per day until the next step.",
+        "validFrom": "From date",
+        "validTo": "To date",
+        "seasonHint": "Empty = all year. Use dates for seasonal prices.",
+        "priority": "Priority",
+        "priorityHint": "The highest wins if two prices apply on the same day.",
+        "create": "Create price",
+        "save": "Save changes",
+        "errors": {
+          "categoryId": "Check the field.",
+          "carModelId": "The model is not in the category.",
+          "minDays": "Check the field.",
+          "packagePrice": "Check the field.",
+          "perDayPrice": "Check the field.",
+          "validFrom": "Check the field.",
+          "validTo": "The date must be after the from date.",
+          "priority": "Check the field."
+        },
+        "notices": {
+          "invalid": "Check the highlighted fields.",
+          "forbidden": "Your role does not have access to that action.",
+          "failed": "Something went wrong. Please try again."
+        }
+      }
+    },
+    "extras": {
+      "title": "Extras",
+      "intro": "Equipment the customer can add to the booking. New prices only apply to new bookings. Extras that have been booked cannot be deleted, but they can be hidden.",
+      "new": "New extra",
+      "back": "All extras",
+      "editTitle": "Edit extra",
+      "empty": "There are no extras yet.",
+      "active": "Available",
+      "inactive": "Hidden",
+      "max": "max",
+      "per": {
+        "PER_DAY": "per day",
+        "PER_BOOKING": "per rental"
+      },
+      "delete": "Delete the extra",
+      "usedNote": "The extra has been used in {count, plural, one {# booking} other {# bookings}} and cannot be deleted. Untick \"Available\" to hide it.",
+      "columns": {
+        "name": "Extra",
+        "price": "Price",
+        "maxQuantity": "Max quantity",
+        "used": "Booked",
+        "status": "Status"
+      },
+      "notices": {
+        "created": "The extra has been created.",
+        "saved": "The extra has been saved.",
+        "deleted": "The extra has been deleted.",
+        "inUse": "The extra has been used in bookings and cannot be deleted. Hide it instead.",
+        "forbidden": "Your role does not have access to that action.",
+        "failed": "Something went wrong. Please try again."
+      },
+      "form": {
+        "names": "Name",
+        "namesHint": "Danish is required. If a language is missing, the Danish text is shown.",
+        "nameDa": "Danish",
+        "nameEn": "English",
+        "nameFr": "French",
+        "nameAr": "Arabic",
+        "code": "Code",
+        "codeHint": "Internal code, e.g. child_seat. Lowercase letters, digits and underscores.",
+        "price": "Price",
+        "pricing": "Price per",
+        "pricingOptions": {
+          "PER_DAY": "Day",
+          "PER_BOOKING": "Rental"
+        },
+        "amountHint": "In kroner, e.g. 75 or 2.50.",
+        "maxPrice": "Cap",
+        "maxPriceHint": "Daily price only: the highest price for the whole rental.",
+        "maxQuantity": "Max per booking",
+        "maxQuantityHint": "1 = the customer ticks a box.",
+        "stock": "Quantity in stock",
+        "stockHint": "For your overview only. Empty = unlimited.",
+        "sortOrder": "Order",
+        "sortOrderHint": "Lowest is shown first.",
+        "descriptions": "Description (optional)",
+        "descriptionsHint": "Shown under the name in the booking.",
+        "descriptionDa": "Danish",
+        "descriptionEn": "English",
+        "descriptionFr": "French",
+        "descriptionAr": "Arabic",
+        "isActive": "Available",
+        "isActiveHint": "Customers can choose the extra in the booking.",
+        "create": "Create extra",
+        "save": "Save changes",
+        "duplicate": "The code is already used by another extra.",
+        "errors": {
+          "code": "Use lowercase letters, digits and underscores (2–40 characters).",
+          "nameDa": "Check the field.",
+          "nameEn": "Check the field.",
+          "nameAr": "Check the field.",
+          "nameFr": "Check the field.",
+          "descriptionDa": "Check the field.",
+          "descriptionEn": "Check the field.",
+          "descriptionAr": "Check the field.",
+          "descriptionFr": "Check the field.",
+          "pricing": "Check the field.",
+          "price": "Check the field.",
+          "maxPrice": "The cap must be at least the price and only for a daily price.",
+          "maxQuantity": "Check the field.",
+          "stock": "Check the field.",
+          "sortOrder": "Check the field.",
+          "isActive": "Check the field."
+        },
+        "notices": {
+          "invalid": "Check the highlighted fields.",
+          "duplicate": "The code is already used by another extra.",
+          "forbidden": "Your role does not have access to that action.",
+          "failed": "Something went wrong. Please try again."
+        }
       }
     }
   },

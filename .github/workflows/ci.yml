@@ -65,7 +65,13 @@ jobs:
       - name: Build
         run: pnpm build
 
-      # Integrationstestene tømmer databasen, så demo-data lægges ind lige før E2E.
+      # Integrationstestene efterlader testdata (fx "Test Model" med egne priser), så databasen
+      # nulstilles helt, før demo-data lægges ind til E2E.
+      - name: Nulstil database
+        run: |
+          psql "$DATABASE_URL" -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
+          pnpm db:deploy
+
       - name: Seed (demo-data til E2E)
         run: pnpm db:seed
 
