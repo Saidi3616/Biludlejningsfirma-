@@ -84,6 +84,15 @@ Forretningslogik hører til i `src/server`, aldrig i komponenter. Se [09-mappest
 - Kontaktformularen gemmer en besked (`src/server/contact/service.ts`) med højst 5 beskeder pr. IP i timen og et skjult felt mod robotter.
 - Vilkår og privatlivspolitik er udkast og skal godkendes af virksomheden/en jurist før lancering.
 
+### Booking og betaling
+
+- Flowet: `/booking` (trin 1 ekstraudstyr, levering og rabatkode; trin 2 oplysninger og vilkår) → `/booking/pay/[reference]` → `/booking/confirmation/[reference]`. Valgene ligger i URL'en; prisen beregnes altid på serveren.
+- Betalings- og bekræftelsessiden kan kun ses af den, der oprettede bookingen (login eller en httpOnly-cookie med gæstens token). Andre får 404.
+- Betaling går gennem `PaymentProvider` (`src/server/payments`). Med `STRIPE_SECRET_KEY` bruges Stripe Payment Element (kort, MobilePay, Apple Pay, Google Pay efter opsætningen i Stripe). Kortdata rører aldrig vores server.
+- Bookingen bekræftes kun af webhooken `POST /api/webhooks/stripe`. Hvert event gemmes i `ProcessedWebhook`, så samme event aldrig behandles to gange. Lander en betaling på en booking, der ikke kan bekræftes (fx bilen er taget efter udløb), refunderes den automatisk.
+- Lokalt og i CI uden Stripe: sæt `FAKE_PAYMENTS=true` (kun med `APP_ENV=local`). Betalingssiden viser så knapper til at gennemføre eller afvise en testbetaling.
+- Stripe lokalt: `stripe listen --forward-to localhost:3000/api/webhooks/stripe` og sæt `STRIPE_WEBHOOK_SECRET` til den viste `whsec_…`.
+
 ### Designsystem og sprog
 
 - Alle komponenter kan ses på `/styleguide` (ikke tilgængelig i produktion).

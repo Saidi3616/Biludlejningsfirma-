@@ -15,4 +15,6 @@ export const rentalRules = {
   reservationMinutes: 15,
   /** Dansk moms. Alle priser er inkl. moms. */
   vatRatePercent: 25,
+  /** Version af lejevilkårene (/terms), som kunden accepterer ved booking. Ændres ved nye vilkår. */
+  termsVersion: "2026-10-udkast",
 } as const;

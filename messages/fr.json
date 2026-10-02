@@ -646,7 +646,124 @@
   },
   "booking": {
     "title": "Réservation",
-    "comingSoon": "La réservation et le paiement en ligne ouvrent bientôt. En attendant, nous vous aidons volontiers sur WhatsApp.",
-    "whatsapp": "Réserver via WhatsApp"
+    "stepsLabel": "Étapes de la réservation",
+    "steps": {
+      "extras": "Options",
+      "details": "Vos coordonnées",
+      "payment": "Paiement"
+    },
+    "pickup": "Prise en charge",
+    "return": "Restitution",
+    "deliveryTo": "Livraison à : {address}",
+    "rental": "Location",
+    "depositNote": "Une caution de {price} est bloquée sur votre carte lors de la prise en charge. Elle ne fait pas partie du prix.",
+    "totalLabel": "Total",
+    "summaryTitle": "Votre réservation",
+    "changeCar": "Retour à la voiture",
+    "extrasTitle": "Personnalisez votre location",
+    "incomplete": {
+      "title": "Choisissez une voiture et des dates",
+      "body": "Choisissez d'abord un lieu, des dates et une voiture. Vous pourrez ensuite réserver.",
+      "cta": "Trouver une voiture"
+    },
+    "unavailable": {
+      "title": "La voiture n'est pas disponible",
+      "body": "Désolé, {car} n'est pas disponible aux dates choisies. Voyez les autres voitures disponibles ou choisissez d'autres dates.",
+      "cta": "Voir les voitures disponibles"
+    },
+    "extras": {
+      "title": "Options",
+      "none": "Aucune option n'est disponible.",
+      "perDay": "{price} par jour",
+      "perBooking": "{price} par location",
+      "max": "max. {price}",
+      "quantity": "quantité"
+    },
+    "fulfilment": {
+      "title": "Prise en charge ou livraison",
+      "pickup": "Récupérer la voiture chez {location}",
+      "delivery": "Livraison jusqu'à {km} km de l'agence",
+      "deliveryFee": "Supplément {price}"
+    },
+    "discount": {
+      "label": "Code promo",
+      "hint": "Vous avez un code promo ? Saisissez-le et appuyez sur « Mettre à jour le prix ».",
+      "invalid": "Ce code promo ne peut pas être utilisé pour cette réservation.",
+      "applied": "Le code promo {code} a été appliqué."
+    },
+    "updatePrice": "Mettre à jour le prix",
+    "continue": "Continuer",
+    "back": "Retour",
+    "details": {
+      "title": "Vos coordonnées",
+      "guestNote": "Pas besoin de compte pour réserver. Vous avez un compte ?",
+      "login": "Se connecter",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "E-mail",
+      "phone": "Numéro de mobile",
+      "phoneHint": "Avec l'indicatif du pays, p. ex. +33 6 12 34 56 78. Nous ne l'utilisons que pour vous contacter au sujet de la réservation.",
+      "deliveryAddress": "Adresse de livraison",
+      "deliveryAddressHint": "Rue, numéro, code postal et ville",
+      "terms": "J'accepte les <link>conditions de location</link>.",
+      "reservedNote": "En continuant, nous vous réservons la voiture pendant {minutes} minutes le temps du paiement.",
+      "submit": "Passer au paiement"
+    },
+    "fieldErrors": {
+      "required": "Champ obligatoire.",
+      "email": "Saisissez une adresse e-mail valide.",
+      "phone": "Saisissez un numéro de mobile valide, p. ex. +33 6 12 34 56 78.",
+      "deliveryAddress": "Saisissez l'adresse de livraison de la voiture.",
+      "acceptTerms": "Vous devez accepter les conditions de location pour réserver."
+    },
+    "errors": {
+      "fields": "Vérifiez les champs signalés.",
+      "generic": "Une erreur s'est produite. Réessayez ou écrivez-nous sur WhatsApp.",
+      "searchAgain": "Voir les voitures disponibles",
+      "CAR_NO_LONGER_AVAILABLE": "La voiture vient d'être réservée par quelqu'un d'autre.",
+      "RATE_LIMITED": "Vous avez fait trop d'essais. Patientez un peu et réessayez.",
+      "OUTSIDE_OPENING_HOURS": "L'agence est fermée à l'heure choisie. Choisissez une autre heure.",
+      "VALIDATION_FAILED": "Ces dates ne peuvent pas être réservées. Revenez en arrière et choisissez d'autres dates.",
+      "OUTSIDE_DELIVERY_ZONE": "Nous ne livrons pas aussi loin. Choisissez une autre zone de livraison ou la prise en charge.",
+      "PRICE_UNAVAILABLE": "Nous ne pouvons pas calculer de prix pour ces dates. Écrivez-nous sur WhatsApp."
+    },
+    "pay": {
+      "title": "Paiement",
+      "reservedUntil": "La voiture vous est réservée jusqu'au {time}.",
+      "failed": "Le paiement a été refusé. Réessayez ou utilisez une autre carte.",
+      "unavailable": "Le paiement est temporairement indisponible. Écrivez-nous sur WhatsApp, nous vous aiderons.",
+      "submit": "Payer {price}",
+      "testTitle": "Paiement de test",
+      "testBody": "Stripe n'est pas encore connecté. Vous pouvez essayer le parcours ici sans payer.",
+      "testFail": "Essayer une carte refusée",
+      "secure": "Le paiement est traité en toute sécurité par Stripe. Nous ne voyons ni ne conservons jamais vos données de carte.",
+      "expiredTitle": "La réservation a expiré",
+      "expiredBody": "Le paiement n'a pas été effectué dans les {minutes} minutes, la voiture a donc été libérée. Choisissez à nouveau des dates pour voir si elle est toujours disponible.",
+      "expiredCta": "Choisir à nouveau des dates"
+    },
+    "confirmation": {
+      "metaTitle": "Réservation confirmée",
+      "title": "Merci, {name} ! Votre réservation est confirmée",
+      "reference": "Numéro de réservation",
+      "referenceHint": "Indiquez ce numéro si vous nous contactez.",
+      "nextTitle": "Et maintenant ?",
+      "next1": "Apportez votre permis de conduire et une carte de paiement pour la caution.",
+      "next2": "Rendez-vous chez {location} à l'heure de prise en charge.",
+      "next2Delivery": "Nous livrons la voiture à votre adresse à l'heure convenue.",
+      "next3": "Nous faisons le tour de la voiture avec vous avant le départ.",
+      "calendar": "Ajouter au calendrier",
+      "calendarTitle": "Location de voiture : {car} ({reference})",
+      "whatsapp": "Écrivez-nous sur WhatsApp",
+      "whatsappPrefill": "Bonjour, j'ai une question sur ma réservation {reference}.",
+      "createAccount": "Créez un compte pour retrouver toutes vos réservations au même endroit.",
+      "createAccountCta": "Créer un compte",
+      "refundedTitle": "Désolé, la voiture n'était plus disponible",
+      "refundedBody": "Votre paiement a été intégralement remboursé. Il peut falloir quelques jours avant que l'argent ne revienne sur votre compte. Écrivez-nous, nous vous trouverons une autre voiture.",
+      "pendingTitle": "Nous attendons la confirmation du paiement",
+      "pendingBody": "Cela ne prend généralement qu'un instant. La page se met à jour automatiquement.",
+      "failedTitle": "Le paiement n'a pas abouti",
+      "failedBody": "La voiture vous est encore réservée pendant un court moment. Réessayez de payer.",
+      "retry": "Réessayer de payer"
+    }
   }
 }

@@ -27,7 +27,9 @@ Noter:
 - Gæsten skal **ikke** oprette konto. Efter betaling tilbydes "Gem dine oplysninger — opret konto med ét klik" (password sættes via e-mail-link).
 - Mobil: hvert trin er én skærm med én primær knap i bunden. Ingen trin har mere end ~5 felter synlige ad gangen.
 - Kundeoplysninger i MVP: navn, e-mail, telefon, fødselsdato (aldersgrænse), kørekortnummer + udløb. Adresse kun ved levering eller hvis virksomheden kræver det (se [14 — Manglende info](14-manglende-info.md)).
-- Rabatkode-felt i trin 3 (lukket som standard: "Har du en rabatkode?").
+- Rabatkode-felt i trin 1 sammen med ekstraudstyr, så prisen opdateres, før kunden skriver sine oplysninger.
+- **Implementeret (M7):** "Gennemse" er slået sammen med trin 2: prisoversigten står ved siden af formularen (sammenfoldet øverst på mobil), og vilkår accepteres i samme trin. Flowet er dermed: 1 Ekstraudstyr → 2 Dine oplysninger → 3 Betaling. Kørekort og fødselsdato indsamles ved afhentning indtil M11/M15.
+- Uden Stripe-nøgler (lokalt og i CI, `FAKE_PAYMENTS=true`) viser betalingstrinnet en simuleret betaling, der går gennem samme webhook-behandling som Stripe.
 
 ## E2. Fra bil-side
 

@@ -117,3 +117,8 @@ body {
 .has-consent [data-consent-pending] {
   display: none;
 }
+
+/* Betalingssiden skjuler den flydende WhatsApp-knap (se HideWhatsAppButton). */
+body:has([data-hide-whatsapp]) [data-whatsapp-floating] {
+  display: none;
+}

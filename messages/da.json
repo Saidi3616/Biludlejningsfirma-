@@ -646,7 +646,124 @@
   },
   "booking": {
     "title": "Booking",
-    "comingSoon": "Online booking og betaling åbner snart. Indtil da hjælper vi dig gerne på WhatsApp.",
-    "whatsapp": "Book via WhatsApp"
+    "stepsLabel": "Trin i bookingen",
+    "steps": {
+      "extras": "Ekstraudstyr",
+      "details": "Dine oplysninger",
+      "payment": "Betaling"
+    },
+    "pickup": "Afhentning",
+    "return": "Aflevering",
+    "deliveryTo": "Levering til: {address}",
+    "rental": "Leje",
+    "depositNote": "Depositum på {price} reserveres på dit kort ved afhentning. Det er ikke en del af prisen.",
+    "totalLabel": "I alt",
+    "summaryTitle": "Din booking",
+    "changeCar": "Tilbage til bilen",
+    "extrasTitle": "Tilpas din leje",
+    "incomplete": {
+      "title": "Vælg bil og periode",
+      "body": "Vælg først sted, datoer og en bil. Så kan du booke.",
+      "cta": "Find en bil"
+    },
+    "unavailable": {
+      "title": "Bilen er ikke ledig",
+      "body": "{car} er desværre ikke ledig i den valgte periode. Se andre ledige biler, eller vælg andre datoer.",
+      "cta": "Se ledige biler"
+    },
+    "extras": {
+      "title": "Ekstraudstyr",
+      "none": "Der er intet ekstraudstyr at vælge.",
+      "perDay": "{price} pr. dag",
+      "perBooking": "{price} pr. leje",
+      "max": "højst {price}",
+      "quantity": "antal"
+    },
+    "fulfilment": {
+      "title": "Afhentning eller levering",
+      "pickup": "Hent bilen hos {location}",
+      "delivery": "Levering op til {km} km fra kontoret",
+      "deliveryFee": "Tillæg {price}"
+    },
+    "discount": {
+      "label": "Rabatkode",
+      "hint": "Har du en rabatkode? Skriv den her, og tryk på \"Opdatér pris\".",
+      "invalid": "Rabatkoden kan ikke bruges til denne booking.",
+      "applied": "Rabatkoden {code} er trukket fra."
+    },
+    "updatePrice": "Opdatér pris",
+    "continue": "Fortsæt",
+    "back": "Tilbage",
+    "details": {
+      "title": "Dine oplysninger",
+      "guestNote": "Du behøver ikke en konto for at booke. Har du en konto?",
+      "login": "Log ind",
+      "firstName": "Fornavn",
+      "lastName": "Efternavn",
+      "email": "E-mail",
+      "phone": "Mobilnummer",
+      "phoneHint": "Fx 12 34 56 78. Vi bruger det kun, hvis vi skal kontakte dig om bookingen.",
+      "deliveryAddress": "Leveringsadresse",
+      "deliveryAddressHint": "Gade, nummer, postnummer og by",
+      "terms": "Jeg accepterer <link>lejevilkårene</link>.",
+      "reservedNote": "Når du går videre, holder vi bilen til dig i {minutes} minutter, mens du betaler.",
+      "submit": "Gå til betaling"
+    },
+    "fieldErrors": {
+      "required": "Skal udfyldes.",
+      "email": "Skriv en gyldig e-mailadresse.",
+      "phone": "Skriv et gyldigt mobilnummer, fx 12 34 56 78 eller +46 70 123 45 67.",
+      "deliveryAddress": "Skriv adressen, bilen skal leveres til.",
+      "acceptTerms": "Du skal acceptere lejevilkårene for at booke."
+    },
+    "errors": {
+      "fields": "Tjek de markerede felter.",
+      "generic": "Noget gik galt. Prøv igen, eller skriv til os på WhatsApp.",
+      "searchAgain": "Se ledige biler",
+      "CAR_NO_LONGER_AVAILABLE": "Bilen er netop blevet booket af en anden.",
+      "RATE_LIMITED": "Du har prøvet mange gange. Vent lidt, og prøv igen.",
+      "OUTSIDE_OPENING_HOURS": "Kontoret har lukket på det valgte tidspunkt. Vælg et andet tidspunkt.",
+      "VALIDATION_FAILED": "Perioden kan ikke bookes. Gå tilbage, og vælg andre datoer.",
+      "OUTSIDE_DELIVERY_ZONE": "Vi leverer ikke så langt. Vælg en anden leveringszone eller afhentning.",
+      "PRICE_UNAVAILABLE": "Vi kan ikke beregne en pris for perioden. Skriv til os på WhatsApp."
+    },
+    "pay": {
+      "title": "Betaling",
+      "reservedUntil": "Bilen er reserveret til dig til {time}.",
+      "failed": "Betalingen blev afvist. Prøv igen, eller brug et andet kort.",
+      "unavailable": "Betaling er midlertidigt ikke mulig. Skriv til os på WhatsApp, så hjælper vi dig.",
+      "submit": "Betal {price}",
+      "testTitle": "Testbetaling",
+      "testBody": "Stripe er ikke koblet på endnu. Her kan du afprøve flowet uden at betale.",
+      "testFail": "Afprøv et afvist kort",
+      "secure": "Betalingen håndteres sikkert af Stripe. Vi ser og gemmer aldrig dine kortoplysninger.",
+      "expiredTitle": "Reservationen er udløbet",
+      "expiredBody": "Betalingen blev ikke gennemført inden for {minutes} minutter, så bilen er frigivet igen. Vælg datoer igen for at se, om den stadig er ledig.",
+      "expiredCta": "Vælg datoer igen"
+    },
+    "confirmation": {
+      "metaTitle": "Booking bekræftet",
+      "title": "Tak, {name}! Din booking er bekræftet",
+      "reference": "Bookingnummer",
+      "referenceHint": "Oplys nummeret, hvis du kontakter os.",
+      "nextTitle": "Hvad sker der nu?",
+      "next1": "Medbring dit kørekort og et betalingskort til depositummet.",
+      "next2": "Mød op hos {location} på afhentningstidspunktet.",
+      "next2Delivery": "Vi kommer med bilen til din adresse på det aftalte tidspunkt.",
+      "next3": "Vi gennemgår bilen sammen med dig, før du kører.",
+      "calendar": "Tilføj til kalender",
+      "calendarTitle": "Billeje: {car} ({reference})",
+      "whatsapp": "Skriv til os på WhatsApp",
+      "whatsappPrefill": "Hej, jeg har et spørgsmål om min booking {reference}.",
+      "createAccount": "Opret en konto, så kan du se dine bookinger samlet ét sted.",
+      "createAccountCta": "Opret konto",
+      "refundedTitle": "Bilen var desværre ikke længere ledig",
+      "refundedBody": "Din betaling er refunderet fuldt. Der kan gå nogle dage, før pengene står på din konto. Skriv til os, så finder vi en anden bil til dig.",
+      "pendingTitle": "Vi venter på bekræftelse af betalingen",
+      "pendingBody": "Det tager normalt kun et øjeblik. Siden opdaterer sig selv.",
+      "failedTitle": "Betalingen gik ikke igennem",
+      "failedBody": "Bilen er stadig reserveret til dig et kort øjeblik. Prøv at betale igen.",
+      "retry": "Prøv at betale igen"
+    }
   }
 }
