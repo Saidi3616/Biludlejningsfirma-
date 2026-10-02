@@ -288,7 +288,8 @@
       "security": "Security",
       "calendar": "Calendar",
       "bookings": "Bookings",
-      "customers": "Customers"
+      "customers": "Customers",
+      "fleet": "Fleet"
     },
     "toSite": "Go to website",
     "roles": {
@@ -707,6 +708,237 @@
         "discount": "The discount code does not work.",
         "price": "There is no price for the period.",
         "failed": "Something went wrong. Try again."
+      }
+    },
+    "fleet": {
+      "title": "Fleet",
+      "back": "All cars",
+      "km": "{km, number} km",
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {page} of {pages}",
+      "amountHint": "In kroner, e.g. 450 or 1,250.50.",
+      "tabs": {
+        "label": "Fleet",
+        "cars": "Cars",
+        "models": "Models"
+      },
+      "opStatus": {
+        "ACTIVE": "In service",
+        "INSPECTION": "Being checked",
+        "MAINTENANCE": "At the workshop",
+        "OUT_OF_SERVICE": "Out of service",
+        "RETIRED": "Retired"
+      },
+      "warnings": {
+        "inspection": "Inspection due",
+        "service": "Service due",
+        "insurance": "Insurance expiring"
+      },
+      "cars": {
+        "new": "New car",
+        "search": "Search",
+        "searchHint": "Registration or VIN.",
+        "status": "Status",
+        "allStatuses": "All (except retired)",
+        "model": "Model",
+        "allModels": "All models",
+        "location": "Location",
+        "allLocations": "All locations",
+        "submit": "Search",
+        "count": "{count, plural, one {# car} other {# cars}}",
+        "empty": "No cars match the search.",
+        "columns": {
+          "registration": "Registration",
+          "model": "Model",
+          "location": "Home location",
+          "odometer": "Km",
+          "status": "Status",
+          "warnings": "Deadlines"
+        }
+      },
+      "car": {
+        "bookings": "Upcoming bookings",
+        "noBookings": "The car has no upcoming bookings.",
+        "bookingsHint": "If the car must go out of service, open each booking and change the car, change the period or cancel.",
+        "columns": {
+          "reference": "Booking",
+          "customer": "Customer",
+          "period": "Period",
+          "status": "Status"
+        },
+        "statusTitle": "Operating status",
+        "statusIntro": "Only cars in service can be booked. Bookings the car already has keep it until you move them.",
+        "newStatus": "New status",
+        "confirm": "I have seen {count, plural, one {the upcoming booking} other {the # upcoming bookings}}",
+        "confirmHint": "They keep the car until you move them to another car.",
+        "setStatus": "Change status",
+        "odometerTitle": "Odometer",
+        "odometer": "Km",
+        "odometerHint": "Can only go up.",
+        "saveOdometer": "Save km",
+        "details": "Details"
+      },
+      "notices": {
+        "created": "The car is created.",
+        "saved": "The changes are saved.",
+        "statusChanged": "The status is changed.",
+        "odometerSaved": "The odometer is saved.",
+        "maintenanceAdded": "The workshop visit is planned. The car cannot be booked in the period.",
+        "maintenanceUpdated": "The workshop visit is updated.",
+        "invalid": "Check the fields and try again.",
+        "odometerDown": "The odometer cannot be lower than before.",
+        "endBeforeStart": "The end must be after the start.",
+        "rented": "The car is rented out right now. Change the status when it is returned.",
+        "hasBookings": "The car has upcoming bookings. Tick the box to confirm, or move them first:",
+        "bookingsInPeriod": "The car is booked in the period. Move these bookings first:",
+        "maintenanceOverlap": "The car already has a workshop visit in the period.",
+        "conflict": "It cannot be changed now, or it was changed at the same time. Reload the page.",
+        "forbidden": "Your role does not have access to that action.",
+        "notFound": "It no longer exists.",
+        "failed": "Something went wrong. Try again."
+      },
+      "maintenance": {
+        "title": "Workshop",
+        "empty": "No workshop visits yet.",
+        "columns": {
+          "type": "Type",
+          "period": "Period",
+          "vendor": "Workshop",
+          "cost": "Cost",
+          "status": "Status",
+          "action": "Action"
+        },
+        "types": {
+          "SERVICE": "Service",
+          "INSPECTION_SYN": "Inspection",
+          "TYRES": "Tyre change",
+          "REPAIR": "Repair",
+          "CLEANING": "Cleaning"
+        },
+        "statuses": {
+          "PLANNED": "Planned",
+          "IN_PROGRESS": "In progress",
+          "DONE": "Done",
+          "CANCELLED": "Cancelled"
+        },
+        "to": {
+          "IN_PROGRESS": "Start",
+          "DONE": "Done",
+          "CANCELLED": "Cancel"
+        },
+        "add": "Plan a workshop visit",
+        "addIntro": "The car cannot be booked in the period. If it has bookings in the period, move them first.",
+        "type": "Type",
+        "vendor": "Workshop (optional)",
+        "startDate": "Start date",
+        "startTime": "Start time",
+        "endDate": "End date",
+        "endTime": "End time",
+        "cost": "Cost (optional)",
+        "notes": "Note (optional)",
+        "submit": "Plan"
+      },
+      "form": {
+        "identity": "Car",
+        "carModelId": "Model",
+        "homeLocationId": "Home location",
+        "registrationNumber": "Registration",
+        "registrationHint": "E.g. AB 12 345.",
+        "vin": "VIN",
+        "vinHint": "11–17 characters, without I, O and Q.",
+        "color": "Colour (optional)",
+        "odometerKm": "Km",
+        "tyreType": "Tyres (optional)",
+        "tyreHint": "E.g. summer, winter or all-season.",
+        "deadlines": "Deadlines",
+        "nextInspectionDue": "Next inspection",
+        "nextServiceDue": "Next service (date)",
+        "nextServiceKm": "Next service (km)",
+        "insurancePolicy": "Insurance policy (optional)",
+        "insuranceExpiresAt": "Insurance expires",
+        "purchase": "Purchase",
+        "purchaseDate": "Purchase date",
+        "purchasePrice": "Purchase price",
+        "amountHint": "In kroner, e.g. 189,000.",
+        "choose": "Choose",
+        "save": "Save changes",
+        "create": "Create car",
+        "duplicate": "Already used by another car.",
+        "odometerDown": "Cannot be lower than before.",
+        "invalid": "Check the field.",
+        "errors": {
+          "invalid": "Check the marked fields.",
+          "duplicate": "The registration or VIN already exists.",
+          "odometerDown": "The odometer cannot be lower than before.",
+          "hasBookings": "Model and home location cannot change while the car has upcoming bookings:",
+          "forbidden": "Your role does not have access to that action.",
+          "failed": "Something went wrong. Try again."
+        }
+      },
+      "models": {
+        "title": "Models",
+        "new": "New model",
+        "edit": "Edit model",
+        "back": "All models",
+        "empty": "No models yet.",
+        "columns": {
+          "model": "Model",
+          "category": "Category",
+          "cars": "Cars",
+          "visibility": "Visibility"
+        },
+        "active": "Shown",
+        "inactive": "Hidden",
+        "featured": "Featured",
+        "notices": {
+          "created": "The model is created.",
+          "saved": "The changes are saved."
+        }
+      },
+      "modelForm": {
+        "basics": "Model",
+        "brand": "Make",
+        "model": "Model",
+        "year": "Year",
+        "categoryId": "Category",
+        "choose": "Choose",
+        "slug": "Address",
+        "slugHint": "Used in the link, e.g. toyota-yaris-hybrid. Lowercase letters, digits and hyphens.",
+        "specs": "Specifications",
+        "transmission": "Transmission",
+        "fuel": "Fuel",
+        "seats": "Seats",
+        "doors": "Doors",
+        "bags": "Bags",
+        "airConditioning": "Air conditioning",
+        "terms": "Km and deposit",
+        "termsHint": "Applies to new bookings. The daily price is set per category.",
+        "includedKmPerDay": "Included km per day",
+        "extraKmFee": "Price per extra km",
+        "deposit": "Deposit",
+        "amountHint": "In kroner, e.g. 2.50 or 3,000.",
+        "descriptions": "Description",
+        "descriptionsHint": "Danish is required. If a language is missing, the Danish text is shown.",
+        "descriptionDa": "Danish",
+        "descriptionEn": "English",
+        "descriptionFr": "French",
+        "descriptionAr": "Arabic",
+        "visibility": "Visibility",
+        "isActive": "Show in the catalogue",
+        "isActiveHint": "Customers can see and book the model.",
+        "isFeatured": "Feature on the home page",
+        "isFeaturedHint": "Shown among the popular cars.",
+        "save": "Save changes",
+        "create": "Create model",
+        "invalid": "Check the field.",
+        "duplicate": "The address is already used by another model.",
+        "errors": {
+          "invalid": "Check the marked fields.",
+          "duplicate": "The address is already used by another model.",
+          "forbidden": "Your role does not have access to that action.",
+          "failed": "Something went wrong. Try again."
+        }
       }
     }
   },

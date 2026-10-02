@@ -6,15 +6,10 @@ import { Field } from "@/components/ui/field";
 import { Input, Textarea } from "@/components/ui/input";
 import { Price } from "@/components/ui/price";
 import { Select } from "@/components/ui/select";
-import { formatDateTime } from "@/lib/format";
+import { formatDateTime, minorToInput as kroner } from "@/lib/format";
 import { manualMethods } from "@/lib/validation/admin";
 
 type Action = (formData: FormData) => Promise<void>;
-
-/** Øre som kroner til et inputfelt, fx 45000 → "450,00". */
-function kroner(minor: number) {
-  return (minor / 100).toFixed(2).replace(".", ",");
-}
 
 export type ReschedulePreview =
   | { status: "none" }

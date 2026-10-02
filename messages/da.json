@@ -288,7 +288,8 @@
       "security": "Sikkerhed",
       "calendar": "Kalender",
       "bookings": "Bookinger",
-      "customers": "Kunder"
+      "customers": "Kunder",
+      "fleet": "Flåde"
     },
     "toSite": "Til hjemmesiden",
     "roles": {
@@ -707,6 +708,237 @@
         "discount": "Rabatkoden virker ikke.",
         "price": "Der er ingen pris for perioden.",
         "failed": "Noget gik galt. Prøv igen."
+      }
+    },
+    "fleet": {
+      "title": "Flåde",
+      "back": "Alle biler",
+      "km": "{km, number} km",
+      "previous": "Forrige",
+      "next": "Næste",
+      "page": "Side {page} af {pages}",
+      "amountHint": "I kroner, fx 450 eller 1.250,50.",
+      "tabs": {
+        "label": "Flåde",
+        "cars": "Biler",
+        "models": "Modeller"
+      },
+      "opStatus": {
+        "ACTIVE": "I drift",
+        "INSPECTION": "Til eftersyn",
+        "MAINTENANCE": "På værksted",
+        "OUT_OF_SERVICE": "Ude af drift",
+        "RETIRED": "Udfaset"
+      },
+      "warnings": {
+        "inspection": "Syn snart",
+        "service": "Service snart",
+        "insurance": "Forsikring udløber"
+      },
+      "cars": {
+        "new": "Ny bil",
+        "search": "Søg",
+        "searchHint": "Nummerplade eller stelnummer.",
+        "status": "Status",
+        "allStatuses": "Alle (undtagen udfasede)",
+        "model": "Model",
+        "allModels": "Alle modeller",
+        "location": "Lokation",
+        "allLocations": "Alle lokationer",
+        "submit": "Søg",
+        "count": "{count, plural, one {# bil} other {# biler}}",
+        "empty": "Ingen biler matcher søgningen.",
+        "columns": {
+          "registration": "Nummerplade",
+          "model": "Model",
+          "location": "Hjemsted",
+          "odometer": "Km",
+          "status": "Status",
+          "warnings": "Frister"
+        }
+      },
+      "car": {
+        "bookings": "Kommende bookinger",
+        "noBookings": "Bilen har ingen kommende bookinger.",
+        "bookingsHint": "Skal bilen ud af drift, så åbn hver booking og skift bil, ændr perioden eller annullér.",
+        "columns": {
+          "reference": "Booking",
+          "customer": "Kunde",
+          "period": "Periode",
+          "status": "Status"
+        },
+        "statusTitle": "Driftsstatus",
+        "statusIntro": "Kun biler i drift kan bookes. Bookinger, bilen allerede har, beholder den, indtil du flytter dem.",
+        "newStatus": "Ny status",
+        "confirm": "Jeg har set {count, plural, one {den kommende booking} other {de # kommende bookinger}}",
+        "confirmHint": "De beholder bilen, indtil du flytter dem til en anden bil.",
+        "setStatus": "Skift status",
+        "odometerTitle": "Kilometerstand",
+        "odometer": "Km",
+        "odometerHint": "Kan kun gå op.",
+        "saveOdometer": "Gem km",
+        "details": "Stamdata"
+      },
+      "notices": {
+        "created": "Bilen er oprettet.",
+        "saved": "Ændringerne er gemt.",
+        "statusChanged": "Status er ændret.",
+        "odometerSaved": "Kilometerstanden er gemt.",
+        "maintenanceAdded": "Værkstedsbesøget er planlagt. Bilen kan ikke bookes i perioden.",
+        "maintenanceUpdated": "Værkstedsbesøget er opdateret.",
+        "invalid": "Tjek felterne og prøv igen.",
+        "odometerDown": "Kilometerstanden kan ikke være lavere end før.",
+        "endBeforeStart": "Slut skal ligge efter start.",
+        "rented": "Bilen er udlejet lige nu. Skift status, når den er afleveret.",
+        "hasBookings": "Bilen har kommende bookinger. Sæt flueben for at bekræfte, eller flyt dem først:",
+        "bookingsInPeriod": "Bilen er booket i perioden. Flyt disse bookinger først:",
+        "maintenanceOverlap": "Bilen har allerede et værkstedsbesøg i perioden.",
+        "conflict": "Det kan ikke ændres nu, eller det blev ændret samtidig. Genindlæs siden.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "notFound": "Det findes ikke længere.",
+        "failed": "Noget gik galt. Prøv igen."
+      },
+      "maintenance": {
+        "title": "Værksted",
+        "empty": "Ingen værkstedsbesøg endnu.",
+        "columns": {
+          "type": "Type",
+          "period": "Periode",
+          "vendor": "Værksted",
+          "cost": "Pris",
+          "status": "Status",
+          "action": "Handling"
+        },
+        "types": {
+          "SERVICE": "Service",
+          "INSPECTION_SYN": "Syn",
+          "TYRES": "Dækskift",
+          "REPAIR": "Reparation",
+          "CLEANING": "Rengøring"
+        },
+        "statuses": {
+          "PLANNED": "Planlagt",
+          "IN_PROGRESS": "I gang",
+          "DONE": "Færdig",
+          "CANCELLED": "Aflyst"
+        },
+        "to": {
+          "IN_PROGRESS": "Start",
+          "DONE": "Færdig",
+          "CANCELLED": "Aflys"
+        },
+        "add": "Planlæg værkstedsbesøg",
+        "addIntro": "Bilen kan ikke bookes i perioden. Har den bookinger i perioden, skal de flyttes først.",
+        "type": "Type",
+        "vendor": "Værksted (valgfrit)",
+        "startDate": "Startdato",
+        "startTime": "Starttid",
+        "endDate": "Slutdato",
+        "endTime": "Sluttid",
+        "cost": "Pris (valgfri)",
+        "notes": "Note (valgfri)",
+        "submit": "Planlæg"
+      },
+      "form": {
+        "identity": "Bil",
+        "carModelId": "Model",
+        "homeLocationId": "Hjemsted",
+        "registrationNumber": "Nummerplade",
+        "registrationHint": "Fx AB 12 345.",
+        "vin": "Stelnummer (VIN)",
+        "vinHint": "11–17 tegn, uden I, O og Q.",
+        "color": "Farve (valgfri)",
+        "odometerKm": "Km",
+        "tyreType": "Dæk (valgfrit)",
+        "tyreHint": "Fx sommer, vinter eller helår.",
+        "deadlines": "Frister",
+        "nextInspectionDue": "Næste syn",
+        "nextServiceDue": "Næste service (dato)",
+        "nextServiceKm": "Næste service (km)",
+        "insurancePolicy": "Forsikringspolice (valgfri)",
+        "insuranceExpiresAt": "Forsikring udløber",
+        "purchase": "Køb",
+        "purchaseDate": "Købsdato",
+        "purchasePrice": "Købspris",
+        "amountHint": "I kroner, fx 189.000.",
+        "choose": "Vælg",
+        "save": "Gem ændringer",
+        "create": "Opret bil",
+        "duplicate": "Findes allerede på en anden bil.",
+        "odometerDown": "Kan ikke være lavere end før.",
+        "invalid": "Tjek feltet.",
+        "errors": {
+          "invalid": "Tjek de markerede felter.",
+          "duplicate": "Nummerpladen eller stelnummeret findes allerede.",
+          "odometerDown": "Kilometerstanden kan ikke være lavere end før.",
+          "hasBookings": "Model og hjemsted kan ikke skiftes, mens bilen har kommende bookinger:",
+          "forbidden": "Din rolle har ikke adgang til den handling.",
+          "failed": "Noget gik galt. Prøv igen."
+        }
+      },
+      "models": {
+        "title": "Modeller",
+        "new": "Ny model",
+        "edit": "Ret model",
+        "back": "Alle modeller",
+        "empty": "Ingen modeller endnu.",
+        "columns": {
+          "model": "Model",
+          "category": "Kategori",
+          "cars": "Biler",
+          "visibility": "Synlighed"
+        },
+        "active": "Vises",
+        "inactive": "Skjult",
+        "featured": "Fremhævet",
+        "notices": {
+          "created": "Modellen er oprettet.",
+          "saved": "Ændringerne er gemt."
+        }
+      },
+      "modelForm": {
+        "basics": "Model",
+        "brand": "Mærke",
+        "model": "Model",
+        "year": "Årgang",
+        "categoryId": "Kategori",
+        "choose": "Vælg",
+        "slug": "Adresse",
+        "slugHint": "Bruges i linket, fx toyota-yaris-hybrid. Små bogstaver, tal og bindestreg.",
+        "specs": "Specifikationer",
+        "transmission": "Gear",
+        "fuel": "Brændstof",
+        "seats": "Sæder",
+        "doors": "Døre",
+        "bags": "Kufferter",
+        "airConditioning": "Aircondition",
+        "terms": "Km og depositum",
+        "termsHint": "Gælder for nye bookinger. Prisen pr. dag sættes pr. kategori.",
+        "includedKmPerDay": "Inkluderede km pr. dag",
+        "extraKmFee": "Pris pr. ekstra km",
+        "deposit": "Depositum",
+        "amountHint": "I kroner, fx 2,50 eller 3.000.",
+        "descriptions": "Beskrivelse",
+        "descriptionsHint": "Dansk skal udfyldes. Mangler et sprog, vises den danske tekst.",
+        "descriptionDa": "Dansk",
+        "descriptionEn": "Engelsk",
+        "descriptionFr": "Fransk",
+        "descriptionAr": "Arabisk",
+        "visibility": "Synlighed",
+        "isActive": "Vis i kataloget",
+        "isActiveHint": "Kunder kan se og booke modellen.",
+        "isFeatured": "Fremhæv på forsiden",
+        "isFeaturedHint": "Vises blandt de populære biler.",
+        "save": "Gem ændringer",
+        "create": "Opret model",
+        "invalid": "Tjek feltet.",
+        "duplicate": "Adressen bruges allerede af en anden model.",
+        "errors": {
+          "invalid": "Tjek de markerede felter.",
+          "duplicate": "Adressen bruges allerede af en anden model.",
+          "forbidden": "Din rolle har ikke adgang til den handling.",
+          "failed": "Noget gik galt. Prøv igen."
+        }
       }
     }
   },
