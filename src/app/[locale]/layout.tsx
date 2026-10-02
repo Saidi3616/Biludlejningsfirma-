@@ -12,7 +12,16 @@ import { geistSans, plexArabic } from "../fonts";
 import "../globals.css";
 
 /** Kun de tekster, klient-komponenterne bruger, sendes med til browseren. */
-const CLIENT_NAMESPACES = ["nav", "common", "whatsapp", "auth", "contact", "cookies", "language"];
+const CLIENT_NAMESPACES = [
+  "nav",
+  "common",
+  "whatsapp",
+  "auth",
+  "contact",
+  "cookies",
+  "language",
+  "booking",
+];
 
 function clientMessages(messages: Record<string, unknown>) {
   return Object.fromEntries(CLIENT_NAMESPACES.map((key) => [key, messages[key]]));

@@ -1,5 +1,5 @@
 import "server-only";
-import type { BookingStatus } from "@/generated/prisma/client";
+import type { BookingStatus, Prisma } from "@/generated/prisma/client";
 import { AppError } from "@/lib/errors";
 import { db } from "@/server/db";
 import { isCarUnavailableError } from "@/server/db-errors";
@@ -22,6 +22,8 @@ export function canTransition(from: BookingStatus, to: BookingStatus): boolean {
   return transitions[from].includes(to);
 }
 
+type TransitionOptions = { actorUserId?: string | null; reason?: string };
+
 /**
  * Skifter status og skriver en BOOKING_STATUS_EVENT i samme transaktion.
  * Opdateringen kræver, at status stadig er den, vi læste (optimistisk lås), så to samtidige
@@ -30,41 +32,10 @@ export function canTransition(from: BookingStatus, to: BookingStatus): boolean {
 export async function transitionBooking(
   bookingId: string,
   to: BookingStatus,
-  options: { actorUserId?: string | null; reason?: string } = {},
+  options: TransitionOptions = {},
 ) {
   try {
-    return await db.$transaction(async (tx) => {
-      const booking = await tx.booking.findUnique({
-        where: { id: bookingId },
-        select: { status: true },
-      });
-      if (!booking) throw new AppError("NOT_FOUND", "Bookingen findes ikke");
-      if (!canTransition(booking.status, to)) {
-        throw new AppError("CONFLICT", "Bookingen kan ikke skifte til den status", {
-          from: booking.status,
-          to,
-        });
-      }
-
-      const updated = await tx.booking.updateMany({
-        where: { id: bookingId, status: booking.status },
-        data: { status: to, ...(to === "CONFIRMED" ? { expiresAt: null } : {}) },
-      });
-      if (updated.count === 0) {
-        throw new AppError("CONFLICT", "Bookingen blev ændret samtidig", { to });
-      }
-
-      await tx.bookingStatusEvent.create({
-        data: {
-          bookingId,
-          fromStatus: booking.status,
-          toStatus: to,
-          actorUserId: options.actorUserId ?? null,
-          reason: options.reason ?? null,
-        },
-      });
-      return tx.booking.findUniqueOrThrow({ where: { id: bookingId } });
-    });
+    return await db.$transaction((tx) => applyTransition(tx, bookingId, to, options));
   } catch (error) {
     // Kun muligt ved EXPIRED → CONFIRMED: bilen er taget i mellemtiden.
     if (isCarUnavailableError(error)) {
@@ -72,4 +43,43 @@ export async function transitionBooking(
     }
     throw error;
   }
+}
+
+/** Som `transitionBooking`, men i en transaktion, kalderen styrer (fx betalings-webhooken). */
+export async function applyTransition(
+  tx: Prisma.TransactionClient,
+  bookingId: string,
+  to: BookingStatus,
+  options: TransitionOptions = {},
+) {
+  const booking = await tx.booking.findUnique({
+    where: { id: bookingId },
+    select: { status: true },
+  });
+  if (!booking) throw new AppError("NOT_FOUND", "Bookingen findes ikke");
+  if (!canTransition(booking.status, to)) {
+    throw new AppError("CONFLICT", "Bookingen kan ikke skifte til den status", {
+      from: booking.status,
+      to,
+    });
+  }
+
+  const updated = await tx.booking.updateMany({
+    where: { id: bookingId, status: booking.status },
+    data: { status: to, ...(to === "CONFIRMED" ? { expiresAt: null } : {}) },
+  });
+  if (updated.count === 0) {
+    throw new AppError("CONFLICT", "Bookingen blev ændret samtidig", { to });
+  }
+
+  await tx.bookingStatusEvent.create({
+    data: {
+      bookingId,
+      fromStatus: booking.status,
+      toStatus: to,
+      actorUserId: options.actorUserId ?? null,
+      reason: options.reason ?? null,
+    },
+  });
+  return tx.booking.findUniqueOrThrow({ where: { id: bookingId } });
 }

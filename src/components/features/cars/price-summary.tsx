@@ -9,8 +9,17 @@ function labelKey(type: string): (typeof feeLabels)[number] | "EXTRA" {
   return feeLabels.find((label) => label === type) ?? "EXTRA";
 }
 
-/** Prislinjerne fra prismotoren. Regner intet selv. */
-export function PriceSummary({ quote }: { quote: Quote }) {
+/**
+ * Prislinjerne fra prismotoren. Regner intet selv. Med `extraNames` (kode → navn) vises
+ * ekstraudstyrets navn i stedet for "Ekstraudstyr".
+ */
+export function PriceSummary({
+  quote,
+  extraNames,
+}: {
+  quote: Quote;
+  extraNames?: Record<string, string>;
+}) {
   const t = useTranslations("car");
   const locale = useLocale();
   return (
@@ -21,7 +30,11 @@ export function PriceSummary({ quote }: { quote: Quote }) {
             <dt className="text-ink-700">
               {line.type === "RENTAL"
                 ? t("lines.RENTAL", { days: quote.rentalDays })
-                : t(`lines.${labelKey(line.type)}`)}
+                : line.type === "EXTRA" && extraNames?.[line.code]
+                  ? line.quantity > 1
+                    ? `${extraNames[line.code]} × ${line.quantity}`
+                    : extraNames[line.code]
+                  : t(`lines.${labelKey(line.type)}`)}
             </dt>
             <dd className="font-medium text-ink-900">
               <Price amountMinor={line.totalMinor} currency={quote.currency} />

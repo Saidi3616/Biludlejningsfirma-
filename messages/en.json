@@ -646,7 +646,124 @@
   },
   "booking": {
     "title": "Booking",
-    "comingSoon": "Online booking and payment open soon. Until then, we are happy to help you on WhatsApp.",
-    "whatsapp": "Book via WhatsApp"
+    "stepsLabel": "Booking steps",
+    "steps": {
+      "extras": "Extras",
+      "details": "Your details",
+      "payment": "Payment"
+    },
+    "pickup": "Pick-up",
+    "return": "Return",
+    "deliveryTo": "Delivery to: {address}",
+    "rental": "Rental",
+    "depositNote": "A deposit of {price} is held on your card at pick-up. It is not part of the price.",
+    "totalLabel": "Total",
+    "summaryTitle": "Your booking",
+    "changeCar": "Back to the car",
+    "extrasTitle": "Customise your rental",
+    "incomplete": {
+      "title": "Choose a car and dates",
+      "body": "First choose a location, dates and a car. Then you can book.",
+      "cta": "Find a car"
+    },
+    "unavailable": {
+      "title": "The car is not available",
+      "body": "Sorry, {car} is not available for the selected dates. See other available cars or choose other dates.",
+      "cta": "See available cars"
+    },
+    "extras": {
+      "title": "Extras",
+      "none": "There are no extras to choose from.",
+      "perDay": "{price} per day",
+      "perBooking": "{price} per rental",
+      "max": "max. {price}",
+      "quantity": "quantity"
+    },
+    "fulfilment": {
+      "title": "Pick-up or delivery",
+      "pickup": "Pick up the car at {location}",
+      "delivery": "Delivery up to {km} km from the office",
+      "deliveryFee": "Surcharge {price}"
+    },
+    "discount": {
+      "label": "Discount code",
+      "hint": "Have a discount code? Enter it and tap \"Update price\".",
+      "invalid": "The discount code can't be used for this booking.",
+      "applied": "The discount code {code} has been applied."
+    },
+    "updatePrice": "Update price",
+    "continue": "Continue",
+    "back": "Back",
+    "details": {
+      "title": "Your details",
+      "guestNote": "You don't need an account to book. Have an account?",
+      "login": "Log in",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "phone": "Mobile number",
+      "phoneHint": "Include the country code, e.g. +44 7700 900123. We only use it if we need to contact you about the booking.",
+      "deliveryAddress": "Delivery address",
+      "deliveryAddressHint": "Street, number, postcode and city",
+      "terms": "I accept the <link>rental terms</link>.",
+      "reservedNote": "When you continue, we hold the car for you for {minutes} minutes while you pay.",
+      "submit": "Go to payment"
+    },
+    "fieldErrors": {
+      "required": "This field is required.",
+      "email": "Enter a valid email address.",
+      "phone": "Enter a valid mobile number, e.g. +44 7700 900123.",
+      "deliveryAddress": "Enter the address the car should be delivered to.",
+      "acceptTerms": "You must accept the rental terms to book."
+    },
+    "errors": {
+      "fields": "Check the highlighted fields.",
+      "generic": "Something went wrong. Try again, or message us on WhatsApp.",
+      "searchAgain": "See available cars",
+      "CAR_NO_LONGER_AVAILABLE": "The car has just been booked by someone else.",
+      "RATE_LIMITED": "You have tried many times. Wait a moment and try again.",
+      "OUTSIDE_OPENING_HOURS": "The office is closed at the selected time. Choose another time.",
+      "VALIDATION_FAILED": "These dates can't be booked. Go back and choose other dates.",
+      "OUTSIDE_DELIVERY_ZONE": "We don't deliver that far. Choose another delivery zone or pick-up.",
+      "PRICE_UNAVAILABLE": "We can't calculate a price for these dates. Message us on WhatsApp."
+    },
+    "pay": {
+      "title": "Payment",
+      "reservedUntil": "The car is reserved for you until {time}.",
+      "failed": "The payment was declined. Try again, or use another card.",
+      "unavailable": "Payment is temporarily unavailable. Message us on WhatsApp and we'll help you.",
+      "submit": "Pay {price}",
+      "testTitle": "Test payment",
+      "testBody": "Stripe is not connected yet. You can try the flow here without paying.",
+      "testFail": "Try a declined card",
+      "secure": "Payment is handled securely by Stripe. We never see or store your card details.",
+      "expiredTitle": "The reservation has expired",
+      "expiredBody": "The payment was not completed within {minutes} minutes, so the car has been released. Choose dates again to see if it is still available.",
+      "expiredCta": "Choose dates again"
+    },
+    "confirmation": {
+      "metaTitle": "Booking confirmed",
+      "title": "Thank you, {name}! Your booking is confirmed",
+      "reference": "Booking number",
+      "referenceHint": "Please quote this number if you contact us.",
+      "nextTitle": "What happens next?",
+      "next1": "Bring your driving licence and a payment card for the deposit.",
+      "next2": "Come to {location} at the pick-up time.",
+      "next2Delivery": "We bring the car to your address at the agreed time.",
+      "next3": "We go through the car with you before you drive off.",
+      "calendar": "Add to calendar",
+      "calendarTitle": "Car rental: {car} ({reference})",
+      "whatsapp": "Message us on WhatsApp",
+      "whatsappPrefill": "Hi, I have a question about my booking {reference}.",
+      "createAccount": "Create an account to see all your bookings in one place.",
+      "createAccountCta": "Create account",
+      "refundedTitle": "Sorry, the car was no longer available",
+      "refundedBody": "Your payment has been refunded in full. It may take a few days before the money is back in your account. Message us and we'll find you another car.",
+      "pendingTitle": "We're waiting for the payment to be confirmed",
+      "pendingBody": "This usually only takes a moment. The page updates itself.",
+      "failedTitle": "The payment didn't go through",
+      "failedBody": "The car is still reserved for you for a short while. Try paying again.",
+      "retry": "Try paying again"
+    }
   }
 }

@@ -47,7 +47,7 @@ function parseCreate(request: CreateBookingRequest) {
  */
 export async function createBooking(
   request: CreateBookingRequest,
-  context: { userId?: string | null; now?: Date } = {},
+  context: { userId?: string | null; now?: Date; termsVersion?: string | null } = {},
 ): Promise<CreatedBooking> {
   const input = parseCreate(request);
   const now = context.now ?? new Date();
@@ -116,6 +116,7 @@ export async function createBooking(
               manageTokenHash: manage?.hash ?? null,
               expiresAt: new Date(now.getTime() + rentalRules.reservationMinutes * MINUTE),
               discountId,
+              termsVersion: context.termsVersion ?? null,
               idempotencyKey: input.idempotencyKey ?? null,
               items: { create: items },
               statusEvents: {
