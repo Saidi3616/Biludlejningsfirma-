@@ -91,6 +91,7 @@ test.describe("roller", () => {
     await logIn(page, e2eUsers.staff.email, "/admin");
     await expect(page).toHaveURL(/\/admin$/);
     await expect(page.getByText("Din rolle: Medarbejder")).toBeVisible();
+    await page.getByRole("link", { name: "Sikkerhed" }).click();
     const refund = page.getByRole("row", { name: /Refundere betalinger/ });
     await expect(refund.getByRole("cell").nth(1)).toHaveText("Nej");
     const bookings = page.getByRole("row", { name: /Se bookinger og kalender/ });

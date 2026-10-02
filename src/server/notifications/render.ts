@@ -48,13 +48,18 @@ type Content = {
 
 export type RenderedNotification = { email: Email; whatsappParameters: string[] };
 
+/** Tekster til beskeder på kundens sprog (også fritekstbeskeder fra admin). */
+export function notificationTranslator(locale: Locale) {
+  return createTranslator({ locale, messages: messages[locale], namespace: "notifications" });
+}
+
 export function renderNotification(
   template: NotificationTemplate,
   locale: Locale,
   ctx: NotificationContext,
   baseUrl: string,
 ): RenderedNotification {
-  const t = createTranslator({ locale, messages: messages[locale], namespace: "notifications" });
+  const t = notificationTranslator(locale);
   const money = (amount: number) => formatMoney(amount, ctx.currency, locale);
   const pickupTime = formatDateTime(ctx.pickupAt, locale, ctx.pickupLocation.timezone);
   const returnTime = formatDateTime(ctx.returnAt, locale, ctx.returnLocation.timezone);

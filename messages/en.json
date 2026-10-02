@@ -285,7 +285,10 @@
     "nav": {
       "label": "Admin menu",
       "dashboard": "Overview",
-      "security": "Security"
+      "security": "Security",
+      "calendar": "Calendar",
+      "bookings": "Bookings",
+      "customers": "Customers"
     },
     "toSite": "Go to website",
     "roles": {
@@ -296,7 +299,6 @@
     },
     "dashboard": {
       "title": "Overview",
-      "intro": "The admin panel is built in the next milestones. Here you can see what your role gives access to.",
       "role": "Your role: {role}",
       "permissionsTitle": "Access for your role",
       "permission": "Action",
@@ -325,6 +327,43 @@
         "gdpr:anonymize": "Anonymise customers",
         "users:manage": "Manage staff and roles",
         "settings:write": "Change settings"
+      },
+      "location": "Location",
+      "allLocations": "All locations",
+      "show": "Show",
+      "counts": {
+        "pickups": "Pickups today",
+        "returns": "Returns today",
+        "active": "On rent now",
+        "available": "Available cars",
+        "inService": "In the workshop"
+      },
+      "attentionTitle": "Needs action",
+      "attention": {
+        "unpaid": "{count} unpaid bookings",
+        "pendingRefunds": "{count} refunds pending",
+        "failedNotifications": "{count} messages failed to send",
+        "newMessages": "{count} new enquiries"
+      },
+      "todayTitle": "Today",
+      "todayEmpty": "No pickups or returns today.",
+      "columns": {
+        "time": "Time",
+        "what": "What",
+        "booking": "Booking",
+        "customer": "Customer",
+        "car": "Car",
+        "status": "Status"
+      },
+      "kind": {
+        "pickup": "Pickup",
+        "return": "Return"
+      },
+      "kpiTitle": "This month",
+      "kpi": {
+        "revenue": "Revenue",
+        "outstanding": "Outstanding",
+        "newCustomers": "New customers"
       }
     },
     "security": {
@@ -341,6 +380,198 @@
       "backupTitle": "Save your backup codes",
       "backupBody": "Each code works once if you lose your phone. Keep them somewhere safe. They are only shown now.",
       "done": "I have saved the codes"
+    },
+    "bookings": {
+      "title": "Bookings",
+      "search": "Search",
+      "searchHint": "Booking number, name, email, phone or registration.",
+      "status": "Status",
+      "allStatuses": "All (except expired)",
+      "location": "Location",
+      "allLocations": "All locations",
+      "submit": "Search",
+      "count": "{count, plural, one {# booking} other {# bookings}}",
+      "empty": "No bookings match the search.",
+      "columns": {
+        "reference": "Booking",
+        "customer": "Customer",
+        "car": "Car",
+        "period": "Period",
+        "status": "Status",
+        "total": "Amount"
+      },
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {page} of {pages}"
+    },
+    "booking": {
+      "back": "All bookings",
+      "title": "Booking {reference}",
+      "created": "Created {date}",
+      "rentalTitle": "Rental",
+      "car": "Car",
+      "fulfilment": "Handover",
+      "delivery": "Delivery to {address}",
+      "pickupAtOffice": "Pickup at the office",
+      "pickup": "Pickup",
+      "return": "Return",
+      "discount": "Discount code",
+      "deposit": "Deposit",
+      "depositStatus": {
+        "NOT_REQUIRED": "Not required",
+        "PENDING": "Pending",
+        "HELD": "Held",
+        "CAPTURED": "Captured",
+        "RELEASED": "Released"
+      },
+      "total": "Total",
+      "paymentsTitle": "Payments",
+      "noPayments": "No payments yet.",
+      "columns": {
+        "date": "Date",
+        "kind": "Type",
+        "status": "Status",
+        "method": "Method",
+        "amount": "Amount"
+      },
+      "paymentKinds": {
+        "CHARGE": "Payment",
+        "DEPOSIT_HOLD": "Deposit held",
+        "DEPOSIT_CAPTURE": "Deposit captured",
+        "REFUND": "Refund",
+        "MANUAL": "Manual payment"
+      },
+      "paymentStatus": {
+        "PENDING": "Pending",
+        "REQUIRES_ACTION": "Requires action",
+        "SUCCEEDED": "Succeeded",
+        "FAILED": "Failed",
+        "CANCELLED": "Cancelled"
+      },
+      "methods": {
+        "CARD": "Card",
+        "MOBILEPAY": "MobilePay",
+        "APPLE_PAY": "Apple Pay",
+        "GOOGLE_PAY": "Google Pay",
+        "CASH": "Cash",
+        "BANK_TRANSFER": "Bank transfer"
+      },
+      "historyTitle": "History",
+      "system": "System",
+      "messagesTitle": "Messages and notifications",
+      "noMessages": "No messages yet.",
+      "channels": {
+        "CONTACT_FORM": "Contact form",
+        "EMAIL": "Email",
+        "WHATSAPP": "WhatsApp",
+        "SMS": "SMS",
+        "PHONE_NOTE": "Phone note"
+      },
+      "direction": {
+        "INBOUND": "From the customer",
+        "OUTBOUND": "To the customer"
+      },
+      "templates": {
+        "BOOKING_CONFIRMED": "Confirmation",
+        "PAYMENT_RECEIVED": "Payment received",
+        "CAR_READY": "Car ready",
+        "PICKUP_REMINDER": "Pickup reminder",
+        "RETURN_REMINDER": "Return reminder",
+        "THANK_YOU": "Thank you",
+        "REVIEW_REQUEST": "Review",
+        "BOOKING_CANCELLED": "Cancellation"
+      },
+      "notificationStatus": {
+        "PENDING": "Scheduled",
+        "SENDING": "Sending",
+        "SENT": "Sent",
+        "FAILED": "Failed",
+        "SKIPPED": "Skipped"
+      },
+      "message": {
+        "title": "Email the customer",
+        "subject": "Subject",
+        "body": "Message",
+        "bodyHint": "Sent in the customer's language template with your text. Never include card details or passwords.",
+        "submit": "Send email",
+        "sent": "The email has been sent.",
+        "error": "The email could not be sent. Try again.",
+        "required": "Required."
+      },
+      "customerTitle": "Customer",
+      "email": "Email",
+      "phone": "Phone",
+      "language": "Language",
+      "account": "Account",
+      "hasAccount": "Has an account",
+      "guest": "Guest",
+      "whatsappPrefill": "Hi {name}, this is the rental company about your booking {reference}.",
+      "call": "Call",
+      "whatsapp": "WhatsApp",
+      "sendEmail": "Write email"
+    },
+    "customers": {
+      "title": "Customers",
+      "search": "Search",
+      "searchHint": "Name, email or phone.",
+      "submit": "Search",
+      "count": "{count, plural, one {# customer} other {# customers}}",
+      "empty": "No customers match the search.",
+      "columns": {
+        "name": "Name",
+        "contact": "Contact",
+        "bookings": "Bookings",
+        "account": "Account",
+        "created": "Created"
+      },
+      "anonymized": "Anonymised",
+      "hasAccount": "Has an account",
+      "guest": "Guest",
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {page} of {pages}"
+    },
+    "customer": {
+      "metaTitle": "Customer",
+      "back": "All customers",
+      "anonymized": "This customer has been anonymised.",
+      "bookingsTitle": "Bookings ({count})",
+      "noBookings": "No bookings.",
+      "columns": {
+        "reference": "Booking",
+        "car": "Car",
+        "pickup": "Pickup",
+        "status": "Status",
+        "total": "Amount"
+      },
+      "messagesTitle": "Latest messages",
+      "noMessages": "No messages.",
+      "profileTitle": "Details",
+      "lastLogin": "Last signed in {date}",
+      "created": "Created",
+      "whatsappPrefill": "Hi {name}, this is the rental company."
+    },
+    "calendar": {
+      "title": "Calendar",
+      "location": "Location",
+      "allLocations": "All locations",
+      "range": "Period",
+      "week": "1 week",
+      "twoWeeks": "2 weeks",
+      "show": "Show",
+      "previous": "Previous",
+      "next": "Next",
+      "period": "{from} to {to}",
+      "car": "Car",
+      "empty": "No cars at this location.",
+      "legend": "Each row is a car. Bookings and workshop visits span the days the car is taken.",
+      "maintenance": {
+        "SERVICE": "Service",
+        "INSPECTION_SYN": "Inspection",
+        "TYRES": "Tyre change",
+        "REPAIR": "Repair",
+        "CLEANING": "Cleaning"
+      }
     }
   },
   "email": {

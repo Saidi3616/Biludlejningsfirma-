@@ -116,6 +116,13 @@ Forretningslogik hører til i `src/server`, aldrig i komponenter. Se [09-mappest
 - Annullering følger `cancellationPolicy` i `src/config/rental.ts` (forslag, skal godkendes af virksomheden). Kunden ser beløbet, før annulleringen bekræftes. Fejler refusionen hos Stripe, står den som ventende til personalet.
 - Kvitteringen (`/booking/<reference>/receipt`) kan printes eller gemmes som PDF.
 
+### Admin
+
+- `/admin` er dagens overblik i dansk tid: afhentninger og afleveringer, ledige biler, ting der kræver handling (ubetalte bookinger, ventende refusioner, fejlede beskeder, nye henvendelser) og, for ledere, månedens omsætning.
+- `/admin/bookings` søger på bookingnummer, navn, e-mail, telefon og nummerplade. Bookingdetaljen viser linjer, betalinger, historik og beskeder, og medarbejderen kan ringe, skrive på WhatsApp eller sende en e-mail til kunden. Sendte e-mails gemmes i kommunikationsloggen og i audit-loggen.
+- `/admin/customers` viser kunder og deres bookinger; `/admin/calendar` viser hver bil som en række med bookinger og værkstedsbesøg for 1 eller 2 uger.
+- Adgang styres af rollerne i `src/server/auth/policies.ts`; admin er kun på dansk.
+
 ### Designsystem og sprog
 
 - Alle komponenter kan ses på `/styleguide` (ikke tilgængelig i produktion).
