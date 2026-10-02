@@ -10,13 +10,14 @@ test.beforeEach(async ({ page }) => {
 });
 
 test("leder: rabatkode og lokation med åbningstider og zoner", async ({ page }, info) => {
-  await logInAsManager(page, info);
+  await logInAsManager(page, info, "catalog");
   await page.goto("/admin/discounts");
   await expect(page.getByRole("heading", { level: 1, name: "Rabatkoder" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Rabatkoder" })).toHaveAttribute(
     "aria-current",
     "page",
   );
+  await expect(page).toHaveTitle(/Rabatkoder/);
   await expectNoSeriousA11yIssues(page);
 
   // Rabatkode: forkert procent afvises; opret, stop og slet (den er aldrig brugt).
@@ -40,6 +41,7 @@ test("leder: rabatkode og lokation med åbningstider og zoner", async ({ page },
 
   await row.getByRole("link", { name: code }).click();
   await expect(page.getByRole("heading", { level: 1, name: code })).toBeVisible();
+  await expect(page).toHaveTitle(/Ret rabatkode/);
   await expectNoSeriousA11yIssues(page);
   await page.getByRole("checkbox", { name: /^Aktiv/ }).uncheck();
   await page.getByRole("button", { name: "Gem ændringer" }).click();
@@ -53,6 +55,7 @@ test("leder: rabatkode og lokation med åbningstider og zoner", async ({ page },
   // Lokation: opret som lukket for booking, så kunderne aldrig ser den.
   await page.getByRole("link", { name: "Lokationer" }).click();
   await expect(page.getByRole("heading", { level: 1, name: "Lokationer" })).toBeVisible();
+  await expect(page).toHaveTitle(/Lokationer/);
   await expectNoSeriousA11yIssues(page);
   await page.getByRole("link", { name: "Ny lokation" }).click();
   const slug = `e2e-${randomBytes(3).toString("hex")}`;
@@ -75,6 +78,7 @@ test("leder: rabatkode og lokation med åbningstider og zoner", async ({ page },
   await page.getByRole("button", { name: "Opret lokation" }).click();
   await expect(page.getByText("Lokationen er oprettet.")).toBeVisible();
   await expect(page.getByRole("heading", { level: 1, name })).toBeVisible();
+  await expect(page).toHaveTitle(/Ret lokation/);
   await expectNoSeriousA11yIssues(page);
 
   // Åbningstider: hverdage 08–18, søndag lukket.

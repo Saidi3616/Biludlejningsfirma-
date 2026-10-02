@@ -4,10 +4,16 @@ import { E2E_PASSWORD, e2eUsers } from "./users";
 
 /**
  * Logger ind som leder. Ledere skal have 2FA (F11), så første gang slås det til med en kode fra
- * den viste nøgle. Brugeren nulstilles af global-setup før hver kørsel.
+ * den viste nøgle. Brugeren nulstilles af global-setup før hver kørsel. Hver testfil bruger sin
+ * egen leder (`who`), fordi 2FA kun kan slås til én gang pr. kørsel.
  */
-export async function logInAsManager(page: Page, info: TestInfo, next = "/admin") {
-  const user = e2eUsers[info.project.name === "mobile" ? "manager-mobile" : "manager-desktop"];
+export async function logInAsManager(
+  page: Page,
+  info: TestInfo,
+  who: "manager" | "catalog" = "manager",
+  next = "/admin",
+) {
+  const user = e2eUsers[`${who}-${info.project.name === "mobile" ? "mobile" : "desktop"}`];
   await page.goto(`/login?next=${encodeURIComponent(next)}`);
   await page.getByLabel("E-mail").fill(user.email);
   await page.getByLabel("Password").fill(E2E_PASSWORD);

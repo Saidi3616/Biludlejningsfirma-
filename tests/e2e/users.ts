@@ -8,10 +8,16 @@ export const e2eUsers = {
   // Én pr. Playwright-projekt, fordi testen ændrer brugeren (slår 2FA til).
   "2fa-mobile": { email: "e2e-2fa-mobile@example.com", name: "E2E 2FA", role: "SUPER_ADMIN" },
   "2fa-desktop": { email: "e2e-2fa-desktop@example.com", name: "E2E 2FA", role: "SUPER_ADMIN" },
-  // Ledere til lederens sider; testen slår 2FA til, så én pr. projekt.
+  // Ledere til lederens sider; testen slår 2FA til, så én pr. testfil og projekt.
   "manager-mobile": { email: "e2e-manager-mobile@example.com", name: "E2E Leder", role: "MANAGER" },
   "manager-desktop": {
     email: "e2e-manager-desktop@example.com",
+    name: "E2E Leder",
+    role: "MANAGER",
+  },
+  "catalog-mobile": { email: "e2e-catalog-mobile@example.com", name: "E2E Leder", role: "MANAGER" },
+  "catalog-desktop": {
+    email: "e2e-catalog-desktop@example.com",
     name: "E2E Leder",
     role: "MANAGER",
   },
