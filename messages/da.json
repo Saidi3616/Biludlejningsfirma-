@@ -765,5 +765,53 @@
       "failedBody": "Bilen er stadig reserveret til dig et kort øjeblik. Prøv at betale igen.",
       "retry": "Prøv at betale igen"
     }
+  },
+  "notifications": {
+    "common": {
+      "greeting": "Hej {name}",
+      "signature": "Venlig hilsen {company}",
+      "footer": "Du får denne besked, fordi du har booket en bil hos {company}.",
+      "reference": "Bookingnummer",
+      "car": "Bil",
+      "pickup": "Afhentning",
+      "return": "Aflevering",
+      "paid": "Betalt",
+      "bring": "Husk dit kørekort, når du henter bilen.",
+      "bringWithDeposit": "Husk dit kørekort og et betalingskort til depositummet på {deposit}, når du henter bilen.",
+      "questions": "Har du spørgsmål, så skriv til os på WhatsApp, eller svar på denne e-mail.",
+      "whatsappButton": "Skriv til os på WhatsApp",
+      "whatsappPrefill": "Hej, jeg har et spørgsmål om min booking {reference}."
+    },
+    "BOOKING_CONFIRMED": {
+      "subject": "Din booking {reference} er bekræftet",
+      "intro": "Tak for din booking. Vi har modtaget din betaling på {amount}, og bilen er reserveret til dig."
+    },
+    "PAYMENT_RECEIVED": {
+      "subject": "Vi har modtaget din betaling",
+      "intro": "Vi har modtaget {amount} for booking {reference}. Tak!"
+    },
+    "CAR_READY": {
+      "subject": "Din bil er klar",
+      "intro": "Din {car} er gjort klar og venter på dig."
+    },
+    "PICKUP_REMINDER": {
+      "subject": "Påmindelse: du henter din bil snart",
+      "intro": "Om under et døgn skal du hente din bil. Her er det vigtigste."
+    },
+    "RETURN_REMINDER": {
+      "subject": "Din lejeperiode udløber snart",
+      "intro": "Husk at aflevere bilen {time} hos {location}.",
+      "fuel": "Aflever bilen med samme mængde brændstof eller strøm, som da du hentede den."
+    },
+    "THANK_YOU": {
+      "subject": "Tak fordi du lejede bil hos os",
+      "intro": "Bilen er afleveret, og din leje er afsluttet. Tak for denne gang!",
+      "deposit": "Et eventuelt depositum frigives inden for få dage."
+    },
+    "REVIEW_REQUEST": {
+      "subject": "Hvordan var din oplevelse?",
+      "intro": "Vi vil meget gerne høre, hvordan din leje gik. Det tager under et minut.",
+      "button": "Giv en bedømmelse"
+    }
   }
 }

@@ -67,6 +67,11 @@ export function captureEmails(): Email[] {
   return outbox;
 }
 
+/** Kun til tests: en anden transport (fx en, der fejler), eller undefined for den normale. */
+export function useEmailTransportForTests(transport: EmailTransport | undefined) {
+  override = transport;
+}
+
 export async function sendEmail(email: Email): Promise<void> {
   const from = serverEnv().EMAIL_FROM ?? "Biludlejning <noreply@example.com>";
   const active = transport();

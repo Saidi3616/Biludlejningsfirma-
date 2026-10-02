@@ -765,5 +765,53 @@
       "failedBody": "La voiture vous est encore réservée pendant un court moment. Réessayez de payer.",
       "retry": "Réessayer de payer"
     }
+  },
+  "notifications": {
+    "common": {
+      "greeting": "Bonjour {name}",
+      "signature": "Cordialement, {company}",
+      "footer": "Vous recevez ce message parce que vous avez réservé une voiture chez {company}.",
+      "reference": "Numéro de réservation",
+      "car": "Voiture",
+      "pickup": "Prise en charge",
+      "return": "Restitution",
+      "paid": "Payé",
+      "bring": "N'oubliez pas votre permis de conduire lors de la prise en charge.",
+      "bringWithDeposit": "N'oubliez pas votre permis de conduire et une carte de paiement pour la caution de {deposit} lors de la prise en charge.",
+      "questions": "Pour toute question, écrivez-nous sur WhatsApp ou répondez à cet e-mail.",
+      "whatsappButton": "Écrivez-nous sur WhatsApp",
+      "whatsappPrefill": "Bonjour, j'ai une question sur ma réservation {reference}."
+    },
+    "BOOKING_CONFIRMED": {
+      "subject": "Votre réservation {reference} est confirmée",
+      "intro": "Merci pour votre réservation. Nous avons reçu votre paiement de {amount} et la voiture vous est réservée."
+    },
+    "PAYMENT_RECEIVED": {
+      "subject": "Nous avons reçu votre paiement",
+      "intro": "Nous avons reçu {amount} pour la réservation {reference}. Merci !"
+    },
+    "CAR_READY": {
+      "subject": "Votre voiture est prête",
+      "intro": "Votre {car} a été préparée et vous attend."
+    },
+    "PICKUP_REMINDER": {
+      "subject": "Rappel : vous récupérez bientôt votre voiture",
+      "intro": "Dans moins de 24 heures, vous récupérez votre voiture. Voici l'essentiel."
+    },
+    "RETURN_REMINDER": {
+      "subject": "Votre location se termine bientôt",
+      "intro": "Pensez à rendre la voiture le {time} chez {location}.",
+      "fuel": "Rendez la voiture avec le même niveau de carburant ou de charge qu'au départ."
+    },
+    "THANK_YOU": {
+      "subject": "Merci d'avoir loué chez nous",
+      "intro": "La voiture a été rendue et votre location est terminée. Merci !",
+      "deposit": "La caution éventuelle sera libérée sous quelques jours."
+    },
+    "REVIEW_REQUEST": {
+      "subject": "Comment s'est passée votre location ?",
+      "intro": "Nous aimerions savoir comment s'est passée votre location. Cela prend moins d'une minute.",
+      "button": "Donner un avis"
+    }
   }
 }

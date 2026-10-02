@@ -39,7 +39,7 @@
 │   │   │   ├── v1/                   # REST (route handlers — tynde, kalder services)
 │   │   │   ├── auth/[...all]/        # auth-bibliotekets handler
 │   │   │   ├── webhooks/{stripe,whatsapp,email}/
-│   │   │   └── cron/                 # notifications, expire-reservations, reminders, ...
+│   │   │   └── cron/                 # notifications, expire-reservations, ...
 │   │   ├── sitemap.ts
 │   │   ├── robots.ts
 │   │   └── manifest.ts

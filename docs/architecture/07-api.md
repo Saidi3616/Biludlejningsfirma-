@@ -114,9 +114,8 @@ Alle webhooks: verificér signatur → gem event-id i `PROCESSED_WEBHOOK` (idemp
 
 | Path | Interval | Opgave |
 |---|---|---|
-| `/api/cron/notifications` | hvert minut | Send pending notifikationer (retry med backoff, maks. 5 forsøg, derefter FAILED + admin-alarm) |
+| `/api/cron/notifications` | hvert minut | Send pending notifikationer, hvis `scheduled_at` er nået (retry med backoff, maks. 5 forsøg, derefter FAILED + admin-alarm) |
 | `/api/cron/expire-reservations` | hvert minut | `PENDING_PAYMENT` med `expires_at < now()` → `EXPIRED`, bil frigives |
-| `/api/cron/schedule-reminders` | hvert 15. min | Opret påmindelser (24 t før afhentning, før aflevering, anmeldelsesanmodning) med `dedupe_key` |
 | `/api/cron/exchange-rates` | dagligt | Hent valutakurser |
 | `/api/cron/retention` | dagligt | Slet dokumenter efter `delete_after`, rydning af gamle sessions |
 | `/api/cron/fleet-alerts` | dagligt | Syn, forsikring, service forfalder → admin-notifikation |
@@ -124,15 +123,12 @@ Alle webhooks: verificér signatur → gem event-id i `PROCESSED_WEBHOOK` (idemp
 ## Interne service-interfaces (eksempler)
 
 ```ts
-// src/server/notifications/notification-service.ts
-NotificationService.sendBookingConfirmation(bookingId)
-NotificationService.sendPaymentConfirmation(bookingId)
-NotificationService.sendCarReady(bookingId)
-NotificationService.sendPickupReminder(bookingId)
-NotificationService.sendReturnReminder(bookingId)
-NotificationService.sendThankYou(bookingId)
-NotificationService.sendReviewRequest(bookingId)
-// Hver metode skriver NOTIFICATION-rækker (én pr. kanal kunden har) — selve afsendelsen sker i cron.
+// src/server/notifications/queue.ts
+queueBookingNotification(tx, bookingId, template, { scheduledAt })
+// Skriver NOTIFICATION-rækker (én pr. kanal kunden har, unik dedupe_key) i samme transaktion som statusskiftet.
+// Bekræftelse: BOOKING_CONFIRMED nu + PICKUP_REMINDER (24 t før) + RETURN_REMINDER (3 t før) med scheduled_at.
+// Afsluttet: THANK_YOU nu + REVIEW_REQUEST (24 t efter). Er bookingen ændret, når tiden kommer,
+// springes beskeden over (tilladte statusser pr. skabelon i templates.ts). Afsendelsen sker i cron.
 
 interface MessageChannel {
   readonly channel: 'EMAIL' | 'WHATSAPP' | 'SMS';
