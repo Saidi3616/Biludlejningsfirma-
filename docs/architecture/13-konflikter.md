@@ -25,6 +25,8 @@ UI viser begge som badges. Kunden ser den forventede liste (fx "Bekræftet · Be
 - Afrunding til hele kroner.
 Virksomheden skal bekræfte reglen.
 
+> **Implementeret (M4)** i `src/server/pricing/ladder.ts`. Præcis en pakkes antal dage koster altid pakkeprisen. Ellers er prisen dage × trappens dagspris, rundet til hele kroner og loftet af den billigste større pakke. En lejedag er påbegyndte 24 timer målt på lokationens lokale ur (så sommertid ikke ændrer prisen) med 59 minutters tolerance; begge tal står i `src/config/rental.ts`, indtil virksomheden har bekræftet dem (se [14](14-manglende-info.md), punkt 14). Rabatkoder giver rabat på leje og ekstraudstyr, ikke på leverings- og one-way-gebyrer.
+
 ## K4. Priser pr. bil eller pr. kategori
 
 **Konflikt:** §8 siger "en bil kan have dagspris…", men eksemplet er pr. kategori ("Economy").

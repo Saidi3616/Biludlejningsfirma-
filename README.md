@@ -63,6 +63,12 @@ Forretningslogik hører til i `src/server`, aldrig i komponenter. Se [09-mappest
 - Lokalt: sæt `SEED_ADMIN_PASSWORD` i `.env` og kør `pnpm db:seed`. Så kan du logge ind som `admin@example.com`, `manager@example.com`, `staff@example.com` og `kunde@example.com` med det password.
 - E-mails (bekræftelse, nulstilling) sendes lokalt til Mailpit, når `SMTP_URL` er sat: se dem på http://localhost:8025. Uden `SMTP_URL` sendes intet lokalt. Uden for `local` kræves `EMAIL_API_KEY` (Resend) og `AUTH_SECRET`.
 
+### Priser
+
+- Al prisberegning sker i én ren funktion, `quote()` i `src/server/pricing/quote.ts`. `getQuote()` i `service.ts` henter data fra databasen og kalder den.
+- Regler, som virksomheden skal bekræfte (tolerance for sen aflevering, længste leje, grænse for depositum-hold, moms), står i `src/config/rental.ts`.
+- Pristrappen, sommertid og alle grænsetilfælde er dækket af `tests/unit/pricing.test.ts` og `tests/unit/dates.test.ts`.
+
 ### Designsystem og sprog
 
 - Alle komponenter kan ses på `/styleguide` (ikke tilgængelig i produktion).
