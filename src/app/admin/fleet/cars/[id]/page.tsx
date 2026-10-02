@@ -11,6 +11,7 @@ import { Field } from "@/components/ui/field";
 import { Input, Textarea } from "@/components/ui/input";
 import { Price } from "@/components/ui/price";
 import { Select } from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
 import { StatusBadge } from "@/components/ui/status-badge";
 import { Table, TD, TH, THead, TR } from "@/components/ui/table";
 import { CarForm } from "@/components/features/admin/car-form";
@@ -21,6 +22,8 @@ import { addDaysToKey, localDateKey } from "@/lib/dates";
 import { AppError } from "@/lib/errors";
 import { formatDate, formatDateTime, minorToInput } from "@/lib/format";
 import { adminCar, carFormOptions } from "@/server/admin/fleet";
+import { carHistory } from "@/server/inspections/service";
+import { damageRepairedAction } from "@/app/admin/inspections/actions";
 import { can } from "@/server/auth/policies";
 import { getPolicyContext, requirePermission } from "@/server/auth/session";
 import {
@@ -51,6 +54,7 @@ const NOTICES = [
   "odometerSaved",
   "maintenanceAdded",
   "maintenanceUpdated",
+  "damageRepaired",
   "invalid",
   "odometerDown",
   "endBeforeStart",
@@ -71,6 +75,7 @@ const SUCCESS: Notice[] = [
   "odometerSaved",
   "maintenanceAdded",
   "maintenanceUpdated",
+  "damageRepaired",
 ];
 
 const NEXT_STATUS = {
@@ -99,13 +104,21 @@ export default async function AdminCarPage({
     if (error instanceof AppError && error.code === "NOT_FOUND") notFound();
     throw error;
   }
-  const [t, tStatus, tType, tMaintenance, options] = await Promise.all([
-    getTranslations("admin.fleet"),
-    getTranslations("admin.fleet.opStatus"),
-    getTranslations("admin.fleet.maintenance.types"),
-    getTranslations("admin.fleet.maintenance.statuses"),
-    carFormOptions(ctx),
-  ]);
+  const [t, tStatus, tType, tMaintenance, options, history, tArea, tSeverity, tInspection] =
+    await Promise.all([
+      getTranslations("admin.fleet"),
+      getTranslations("admin.fleet.opStatus"),
+      getTranslations("admin.fleet.maintenance.types"),
+      getTranslations("admin.fleet.maintenance.statuses"),
+      carFormOptions(ctx),
+      carHistory(ctx, id),
+      getTranslations("admin.damage.areas"),
+      getTranslations("admin.damage.severities"),
+      getTranslations("admin.inspection.types"),
+    ]);
+  const tAdmin = await getTranslations("admin");
+  const canDamage = can(ctx, "damage:write");
+  const canInspect = can(ctx, "inspection:write");
   const zone = car.homeLocation.timezone;
   const notice = NOTICES.find((value) => value === search.notice) ?? null;
   const refs =
@@ -174,7 +187,7 @@ export default async function AdminCarPage({
         ) : (
           <>
             <p className="text-sm text-muted">{t("car.bookingsHint")}</p>
-            <Table label={t("car.bookings")} className="bg-white">
+            <Table label={tAdmin("tableLabel", { name: t("car.bookings") })} className="bg-white">
               <THead>
                 <TR>
                   <TH>{t("car.columns.reference")}</TH>
@@ -276,7 +289,10 @@ export default async function AdminCarPage({
         {car.maintenance.length === 0 ? (
           <EmptyState title={t("maintenance.empty")} />
         ) : (
-          <Table label={t("maintenance.title")} className="bg-white">
+          <Table
+            label={tAdmin("tableLabel", { name: t("maintenance.title") })}
+            className="bg-white"
+          >
             <THead>
               <TR>
                 <TH>{t("maintenance.columns.type")}</TH>
@@ -404,6 +420,75 @@ export default async function AdminCarPage({
           </Card>
         ) : null}
       </section>
+
+      <section aria-labelledby="damages" className="flex flex-col gap-3">
+        <h2 id="damages" className="text-lg font-semibold text-ink-900">
+          {t("car.damages")}
+        </h2>
+        {history.damages.length === 0 ? (
+          <EmptyState title={t("car.noDamages")} />
+        ) : (
+          <ul className="flex flex-col gap-2">
+            {history.damages.map((damage) => (
+              <li
+                key={damage.id}
+                className="flex flex-wrap items-center gap-2 rounded-md border border-border bg-white p-3"
+              >
+                <Badge tone={damage.repairedAt ? "success" : "warning"}>
+                  {tArea(damage.area as "front")}
+                </Badge>
+                <Badge>{tSeverity(damage.severity)}</Badge>
+                <span className="min-w-0 flex-1 text-ink-900">
+                  {damage.description}
+                  <span className="block text-sm text-muted">
+                    {formatDate(damage.createdAt, "da", zone)}
+                    {damage.booking ? ` · ${damage.booking.reference}` : ""}
+                    {damage.repairedAt
+                      ? ` · ${t("car.repairedOn", { date: formatDate(damage.repairedAt, "da", zone) })}`
+                      : ""}
+                  </span>
+                </span>
+                {canDamage && damage.repairedAt === null ? (
+                  <form action={damageRepairedAction}>
+                    <input type="hidden" name="damageId" value={damage.id} />
+                    <input type="hidden" name="returnTo" value={`/admin/fleet/cars/${car.id}`} />
+                    <Button type="submit" size="sm" variant="secondary">
+                      {t("car.markRepaired")}
+                    </Button>
+                  </form>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+
+      {history.inspections.length > 0 ? (
+        <section aria-labelledby="inspections" className="flex flex-col gap-3">
+          <h2 id="inspections" className="text-lg font-semibold text-ink-900">
+            {t("car.inspections")}
+          </h2>
+          <ul className="flex flex-col gap-1 text-sm">
+            {history.inspections.map((inspection) => (
+              <li key={inspection.id}>
+                {canInspect ? (
+                  <Link
+                    href={`/admin/inspections/${inspection.id}`}
+                    className="font-medium text-brand-700 underline"
+                  >
+                    {tInspection(inspection.type)}
+                  </Link>
+                ) : (
+                  <span className="font-medium">{tInspection(inspection.type)}</span>
+                )}{" "}
+                · {formatDateTime(inspection.performedAt, "da", zone)} ·{" "}
+                {t("km", { km: inspection.odometerKm })}
+                {inspection.booking ? ` · ${inspection.booking.reference}` : ""}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
       <section aria-labelledby="details" className="flex flex-col gap-3">
         <h2 id="details" className="text-lg font-semibold text-ink-900">

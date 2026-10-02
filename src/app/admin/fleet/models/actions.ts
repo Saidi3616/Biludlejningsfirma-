@@ -4,7 +4,14 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { AppError } from "@/lib/errors";
 import { logger } from "@/lib/logger";
-import { createModel, updateModel } from "@/server/admin/models";
+import type { PhotoUploadResult } from "@/components/features/admin/photo-upload";
+import {
+  addModelImage,
+  createModel,
+  deleteModelImage,
+  makeModelImageFirst,
+  updateModel,
+} from "@/server/admin/models";
 import { getPolicyContext } from "@/server/auth/session";
 
 const MODEL_FIELDS = [
@@ -94,4 +101,59 @@ export async function updateModelAction(
   }
   revalidateCatalog();
   redirect("/admin/fleet/models?notice=saved");
+}
+
+export async function addModelImageAction(formData: FormData): Promise<PhotoUploadResult> {
+  const modelId = String(formData.get("modelId") ?? "");
+  try {
+    const photo = formData.get("photo");
+    if (!(photo instanceof Blob)) {
+      throw new AppError("VALIDATION_FAILED", "Intet billede", { reason: "NOT_IMAGE" });
+    }
+    await addModelImage(
+      await getPolicyContext(),
+      modelId,
+      new Uint8Array(await photo.arrayBuffer()),
+    );
+  } catch (error) {
+    if (error instanceof AppError) {
+      if (error.details?.reason === "TOO_LARGE") return { ok: false, error: "tooLarge" };
+      if (error.details?.reason === "NOT_IMAGE") return { ok: false, error: "notImage" };
+      if (error.details?.reason === "TOO_MANY") return { ok: false, error: "tooMany" };
+      if (error.code === "FORBIDDEN" || error.code === "UNAUTHENTICATED") {
+        return { ok: false, error: "forbidden" };
+      }
+    }
+    logger.error({ err: error }, "model image upload failed");
+    return { ok: false, error: "failed" };
+  }
+  revalidateCatalog();
+  revalidatePath(`/admin/fleet/models/${modelId}`);
+  return { ok: true };
+}
+
+async function imageAction(
+  formData: FormData,
+  run: (ctx: Awaited<ReturnType<typeof getPolicyContext>>, imageId: string) => Promise<unknown>,
+  success: string,
+): Promise<never> {
+  const modelId = String(formData.get("modelId") ?? "");
+  if (!/^[0-9a-f-]{36}$/.test(modelId)) redirect("/admin/fleet/models");
+  let notice = success;
+  try {
+    await run(await getPolicyContext(), String(formData.get("imageId") ?? ""));
+  } catch (error) {
+    if (!(error instanceof AppError)) logger.error({ err: error }, "model image action failed");
+    notice = error instanceof AppError && error.code === "FORBIDDEN" ? "forbidden" : "failed";
+  }
+  revalidateCatalog();
+  redirect(`/admin/fleet/models/${modelId}?notice=${notice}#images`);
+}
+
+export async function deleteModelImageAction(formData: FormData) {
+  await imageAction(formData, deleteModelImage, "imageDeleted");
+}
+
+export async function firstModelImageAction(formData: FormData) {
+  await imageAction(formData, makeModelImageFirst, "imageFirst");
 }

@@ -64,3 +64,5 @@ Markeret med **🔴 blokerer** (skal afklares før den relevante milestone), **�
 | 36 | Google Cloud-konto til Maps | 🟡 |
 | 37 | Privatlivspolitik, cookiepolitik og databehandleraftaler — juridisk gennemgang | 🔴 før launch |
 | 38 | Budget for drift (hosting, Stripe-gebyrer, WhatsApp pr. besked, Maps) — estimat leveres separat | 🟡 |
+| 39 | Opret Cloudflare R2 (EU) eller AWS S3 med en privat og en offentlig bucket til fotos og dokumenter; nøgler sættes hos hostingen | 🔴 før launch |
+| 40 | Hvor mange fotos skal tages ved udlevering/aflevering, og hvor længe gemmes de? | 🟡 (GDPR) |

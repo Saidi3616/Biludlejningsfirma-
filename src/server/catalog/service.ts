@@ -3,6 +3,7 @@ import type { Fuel, Transmission } from "@/generated/prisma/client";
 import { fromLocal, localDateKey } from "@/lib/dates";
 import { AppError } from "@/lib/errors";
 import { localized } from "@/lib/localized";
+import { mediaUrl } from "@/lib/media";
 import { hasPeriod, type CarSearch } from "@/lib/validation/search";
 import { checkAvailability, searchAvailability } from "@/server/availability/service";
 import { db } from "@/server/db";
@@ -41,6 +42,8 @@ export type CatalogCar = {
   isFeatured: boolean;
   /** Prisen for én dag i dag. Vises som "fra X kr./dag". */
   fromPerDayMinor: number;
+  /** Modellens første billede, eller null (så vises en pladsholder). */
+  image: { url: string; alt: string } | null;
 };
 
 export type SearchedCar = CatalogCar & { quote: Quote; freeCars: number };
@@ -80,6 +83,7 @@ async function loadModels(where: { slug?: string } = {}) {
     include: {
       category: { include: { pricingRules: true } },
       pricingRules: true,
+      images: { orderBy: [{ sortOrder: "asc" }, { id: "asc" }], take: 1 },
     },
   });
 }
@@ -113,6 +117,12 @@ function toCatalogCar(row: ModelRow, locale: string, now: Date): CatalogCar | nu
     popularityScore: row.popularityScore,
     isFeatured: row.isFeatured,
     fromPerDayMinor: oneDay.minDays === 1 ? oneDay.packageMinor : oneDay.perDayMinor,
+    image: row.images[0]
+      ? {
+          url: mediaUrl(row.images[0].storageKey),
+          alt: localized(row.images[0].altI18n, locale) || `${row.brand} ${row.model}`,
+        }
+      : null,
   };
 }
 

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ArrowLeft, RotateCcw } from "lucide-react";
+import { ArrowLeft, KeyRound, RotateCcw } from "lucide-react";
 import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -22,6 +22,7 @@ import { netPaidMinor } from "@/lib/payments";
 import { adminBooking, type AdminBooking } from "@/server/admin/bookings";
 import { reassignOptions, reschedulePreview } from "@/server/admin/changes";
 import { adminCancellationPreview } from "@/server/admin/payments";
+import { bookingInspections } from "@/server/inspections/service";
 import { ADMIN_TIME_ZONE } from "@/server/admin/dashboard";
 import { can } from "@/server/auth/policies";
 import { getPolicyContext, requirePermission } from "@/server/auth/session";
@@ -93,8 +94,10 @@ const REASONS = [
   "customer_late",
   "manual_payment",
   "pay_at_counter",
+  "picked_up",
   "rescheduled",
   "reservation_expired",
+  "returned",
 ] as const;
 type Reason = (typeof REASONS)[number];
 
@@ -148,7 +151,7 @@ export default async function AdminBookingPage({
   const canWrite = can(ctx, "booking:write");
   const canRefund = can(ctx, "payment:refund");
   const changeable = ["PENDING_PAYMENT", "CONFIRMED"].includes(booking.status);
-  const [cancel, carOptions, preview] = await Promise.all([
+  const [cancel, carOptions, preview, inspections] = await Promise.all([
     can(ctx, "booking:cancel")
       ? adminCancellationPreview(ctx, booking.id)
       : Promise.resolve({ allowed: false as const }),
@@ -156,10 +159,15 @@ export default async function AdminBookingPage({
     canWrite && changeable
       ? previewFor(ctx, booking.id, search)
       : Promise.resolve({ status: "none" as const }),
+    bookingInspections(ctx, booking.id),
   ]);
+  const canInspect = can(ctx, "inspection:write");
+  const handover =
+    booking.status === "CONFIRMED" ? "pickup" : booking.status === "ACTIVE" ? "return" : null;
   const paidMinor = netPaidMinor(booking.payments);
   const notice = noticeFrom(search.notice);
   const t = await getTranslations("admin.booking");
+  const tAdmin = await getTranslations("admin");
   const tLines = await getTranslations("car.lines");
   const tRental = await getTranslations("booking");
   const zone = booking.pickupLocation.timezone;
@@ -211,6 +219,51 @@ export default async function AdminBookingPage({
         <Alert tone={SUCCESS.includes(notice) ? "success" : "danger"}>
           {t(`actions.notices.${notice}`)}
         </Alert>
+      ) : null}
+
+      {(canInspect && handover) || inspections.length > 0 ? (
+        <section aria-labelledby="handover" className="flex flex-col gap-3">
+          <h2 id="handover" className="text-lg font-semibold text-ink-900">
+            {t("handover.title")}
+          </h2>
+          {canInspect && handover ? (
+            <Button asChild className="self-start">
+              <Link href={`/admin/bookings/${booking.reference}/${handover}`}>
+                <KeyRound aria-hidden />
+                {t(`handover.${handover}`)}
+              </Link>
+            </Button>
+          ) : null}
+          {inspections.length > 0 ? (
+            <ul className="grid gap-3 sm:grid-cols-2">
+              {inspections.map((inspection) => (
+                <li key={inspection.id}>
+                  <Card>
+                    <CardBody className="flex flex-col gap-1 text-sm">
+                      <Link
+                        href={`/admin/inspections/${inspection.id}`}
+                        className="font-semibold text-brand-700 underline"
+                      >
+                        {t(`handover.types.${inspection.type}`)}
+                      </Link>
+                      <span className="text-muted">
+                        {formatDateTime(inspection.performedAt, "da", zone)}
+                      </span>
+                      <span className="text-ink-900">
+                        {t("handover.summary", {
+                          km: inspection.odometerKm,
+                          level: inspection.fuelLevel,
+                          photos: inspection.photos,
+                          damages: inspection.damages,
+                        })}
+                      </span>
+                    </CardBody>
+                  </Card>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </section>
       ) : null}
 
       <div className="grid gap-6 lg:grid-cols-[1fr_22rem] lg:items-start">
@@ -291,7 +344,10 @@ export default async function AdminBookingPage({
             {booking.payments.length === 0 ? (
               <p className="text-muted">{t("noPayments")}</p>
             ) : (
-              <Table label={t("paymentsTitle")} className="bg-white">
+              <Table
+                label={tAdmin("tableLabel", { name: t("paymentsTitle") })}
+                className="bg-white"
+              >
                 <THead>
                   <TR>
                     <TH>{t("columns.date")}</TH>

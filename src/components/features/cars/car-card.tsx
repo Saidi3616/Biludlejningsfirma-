@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Badge } from "@/components/ui/badge";
@@ -29,12 +30,24 @@ export function CarCard({
   const Heading = headingLevel;
   return (
     <article className="group relative flex w-full flex-col overflow-hidden rounded-lg border border-border bg-white shadow-(--shadow-card) transition-shadow hover:shadow-(--shadow-raised)">
-      <ImagePlaceholder
-        subject={t("imagePlaceholder", { name: car.name })}
-        format="professional automotive photography"
-        ratio="16/10"
-        className="rounded-none border-0 border-b"
-      />
+      {car.image ? (
+        <div className="relative aspect-[16/10] border-b border-border bg-ink-50">
+          <Image
+            src={car.image.url}
+            alt={car.image.alt}
+            fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover"
+          />
+        </div>
+      ) : (
+        <ImagePlaceholder
+          subject={t("imagePlaceholder", { name: car.name })}
+          format="professional automotive photography"
+          ratio="16/10"
+          className="rounded-none border-0 border-b"
+        />
+      )}
       <div className="flex flex-1 flex-col gap-3 p-5">
         <div className="flex items-start justify-between gap-3">
           <Heading className="text-lg font-semibold text-ink-900">
