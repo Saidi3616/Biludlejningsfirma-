@@ -211,13 +211,16 @@ describe("afsendelse", () => {
     expect(outbox).toHaveLength(1);
   });
 
-  it("påmindelser til en annulleret booking springes over", async () => {
+  it("påmindelser til en annulleret booking springes over; kunden får en kvittering", async () => {
     const booking = await paidBooking();
     await sendDueNotifications({ now: new Date() });
     await transitionBooking(booking.id, "CANCELLED", { now });
     const result = await sendDueNotifications({ now: new Date(returnAt.getTime()) });
-    expect(result).toMatchObject({ sent: 0, skipped: 2 });
-    expect(outbox).toHaveLength(1);
+    expect(result).toMatchObject({ sent: 1, skipped: 2 });
+    expect(outbox.map((email) => email.subject)).toEqual([
+      `Din booking ${booking.reference} er bekræftet`,
+      `Din booking ${booking.reference} er annulleret`,
+    ]);
   });
 
   it("WhatsApp sendes som godkendt skabelon via Cloud API", async () => {

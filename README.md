@@ -107,6 +107,14 @@ Forretningslogik hører til i `src/server`, aldrig i komponenter. Se [09-mappest
   - `return_reminder`: fornavn, afleveringstid, afleveringssted
   - `thank_you`: fornavn
   - `review_request`: fornavn, link til anmeldelse
+  - `booking_cancelled`: fornavn, bookingnummer, refusionsbeløb
+
+### Min konto og annullering
+
+- `/account` viser kundens bookinger, `/account/payments` betalinger og refusioner, `/account/profile` navn, mobilnummer og sprog. Gæstebookinger med samme e-mail knyttes automatisk til kontoen, når kunden logger ind (e-mailen er verificeret).
+- Gæster får et link i e-mailen (`/booking/manage/<token>`). Tokenet er signeret med `AUTH_SECRET`; kun hashen gemmes på bookingen. Linket giver adgang i browseren og sender videre til `/booking/<reference>`.
+- Annullering følger `cancellationPolicy` i `src/config/rental.ts` (forslag, skal godkendes af virksomheden). Kunden ser beløbet, før annulleringen bekræftes. Fejler refusionen hos Stripe, står den som ventende til personalet.
+- Kvitteringen (`/booking/<reference>/receipt`) kan printes eller gemmes som PDF.
 
 ### Designsystem og sprog
 

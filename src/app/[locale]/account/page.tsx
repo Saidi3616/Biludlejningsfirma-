@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { CalendarX } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import { localizedPath } from "@/i18n/paths";
 import type { Locale } from "@/i18n/routing";
+import { Button } from "@/components/ui/button";
+import { EmptyState } from "@/components/ui/feedback";
+import { BookingCard } from "@/components/features/account/booking-card";
 import { requireCustomer } from "@/server/auth/session";
-import { Container } from "@/components/ui/layout";
-import { LogoutButton } from "@/components/features/auth/logout-button";
+import { claimGuestBookings, customerBookings } from "@/server/account/service";
+
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
@@ -14,25 +20,65 @@ export async function generateMetadata({
   return { title: t("title"), robots: { index: false } };
 }
 
-// Midlertidig kontoside. Bookinger, betalinger og dokumenter kommer i M9.
+/** Min konto: kommende bookinger øverst, derefter tidligere (05-user-flows.md, E6). */
 export default async function AccountPage({ params }: PageProps<"/[locale]/account">) {
   const { locale } = (await params) as { locale: Locale };
   setRequestLocale(locale);
   const user = await requireCustomer(
     `${localizedPath(locale, "/login")}?next=${localizedPath(locale, "/account")}`,
   );
-  const t = await getTranslations();
+  // Bookinger lavet som gæst med samme (verificerede) e-mail hører til kontoen (K7).
+  await claimGuestBookings(user);
+  const [t, { upcoming, past }] = await Promise.all([
+    getTranslations("account"),
+    customerBookings(user.userId),
+  ]);
 
   return (
-    <Container className="flex flex-1 flex-col gap-6 py-12">
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <h1 className="text-3xl font-semibold tracking-tight text-ink-900">{t("account.title")}</h1>
-        <LogoutButton label={t("auth.logout")} redirectTo={localizedPath(locale, "/")} />
-      </div>
-      <p className="text-muted">
-        {t("account.signedInAs", { name: user.name, email: user.email })}
-      </p>
-      <p className="text-ink-700">{t("account.comingSoon")}</p>
-    </Container>
+    <div className="flex flex-col gap-8">
+      <h1 className="sr-only">{t("bookings.title")}</h1>
+      <p className="text-muted">{t("signedInAs", { name: user.name, email: user.email })}</p>
+
+      <section aria-labelledby="upcoming" className="flex flex-col gap-3">
+        <h2 id="upcoming" className="text-xl font-semibold text-ink-900">
+          {t("bookings.upcoming")}
+        </h2>
+        {upcoming.length > 0 ? (
+          <ul className="flex flex-col gap-3">
+            {upcoming.map((booking) => (
+              <li key={booking.reference}>
+                <BookingCard booking={booking} locale={locale} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <EmptyState
+            icon={<CalendarX />}
+            title={t("bookings.emptyTitle")}
+            description={t("bookings.emptyBody")}
+            action={
+              <Button asChild variant="cta">
+                <Link href="/cars">{t("bookings.findCar")}</Link>
+              </Button>
+            }
+          />
+        )}
+      </section>
+
+      {past.length > 0 ? (
+        <section aria-labelledby="past" className="flex flex-col gap-3">
+          <h2 id="past" className="text-xl font-semibold text-ink-900">
+            {t("bookings.past")}
+          </h2>
+          <ul className="flex flex-col gap-3">
+            {past.map((booking) => (
+              <li key={booking.reference}>
+                <BookingCard booking={booking} locale={locale} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+    </div>
   );
 }

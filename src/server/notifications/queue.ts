@@ -53,6 +53,7 @@ export async function queueBookingNotification(
 export async function queueForTransition(
   tx: Tx,
   booking: { id: string; pickupAt: Date; returnAt: Date },
+  from: BookingStatus,
   to: BookingStatus,
   now = new Date(),
 ) {
@@ -74,6 +75,10 @@ export async function queueForTransition(
       ),
       now,
     });
+  }
+  // Kun en bekræftet booking får kvittering; en ubetalt reservation, der annulleres, gør ikke.
+  if (to === "CANCELLED" && from === "CONFIRMED") {
+    await queueBookingNotification(tx, booking.id, "BOOKING_CANCELLED", { now });
   }
   if (to === "COMPLETED") {
     await queueBookingNotification(tx, booking.id, "THANK_YOU", { now });

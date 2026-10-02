@@ -84,6 +84,6 @@ export async function applyTransition(
   });
   const result = await tx.booking.findUniqueOrThrow({ where: { id: bookingId } });
   // Beskeder til kunden skrives i samme transaktion (outbox) og sendes af cron.
-  await queueForTransition(tx, result, to, options.now);
+  await queueForTransition(tx, result, booking.status, to, options.now);
   return result;
 }

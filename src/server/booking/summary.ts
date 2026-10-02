@@ -1,12 +1,12 @@
 import "server-only";
 import { db } from "@/server/db";
 
-/** Det, kunden ser om sin booking på betalings- og bekræftelsessiden. Ingen interne felter. */
+/** Det, kunden ser om sin booking (betaling, bekræftelse, administrér, kvittering). Ingen interne felter. */
 export async function bookingSummary(bookingId: string) {
   const booking = await db.booking.findUniqueOrThrow({
     where: { id: bookingId },
     include: {
-      customer: { select: { firstName: true, email: true } },
+      customer: { select: { firstName: true, lastName: true, email: true } },
       carModel: { select: { brand: true, model: true, slug: true } },
       pickupLocation: {
         select: { name: true, slug: true, timezone: true, address: true, city: true },
@@ -14,11 +14,21 @@ export async function bookingSummary(bookingId: string) {
       returnLocation: { select: { name: true, slug: true, timezone: true } },
       items: { orderBy: { createdAt: "asc" } },
       payments: {
-        where: { kind: "CHARGE" },
         orderBy: { createdAt: "desc" },
-        take: 1,
-        select: { status: true, failureCode: true, method: true, cardBrand: true, cardLast4: true },
+        select: {
+          id: true,
+          kind: true,
+          status: true,
+          failureCode: true,
+          method: true,
+          cardBrand: true,
+          cardLast4: true,
+          amountMinor: true,
+          currency: true,
+          createdAt: true,
+        },
       },
+      statusEvents: { where: { toStatus: "CONFIRMED" }, select: { id: true }, take: 1 },
     },
   });
 
@@ -49,7 +59,17 @@ export async function bookingSummary(bookingId: string) {
       quantity: item.quantity,
       totalMinor: item.totalMinor,
     })),
-    lastPayment: booking.payments[0] ?? null,
+    lastPayment: booking.payments.find((payment) => payment.kind === "CHARGE") ?? null,
+    /** Gennemførte betalinger og refusioner (også dem, der er sat i gang), nyeste først. */
+    payments: booking.payments.filter(
+      (payment) =>
+        (payment.kind === "CHARGE" && payment.status === "SUCCEEDED") ||
+        (payment.kind === "REFUND" && ["PENDING", "SUCCEEDED"].includes(payment.status)),
+    ),
+    /** Bookingen har været bekræftet (fx en annulleret booking, der var betalt). */
+    wasConfirmed: booking.statusEvents.length > 0,
+    createdAt: booking.createdAt,
+    subtotalMinor: booking.subtotalMinor,
   };
 }
 

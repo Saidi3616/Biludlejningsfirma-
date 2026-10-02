@@ -13,7 +13,7 @@ export function SiteHeader() {
   const t = useTranslations();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
+    <header className="sticky top-0 z-40 border-b border-border bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 print:hidden">
       <Container className="flex h-16 items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-2 text-lg font-bold text-ink-900">
           <span className="flex size-8 items-center justify-center rounded-md bg-brand-700 text-white">

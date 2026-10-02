@@ -18,3 +18,14 @@ export const rentalRules = {
   /** Version af lejevilkårene (/terms), som kunden accepterer ved booking. Ændres ved nye vilkår. */
   termsVersion: "2026-10-udkast",
 } as const;
+
+/**
+ * Annulleringspolitik (05-user-flows.md, E4). Mangler fra virksomheden (14-manglende-info.md,
+ * punkt 20); værdierne er et forslag. Kunden ser altid refusionsbeløbet, før annulleringen bekræftes.
+ */
+export const cancellationPolicy = {
+  /** Gratis annullering (fuld refusion) indtil så mange timer før afhentning. */
+  freeUntilHoursBefore: 48,
+  /** Refusion i procent ved senere annullering, indtil afhentning. Derefter kan der ikke annulleres online. */
+  lateRefundPercent: 50,
+} as const;

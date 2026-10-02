@@ -26,6 +26,16 @@ export async function grantBookingAccess(reference: string, manageToken: string 
   });
 }
 
+/** Referencen for et gyldigt "administrér booking"-token, ellers null. */
+export async function findBookingByManageToken(token: string): Promise<string | null> {
+  if (!/^[A-Za-z0-9_-]{43}$/.test(token)) return null;
+  const booking = await db.booking.findUnique({
+    where: { manageTokenHash: hashManageToken(token) },
+    select: { reference: true },
+  });
+  return booking?.reference ?? null;
+}
+
 /**
  * Bookingen, hvis den aktuelle besøgende må se den: ejeren via login eller gæsten via token-cookien.
  * Ellers null (siden viser 404, så referencer ikke kan afprøves).

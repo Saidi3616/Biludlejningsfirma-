@@ -29,8 +29,21 @@ export type NotificationContext = {
   deliveryAddress: string | null;
   totalMinor: number;
   paidMinor: number;
+  /** Refunderet eller under refusion. */
+  refundMinor: number;
   depositMinor: number;
+  /** Uden sprog-præfiks: gæstens "administrér booking"-link eller kontosiden. */
+  managePath: `/${string}`;
   currency: string;
+};
+
+type Content = {
+  paragraphs: string[];
+  details: { label: string; value: string }[];
+  closing: string[];
+  button?: { label: string; url: string };
+  link?: { label: string; url: string };
+  whatsapp: string[];
 };
 
 export type RenderedNotification = { email: Email; whatsappParameters: string[] };
@@ -66,13 +79,18 @@ export function renderNotification(
     url: whatsappLink(t("common.whatsappPrefill", { reference: ctx.reference })),
   };
   const reviewUrl = new URL(localizedPath(locale, "/reviews"), baseUrl).toString();
+  const manageLink = {
+    label: t("common.manage"),
+    url: new URL(localizedPath(locale, ctx.managePath), baseUrl).toString(),
+  };
 
-  const content = {
+  const contents: Record<NotificationTemplate, Content> = {
     BOOKING_CONFIRMED: {
       paragraphs: [t("BOOKING_CONFIRMED.intro", { amount: money(ctx.paidMinor) })],
       details: [rows.reference, rows.car, rows.pickup, rows.return, rows.paid],
       closing: [bring, t("common.questions")],
       button: whatsappButton,
+      link: manageLink,
       whatsapp: [ctx.firstName, ctx.reference, ctx.carName, pickupTime, ctx.pickupLocation.name],
     },
     PAYMENT_RECEIVED: {
@@ -81,7 +99,6 @@ export function renderNotification(
       ],
       details: [rows.reference, rows.paid],
       closing: [t("common.questions")],
-      button: undefined,
       whatsapp: [ctx.firstName, money(ctx.paidMinor), ctx.reference],
     },
     CAR_READY: {
@@ -96,6 +113,7 @@ export function renderNotification(
       details: [rows.reference, rows.car, rows.pickup],
       closing: [bring, t("common.questions")],
       button: whatsappButton,
+      link: manageLink,
       whatsapp: [ctx.firstName, ctx.carName, pickupTime, address(ctx.pickupLocation)],
     },
     RETURN_REMINDER: {
@@ -111,7 +129,6 @@ export function renderNotification(
       paragraphs: [t("THANK_YOU.intro")],
       details: [rows.reference],
       closing: [t("THANK_YOU.deposit"), t("common.questions")],
-      button: undefined,
       whatsapp: [ctx.firstName],
     },
     REVIEW_REQUEST: {
@@ -121,7 +138,25 @@ export function renderNotification(
       button: { label: t("REVIEW_REQUEST.button"), url: reviewUrl },
       whatsapp: [ctx.firstName, reviewUrl],
     },
-  }[template];
+    BOOKING_CANCELLED: {
+      paragraphs: [
+        t("BOOKING_CANCELLED.intro", { reference: ctx.reference }),
+        ctx.refundMinor > 0
+          ? t("BOOKING_CANCELLED.refund", { amount: money(ctx.refundMinor) })
+          : t("BOOKING_CANCELLED.noRefund"),
+      ],
+      details: [
+        rows.reference,
+        rows.car,
+        rows.pickup,
+        { label: t("common.refund"), value: money(ctx.refundMinor) },
+      ],
+      closing: [t("common.questions")],
+      button: whatsappButton,
+      whatsapp: [ctx.firstName, ctx.reference, money(ctx.refundMinor)],
+    },
+  };
+  const content = contents[template];
 
   const subject = t(`${template}.subject`, { reference: ctx.reference });
   const { html, text } = renderEmail({
@@ -133,6 +168,7 @@ export function renderNotification(
     paragraphs: content.paragraphs,
     details: content.details,
     button: content.button,
+    link: content.link,
     closing: content.closing,
     signature: t("common.signature", { company: site.name }),
     footer: t("common.footer", { company: site.name }),

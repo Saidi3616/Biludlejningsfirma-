@@ -7,7 +7,7 @@ export function WhatsAppFloatingButton() {
   const t = useTranslations("whatsapp");
   // I et landmark, så skærmlæsere kan finde den (axe: region).
   return (
-    <aside aria-label="WhatsApp" data-whatsapp-floating className="lg:hidden">
+    <aside aria-label="WhatsApp" data-whatsapp-floating className="lg:hidden print:hidden">
       <a
         href={whatsappLink(t("prefill"))}
         target="_blank"

@@ -16,7 +16,7 @@ import { isCarUnavailableError, violatedConstraint } from "@/server/db-errors";
 import { getQuote } from "@/server/pricing/service";
 import type { Quote } from "@/server/pricing/types";
 import { expireReservations } from "./expire";
-import { generateManageToken, generateReference } from "./tokens";
+import { generateReference, manageTokenFor } from "./tokens";
 
 const MINUTE = 60_000;
 /** Forsøg pr. bil, hvis den tilfældige reference eller kundeposten kolliderer. */
@@ -84,16 +84,17 @@ export async function createBooking(
   const discountId = quote.discountCode
     ? (await db.discount.findUniqueOrThrow({ where: { code: quote.discountCode } })).id
     : null;
-  const manage = userId ? null : generateManageToken();
 
   for (const car of cars) {
     for (let attempt = 0; attempt < ATTEMPTS_PER_CAR; attempt++) {
       try {
+        const reference = generateReference();
+        const manage = userId ? null : manageTokenFor(reference);
         const booking = await db.$transaction(async (tx) => {
           const customerId = await saveCustomer(tx, input, userId);
           return tx.booking.create({
             data: {
-              reference: generateReference(),
+              reference,
               customerId,
               carModelId: input.carModelId,
               carId: car.id,

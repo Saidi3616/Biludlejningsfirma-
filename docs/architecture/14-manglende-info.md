@@ -35,7 +35,7 @@ Markeret med **🔴 blokerer** (skal afklares før den relevante milestone), **�
 | 17 | Inkluderede km pr. dag og pris pr. ekstra km pr. kategori | 🔴 |
 | 18 | Brændstofpolitik (fuld-til-fuld?) og pris for manglende brændstof/opladning | 🔴 |
 | 19 | Gebyr for for sen aflevering | 🔴 |
-| 20 | Annulleringspolitik (fx gratis indtil 48 t før, derefter X %) og no-show | 🔴 |
+| 20 | Annulleringspolitik (fx gratis indtil 48 t før, derefter X %) og no-show. *Forslag i `src/config/rental.ts`: gratis indtil 48 t før, derefter 50 % refusion indtil afhentning* | 🔴 |
 | 21 | Ekstraudstyr: liste, priser (pr. dag/pr. booking, loft), antal på lager | 🔴 |
 | 22 | Leveringsgebyr: zoner/afstand, maks. afstand, tidsvinduer, lufthavnsgebyr | 🔴 |
 | 23 | Er priser inkl. moms? Skal der udstedes fakturaer med moms (B2B med CVR)? | 🔴 |
