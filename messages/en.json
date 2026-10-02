@@ -302,7 +302,8 @@
       "customers": "Customers",
       "fleet": "Fleet",
       "pricing": "Prices",
-      "users": "Users"
+      "users": "Users",
+      "reviews": "Reviews"
     },
     "toSite": "Go to website",
     "roles": {
@@ -341,7 +342,8 @@
         "gdpr:anonymize": "Anonymise customers",
         "users:manage": "Manage staff and roles",
         "settings:write": "Change settings",
-        "damage:approveCost": "Approve liability and amounts for damage"
+        "damage:approveCost": "Approve liability and amounts for damage",
+        "review:moderate": "Publish and hide reviews"
       },
       "location": "Location",
       "allLocations": "All locations",
@@ -1716,6 +1718,27 @@
         "lastLogin": "Last login",
         "created": "Created"
       }
+    },
+    "reviews": {
+      "title": "Reviews",
+      "intro": "Only customers with a completed rental can review. New reviews appear on the site only once published. The text cannot be changed.",
+      "tabs": {
+        "label": "Status",
+        "PENDING": "Pending",
+        "PUBLISHED": "Published",
+        "HIDDEN": "Hidden"
+      },
+      "empty": "No reviews here.",
+      "noComment": "No comment.",
+      "booking": "Booking {reference}",
+      "publish": "Publish",
+      "hide": "Hide",
+      "notices": {
+        "published": "The review has been published.",
+        "hidden": "The review has been hidden.",
+        "forbidden": "Your role does not have access to that action.",
+        "failed": "Something went wrong. Please try again."
+      }
     }
   },
   "email": {
@@ -2080,7 +2103,33 @@
     "title": "Reviews",
     "description": "Reviews from customers who rented a car from us.",
     "empty": "There are no reviews yet.",
-    "rating": "{rating} out of 5 stars"
+    "rating": "{rating} out of 5 stars",
+    "new": {
+      "title": "Rate your rental",
+      "intro": "Thank you for renting {car} with us. How was your experience?",
+      "rating": "Your rating",
+      "stars": "{count, plural, one {# star} other {# stars}}",
+      "comment": "Comment (optional)",
+      "commentHint": "Up to 1,000 characters.",
+      "displayName": "Shown as",
+      "displayNameHint": "E.g. your first name and last initial.",
+      "submit": "Send review",
+      "thanks": "Thank you for your review!",
+      "thanksBody": "We read it before it appears on the site.",
+      "invalid": "The link does not work. Use the link from your email.",
+      "done": "You have already reviewed this rental. Thank you!",
+      "notCompleted": "You can review the rental once the car has been returned.",
+      "back": "Go to the front page",
+      "errors": {
+        "rating": "Choose between 1 and 5 stars.",
+        "comment": "Up to 1,000 characters.",
+        "displayName": "Enter 2–40 characters."
+      },
+      "notices": {
+        "invalid": "Check the highlighted fields.",
+        "failed": "Something went wrong. Please try again."
+      }
+    }
   },
   "booking": {
     "title": "Booking",

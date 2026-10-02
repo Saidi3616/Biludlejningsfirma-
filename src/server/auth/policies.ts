@@ -44,6 +44,8 @@ const adminPermissions = {
   "car:readPurchasePrice": "MANAGER",
   // Priser, ekstraudstyr, rabatter, lokationer
   "catalog:write": "MANAGER",
+  // Anmeldelser publiceres eller skjules af en leder (E8)
+  "review:moderate": "MANAGER",
   "stats:read": "MANAGER",
   "audit:read": "MANAGER",
   "gdpr:export": "MANAGER",

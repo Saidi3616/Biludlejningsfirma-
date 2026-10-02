@@ -302,7 +302,8 @@
       "customers": "Kunder",
       "fleet": "Flåde",
       "pricing": "Priser",
-      "users": "Brugere"
+      "users": "Brugere",
+      "reviews": "Anmeldelser"
     },
     "toSite": "Til hjemmesiden",
     "roles": {
@@ -341,7 +342,8 @@
         "gdpr:anonymize": "Anonymisere kunder",
         "users:manage": "Administrere medarbejdere og roller",
         "settings:write": "Ændre indstillinger",
-        "damage:approveCost": "Godkende ansvar og beløb for skader"
+        "damage:approveCost": "Godkende ansvar og beløb for skader",
+        "review:moderate": "Publicere og skjule anmeldelser"
       },
       "location": "Lokation",
       "allLocations": "Alle lokationer",
@@ -1716,6 +1718,27 @@
         "lastLogin": "Seneste login",
         "created": "Oprettet"
       }
+    },
+    "reviews": {
+      "title": "Anmeldelser",
+      "intro": "Kun kunder med en afsluttet leje kan anmelde. Nye anmeldelser vises først på siden, når de er publiceret. Teksten kan ikke ændres.",
+      "tabs": {
+        "label": "Status",
+        "PENDING": "Afventer",
+        "PUBLISHED": "Publiceret",
+        "HIDDEN": "Skjult"
+      },
+      "empty": "Ingen anmeldelser her.",
+      "noComment": "Ingen kommentar.",
+      "booking": "Booking {reference}",
+      "publish": "Publicér",
+      "hide": "Skjul",
+      "notices": {
+        "published": "Anmeldelsen er publiceret.",
+        "hidden": "Anmeldelsen er skjult.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "failed": "Noget gik galt. Prøv igen."
+      }
     }
   },
   "email": {
@@ -2080,7 +2103,33 @@
     "title": "Anmeldelser",
     "description": "Anmeldelser fra kunder, der har lejet en bil hos os.",
     "empty": "Der er ingen anmeldelser endnu.",
-    "rating": "{rating} ud af 5 stjerner"
+    "rating": "{rating} ud af 5 stjerner",
+    "new": {
+      "title": "Bedøm din leje",
+      "intro": "Tak fordi du lejede {car} hos os. Hvordan var din oplevelse?",
+      "rating": "Din bedømmelse",
+      "stars": "{count, plural, one {# stjerne} other {# stjerner}}",
+      "comment": "Kommentar (valgfri)",
+      "commentHint": "Højst 1.000 tegn.",
+      "displayName": "Vises som",
+      "displayNameHint": "Fx dit fornavn og forbogstav i efternavnet.",
+      "submit": "Send anmeldelse",
+      "thanks": "Tak for din anmeldelse!",
+      "thanksBody": "Vi læser den, før den bliver vist på siden.",
+      "invalid": "Linket virker ikke. Brug linket fra din e-mail.",
+      "done": "Du har allerede anmeldt denne leje. Tak!",
+      "notCompleted": "Du kan anmelde lejen, når bilen er afleveret.",
+      "back": "Til forsiden",
+      "errors": {
+        "rating": "Vælg mellem 1 og 5 stjerner.",
+        "comment": "Højst 1.000 tegn.",
+        "displayName": "Skriv 2–40 tegn."
+      },
+      "notices": {
+        "invalid": "Tjek de markerede felter.",
+        "failed": "Noget gik galt. Prøv igen."
+      }
+    }
   },
   "booking": {
     "title": "Booking",
