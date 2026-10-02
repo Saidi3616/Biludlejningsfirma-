@@ -10,11 +10,14 @@ export function AdminNav({
   items,
 }: {
   label: string;
-  items: { href: string; label: string }[];
+  /** `also`: andre stier, der hører under punktet (fx ekstraudstyr under priser). */
+  items: { href: string; label: string; also?: string[] }[];
 }) {
   const pathname = usePathname();
-  const active = (href: string) =>
-    href === "/admin" ? pathname === "/admin" : pathname.startsWith(href);
+  const active = ({ href, also = [] }: { href: string; also?: string[] }) =>
+    href === "/admin"
+      ? pathname === "/admin"
+      : [href, ...also].some((prefix) => pathname.startsWith(prefix));
   return (
     <nav aria-label={label} className="-mx-2 overflow-x-auto">
       <ul className="flex gap-1 px-2">
@@ -22,10 +25,10 @@ export function AdminNav({
           <li key={item.href}>
             <Link
               href={item.href}
-              aria-current={active(item.href) ? "page" : undefined}
+              aria-current={active(item) ? "page" : undefined}
               className={cn(
                 "inline-flex rounded-md px-3 py-2 text-sm font-medium whitespace-nowrap hover:bg-ink-50 hover:text-ink-900",
-                active(item.href) ? "bg-ink-100 text-ink-900" : "text-ink-700",
+                active(item) ? "bg-ink-100 text-ink-900" : "text-ink-700",
               )}
             >
               {item.label}

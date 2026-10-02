@@ -3,6 +3,7 @@ import Link from "next/link";
 import { NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { site } from "@/config/site";
+import { can } from "@/server/auth/policies";
 import { requireStaff } from "@/server/auth/session";
 import { AdminNav } from "@/components/features/admin/admin-nav";
 import { LogoutButton } from "@/components/features/auth/logout-button";
@@ -29,6 +30,9 @@ export default async function AdminLayout({ children }: LayoutProps<"/admin">) {
     { href: "/admin/bookings", label: t("nav.bookings") },
     { href: "/admin/customers", label: t("nav.customers") },
     { href: "/admin/fleet", label: t("nav.fleet") },
+    ...(can({ actor: user }, "catalog:write")
+      ? [{ href: "/admin/pricing", label: t("nav.pricing"), also: ["/admin/extras"] }]
+      : []),
     { href: "/admin/security", label: t("nav.security") },
   ];
 

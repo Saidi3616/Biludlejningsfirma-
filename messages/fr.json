@@ -300,7 +300,8 @@
       "calendar": "Calendrier",
       "bookings": "Réservations",
       "customers": "Clients",
-      "fleet": "Flotte"
+      "fleet": "Flotte",
+      "pricing": "Tarifs"
     },
     "toSite": "Aller au site",
     "roles": {
@@ -1230,6 +1231,192 @@
         "conflict": "Le contrat ne peut pas être signé maintenant. Rechargez la page.",
         "forbidden": "Votre rôle n'a pas accès à cette action.",
         "failed": "Une erreur s'est produite. Réessayez."
+      }
+    },
+    "catalog": {
+      "tabs": {
+        "label": "Tarifs et options",
+        "pricing": "Tarifs",
+        "extras": "Options"
+      }
+    },
+    "pricing": {
+      "title": "Tarifs",
+      "intro": "Les prix sont TTC. Les modifications ne s'appliquent qu'aux nouvelles réservations ; les réservations existantes gardent leur prix.",
+      "categories": "Catégories",
+      "noCategories": "Il n'y a pas encore de catégories.",
+      "rulesTitle": "Grille tarifaire pour {category}",
+      "empty": "La catégorie n'a pas encore de prix.",
+      "wholeCategory": "Toute la catégorie",
+      "always": "Toute l'année",
+      "season": "{from} – {to}",
+      "days": "{days, plural, one {# jour} other {# jours}}",
+      "edit": "Modifier",
+      "editLabel": "Modifier le prix pour {days, plural, one {# jour} other {# jours}}, {scope}",
+      "columns": {
+        "scope": "S'applique à",
+        "season": "Période",
+        "minDays": "À partir de",
+        "package": "Prix forfaitaire",
+        "perDay": "Prix par jour",
+        "priority": "Priorité",
+        "actions": "Actions"
+      },
+      "warnings": {
+        "noBase": "La catégorie n'a pas de prix standard. Les clients ne peuvent pas y réserver de voiture tant qu'il n'y a pas de prix sans modèle ni période.",
+        "noOneDay": "La catégorie n'a pas de prix standard pour 1 jour. Les clients ne peuvent pas réserver de courtes locations tant qu'il n'est pas créé."
+      },
+      "preview": {
+        "title": "Tester un prix",
+        "model": "Modèle",
+        "days": "Nombre de jours",
+        "date": "Date de prise en charge",
+        "submit": "Calculer",
+        "result": "Un client qui loue pour {days, plural, one {# jour} other {# jours}} paie :",
+        "package": "C'est le prix forfaitaire pour {days, plural, one {# jour} other {# jours}}.",
+        "perDay": "Le prix par jour du palier de {days, plural, one {# jour} other {# jours}}.",
+        "capped": "Le prix est ramené à un forfait plus long, car il est moins cher.",
+        "none": "Il n'y a pas de prix pour {days, plural, one {# jour} other {# jours}}. Créez un prix standard pour 1 jour.",
+        "invalid": "Choisissez un modèle, un nombre de jours (1–365) et une date."
+      },
+      "newTitle": "Nouveau prix",
+      "editTitle": "Modifier le prix",
+      "editIntro": "La modification ne s'applique qu'aux nouvelles réservations.",
+      "back": "Retour à {category}",
+      "delete": "Supprimer le prix",
+      "notices": {
+        "created": "Le prix a été créé.",
+        "saved": "Le prix a été enregistré.",
+        "deleted": "Le prix a été supprimé.",
+        "forbidden": "Votre rôle n'a pas accès à cette action.",
+        "failed": "Une erreur s'est produite. Réessayez."
+      },
+      "form": {
+        "categoryId": "Catégorie",
+        "carModelId": "S'applique à",
+        "carModelIdHint": "Choisissez un modèle pour lui donner son propre prix.",
+        "wholeCategory": "Toute la catégorie",
+        "inactiveModel": "{name} (masqué)",
+        "minDays": "À partir de (jours)",
+        "minDaysHint": "Par ex. 1, 3, 7 ou 30.",
+        "packagePrice": "Prix forfaitaire",
+        "packagePriceHint": "Le prix pour exactement ce nombre de jours.",
+        "perDayPrice": "Prix par jour",
+        "perDayPriceHint": "Par jour jusqu'au palier suivant.",
+        "validFrom": "Date de début",
+        "validTo": "Date de fin",
+        "seasonHint": "Vide = toute l'année. Utilisez des dates pour les prix saisonniers.",
+        "priority": "Priorité",
+        "priorityHint": "La plus élevée l'emporte si deux prix s'appliquent le même jour.",
+        "create": "Créer le prix",
+        "save": "Enregistrer",
+        "errors": {
+          "categoryId": "Vérifiez le champ.",
+          "carModelId": "Le modèle n'appartient pas à la catégorie.",
+          "minDays": "Vérifiez le champ.",
+          "packagePrice": "Vérifiez le champ.",
+          "perDayPrice": "Vérifiez le champ.",
+          "validFrom": "Vérifiez le champ.",
+          "validTo": "La date doit être après la date de début.",
+          "priority": "Vérifiez le champ."
+        },
+        "notices": {
+          "invalid": "Vérifiez les champs signalés.",
+          "forbidden": "Votre rôle n'a pas accès à cette action.",
+          "failed": "Une erreur s'est produite. Réessayez."
+        }
+      }
+    },
+    "extras": {
+      "title": "Options",
+      "intro": "Équipements que le client peut ajouter à la réservation. Les nouveaux prix ne s'appliquent qu'aux nouvelles réservations. Une option déjà réservée ne peut pas être supprimée, mais peut être masquée.",
+      "new": "Nouvelle option",
+      "back": "Toutes les options",
+      "editTitle": "Modifier l'option",
+      "empty": "Il n'y a pas encore d'options.",
+      "active": "Disponible",
+      "inactive": "Masquée",
+      "max": "max.",
+      "per": {
+        "PER_DAY": "par jour",
+        "PER_BOOKING": "par location"
+      },
+      "delete": "Supprimer l'option",
+      "usedNote": "L'option a été utilisée dans {count, plural, one {# réservation} other {# réservations}} et ne peut pas être supprimée. Décochez « Disponible » pour la masquer.",
+      "columns": {
+        "name": "Option",
+        "price": "Prix",
+        "maxQuantity": "Quantité max.",
+        "used": "Réservée",
+        "status": "Statut"
+      },
+      "notices": {
+        "created": "L'option a été créée.",
+        "saved": "L'option a été enregistrée.",
+        "deleted": "L'option a été supprimée.",
+        "inUse": "L'option a été utilisée dans des réservations et ne peut pas être supprimée. Masquez-la plutôt.",
+        "forbidden": "Votre rôle n'a pas accès à cette action.",
+        "failed": "Une erreur s'est produite. Réessayez."
+      },
+      "form": {
+        "names": "Nom",
+        "namesHint": "Le danois est obligatoire. Si une langue manque, le texte danois est affiché.",
+        "nameDa": "Danois",
+        "nameEn": "Anglais",
+        "nameFr": "Français",
+        "nameAr": "Arabe",
+        "code": "Code",
+        "codeHint": "Code interne, par ex. child_seat. Minuscules, chiffres et tirets bas.",
+        "price": "Prix",
+        "pricing": "Prix par",
+        "pricingOptions": {
+          "PER_DAY": "Jour",
+          "PER_BOOKING": "Location"
+        },
+        "amountHint": "En couronnes, par ex. 75 ou 2,50.",
+        "maxPrice": "Plafond",
+        "maxPriceHint": "Prix par jour uniquement : le prix maximal pour toute la location.",
+        "maxQuantity": "Max. par réservation",
+        "maxQuantityHint": "1 = le client coche une case.",
+        "stock": "Quantité en stock",
+        "stockHint": "Pour votre suivi uniquement. Vide = illimité.",
+        "sortOrder": "Ordre",
+        "sortOrderHint": "Le plus bas s'affiche en premier.",
+        "descriptions": "Description (facultative)",
+        "descriptionsHint": "Affichée sous le nom dans la réservation.",
+        "descriptionDa": "Danois",
+        "descriptionEn": "Anglais",
+        "descriptionFr": "Français",
+        "descriptionAr": "Arabe",
+        "isActive": "Disponible",
+        "isActiveHint": "Les clients peuvent choisir l'option dans la réservation.",
+        "create": "Créer l'option",
+        "save": "Enregistrer",
+        "duplicate": "Le code est déjà utilisé par une autre option.",
+        "errors": {
+          "code": "Utilisez des minuscules, des chiffres et des tirets bas (2 à 40 caractères).",
+          "nameDa": "Vérifiez le champ.",
+          "nameEn": "Vérifiez le champ.",
+          "nameAr": "Vérifiez le champ.",
+          "nameFr": "Vérifiez le champ.",
+          "descriptionDa": "Vérifiez le champ.",
+          "descriptionEn": "Vérifiez le champ.",
+          "descriptionAr": "Vérifiez le champ.",
+          "descriptionFr": "Vérifiez le champ.",
+          "pricing": "Vérifiez le champ.",
+          "price": "Vérifiez le champ.",
+          "maxPrice": "Le plafond doit être au moins égal au prix et uniquement pour un prix par jour.",
+          "maxQuantity": "Vérifiez le champ.",
+          "stock": "Vérifiez le champ.",
+          "sortOrder": "Vérifiez le champ.",
+          "isActive": "Vérifiez le champ."
+        },
+        "notices": {
+          "invalid": "Vérifiez les champs signalés.",
+          "duplicate": "Le code est déjà utilisé par une autre option.",
+          "forbidden": "Votre rôle n'a pas accès à cette action.",
+          "failed": "Une erreur s'est produite. Réessayez."
+        }
       }
     }
   },

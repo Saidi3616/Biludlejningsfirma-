@@ -3,27 +3,27 @@ import { CarOpStatus, Fuel, MaintenanceType, Transmission } from "@/generated/pr
 import { parseKroner } from "./admin";
 
 /** Tomt felt → null, ellers værdien trimmet. Formularer sender altid tekst. */
-const optionalText = (max: number) =>
+export const optionalText = (max: number) =>
   z
     .string()
     .trim()
     .max(max)
     .transform((value) => value || null);
 
-const optionalDate = z
+export const optionalDate = z
   .string()
   .trim()
   .transform((value) => value || null)
   .pipe(z.iso.date().nullable());
 
-const optionalInt = (min: number, max: number) =>
+export const optionalInt = (min: number, max: number) =>
   z
     .string()
     .trim()
     .transform((value) => (value ? Number(value) : null))
     .pipe(z.number().int().min(min).max(max).nullable());
 
-const int = (min: number, max: number) => z.coerce.number().int().min(min).max(max);
+export const int = (min: number, max: number) => z.coerce.number().int().min(min).max(max);
 
 const kroner = z
   .string()
@@ -37,7 +37,7 @@ const kroner = z
     return minor;
   });
 
-const optionalKroner = z
+export const optionalKroner = z
   .string()
   .trim()
   .transform((value, ctx) => {
@@ -50,7 +50,7 @@ const optionalKroner = z
     return minor;
   });
 
-const checkbox = z
+export const checkbox = z
   .string()
   .optional()
   .transform((value) => value === "on");

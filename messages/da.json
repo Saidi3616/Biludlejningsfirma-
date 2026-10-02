@@ -300,7 +300,8 @@
       "calendar": "Kalender",
       "bookings": "Bookinger",
       "customers": "Kunder",
-      "fleet": "Flåde"
+      "fleet": "Flåde",
+      "pricing": "Priser"
     },
     "toSite": "Til hjemmesiden",
     "roles": {
@@ -1230,6 +1231,192 @@
         "conflict": "Kontrakten kan ikke underskrives nu. Genindlæs siden.",
         "forbidden": "Din rolle har ikke adgang til den handling.",
         "failed": "Noget gik galt. Prøv igen."
+      }
+    },
+    "catalog": {
+      "tabs": {
+        "label": "Priser og udstyr",
+        "pricing": "Priser",
+        "extras": "Ekstraudstyr"
+      }
+    },
+    "pricing": {
+      "title": "Priser",
+      "intro": "Priserne er inkl. moms. Ændringer gælder kun nye bookinger; eksisterende bookinger beholder deres pris.",
+      "categories": "Kategorier",
+      "noCategories": "Der er ingen kategorier endnu.",
+      "rulesTitle": "Pristrappe for {category}",
+      "empty": "Kategorien har ingen priser endnu.",
+      "wholeCategory": "Hele kategorien",
+      "always": "Hele året",
+      "season": "{from} – {to}",
+      "days": "{days, plural, one {# dag} other {# dage}}",
+      "edit": "Ret",
+      "editLabel": "Ret prisen for {days, plural, one {# dag} other {# dage}}, {scope}",
+      "columns": {
+        "scope": "Gælder for",
+        "season": "Periode",
+        "minDays": "Fra",
+        "package": "Pakkepris",
+        "perDay": "Dagspris",
+        "priority": "Prioritet",
+        "actions": "Handlinger"
+      },
+      "warnings": {
+        "noBase": "Kategorien har ingen standardpris. Kunder kan ikke booke biler i den, før der er en pris uden model og periode.",
+        "noOneDay": "Kategorien har ingen standardpris for 1 dag. Kunder kan ikke booke korte lejer, før den er oprettet."
+      },
+      "preview": {
+        "title": "Prøv en pris",
+        "model": "Model",
+        "days": "Antal dage",
+        "date": "Afhentningsdato",
+        "submit": "Beregn",
+        "result": "En kunde, der lejer i {days, plural, one {# dag} other {# dage}}, betaler:",
+        "package": "Det er pakkeprisen for {days, plural, one {# dag} other {# dage}}.",
+        "perDay": "Dagsprisen fra trinnet på {days, plural, one {# dag} other {# dage}}.",
+        "capped": "Prisen er sat ned til en større pakke, fordi den er billigere.",
+        "none": "Der er ingen pris for {days, plural, one {# dag} other {# dage}}. Opret en standardpris for 1 dag.",
+        "invalid": "Vælg en model, et antal dage (1–365) og en dato."
+      },
+      "newTitle": "Ny pris",
+      "editTitle": "Ret pris",
+      "editIntro": "Ændringen gælder kun nye bookinger.",
+      "back": "Tilbage til {category}",
+      "delete": "Slet prisen",
+      "notices": {
+        "created": "Prisen er oprettet.",
+        "saved": "Prisen er gemt.",
+        "deleted": "Prisen er slettet.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "failed": "Noget gik galt. Prøv igen."
+      },
+      "form": {
+        "categoryId": "Kategori",
+        "carModelId": "Gælder for",
+        "carModelIdHint": "Vælg en model for at give den sin egen pris.",
+        "wholeCategory": "Hele kategorien",
+        "inactiveModel": "{name} (skjult)",
+        "minDays": "Fra antal dage",
+        "minDaysHint": "Fx 1, 3, 7 eller 30.",
+        "packagePrice": "Pakkepris",
+        "packagePriceHint": "Prisen for præcis det antal dage.",
+        "perDayPrice": "Dagspris",
+        "perDayPriceHint": "Pr. dag, indtil næste trin.",
+        "validFrom": "Fra dato",
+        "validTo": "Til dato",
+        "seasonHint": "Tom = hele året. Brug datoer til sæsonpriser.",
+        "priority": "Prioritet",
+        "priorityHint": "Højeste vinder, hvis to priser gælder samme dag.",
+        "create": "Opret pris",
+        "save": "Gem ændringer",
+        "errors": {
+          "categoryId": "Tjek feltet.",
+          "carModelId": "Modellen hører ikke til kategorien.",
+          "minDays": "Tjek feltet.",
+          "packagePrice": "Tjek feltet.",
+          "perDayPrice": "Tjek feltet.",
+          "validFrom": "Tjek feltet.",
+          "validTo": "Datoen skal være efter fra-datoen.",
+          "priority": "Tjek feltet."
+        },
+        "notices": {
+          "invalid": "Tjek de markerede felter.",
+          "forbidden": "Din rolle har ikke adgang til den handling.",
+          "failed": "Noget gik galt. Prøv igen."
+        }
+      }
+    },
+    "extras": {
+      "title": "Ekstraudstyr",
+      "intro": "Udstyr, kunden kan vælge til i bookingen. Nye priser gælder kun nye bookinger. Udstyr, der har været booket, kan ikke slettes, men kan skjules.",
+      "new": "Nyt udstyr",
+      "back": "Alt ekstraudstyr",
+      "editTitle": "Ret udstyr",
+      "empty": "Der er intet ekstraudstyr endnu.",
+      "active": "Kan vælges",
+      "inactive": "Skjult",
+      "max": "højst",
+      "per": {
+        "PER_DAY": "pr. dag",
+        "PER_BOOKING": "pr. leje"
+      },
+      "delete": "Slet udstyret",
+      "usedNote": "Udstyret er brugt i {count, plural, one {# booking} other {# bookinger}} og kan ikke slettes. Fjern fluebenet ved \"Kan vælges\" for at skjule det.",
+      "columns": {
+        "name": "Udstyr",
+        "price": "Pris",
+        "maxQuantity": "Højst antal",
+        "used": "Booket",
+        "status": "Status"
+      },
+      "notices": {
+        "created": "Udstyret er oprettet.",
+        "saved": "Udstyret er gemt.",
+        "deleted": "Udstyret er slettet.",
+        "inUse": "Udstyret er brugt i bookinger og kan ikke slettes. Skjul det i stedet.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "failed": "Noget gik galt. Prøv igen."
+      },
+      "form": {
+        "names": "Navn",
+        "namesHint": "Dansk skal udfyldes. Mangler et sprog, vises den danske tekst.",
+        "nameDa": "Dansk",
+        "nameEn": "Engelsk",
+        "nameFr": "Fransk",
+        "nameAr": "Arabisk",
+        "code": "Kode",
+        "codeHint": "Intern kode, fx child_seat. Små bogstaver, tal og understreg.",
+        "price": "Pris",
+        "pricing": "Pris pr.",
+        "pricingOptions": {
+          "PER_DAY": "Dag",
+          "PER_BOOKING": "Leje"
+        },
+        "amountHint": "I kroner, fx 75 eller 2,50.",
+        "maxPrice": "Loft",
+        "maxPriceHint": "Kun ved pris pr. dag: højeste pris for hele lejen.",
+        "maxQuantity": "Højst antal pr. booking",
+        "maxQuantityHint": "1 = kunden sætter flueben.",
+        "stock": "Antal på lager",
+        "stockHint": "Kun til jeres overblik. Tom = ubegrænset.",
+        "sortOrder": "Rækkefølge",
+        "sortOrderHint": "Lavest vises først.",
+        "descriptions": "Beskrivelse (valgfri)",
+        "descriptionsHint": "Vises under navnet i bookingen.",
+        "descriptionDa": "Dansk",
+        "descriptionEn": "Engelsk",
+        "descriptionFr": "Fransk",
+        "descriptionAr": "Arabisk",
+        "isActive": "Kan vælges",
+        "isActiveHint": "Kunder kan vælge udstyret i bookingen.",
+        "create": "Opret udstyr",
+        "save": "Gem ændringer",
+        "duplicate": "Koden bruges allerede af andet udstyr.",
+        "errors": {
+          "code": "Brug små bogstaver, tal og understreg (2–40 tegn).",
+          "nameDa": "Tjek feltet.",
+          "nameEn": "Tjek feltet.",
+          "nameAr": "Tjek feltet.",
+          "nameFr": "Tjek feltet.",
+          "descriptionDa": "Tjek feltet.",
+          "descriptionEn": "Tjek feltet.",
+          "descriptionAr": "Tjek feltet.",
+          "descriptionFr": "Tjek feltet.",
+          "pricing": "Tjek feltet.",
+          "price": "Tjek feltet.",
+          "maxPrice": "Loftet skal være mindst prisen og kun ved pris pr. dag.",
+          "maxQuantity": "Tjek feltet.",
+          "stock": "Tjek feltet.",
+          "sortOrder": "Tjek feltet.",
+          "isActive": "Tjek feltet."
+        },
+        "notices": {
+          "invalid": "Tjek de markerede felter.",
+          "duplicate": "Koden bruges allerede af andet udstyr.",
+          "forbidden": "Din rolle har ikke adgang til den handling.",
+          "failed": "Noget gik galt. Prøv igen."
+        }
       }
     }
   },
