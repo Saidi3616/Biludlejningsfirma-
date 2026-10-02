@@ -42,7 +42,7 @@ export async function BookingDetail({
   const refunded = booking.payments
     .filter((payment) => payment.kind === "REFUND")
     .reduce((sum, payment) => sum + payment.amountMinor, 0);
-  const paid = booking.payments.some((payment) => payment.kind === "CHARGE");
+  const paid = booking.payments.some((payment) => payment.kind !== "REFUND");
   const upcoming = ["CONFIRMED", "ACTIVE"].includes(booking.status);
   const pickupZone = booking.pickupLocation.timezone;
 

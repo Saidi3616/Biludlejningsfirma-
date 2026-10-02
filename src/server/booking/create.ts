@@ -47,7 +47,15 @@ function parseCreate(request: CreateBookingRequest) {
  */
 export async function createBooking(
   request: CreateBookingRequest,
-  context: { userId?: string | null; now?: Date; termsVersion?: string | null } = {},
+  context: {
+    userId?: string | null;
+    now?: Date;
+    termsVersion?: string | null;
+    /** Medarbejderen, der opretter bookingen (telefonbooking); kunden er så gæst. */
+    actorUserId?: string | null;
+    /** Betalingsfrist; standard er `rentalRules.reservationMinutes` (telefonbooking: længere). */
+    reservationMinutes?: number;
+  } = {},
 ): Promise<CreatedBooking> {
   const input = parseCreate(request);
   const now = context.now ?? new Date();
@@ -115,13 +123,20 @@ export async function createBooking(
               currency: quote.currency,
               locale: input.locale,
               manageTokenHash: manage?.hash ?? null,
-              expiresAt: new Date(now.getTime() + rentalRules.reservationMinutes * MINUTE),
+              expiresAt: new Date(
+                now.getTime() +
+                  (context.reservationMinutes ?? rentalRules.reservationMinutes) * MINUTE,
+              ),
               discountId,
               termsVersion: context.termsVersion ?? null,
               idempotencyKey: input.idempotencyKey ?? null,
               items: { create: items },
               statusEvents: {
-                create: { fromStatus: null, toStatus: "PENDING_PAYMENT", actorUserId: userId },
+                create: {
+                  fromStatus: null,
+                  toStatus: "PENDING_PAYMENT",
+                  actorUserId: context.actorUserId ?? userId,
+                },
               },
             },
           });
@@ -195,7 +210,7 @@ async function saveCustomer(tx: Prisma.TransactionClient, input: Input, userId: 
 }
 
 /** Prislinjerne gemmes på bookingen, så senere prisændringer ikke ændrer en eksisterende booking. */
-async function bookingItems(quote: Quote, locale: string) {
+export async function bookingItems(quote: Quote, locale: string) {
   const extraIds = quote.lines.flatMap((line) => (line.extraId ? [line.extraId] : []));
   const extras = extraIds.length
     ? await db.extra.findMany({

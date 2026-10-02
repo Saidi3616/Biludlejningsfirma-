@@ -49,7 +49,7 @@ export default async function AccountPaymentsPage({
                 >
                   {t("booking", { reference })}
                 </NextLink>
-                {payment.kind === "CHARGE" ? (
+                {payment.kind !== "REFUND" ? (
                   <NextLink
                     href={localizedPath(locale, `/booking/${reference}/receipt`)}
                     className="font-medium text-brand-700 underline"

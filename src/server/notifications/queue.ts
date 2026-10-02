@@ -19,7 +19,8 @@ export async function queueBookingNotification(
   tx: Tx,
   bookingId: string,
   template: NotificationTemplate,
-  options: { scheduledAt?: Date; now?: Date } = {},
+  /** `dedupeSuffix`: skabeloner, der kan sendes flere gange (fx én pr. ændring eller betaling). */
+  options: { scheduledAt?: Date; now?: Date; dedupeSuffix?: string } = {},
 ) {
   const booking = await tx.booking.findUniqueOrThrow({
     where: { id: bookingId },
@@ -40,7 +41,7 @@ export async function queueBookingNotification(
       payload: {},
       scheduledAt,
       nextAttemptAt: scheduledAt,
-      dedupeKey: `${template}:${bookingId}:${channel}`,
+      dedupeKey: [template, bookingId, channel, options.dedupeSuffix].filter(Boolean).join(":"),
     })),
     skipDuplicates: true,
   });

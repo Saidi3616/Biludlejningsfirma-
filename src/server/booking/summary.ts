@@ -1,4 +1,5 @@
 import "server-only";
+import { isReceived, isRefund } from "@/lib/payments";
 import { db } from "@/server/db";
 
 /** Det, kunden ser om sin booking (betaling, bekræftelse, administrér, kvittering). Ingen interne felter. */
@@ -61,11 +62,7 @@ export async function bookingSummary(bookingId: string) {
     })),
     lastPayment: booking.payments.find((payment) => payment.kind === "CHARGE") ?? null,
     /** Gennemførte betalinger og refusioner (også dem, der er sat i gang), nyeste først. */
-    payments: booking.payments.filter(
-      (payment) =>
-        (payment.kind === "CHARGE" && payment.status === "SUCCEEDED") ||
-        (payment.kind === "REFUND" && ["PENDING", "SUCCEEDED"].includes(payment.status)),
-    ),
+    payments: booking.payments.filter((payment) => isReceived(payment) || isRefund(payment)),
     /** Bookingen har været bekræftet (fx en annulleret booking, der var betalt). */
     wasConfirmed: booking.statusEvents.length > 0,
     createdAt: booking.createdAt,

@@ -95,6 +95,8 @@ export async function findFreeCars(params: {
   now: Date;
   carModelId?: string;
   categoryId?: string | null;
+  /** Bookingen, der flyttes (admin): den blokerer ikke sig selv. */
+  excludeBookingId?: string;
 }) {
   const { locationId, blockedFrom, blockedUntil, now, carModelId, categoryId } = params;
   return db.car.findMany({
@@ -105,6 +107,7 @@ export async function findFreeCars(params: {
       carModel: { isActive: true, ...(categoryId ? { categoryId } : {}) },
       bookings: {
         none: {
+          ...(params.excludeBookingId ? { id: { not: params.excludeBookingId } } : {}),
           blockedFrom: { lt: blockedUntil },
           blockedUntil: { gt: blockedFrom },
           OR: [

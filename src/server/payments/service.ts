@@ -245,7 +245,11 @@ async function refundUnconfirmable(
   });
   if (!payment) return "duplicate";
 
-  const refund = await paymentProvider().refund(event.providerRef, event.amountMinor);
+  const refund = await paymentProvider().refund(
+    event.providerRef,
+    event.amountMinor,
+    `refund:${event.providerRef}:unconfirmable`,
+  );
   await db.$transaction([
     db.payment.create({
       data: {

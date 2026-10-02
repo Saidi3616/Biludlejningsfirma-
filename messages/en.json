@@ -402,7 +402,8 @@
       },
       "previous": "Previous",
       "next": "Next",
-      "page": "Page {page} of {pages}"
+      "page": "Page {page} of {pages}",
+      "new": "New booking"
     },
     "booking": {
       "back": "All bookings",
@@ -432,7 +433,8 @@
         "kind": "Type",
         "status": "Status",
         "method": "Method",
-        "amount": "Amount"
+        "amount": "Amount",
+        "action": "Action"
       },
       "paymentKinds": {
         "CHARGE": "Payment",
@@ -479,7 +481,9 @@
         "RETURN_REMINDER": "Return reminder",
         "THANK_YOU": "Thank you",
         "REVIEW_REQUEST": "Review",
-        "BOOKING_CANCELLED": "Cancellation"
+        "BOOKING_CANCELLED": "Cancellation",
+        "PAYMENT_REQUEST": "Payment link",
+        "BOOKING_CHANGED": "Booking changed"
       },
       "notificationStatus": {
         "PENDING": "Scheduled",
@@ -508,7 +512,98 @@
       "whatsappPrefill": "Hi {name}, this is the rental company about your booking {reference}.",
       "call": "Call",
       "whatsapp": "WhatsApp",
-      "sendEmail": "Write email"
+      "sendEmail": "Write email",
+      "reasons": {
+        "customer_free": "Customer cancelled within the free period",
+        "customer_late": "Customer cancelled after the free period",
+        "manual_payment": "Payment recorded",
+        "pay_at_counter": "Phone booking, paid at the counter",
+        "rescheduled": "New period",
+        "reservation_expired": "Payment deadline passed"
+      },
+      "actions": {
+        "title": "Actions",
+        "amountHint": "In kroner, e.g. 450 or 1,250.50.",
+        "reason": "Reason",
+        "reasonHint": "Shown in the booking history. Never write card details.",
+        "retryRefund": "Try again",
+        "pay": {
+          "title": "Record payment",
+          "status": "Paid:",
+          "balance": "Outstanding:",
+          "amount": "Amount",
+          "method": "Payment method",
+          "methods": {
+            "CASH": "Cash",
+            "CARD": "Card (terminal)",
+            "MOBILEPAY": "MobilePay",
+            "BANK_TRANSFER": "Bank transfer"
+          },
+          "submit": "Record payment"
+        },
+        "reschedule": {
+          "title": "Change period",
+          "intro": "Choose the new period. You will see the car and price before you confirm.",
+          "pickupDate": "Pickup date",
+          "pickupTime": "Pickup time",
+          "returnDate": "Return date",
+          "returnTime": "Return time",
+          "price": "Price",
+          "keep": "Keep the price",
+          "new": "Calculate a new price for the period",
+          "preview": "Preview the change",
+          "summary": "The booking will look like this",
+          "newPeriod": "New period",
+          "car": "Car",
+          "sameCar": "(same car)",
+          "otherCar": "(another car of the same model)",
+          "total": "Total price",
+          "confirm": "Confirm the change"
+        },
+        "reassign": {
+          "title": "Change car",
+          "none": "No other cars of this model are available in the period.",
+          "car": "New car",
+          "submit": "Change car"
+        },
+        "refund": {
+          "title": "Refund",
+          "intro": "Paid in total:",
+          "amount": "Amount",
+          "submit": "Refund"
+        },
+        "cancel": {
+          "title": "Cancel booking",
+          "free": "The customer is within the free cancellation period.",
+          "late": "The free cancellation period has passed.",
+          "noPolicy": "The booking is not confirmed, or the pickup time has passed.",
+          "suggested": "Suggested refund:",
+          "refund": "Refund",
+          "refundHint": "In kroner. You can change the suggestion; explain why in the reason.",
+          "confirm": "Yes, cancel the booking and release the car",
+          "submit": "Cancel booking"
+        },
+        "notices": {
+          "cancelled": "The booking is cancelled, and the customer will be notified.",
+          "cancelledRefundPending": "The booking is cancelled, but the refund failed at the payment provider. Try again under Payments.",
+          "refunded": "The refund is complete.",
+          "refundPending": "The refund failed at the payment provider. Try again under Payments.",
+          "paid": "The payment is recorded.",
+          "rescheduled": "The booking is moved, and the customer will be notified.",
+          "reassigned": "The booking has a different car.",
+          "created": "The booking is created and confirmed. The customer pays at the counter.",
+          "linkSent": "The booking is created, and the customer will get a payment link by email. The link works for 24 hours.",
+          "invalid": "Check the fields and try again.",
+          "tooSoon": "The pickup is too soon.",
+          "carTaken": "No car of this model is available in the period.",
+          "closed": "The location is closed at that time.",
+          "forbidden": "Your role does not have access to that action.",
+          "conflict": "The booking cannot be changed in its current status, or it was changed at the same time. Reload the page.",
+          "providerFailed": "The payment provider declined the refund. Try again later.",
+          "failed": "Something went wrong. Try again."
+        },
+        "markRefunded": "Mark as paid back"
+      }
     },
     "customers": {
       "title": "Customers",
@@ -571,6 +666,47 @@
         "TYRES": "Tyre change",
         "REPAIR": "Repair",
         "CLEANING": "Cleaning"
+      }
+    },
+    "newBooking": {
+      "back": "All bookings",
+      "title": "New booking",
+      "intro": "For bookings by phone or at the counter. Same rules and prices as the website.",
+      "customerTitle": "Customer",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "phone": "Mobile number",
+      "phoneHint": "E.g. 12 34 56 78.",
+      "phoneError": "Enter a valid mobile number, e.g. 12 34 56 78.",
+      "locale": "Language",
+      "localeHint": "The customer gets messages in this language.",
+      "rentalTitle": "Rental",
+      "car": "Car model",
+      "choose": "Choose",
+      "pickupLocation": "Pickup location",
+      "pickupDate": "Pickup date",
+      "pickupTime": "Pickup time",
+      "returnLocation": "Return location",
+      "returnDate": "Return date",
+      "returnTime": "Return time",
+      "discountCode": "Discount code (optional)",
+      "extras": "Extras",
+      "paymentTitle": "Payment",
+      "paymentLink": "Send payment link",
+      "paymentLinkHint": "The customer gets an email with a link and has 24 hours to pay. The car is held meanwhile.",
+      "paymentCounter": "Paid at the counter",
+      "paymentCounterHint": "The booking is confirmed now. Record the payment when the customer pays.",
+      "submit": "Create booking",
+      "required": "Required.",
+      "errors": {
+        "invalid": "Check the marked fields.",
+        "tooSoon": "The pickup is too soon.",
+        "closed": "The location is closed at that time.",
+        "carTaken": "No car of this model is available in the period.",
+        "discount": "The discount code does not work.",
+        "price": "There is no price for the period.",
+        "failed": "Something went wrong. Try again."
       }
     }
   },
@@ -1065,7 +1201,8 @@
       "whatsappButton": "Message us on WhatsApp",
       "whatsappPrefill": "Hi, I have a question about my booking {reference}.",
       "manage": "View or cancel your booking",
-      "refund": "Refund"
+      "refund": "Refund",
+      "total": "Total"
     },
     "BOOKING_CONFIRMED": {
       "subject": "Your booking {reference} is confirmed",
@@ -1103,6 +1240,16 @@
       "intro": "Your booking {reference} has been cancelled and the car has been released.",
       "refund": "We are refunding {amount} to your payment card. It can take 5–10 business days before the money is in your account.",
       "noRefund": "Under the cancellation terms, nothing is refunded for this booking."
+    },
+    "PAYMENT_REQUEST": {
+      "subject": "Pay for your booking {reference}",
+      "intro": "Thank you for your booking. Pay {amount} using the button below to confirm it.",
+      "deadline": "We are holding the car for you until {deadline}.",
+      "button": "Pay for your booking"
+    },
+    "BOOKING_CHANGED": {
+      "subject": "Your booking {reference} has changed",
+      "intro": "We have changed your booking {reference}. Here are the new details."
     }
   },
   "manage": {

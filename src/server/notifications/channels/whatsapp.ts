@@ -20,6 +20,8 @@ export const whatsappTemplateNames: Record<NotificationTemplate, string> = {
   THANK_YOU: "thank_you",
   REVIEW_REQUEST: "review_request",
   BOOKING_CANCELLED: "booking_cancelled",
+  PAYMENT_REQUEST: "payment_request",
+  BOOKING_CHANGED: "booking_changed",
 };
 
 export function whatsappEnabled(): boolean {

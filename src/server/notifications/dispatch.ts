@@ -1,14 +1,11 @@
 import "server-only";
-import type {
-  NotificationStatus,
-  PaymentKind,
-  PaymentRecordStatus,
-} from "@/generated/prisma/client";
+import type { NotificationStatus } from "@/generated/prisma/client";
 import { notificationRules } from "@/config/notifications";
 import { hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { serverEnv } from "@/lib/env";
 import { logger } from "@/lib/logger";
+import { receivedMinor, refundedMinor } from "@/lib/payments";
 import { manageTokenFor } from "@/server/booking/tokens";
 import { db } from "@/server/db";
 import { sendEmail } from "@/server/email/send";
@@ -102,9 +99,10 @@ async function deliver(id: string, now: Date): Promise<keyof DispatchResult> {
     returnLocation: booking.returnLocation,
     deliveryAddress: booking.deliveryAddress,
     totalMinor: booking.totalMinor,
-    paidMinor: sumPayments(booking.payments, "CHARGE"),
-    refundMinor: sumPayments(booking.payments, "REFUND"),
+    paidMinor: receivedMinor(booking.payments),
+    refundMinor: refundedMinor(booking.payments),
     depositMinor: booking.depositMinor,
+    expiresAt: booking.expiresAt,
     currency: booking.currency,
   };
   const locale = hasLocale(routing.locales, notification.locale)
@@ -154,16 +152,4 @@ async function deliver(id: string, now: Date): Promise<keyof DispatchResult> {
     logger.warn({ notificationId: id, template, attempts }, "notification failed, will retry");
     return "retry";
   }
-}
-
-/** Gennemførte betalinger; refusioner tæller også, mens de er sat i gang. */
-function sumPayments(
-  payments: { kind: PaymentKind; status: PaymentRecordStatus; amountMinor: number }[],
-  kind: "CHARGE" | "REFUND",
-) {
-  const counted: PaymentRecordStatus[] =
-    kind === "CHARGE" ? ["SUCCEEDED"] : ["PENDING", "SUCCEEDED"];
-  return payments
-    .filter((payment) => payment.kind === kind && counted.includes(payment.status))
-    .reduce((sum, payment) => sum + payment.amountMinor, 0);
 }

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Search } from "lucide-react";
+import { Plus, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/feedback";
 import { Input } from "@/components/ui/input";
@@ -12,6 +12,7 @@ import { Table, TD, TH, THead, TR } from "@/components/ui/table";
 import { Pagination } from "@/components/features/admin/pagination";
 import { formatDateTime } from "@/lib/format";
 import { bookingFilterSchema, listBookings } from "@/server/admin/bookings";
+import { can } from "@/server/auth/policies";
 import { getPolicyContext, requirePermission } from "@/server/auth/session";
 import { db } from "@/server/db";
 
@@ -38,7 +39,17 @@ export default async function AdminBookingsPage({ searchParams }: PageProps<"/ad
 
   return (
     <>
-      <h1 className="text-2xl font-semibold tracking-tight text-ink-900">{t("title")}</h1>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <h1 className="text-2xl font-semibold tracking-tight text-ink-900">{t("title")}</h1>
+        {can(ctx, "booking:write") ? (
+          <Button asChild>
+            <Link href="/admin/bookings/new">
+              <Plus aria-hidden />
+              {t("new")}
+            </Link>
+          </Button>
+        ) : null}
+      </div>
 
       <form
         action="/admin/bookings"

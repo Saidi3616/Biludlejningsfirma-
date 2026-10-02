@@ -1,5 +1,5 @@
 import "server-only";
-import { createHmac, randomBytes, timingSafeEqual } from "node:crypto";
+import { createHash, createHmac, randomBytes, timingSafeEqual } from "node:crypto";
 import { AppError } from "@/lib/errors";
 import type { PaymentProvider, ProviderEvent } from "../types";
 
@@ -35,8 +35,10 @@ export const fakeProvider: PaymentProvider & {
     return `${providerRef}_secret`;
   },
 
-  async refund(providerRef) {
-    return { providerRef: `fake_re_${providerRef.slice(-12)}` };
+  async refund(_providerRef, _amountMinor, idempotencyKey) {
+    return {
+      providerRef: `fake_re_${createHash("sha256").update(idempotencyKey).digest("hex").slice(0, 16)}`,
+    };
   },
 
   async parseWebhook(rawBody, signature) {
