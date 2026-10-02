@@ -69,6 +69,13 @@ Forretningslogik hører til i `src/server`, aldrig i komponenter. Se [09-mappest
 - Regler, som virksomheden skal bekræfte (tolerance for sen aflevering, længste leje, grænse for depositum-hold, moms), står i `src/config/rental.ts`.
 - Pristrappen, sommertid og alle grænsetilfælde er dækket af `tests/unit/pricing.test.ts` og `tests/unit/dates.test.ts`.
 
+### Ledighed og booking
+
+- `searchAvailability()` og `checkAvailability()` i `src/server/availability/service.ts` finder ledige modeller i en periode. Åbningstider, mindste varsel og klargøringsbuffer (fra lokationen) tjekkes på serveren.
+- `createBooking()` i `src/server/booking/create.ts` opretter en reservation (`PENDING_PAYMENT`, 15 minutter) og tildeler en konkret bil. Databasens constraint afgør, hvem der får bilen, hvis to booker samtidig; taberen prøver næste bil eller får `CAR_NO_LONGER_AVAILABLE`.
+- Statusskift går altid gennem `transitionBooking()` i `src/server/booking/state.ts`, som også logger skiftet.
+- `/api/cron/expire-reservations` frigiver ubetalte reservationer. Den kræver `Authorization: Bearer $CRON_SECRET` og skal kaldes hvert minut. Udløbne reservationer frigives også, lige før en ny booking oprettes.
+
 ### Designsystem og sprog
 
 - Alle komponenter kan ses på `/styleguide` (ikke tilgængelig i produktion).
@@ -98,5 +105,7 @@ E2E-tests kræver Chromium (`pnpm exec playwright install chromium`). Har du all
 Planen er Vercel (region `fra1`) med Postgres hos Neon i EU. Production deployes fra `main`, staging fra `development`, og hver PR får et preview-miljø. Migrationer køres med `pnpm db:deploy` før en ny version går live. Appen bygges som `standalone`, så den også kan køre i en Docker-container.
 
 Hvert miljø skal have sit eget `AUTH_SECRET` og et `AUTH_URL`, der er præcis den adresse, siden åbnes på. Ellers afviser login-API'et kaldene (CSRF-beskyttelse), og links i e-mails peger forkert. Rate limiting af login læser klientens IP fra `x-forwarded-for`, som Vercel sætter; kører appen bag en anden proxy, skal den sætte headeren.
+
+Cron-jobbet `/api/cron/expire-reservations` skal sættes op til at køre hvert minut med `CRON_SECRET` (mindst 16 tegn, forskellig pr. miljø).
 
 Se [02-tech-stack.md](docs/architecture/02-tech-stack.md#hosting--deployment) for backup og miljøer.

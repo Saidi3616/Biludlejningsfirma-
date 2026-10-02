@@ -2,7 +2,13 @@
  * Oversætter databasefejl til noget, servicelaget kan reagere på, fx
  * "booking_no_overlap" → "bilen er netop blevet booket".
  */
-type DriverCause = { code?: string; message?: string };
+type DriverCause = {
+  code?: string;
+  message?: string;
+  originalMessage?: string;
+  /** Sat ved unikhedsfejl, fx { index: "Booking_reference_key" }. */
+  constraint?: { index?: string };
+};
 
 function driverCause(error: unknown): DriverCause | undefined {
   const meta = (error as { meta?: { driverAdapterError?: { cause?: DriverCause } } })?.meta;
@@ -11,7 +17,9 @@ function driverCause(error: unknown): DriverCause | undefined {
 
 /** Navnet på det constraint, der afviste skrivningen, eller null. */
 export function violatedConstraint(error: unknown): string | null {
-  const message = driverCause(error)?.message ?? "";
+  const cause = driverCause(error);
+  if (cause?.constraint?.index) return cause.constraint.index;
+  const message = cause?.message ?? cause?.originalMessage ?? "";
   return message.match(/constraint "([^"]+)"/)?.[1] ?? null;
 }
 

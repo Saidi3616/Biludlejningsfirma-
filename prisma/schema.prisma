@@ -507,6 +507,8 @@ model Booking {
   expiresAt        DateTime?     @db.Timestamptz
   termsVersion     String?
   discountId       String?       @db.Uuid
+  /// Klientens Idempotency-Key: samme nøgle to gange giver den samme booking (07-api.md).
+  idempotencyKey   String?       @unique @db.VarChar(100)
   createdAt        DateTime      @default(now()) @db.Timestamptz
   updatedAt        DateTime      @updatedAt @db.Timestamptz
 
@@ -531,6 +533,7 @@ model Booking {
   @@index([status, returnAt])
   @@index([customerId])
   @@index([carId, blockedFrom])
+  @@index([status, expiresAt])
 }
 
 enum BookingItemType {

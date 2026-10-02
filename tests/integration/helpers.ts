@@ -108,3 +108,19 @@ export async function violatedConstraint(promise: Promise<unknown>): Promise<str
     return dbConstraint(error) ?? `ukendt fejl: ${(error as Error).message}`;
   }
 }
+
+/** Pristrappe for flådens kategori: 399 kr./dag, 3 dage 999 kr., 7 dage 1.999 kr. */
+export async function addPrices(fleet: Fleet) {
+  await db.pricingRule.createMany({
+    data: [
+      [1, 39900],
+      [3, 99900],
+      [7, 199900],
+    ].map(([minDays, packageMinor]) => ({
+      categoryId: fleet.carModel.categoryId,
+      minDays: minDays!,
+      packageMinor: packageMinor!,
+      perDayMinor: Math.round(packageMinor! / minDays!),
+    })),
+  });
+}
