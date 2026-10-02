@@ -1,0 +1,6 @@
+pnpm-lock.yaml
+src/generated
+.next
+node_modules
+AGENTS.md
+docs
