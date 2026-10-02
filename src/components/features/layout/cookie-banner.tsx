@@ -55,7 +55,15 @@ export function CookieBanner() {
   }, []);
 
   function save(next: ConsentChoice) {
-    document.cookie = serializeConsent(next);
+    const id = parseConsent(readConsentCookie())?.id ?? crypto.randomUUID();
+    document.cookie = serializeConsent(next, new Date(), id);
+    // Valget logges som dokumentation; fejler det, gælder valget alligevel.
+    fetch("/api/consent", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ id, ...next }),
+      keepalive: true,
+    }).catch(() => {});
     setChoice(next);
     setSettingsOpen(false);
     window.dispatchEvent(new Event(CHANGE_EVENT));

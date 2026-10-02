@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Download } from "lucide-react";
+import { Alert } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
 import { Card, CardBody } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/choice";
 import { Price } from "@/components/ui/price";
 import { StatusBadge } from "@/components/ui/status-badge";
 import { Table, TD, TH, THead, TR } from "@/components/ui/table";
@@ -11,7 +14,10 @@ import { AppError } from "@/lib/errors";
 import { formatDate, formatDateTime } from "@/lib/format";
 import { adminCustomer } from "@/server/admin/customers";
 import { ADMIN_TIME_ZONE } from "@/server/admin/dashboard";
+import { can } from "@/server/auth/policies";
 import { getPolicyContext, requirePermission } from "@/server/auth/session";
+import { anonymizeBlocker } from "@/server/gdpr/service";
+import { anonymizeCustomerAction } from "./actions";
 
 export const dynamic = "force-dynamic";
 
@@ -20,19 +26,30 @@ export async function generateMetadata() {
   return { title: t("metaTitle") };
 }
 
-/** Kundens profil, bookinger og kommunikation. GDPR-handlinger kommer i M15. */
-export default async function AdminCustomerPage({ params }: PageProps<"/admin/customers/[id]">) {
+const NOTICES = ["anonymized", "blocked", "confirm", "forbidden", "failed"] as const;
+
+/** Kundens profil, bookinger, kommunikation og GDPR-handlinger (F10). */
+export default async function AdminCustomerPage({
+  params,
+  searchParams,
+}: PageProps<"/admin/customers/[id]">) {
   setRequestLocale("da");
   await requirePermission("customer:read");
   const { id } = await params;
+  const search = await searchParams;
+  const notice = NOTICES.find((value) => value === search.notice) ?? null;
+  const ctx = await getPolicyContext();
   let customer;
   try {
-    customer = await adminCustomer(await getPolicyContext(), id);
+    customer = await adminCustomer(ctx, id);
   } catch (error) {
     if (error instanceof AppError && error.code === "NOT_FOUND") notFound();
     throw error;
   }
   const t = await getTranslations("admin.customer");
+  const canExport = can(ctx, "gdpr:export");
+  const canAnonymize = can(ctx, "gdpr:anonymize") && !customer.anonymizedAt;
+  const blocker = canAnonymize ? await anonymizeBlocker(customer.id) : null;
   const tBooking = await getTranslations("admin.booking");
   const name = customer.anonymizedAt
     ? t("anonymized")
@@ -48,6 +65,11 @@ export default async function AdminCustomerPage({ params }: PageProps<"/admin/cu
         {t("back")}
       </Link>
       <h1 className="text-2xl font-semibold tracking-tight text-ink-900">{name}</h1>
+      {notice ? (
+        <Alert tone={notice === "anonymized" ? "success" : "danger"}>
+          {t(`gdpr.notices.${notice}`)}
+        </Alert>
+      ) : null}
 
       <div className="grid gap-6 lg:grid-cols-[1fr_22rem] lg:items-start">
         <div className="flex min-w-0 flex-col gap-6">
@@ -181,6 +203,37 @@ export default async function AdminCustomerPage({ params }: PageProps<"/admin/cu
               )}
             </CardBody>
           </Card>
+          {canExport || canAnonymize ? (
+            <Card>
+              <CardBody className="flex flex-col gap-3">
+                <h2 className="text-lg font-semibold text-ink-900">{t("gdpr.title")}</h2>
+                {canExport ? (
+                  <a
+                    href={`/admin/customers/${customer.id}/export`}
+                    download
+                    className="inline-flex min-h-11 items-center gap-2 self-start rounded-md border border-ink-300 bg-white px-4 font-medium text-ink-900 hover:border-ink-400 hover:bg-ink-50"
+                  >
+                    <Download className="size-4" aria-hidden />
+                    {t("gdpr.export")}
+                  </a>
+                ) : null}
+                {canAnonymize ? (
+                  blocker ? (
+                    <p className="text-sm text-muted">{t(`gdpr.blocked.${blocker}`)}</p>
+                  ) : (
+                    <form action={anonymizeCustomerAction} className="flex flex-col gap-3">
+                      <input type="hidden" name="customerId" value={customer.id} />
+                      <p className="text-sm text-muted">{t("gdpr.anonymizeHint")}</p>
+                      <Checkbox name="confirm" label={t("gdpr.confirm")} />
+                      <Button type="submit" variant="danger" className="self-start">
+                        {t("gdpr.anonymize")}
+                      </Button>
+                    </form>
+                  )
+                ) : null}
+              </CardBody>
+            </Card>
+          ) : null}
         </aside>
       </div>
     </>

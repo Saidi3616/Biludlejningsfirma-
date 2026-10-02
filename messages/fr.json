@@ -230,7 +230,8 @@
       "bookings": "Réservations",
       "payments": "Paiements",
       "profile": "Profil",
-      "documents": "Documents"
+      "documents": "Documents",
+      "privacy": "Confidentialité"
     },
     "bookings": {
       "title": "Vos réservations",
@@ -287,6 +288,38 @@
       "download": "Télécharger le PDF",
       "emptyTitle": "Aucun document pour le moment",
       "emptyBody": "Votre contrat de location apparaîtra ici une fois signé lors de la prise en charge."
+    },
+    "privacy": {
+      "title": "Confidentialité et données",
+      "intro": "Choisissez ce que nous pouvons vous envoyer, téléchargez vos données et supprimez votre compte.",
+      "error": "Une erreur s'est produite. Veuillez réessayer.",
+      "consents": {
+        "title": "Nos messages",
+        "marketing": "Actualités et offres par e-mail",
+        "marketingHint": "Quelques fois par mois au maximum. Vous recevez toujours les messages concernant vos réservations.",
+        "whatsapp": "Actualités et offres sur WhatsApp",
+        "whatsappHint": "Les messages concernant vos réservations peuvent toujours arriver sur WhatsApp si vous avez indiqué un numéro de mobile.",
+        "save": "Enregistrer",
+        "saved": "Vos choix ont été enregistrés."
+      },
+      "export": {
+        "title": "Télécharger vos données",
+        "body": "Recevez un fichier contenant tout ce que nous conservons sur vous : profil, réservations, paiements, messages et consentements.",
+        "download": "Télécharger mes données"
+      },
+      "delete": {
+        "title": "Supprimer le compte",
+        "body": "Nous supprimons votre nom, vos coordonnées, vos messages, vos avis et vos documents, et vous ne pourrez plus vous connecter. Les réservations et paiements sont conservés sans votre nom, comme l'exige la loi comptable.",
+        "confirm": "Je comprends que cette action est irréversible.",
+        "confirmRequired": "Cochez la case pour confirmer.",
+        "submit": "Supprimer mon compte",
+        "done": "Votre compte a été supprimé.",
+        "home": "Retour à l'accueil",
+        "blocked": {
+          "ACTIVE_BOOKING": "Vous avez une réservation en cours. Vous pourrez supprimer votre compte après la location, ou annuler la réservation d'abord.",
+          "OPEN_CLAIM": "Votre dernière location n'est pas encore réglée (dépôt de garantie ou dommage). Contactez-nous, nous vous aiderons."
+        }
+      }
     }
   },
   "admin": {
@@ -681,7 +714,25 @@
       "profileTitle": "Informations",
       "lastLogin": "Dernière connexion le {date}",
       "created": "Créé le",
-      "whatsappPrefill": "Bonjour {name}, ici l'agence de location."
+      "whatsappPrefill": "Bonjour {name}, ici l'agence de location.",
+      "gdpr": {
+        "title": "RGPD",
+        "export": "Exporter les données (JSON)",
+        "anonymize": "Anonymiser le client",
+        "anonymizeHint": "Nom, coordonnées, messages, avis et documents sont supprimés. Les réservations et paiements sont conservés sous un pseudonyme. Irréversible.",
+        "confirm": "Le client a demandé la suppression et j'ai vérifié son identité.",
+        "blocked": {
+          "ACTIVE_BOOKING": "Impossible d'anonymiser : le client a une réservation en cours.",
+          "OPEN_CLAIM": "Impossible d'anonymiser : un dépôt ou un dommage n'est pas réglé."
+        },
+        "notices": {
+          "anonymized": "L'anonymisation est terminée.",
+          "blocked": "Le client ne peut pas encore être anonymisé.",
+          "confirm": "Cochez la case pour confirmer l'anonymisation.",
+          "forbidden": "Votre rôle n'a pas accès à cette action.",
+          "failed": "Une erreur s'est produite. Veuillez réessayer."
+        }
+      }
     },
     "calendar": {
       "title": "Calendrier",

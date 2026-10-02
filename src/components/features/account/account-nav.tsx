@@ -25,6 +25,11 @@ const items = [
     key: "profile",
     match: (path: string) => path.startsWith("/account/profile"),
   },
+  {
+    href: "/account/privacy",
+    key: "privacy",
+    match: (path: string) => path.startsWith("/account/privacy"),
+  },
 ] as const;
 
 /** Faner i Min konto. Almindelige links, så de virker uden JavaScript. */

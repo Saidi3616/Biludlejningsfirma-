@@ -17,6 +17,15 @@ describe("cookie-samtykke", () => {
     expect(cookie).toContain("SameSite=Lax");
   });
 
+  it("gemmer et gyldigt id til samtykkeloggen og ignorerer andet", () => {
+    const id = "0199a1b2-c3d4-7e5f-8a9b-0c1d2e3f4a5b";
+    const cookie = serializeConsent({ analytics: false, marketing: true }, new Date(), id);
+    const value = cookie.split(";")[0]!.slice(CONSENT_COOKIE.length + 1);
+    expect(parseConsent(value)?.id).toBe(id);
+    const bad = encodeURIComponent(JSON.stringify({ v: 1, id: "<script>" }));
+    expect(parseConsent(bad)).not.toHaveProperty("id");
+  });
+
   it("ignorerer ødelagte værdier og gamle politik-versioner", () => {
     expect(parseConsent(undefined)).toBeNull();
     expect(parseConsent("ikke-json")).toBeNull();

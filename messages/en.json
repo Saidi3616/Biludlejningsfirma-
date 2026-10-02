@@ -230,7 +230,8 @@
       "bookings": "Bookings",
       "payments": "Payments",
       "profile": "Profile",
-      "documents": "Documents"
+      "documents": "Documents",
+      "privacy": "Privacy"
     },
     "bookings": {
       "title": "Your bookings",
@@ -287,6 +288,38 @@
       "download": "Download PDF",
       "emptyTitle": "No documents yet",
       "emptyBody": "Your rental agreement appears here once you have signed it at pick-up."
+    },
+    "privacy": {
+      "title": "Privacy and data",
+      "intro": "Choose what we may send you, download your data and delete your account.",
+      "error": "Something went wrong. Please try again.",
+      "consents": {
+        "title": "Messages from us",
+        "marketing": "News and offers by email",
+        "marketingHint": "A few times a month at most. You always get messages about your bookings.",
+        "whatsapp": "News and offers on WhatsApp",
+        "whatsappHint": "Messages about your bookings may still come on WhatsApp if you gave us a mobile number.",
+        "save": "Save choices",
+        "saved": "Your choices have been saved."
+      },
+      "export": {
+        "title": "Download your data",
+        "body": "Get a file with everything we store about you: profile, bookings, payments, messages and consents.",
+        "download": "Download my data"
+      },
+      "delete": {
+        "title": "Delete account",
+        "body": "We delete your name, contact details, messages, reviews and documents, and you can no longer sign in. Bookings and payments are kept without your name because accounting law requires it.",
+        "confirm": "I understand that this cannot be undone.",
+        "confirmRequired": "Tick the box to confirm.",
+        "submit": "Delete my account",
+        "done": "Your account has been deleted.",
+        "home": "Go to the home page",
+        "blocked": {
+          "ACTIVE_BOOKING": "You have a booking that has not finished. You can delete your account after the rental, or cancel the booking first.",
+          "OPEN_CLAIM": "Your latest rental has not been settled yet (deposit or damage). Contact us and we will help."
+        }
+      }
     }
   },
   "admin": {
@@ -681,7 +714,25 @@
       "profileTitle": "Details",
       "lastLogin": "Last signed in {date}",
       "created": "Created",
-      "whatsappPrefill": "Hi {name}, this is the rental company."
+      "whatsappPrefill": "Hi {name}, this is the rental company.",
+      "gdpr": {
+        "title": "GDPR",
+        "export": "Export data (JSON)",
+        "anonymize": "Anonymise customer",
+        "anonymizeHint": "Name, contact details, messages, reviews and documents are deleted. Bookings and payments are kept under a pseudonym. Cannot be undone.",
+        "confirm": "The customer asked for deletion and I have checked their identity.",
+        "blocked": {
+          "ACTIVE_BOOKING": "Cannot be anonymised: the customer has a booking that has not finished.",
+          "OPEN_CLAIM": "Cannot be anonymised: a deposit or damage is not settled."
+        },
+        "notices": {
+          "anonymized": "The anonymisation is complete.",
+          "blocked": "The customer cannot be anonymised yet.",
+          "confirm": "Tick the box to confirm the anonymisation.",
+          "forbidden": "Your role does not have access to that action.",
+          "failed": "Something went wrong. Please try again."
+        }
+      }
     },
     "calendar": {
       "title": "Calendar",
