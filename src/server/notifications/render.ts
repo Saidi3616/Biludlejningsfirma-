@@ -32,6 +32,8 @@ export type NotificationContext = {
   /** Refunderet eller under refusion. */
   refundMinor: number;
   depositMinor: number;
+  /** Betalingsfristen for en reservation (betalingslink). */
+  expiresAt: Date | null;
   /** Uden sprog-præfiks: gæstens "administrér booking"-link eller kontosiden. */
   managePath: `/${string}`;
   currency: string;
@@ -159,6 +161,36 @@ export function renderNotification(
       closing: [t("common.questions")],
       button: whatsappButton,
       whatsapp: [ctx.firstName, ctx.reference, money(ctx.refundMinor)],
+    },
+    PAYMENT_REQUEST: {
+      paragraphs: [
+        t("PAYMENT_REQUEST.intro", { amount: money(ctx.totalMinor) }),
+        ...(ctx.expiresAt
+          ? [
+              t("PAYMENT_REQUEST.deadline", {
+                deadline: formatDateTime(ctx.expiresAt, locale, ctx.pickupLocation.timezone),
+              }),
+            ]
+          : []),
+      ],
+      details: [
+        rows.reference,
+        rows.car,
+        rows.pickup,
+        rows.return,
+        { label: t("common.total"), value: money(ctx.totalMinor) },
+      ],
+      closing: [t("common.questions")],
+      button: { label: t("PAYMENT_REQUEST.button"), url: manageLink.url },
+      whatsapp: [ctx.firstName, ctx.reference, money(ctx.totalMinor), manageLink.url],
+    },
+    BOOKING_CHANGED: {
+      paragraphs: [t("BOOKING_CHANGED.intro", { reference: ctx.reference })],
+      details: [rows.reference, rows.car, rows.pickup, rows.return],
+      closing: [t("common.questions")],
+      button: whatsappButton,
+      link: manageLink,
+      whatsapp: [ctx.firstName, ctx.reference, pickupTime, returnTime],
     },
   };
   const content = contents[template];

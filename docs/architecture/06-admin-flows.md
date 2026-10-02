@@ -74,6 +74,7 @@ flowchart TD
 → ekstraudstyr, rabat → vælg betaling: send betalingslink (Stripe) / betal ved skranke / faktura
 → samme booking-service som web (samme regler, samme constraint)
 ```
+MVP (M10): kunden oprettes som gæst (knyttes til en konto ved login). Betalingslinket er gæstens administrér-link; reservationen holdes 24 timer. Faktura er PHASE 2. Levering vælges ikke i telefonbookingen endnu.
 
 ## F4. Bil går i stykker / bliver utilgængelig
 
@@ -95,6 +96,7 @@ Booking → "Ændr" → nye datoer → availability-tjek på samme bil (ellers f
 → differencen opkræves (betalingslink) eller refunderes
 → BookingStatusEvent + AuditLog + besked til kunden
 ```
+MVP (M10): en merpris registreres som betaling ved skranken (manuel betaling), en mindrepris refunderes af en leder. Betalingslink til en difference er PHASE 2.
 
 ## F6. Annullering og refundering (MANAGER+)
 

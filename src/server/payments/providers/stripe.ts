@@ -38,10 +38,10 @@ export function stripeProvider(
       return payable.includes(intent.status) ? intent.client_secret : null;
     },
 
-    async refund(providerRef, amountMinor) {
+    async refund(providerRef, amountMinor, idempotencyKey) {
       const refund = await stripe.refunds.create(
         { payment_intent: providerRef, amount: amountMinor },
-        { idempotencyKey: `refund:${providerRef}:${amountMinor}` },
+        { idempotencyKey },
       );
       return { providerRef: refund.id };
     },

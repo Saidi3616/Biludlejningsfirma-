@@ -32,7 +32,7 @@ export default async function ReceiptPage({
   const bookingId = await findAccessibleBooking(reference);
   if (!bookingId) notFound();
   const booking = await bookingSummary(bookingId);
-  const charges = booking.payments.filter((payment) => payment.kind === "CHARGE");
+  const charges = booking.payments.filter((payment) => payment.kind !== "REFUND");
   if (charges.length === 0) notFound();
 
   const t = await getTranslations("receipt");

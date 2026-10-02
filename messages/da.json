@@ -402,7 +402,8 @@
       },
       "previous": "Forrige",
       "next": "Næste",
-      "page": "Side {page} af {pages}"
+      "page": "Side {page} af {pages}",
+      "new": "Ny booking"
     },
     "booking": {
       "back": "Alle bookinger",
@@ -432,7 +433,8 @@
         "kind": "Type",
         "status": "Status",
         "method": "Metode",
-        "amount": "Beløb"
+        "amount": "Beløb",
+        "action": "Handling"
       },
       "paymentKinds": {
         "CHARGE": "Betaling",
@@ -479,7 +481,9 @@
         "RETURN_REMINDER": "Påmindelse om aflevering",
         "THANK_YOU": "Tak for lejen",
         "REVIEW_REQUEST": "Anmeldelse",
-        "BOOKING_CANCELLED": "Annullering"
+        "BOOKING_CANCELLED": "Annullering",
+        "PAYMENT_REQUEST": "Betalingslink",
+        "BOOKING_CHANGED": "Ændret booking"
       },
       "notificationStatus": {
         "PENDING": "Planlagt",
@@ -508,7 +512,98 @@
       "whatsappPrefill": "Hej {name}, det er udlejningen angående din booking {reference}.",
       "call": "Ring op",
       "whatsapp": "WhatsApp",
-      "sendEmail": "Skriv e-mail"
+      "sendEmail": "Skriv e-mail",
+      "reasons": {
+        "customer_free": "Kunden annullerede inden for fristen",
+        "customer_late": "Kunden annullerede efter fristen",
+        "manual_payment": "Betaling registreret",
+        "pay_at_counter": "Telefonbooking, betales ved skranken",
+        "rescheduled": "Ny periode",
+        "reservation_expired": "Betalingsfristen udløb"
+      },
+      "actions": {
+        "title": "Handlinger",
+        "amountHint": "I kroner, fx 450 eller 1.250,50.",
+        "reason": "Årsag",
+        "reasonHint": "Vises i bookingens historik. Skriv ikke kortoplysninger.",
+        "retryRefund": "Prøv igen",
+        "pay": {
+          "title": "Registrér betaling",
+          "status": "Betalt:",
+          "balance": "Mangler:",
+          "amount": "Beløb",
+          "method": "Betalingsmåde",
+          "methods": {
+            "CASH": "Kontant",
+            "CARD": "Kort (terminal)",
+            "MOBILEPAY": "MobilePay",
+            "BANK_TRANSFER": "Bankoverførsel"
+          },
+          "submit": "Registrér betaling"
+        },
+        "reschedule": {
+          "title": "Ændr periode",
+          "intro": "Vælg den nye periode. Du ser bil og pris, før du bekræfter.",
+          "pickupDate": "Afhentningsdato",
+          "pickupTime": "Afhentningstid",
+          "returnDate": "Afleveringsdato",
+          "returnTime": "Afleveringstid",
+          "price": "Pris",
+          "keep": "Behold prisen",
+          "new": "Beregn ny pris for perioden",
+          "preview": "Se ændringen",
+          "summary": "Sådan bliver bookingen",
+          "newPeriod": "Ny periode",
+          "car": "Bil",
+          "sameCar": "(samme bil)",
+          "otherCar": "(anden bil af samme model)",
+          "total": "Pris i alt",
+          "confirm": "Bekræft ændringen"
+        },
+        "reassign": {
+          "title": "Skift bil",
+          "none": "Ingen andre biler af modellen er ledige i perioden.",
+          "car": "Ny bil",
+          "submit": "Skift bil"
+        },
+        "refund": {
+          "title": "Refundér",
+          "intro": "Betalt i alt:",
+          "amount": "Beløb",
+          "submit": "Refundér"
+        },
+        "cancel": {
+          "title": "Annullér booking",
+          "free": "Kunden er inden for fristen for gratis annullering.",
+          "late": "Fristen for gratis annullering er overskredet.",
+          "noPolicy": "Bookingen er ikke bekræftet, eller afhentningstiden er passeret.",
+          "suggested": "Forslag til refusion:",
+          "refund": "Refusion",
+          "refundHint": "I kroner. Du kan ændre forslaget; skriv hvorfor i årsagen.",
+          "confirm": "Ja, annullér bookingen og frigiv bilen",
+          "submit": "Annullér booking"
+        },
+        "notices": {
+          "cancelled": "Bookingen er annulleret, og kunden får besked.",
+          "cancelledRefundPending": "Bookingen er annulleret, men refusionen fejlede hos betalingsudbyderen. Prøv igen under Betalinger.",
+          "refunded": "Refusionen er gennemført.",
+          "refundPending": "Refusionen fejlede hos betalingsudbyderen. Prøv igen under Betalinger.",
+          "paid": "Betalingen er registreret.",
+          "rescheduled": "Bookingen er flyttet, og kunden får besked.",
+          "reassigned": "Bookingen har fået en anden bil.",
+          "created": "Bookingen er oprettet og bekræftet. Kunden betaler ved skranken.",
+          "linkSent": "Bookingen er oprettet, og kunden får et betalingslink på e-mail. Linket virker i 24 timer.",
+          "invalid": "Tjek felterne og prøv igen.",
+          "tooSoon": "Afhentningen ligger for tæt på.",
+          "carTaken": "Ingen bil af modellen er ledig i perioden.",
+          "closed": "Stedet har lukket på det tidspunkt.",
+          "forbidden": "Din rolle har ikke adgang til den handling.",
+          "conflict": "Bookingen kan ikke ændres i sin nuværende status, eller den blev ændret samtidig. Genindlæs siden.",
+          "providerFailed": "Betalingsudbyderen afviste refusionen. Prøv igen senere.",
+          "failed": "Noget gik galt. Prøv igen."
+        },
+        "markRefunded": "Markér som betalt tilbage"
+      }
     },
     "customers": {
       "title": "Kunder",
@@ -571,6 +666,47 @@
         "TYRES": "Dækskift",
         "REPAIR": "Reparation",
         "CLEANING": "Rengøring"
+      }
+    },
+    "newBooking": {
+      "back": "Alle bookinger",
+      "title": "Ny booking",
+      "intro": "Til bookinger over telefonen eller ved skranken. Samme regler og priser som på hjemmesiden.",
+      "customerTitle": "Kunde",
+      "firstName": "Fornavn",
+      "lastName": "Efternavn",
+      "email": "E-mail",
+      "phone": "Mobilnummer",
+      "phoneHint": "Fx 12 34 56 78.",
+      "phoneError": "Skriv et gyldigt mobilnummer, fx 12 34 56 78.",
+      "locale": "Sprog",
+      "localeHint": "Kunden får beskeder på dette sprog.",
+      "rentalTitle": "Leje",
+      "car": "Bilmodel",
+      "choose": "Vælg",
+      "pickupLocation": "Afhentningssted",
+      "pickupDate": "Afhentningsdato",
+      "pickupTime": "Afhentningstid",
+      "returnLocation": "Afleveringssted",
+      "returnDate": "Afleveringsdato",
+      "returnTime": "Afleveringstid",
+      "discountCode": "Rabatkode (valgfri)",
+      "extras": "Ekstraudstyr",
+      "paymentTitle": "Betaling",
+      "paymentLink": "Send betalingslink",
+      "paymentLinkHint": "Kunden får en e-mail med et link og har 24 timer til at betale. Bilen holdes imens.",
+      "paymentCounter": "Betales ved skranken",
+      "paymentCounterHint": "Bookingen bekræftes nu. Registrér betalingen, når kunden betaler.",
+      "submit": "Opret booking",
+      "required": "Skal udfyldes.",
+      "errors": {
+        "invalid": "Tjek de markerede felter.",
+        "tooSoon": "Afhentningen ligger for tæt på.",
+        "closed": "Stedet har lukket på det tidspunkt.",
+        "carTaken": "Ingen bil af modellen er ledig i perioden.",
+        "discount": "Rabatkoden virker ikke.",
+        "price": "Der er ingen pris for perioden.",
+        "failed": "Noget gik galt. Prøv igen."
       }
     }
   },
@@ -1065,7 +1201,8 @@
       "whatsappButton": "Skriv til os på WhatsApp",
       "whatsappPrefill": "Hej, jeg har et spørgsmål om min booking {reference}.",
       "manage": "Se eller annullér din booking",
-      "refund": "Refunderes"
+      "refund": "Refunderes",
+      "total": "I alt"
     },
     "BOOKING_CONFIRMED": {
       "subject": "Din booking {reference} er bekræftet",
@@ -1103,6 +1240,16 @@
       "intro": "Din booking {reference} er annulleret, og bilen er frigivet.",
       "refund": "Vi refunderer {amount} til dit betalingskort. Der kan gå 5–10 bankdage, før pengene står på din konto.",
       "noRefund": "Efter annulleringsbetingelserne refunderes der ikke noget for denne booking."
+    },
+    "PAYMENT_REQUEST": {
+      "subject": "Betal din booking {reference}",
+      "intro": "Tak for din booking. Betal {amount} via knappen herunder for at bekræfte den.",
+      "deadline": "Vi holder bilen til dig indtil {deadline}.",
+      "button": "Betal din booking"
+    },
+    "BOOKING_CHANGED": {
+      "subject": "Din booking {reference} er ændret",
+      "intro": "Vi har ændret din booking {reference}. Her er de nye oplysninger."
     }
   },
   "manage": {

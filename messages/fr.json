@@ -402,7 +402,8 @@
       },
       "previous": "Précédent",
       "next": "Suivant",
-      "page": "Page {page} sur {pages}"
+      "page": "Page {page} sur {pages}",
+      "new": "Nouvelle réservation"
     },
     "booking": {
       "back": "Toutes les réservations",
@@ -432,7 +433,8 @@
         "kind": "Type",
         "status": "Statut",
         "method": "Moyen",
-        "amount": "Montant"
+        "amount": "Montant",
+        "action": "Action"
       },
       "paymentKinds": {
         "CHARGE": "Paiement",
@@ -479,7 +481,9 @@
         "RETURN_REMINDER": "Rappel de retour",
         "THANK_YOU": "Remerciement",
         "REVIEW_REQUEST": "Avis",
-        "BOOKING_CANCELLED": "Annulation"
+        "BOOKING_CANCELLED": "Annulation",
+        "PAYMENT_REQUEST": "Lien de paiement",
+        "BOOKING_CHANGED": "Réservation modifiée"
       },
       "notificationStatus": {
         "PENDING": "Planifiée",
@@ -508,7 +512,98 @@
       "whatsappPrefill": "Bonjour {name}, ici l'agence de location au sujet de votre réservation {reference}.",
       "call": "Appeler",
       "whatsapp": "WhatsApp",
-      "sendEmail": "Écrire un e-mail"
+      "sendEmail": "Écrire un e-mail",
+      "reasons": {
+        "customer_free": "Annulée par le client dans le délai gratuit",
+        "customer_late": "Annulée par le client après le délai gratuit",
+        "manual_payment": "Paiement enregistré",
+        "pay_at_counter": "Réservation par téléphone, paiement au comptoir",
+        "rescheduled": "Nouvelle période",
+        "reservation_expired": "Délai de paiement dépassé"
+      },
+      "actions": {
+        "title": "Actions",
+        "amountHint": "En couronnes, par ex. 450 ou 1.250,50.",
+        "reason": "Motif",
+        "reasonHint": "Affiché dans l'historique de la réservation. N'écrivez jamais de données de carte.",
+        "retryRefund": "Réessayer",
+        "pay": {
+          "title": "Enregistrer un paiement",
+          "status": "Payé :",
+          "balance": "Reste à payer :",
+          "amount": "Montant",
+          "method": "Moyen de paiement",
+          "methods": {
+            "CASH": "Espèces",
+            "CARD": "Carte (terminal)",
+            "MOBILEPAY": "MobilePay",
+            "BANK_TRANSFER": "Virement"
+          },
+          "submit": "Enregistrer le paiement"
+        },
+        "reschedule": {
+          "title": "Modifier la période",
+          "intro": "Choisissez la nouvelle période. La voiture et le prix s'affichent avant la confirmation.",
+          "pickupDate": "Date de retrait",
+          "pickupTime": "Heure de retrait",
+          "returnDate": "Date de retour",
+          "returnTime": "Heure de retour",
+          "price": "Prix",
+          "keep": "Garder le prix",
+          "new": "Calculer un nouveau prix pour la période",
+          "preview": "Voir la modification",
+          "summary": "La réservation deviendra",
+          "newPeriod": "Nouvelle période",
+          "car": "Voiture",
+          "sameCar": "(même voiture)",
+          "otherCar": "(autre voiture du même modèle)",
+          "total": "Prix total",
+          "confirm": "Confirmer la modification"
+        },
+        "reassign": {
+          "title": "Changer de voiture",
+          "none": "Aucune autre voiture de ce modèle n'est disponible sur la période.",
+          "car": "Nouvelle voiture",
+          "submit": "Changer de voiture"
+        },
+        "refund": {
+          "title": "Rembourser",
+          "intro": "Total payé :",
+          "amount": "Montant",
+          "submit": "Rembourser"
+        },
+        "cancel": {
+          "title": "Annuler la réservation",
+          "free": "Le client est dans le délai d'annulation gratuite.",
+          "late": "Le délai d'annulation gratuite est dépassé.",
+          "noPolicy": "La réservation n'est pas confirmée, ou l'heure de retrait est passée.",
+          "suggested": "Remboursement proposé :",
+          "refund": "Remboursement",
+          "refundHint": "En couronnes. Vous pouvez modifier la proposition ; expliquez pourquoi dans le motif.",
+          "confirm": "Oui, annuler la réservation et libérer la voiture",
+          "submit": "Annuler la réservation"
+        },
+        "notices": {
+          "cancelled": "La réservation est annulée, et le client sera prévenu.",
+          "cancelledRefundPending": "La réservation est annulée, mais le remboursement a échoué chez le prestataire de paiement. Réessayez sous Paiements.",
+          "refunded": "Le remboursement est effectué.",
+          "refundPending": "Le remboursement a échoué chez le prestataire de paiement. Réessayez sous Paiements.",
+          "paid": "Le paiement est enregistré.",
+          "rescheduled": "La réservation est déplacée, et le client sera prévenu.",
+          "reassigned": "La réservation a une autre voiture.",
+          "created": "La réservation est créée et confirmée. Le client paie au comptoir.",
+          "linkSent": "La réservation est créée, et le client recevra un lien de paiement par e-mail. Le lien est valable 24 heures.",
+          "invalid": "Vérifiez les champs et réessayez.",
+          "tooSoon": "Le retrait est trop proche.",
+          "carTaken": "Aucune voiture de ce modèle n'est disponible sur la période.",
+          "closed": "L'agence est fermée à cette heure-là.",
+          "forbidden": "Votre rôle n'a pas accès à cette action.",
+          "conflict": "La réservation ne peut pas être modifiée dans son statut actuel, ou elle a été modifiée en même temps. Rechargez la page.",
+          "providerFailed": "Le prestataire de paiement a refusé le remboursement. Réessayez plus tard.",
+          "failed": "Un problème est survenu. Réessayez."
+        },
+        "markRefunded": "Marquer comme remboursé"
+      }
     },
     "customers": {
       "title": "Clients",
@@ -571,6 +666,47 @@
         "TYRES": "Pneus",
         "REPAIR": "Réparation",
         "CLEANING": "Nettoyage"
+      }
+    },
+    "newBooking": {
+      "back": "Toutes les réservations",
+      "title": "Nouvelle réservation",
+      "intro": "Pour les réservations par téléphone ou au comptoir. Mêmes règles et prix que sur le site.",
+      "customerTitle": "Client",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "E-mail",
+      "phone": "Numéro de mobile",
+      "phoneHint": "Par ex. 12 34 56 78.",
+      "phoneError": "Saisissez un numéro de mobile valide, par ex. 12 34 56 78.",
+      "locale": "Langue",
+      "localeHint": "Le client reçoit les messages dans cette langue.",
+      "rentalTitle": "Location",
+      "car": "Modèle",
+      "choose": "Choisir",
+      "pickupLocation": "Lieu de retrait",
+      "pickupDate": "Date de retrait",
+      "pickupTime": "Heure de retrait",
+      "returnLocation": "Lieu de retour",
+      "returnDate": "Date de retour",
+      "returnTime": "Heure de retour",
+      "discountCode": "Code promo (facultatif)",
+      "extras": "Options",
+      "paymentTitle": "Paiement",
+      "paymentLink": "Envoyer un lien de paiement",
+      "paymentLinkHint": "Le client reçoit un e-mail avec un lien et a 24 heures pour payer. La voiture est réservée entre-temps.",
+      "paymentCounter": "Paiement au comptoir",
+      "paymentCounterHint": "La réservation est confirmée maintenant. Enregistrez le paiement quand le client paie.",
+      "submit": "Créer la réservation",
+      "required": "Champ obligatoire.",
+      "errors": {
+        "invalid": "Vérifiez les champs signalés.",
+        "tooSoon": "Le retrait est trop proche.",
+        "closed": "L'agence est fermée à cette heure-là.",
+        "carTaken": "Aucune voiture de ce modèle n'est disponible sur la période.",
+        "discount": "Le code promo ne fonctionne pas.",
+        "price": "Il n'y a pas de prix pour cette période.",
+        "failed": "Un problème est survenu. Réessayez."
       }
     }
   },
@@ -1065,7 +1201,8 @@
       "whatsappButton": "Écrivez-nous sur WhatsApp",
       "whatsappPrefill": "Bonjour, j'ai une question sur ma réservation {reference}.",
       "manage": "Voir ou annuler votre réservation",
-      "refund": "Remboursement"
+      "refund": "Remboursement",
+      "total": "Total"
     },
     "BOOKING_CONFIRMED": {
       "subject": "Votre réservation {reference} est confirmée",
@@ -1103,6 +1240,16 @@
       "intro": "Votre réservation {reference} est annulée et la voiture a été libérée.",
       "refund": "Nous remboursons {amount} sur votre carte de paiement. Le délai peut être de 5 à 10 jours ouvrés.",
       "noRefund": "Selon les conditions d'annulation, aucun remboursement n'est effectué pour cette réservation."
+    },
+    "PAYMENT_REQUEST": {
+      "subject": "Payez votre réservation {reference}",
+      "intro": "Merci pour votre réservation. Payez {amount} avec le bouton ci-dessous pour la confirmer.",
+      "deadline": "Nous vous réservons la voiture jusqu'au {deadline}.",
+      "button": "Payer votre réservation"
+    },
+    "BOOKING_CHANGED": {
+      "subject": "Votre réservation {reference} a été modifiée",
+      "intro": "Nous avons modifié votre réservation {reference}. Voici les nouvelles informations."
     }
   },
   "manage": {

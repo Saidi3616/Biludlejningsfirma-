@@ -108,6 +108,8 @@ Forretningslogik hører til i `src/server`, aldrig i komponenter. Se [09-mappest
   - `thank_you`: fornavn
   - `review_request`: fornavn, link til anmeldelse
   - `booking_cancelled`: fornavn, bookingnummer, refusionsbeløb
+  - `payment_request`: fornavn, bookingnummer, beløb, betalingslink
+  - `booking_changed`: fornavn, bookingnummer, ny afhentning, ny aflevering
 
 ### Min konto og annullering
 
@@ -121,7 +123,10 @@ Forretningslogik hører til i `src/server`, aldrig i komponenter. Se [09-mappest
 - `/admin` er dagens overblik i dansk tid: afhentninger og afleveringer, ledige biler, ting der kræver handling (ubetalte bookinger, ventende refusioner, fejlede beskeder, nye henvendelser) og, for ledere, månedens omsætning.
 - `/admin/bookings` søger på bookingnummer, navn, e-mail, telefon og nummerplade. Bookingdetaljen viser linjer, betalinger, historik og beskeder, og medarbejderen kan ringe, skrive på WhatsApp eller sende en e-mail til kunden. Sendte e-mails gemmes i kommunikationsloggen og i audit-loggen.
 - `/admin/customers` viser kunder og deres bookinger; `/admin/calendar` viser hver bil som en række med bookinger og værkstedsbesøg for 1 eller 2 uger.
-- Adgang styres af rollerne i `src/server/auth/policies.ts`; admin er kun på dansk.
+- `/admin/bookings/new` er telefon- og skrankebooking med samme regler og priser som hjemmesiden. Kunden får enten et betalingslink på e-mail (reservationen holdes i 24 timer) eller betaler ved skranken (bookingen bekræftes med det samme).
+- På bookingen kan medarbejdere registrere en betaling (kontant, kort-terminal, MobilePay, bankoverførsel), flytte perioden (samme bil hvis muligt, ellers en anden af samme model; prisen beholdes eller beregnes forfra) og give bookingen en anden bil. Ledere kan annullere med en foreslået refusion, som kan overstyres med en årsag, refundere og prøve en fejlet refusion igen.
+- Refusioner fordeles på bookingens betalinger: kortbetalinger refunderes hos betalingsudbyderen, kontante betalinger registreres som betalt tilbage ved skranken (`src/server/payments/refunds.ts`).
+- Adgang styres af rollerne i `src/server/auth/policies.ts`; admin er kun på dansk. Alle handlinger skrives i audit-loggen.
 
 ### Designsystem og sprog
 

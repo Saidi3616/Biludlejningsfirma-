@@ -10,8 +10,15 @@ export interface PaymentProvider {
   createPayment(input: CreatePaymentInput): Promise<{ providerRef: string; clientSecret: string }>;
   /** Klient-hemmeligheden til en eksisterende, ubetalt betaling (gemmes ikke i databasen). */
   clientSecret(providerRef: string): Promise<string | null>;
-  /** Fuld refundering, fx når en betaling lander på en reservation, hvis bil er taget. */
-  refund(providerRef: string, amountMinor: number): Promise<{ providerRef: string }>;
+  /**
+   * Refunderer (dele af) en betaling. Samme `idempotencyKey` giver samme refusion hos udbyderen,
+   * så et nyt forsøg efter en fejl aldrig refunderer to gange.
+   */
+  refund(
+    providerRef: string,
+    amountMinor: number,
+    idempotencyKey: string,
+  ): Promise<{ providerRef: string }>;
   /** Verificerer signaturen og oversætter eventet. Kaster WEBHOOK_INVALID ved forkert signatur. */
   parseWebhook(rawBody: string, signature: string | null): Promise<ProviderEvent>;
 }
