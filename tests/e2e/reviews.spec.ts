@@ -4,8 +4,9 @@ import { expect, test } from "@playwright/test";
 import { Client } from "pg";
 import { expectNoSeriousA11yIssues } from "./booking-helpers";
 import { logInAsManager } from "./manager-helpers";
+import { E2E_PASSWORD, e2eUsers } from "./users";
 
-/** M14 del 1: kunden anmelder via linket fra e-mailen, og lederen publicerer (E8). */
+/** M14: kunden anmelder via linket fra e-mailen, lederen publicerer (E8) og ser statistik. */
 test.beforeEach(async ({ page }) => {
   const octet = () => Math.floor(Math.random() * 250) + 1;
   await page.setExtraHTTPHeaders({ "x-forwarded-for": `198.25.${octet()}.${octet()}` });
@@ -109,4 +110,32 @@ test("kunden anmelder, lederen publicerer og anmeldelsen vises", async ({ page }
     .getByRole("button", { name: "Skjul" })
     .click();
   await expect(page.getByText("Anmeldelsen er skjult.")).toBeVisible();
+
+  // Statistik: perioden ændres med genvejene, og en ugyldig periode forklares.
+  await page.goto("/admin");
+  await page.getByRole("link", { name: "Statistik" }).click();
+  await expect(page.getByRole("heading", { level: 1, name: "Statistik" })).toBeVisible();
+  await expect(page).toHaveTitle(/Statistik/);
+  await expect(page.getByRole("link", { name: "Sidste 30 dage" })).toHaveAttribute(
+    "aria-current",
+    "page",
+  );
+  await expect(page.getByText("Omsætning", { exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Populære biler" })).toBeVisible();
+  await expectNoSeriousA11yIssues(page);
+  await page.getByRole("link", { name: "I år" }).click();
+  await expect(page.getByRole("link", { name: "I år" })).toHaveAttribute("aria-current", "page");
+  await page.goto("/admin/statistics?from=2026-05-01&to=2026-04-01");
+  await expect(page.getByText(/Perioden er ugyldig/)).toBeVisible();
+});
+
+test("medarbejdere ser ikke statistik", async ({ page }) => {
+  await page.goto("/login?next=%2Fadmin");
+  await page.getByLabel("E-mail").fill(e2eUsers.staff.email);
+  await page.getByLabel("Password").fill(E2E_PASSWORD);
+  await page.getByRole("button", { name: "Log ind" }).click();
+  await expect(page).toHaveURL(/\/admin$/);
+  await expect(page.getByRole("link", { name: "Statistik" })).toHaveCount(0);
+  const response = await page.goto("/admin/statistics");
+  expect(response?.status()).toBe(404);
 });

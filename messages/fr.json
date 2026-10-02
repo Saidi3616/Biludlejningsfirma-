@@ -303,7 +303,8 @@
       "fleet": "Flotte",
       "pricing": "Tarifs",
       "users": "Utilisateurs",
-      "reviews": "Avis"
+      "reviews": "Avis",
+      "statistics": "Statistiques"
     },
     "toSite": "Aller au site",
     "roles": {
@@ -1739,6 +1740,50 @@
         "forbidden": "Votre rôle n'a pas accès à cette action.",
         "failed": "Une erreur s'est produite. Veuillez réessayer."
       }
+    },
+    "statistics": {
+      "title": "Statistiques",
+      "intro": "Chiffres clés pour la période choisie. Les réservations sont comptées selon leur date de création.",
+      "from": "Du",
+      "to": "Au",
+      "location": "Agence",
+      "allLocations": "Toutes les agences",
+      "show": "Afficher",
+      "invalidPeriod": "La période n'est pas valide (366 jours au maximum, et la date de fin doit suivre la date de début). Affichage des 30 derniers jours.",
+      "presets": {
+        "label": "Période",
+        "last30": "30 derniers jours",
+        "month": "Ce mois-ci",
+        "year": "Cette année"
+      },
+      "cards": {
+        "revenue": "Chiffre d'affaires",
+        "bookings": "Réservations",
+        "averageValue": "Valeur moyenne",
+        "occupancy": "Taux d'occupation",
+        "cancellations": "Annulations",
+        "repeatCustomers": "Clients fidèles"
+      },
+      "hints": {
+        "refunds": "Après {amount} de remboursements",
+        "cars": "{count, plural, one {# voiture} other {# voitures}} dans la flotte",
+        "cancellations": "{rate} des réservations · {noShows} non présentés",
+        "repeatCustomers": "sur {count} clients de la période"
+      },
+      "popularModels": {
+        "title": "Voitures populaires",
+        "name": "Voiture"
+      },
+      "popularCategories": {
+        "title": "Catégories populaires",
+        "name": "Catégorie"
+      },
+      "columns": {
+        "bookings": "Réservations",
+        "value": "Valeur"
+      },
+      "empty": "Aucune réservation sur la période.",
+      "footnote": "Le chiffre d'affaires correspond aux paiements moins les remboursements de la période. Le taux d'occupation correspond aux heures louées divisées par les heures des voitures. Un client fidèle a déjà loué chez nous avant la période."
     }
   },
   "email": {

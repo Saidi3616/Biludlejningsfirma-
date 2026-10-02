@@ -303,7 +303,8 @@
       "fleet": "Fleet",
       "pricing": "Prices",
       "users": "Users",
-      "reviews": "Reviews"
+      "reviews": "Reviews",
+      "statistics": "Statistics"
     },
     "toSite": "Go to website",
     "roles": {
@@ -1739,6 +1740,50 @@
         "forbidden": "Your role does not have access to that action.",
         "failed": "Something went wrong. Please try again."
       }
+    },
+    "statistics": {
+      "title": "Statistics",
+      "intro": "Key figures for the selected period. Bookings are counted by the day they were created.",
+      "from": "From",
+      "to": "To",
+      "location": "Location",
+      "allLocations": "All locations",
+      "show": "Show",
+      "invalidPeriod": "The period is invalid (at most 366 days, and the end date must be after the start date). Showing the last 30 days.",
+      "presets": {
+        "label": "Period",
+        "last30": "Last 30 days",
+        "month": "This month",
+        "year": "This year"
+      },
+      "cards": {
+        "revenue": "Revenue",
+        "bookings": "Bookings",
+        "averageValue": "Avg. booking value",
+        "occupancy": "Occupancy",
+        "cancellations": "Cancellations",
+        "repeatCustomers": "Repeat customers"
+      },
+      "hints": {
+        "refunds": "After {amount} in refunds",
+        "cars": "{count, plural, one {# car} other {# cars}} in the fleet",
+        "cancellations": "{rate} of bookings · {noShows} no-shows",
+        "repeatCustomers": "of {count} customers in the period"
+      },
+      "popularModels": {
+        "title": "Popular cars",
+        "name": "Car"
+      },
+      "popularCategories": {
+        "title": "Popular categories",
+        "name": "Category"
+      },
+      "columns": {
+        "bookings": "Bookings",
+        "value": "Value"
+      },
+      "empty": "No bookings in the period.",
+      "footnote": "Revenue is payments minus refunds in the period. Occupancy is rented hours divided by the cars' hours. A repeat customer has rented from us before the period."
     }
   },
   "email": {

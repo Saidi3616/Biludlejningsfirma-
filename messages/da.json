@@ -303,7 +303,8 @@
       "fleet": "Flåde",
       "pricing": "Priser",
       "users": "Brugere",
-      "reviews": "Anmeldelser"
+      "reviews": "Anmeldelser",
+      "statistics": "Statistik"
     },
     "toSite": "Til hjemmesiden",
     "roles": {
@@ -1739,6 +1740,50 @@
         "forbidden": "Din rolle har ikke adgang til den handling.",
         "failed": "Noget gik galt. Prøv igen."
       }
+    },
+    "statistics": {
+      "title": "Statistik",
+      "intro": "Nøgletal for den valgte periode. Bookinger tælles efter den dag, de blev oprettet.",
+      "from": "Fra",
+      "to": "Til",
+      "location": "Lokation",
+      "allLocations": "Alle lokationer",
+      "show": "Vis",
+      "invalidPeriod": "Perioden er ugyldig (højst 366 dage, og til-datoen skal være efter fra-datoen). Viser de sidste 30 dage.",
+      "presets": {
+        "label": "Periode",
+        "last30": "Sidste 30 dage",
+        "month": "Denne måned",
+        "year": "I år"
+      },
+      "cards": {
+        "revenue": "Omsætning",
+        "bookings": "Bookinger",
+        "averageValue": "Gns. bookingværdi",
+        "occupancy": "Belægning",
+        "cancellations": "Annulleringer",
+        "repeatCustomers": "Gentagne kunder"
+      },
+      "hints": {
+        "refunds": "Efter {amount} i refusioner",
+        "cars": "{count, plural, one {# bil} other {# biler}} i flåden",
+        "cancellations": "{rate} af bookingerne · {noShows} udeblevet",
+        "repeatCustomers": "af {count} kunder i perioden"
+      },
+      "popularModels": {
+        "title": "Populære biler",
+        "name": "Bil"
+      },
+      "popularCategories": {
+        "title": "Populære kategorier",
+        "name": "Kategori"
+      },
+      "columns": {
+        "bookings": "Bookinger",
+        "value": "Værdi"
+      },
+      "empty": "Ingen bookinger i perioden.",
+      "footnote": "Omsætning er betalinger minus refusioner i perioden. Belægning er udlejede timer delt med bilernes timer. En gentagen kunde har lejet hos os før perioden."
     }
   },
   "email": {
