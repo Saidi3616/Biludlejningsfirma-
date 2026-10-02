@@ -48,6 +48,8 @@ flowchart TD
   F -- hold fejler --> F2[Alternativ: kontant/anden betaling<br/>registreres manuelt, eller afvis udlevering]
 ```
 
+MVP (M11 del 2): udlevering kræver en bekræftet og fuldt betalt booking og tidligst afhentningsdagen. Kørekortkontrol, kontrakt (M12) og depositum (M11 del 3) kommer i de næste trin. Fotos tages på inspektionssiden efter udleveringen; der er ikke et fast minimum af fotos (afventer virksomhedens politik).
+
 ## F2. Aflevering (return)
 
 ```mermaid
@@ -66,6 +68,8 @@ flowchart TD
   J --> K[Bil → INSPECTION / MAINTENANCE / ACTIVE<br/>efter valg]
   K --> L[Notifikationer: 'Tak for din booking' → senere 'Bedøm din oplevelse']
 ```
+
+MVP (M11 del 2): aflevering registrerer km, brændstof og bilens næste status, afslutter bookingen og viser udleveringens fotos og skader ved siden af. Nye skader får område, omfang, ansvar og anslået pris. Tillæg, depositum og lederens godkendelse af skadebeløb kommer i M11 del 3. Sammenligningen er pr. inspektion (fotos side om side) og pr. område for skader; fotos tagges ikke med område.
 
 ## F3. Telefon-/skrankebooking
 

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -79,11 +80,24 @@ export default async function CarPage({
 
       <div className="grid gap-10 lg:grid-cols-[1fr_26rem] lg:items-start">
         <div className="flex flex-col gap-8 lg:col-start-1">
-          <ImagePlaceholder
-            subject={t("cars.imagePlaceholder", { name: car.name })}
-            format="professional automotive photography"
-            ratio="16/9"
-          />
+          {car.image ? (
+            <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-border bg-ink-50">
+              <Image
+                src={car.image.url}
+                alt={car.image.alt}
+                fill
+                priority
+                sizes="(min-width: 1024px) 60vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          ) : (
+            <ImagePlaceholder
+              subject={t("cars.imagePlaceholder", { name: car.name })}
+              format="professional automotive photography"
+              ratio="16/9"
+            />
+          )}
           <header className="flex flex-col gap-3">
             <div className="flex flex-wrap items-center gap-2">
               <Badge tone="brand">{car.categoryName}</Badge>

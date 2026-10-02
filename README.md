@@ -129,6 +129,13 @@ Forretningslogik hører til i `src/server`, aldrig i komponenter. Se [09-mappest
 - `/admin/fleet/cars` viser flåden med status, km og frister (syn, service og forsikring inden for 30 dage markeres). På bilen kan medarbejdere skifte driftsstatus, rette km og planlægge værkstedsbesøg; bilen kan ikke bookes i et besøg, og et besøg kan ikke lægges oven i en booking. Har bilen kommende bookinger, vises de, og en statusændring skal bekræftes; bookingerne flyttes fra bookingsiden. Ledere opretter og retter biler (købsprisen ses kun af ledere) og katalogmodeller på `/admin/fleet/models` (specifikationer, km-regler, depositum, beskrivelse på fire sprog, synlighed).
 - Adgang styres af rollerne i `src/server/auth/policies.ts`; admin er kun på dansk. Alle handlinger skrives i audit-loggen.
 
+### Udlevering, aflevering og filer
+
+- På bookingen starter "Udlevér bil" udleveringen (bekræftet og betalt booking, tidligst på afhentningsdagen): km og brændstof registreres, bookingen bliver aktiv, og personalet tager fotos og registrerer kendte skader på inspektionssiden (`/admin/inspections/[id]`). "Modtag bil" afslutter bookingen, sætter bilens km og status og viser udleveringens fotos til sammenligning; nye skader knyttes til bookingen.
+- Bilsiden viser bilens skader (kan markeres som udbedret) og dens udleveringer og afleveringer. Ledere kan uploade billeder til katalogmodeller; det første vises i kataloget.
+- Filer går gennem `StorageProvider` (`src/server/storage`). Uden `STORAGE_*` gemmes de i `.storage/` (kun `APP_ENV=local`). I drift bruges en S3-kompatibel storage (Cloudflare R2 eller AWS S3 i EU) med en privat og en offentlig bucket; nøglerne sættes som miljøvariabler hos hostingen.
+- Alle fotos gemmes igen som WebP uden metadata (GPS-position, kamera og tidspunkt fjernes) med `sharp`. Inspektions- og skadefotos er private og vises kun i admin via `/admin/files/[id]` efter adgangstjek; bilbilleder vises via `/media/…`.
+
 ### Designsystem og sprog
 
 - Alle komponenter kan ses på `/styleguide` (ikke tilgængelig i produktion).

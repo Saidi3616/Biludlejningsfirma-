@@ -520,7 +520,9 @@
         "manual_payment": "Betaling registreret",
         "pay_at_counter": "Telefonbooking, betales ved skranken",
         "rescheduled": "Ny periode",
-        "reservation_expired": "Betalingsfristen udløb"
+        "reservation_expired": "Betalingsfristen udløb",
+        "picked_up": "Bilen er udleveret",
+        "returned": "Bilen er afleveret"
       },
       "actions": {
         "title": "Handlinger",
@@ -604,6 +606,16 @@
           "failed": "Noget gik galt. Prøv igen."
         },
         "markRefunded": "Markér som betalt tilbage"
+      },
+      "handover": {
+        "title": "Udlevering og aflevering",
+        "pickup": "Udlevér bil",
+        "return": "Modtag bil",
+        "types": {
+          "PICKUP": "Udlevering",
+          "RETURN": "Aflevering"
+        },
+        "summary": "{km, number} km · brændstof {level}/8 · {photos, plural, one {# foto} other {# fotos}} · {damages, plural, one {# skade} other {# skader}}"
       }
     },
     "customers": {
@@ -777,7 +789,12 @@
         "odometer": "Km",
         "odometerHint": "Kan kun gå op.",
         "saveOdometer": "Gem km",
-        "details": "Stamdata"
+        "details": "Stamdata",
+        "damages": "Skader",
+        "noDamages": "Ingen registrerede skader.",
+        "repairedOn": "udbedret {date}",
+        "markRepaired": "Markér som udbedret",
+        "inspections": "Udleveringer og afleveringer"
       },
       "notices": {
         "created": "Bilen er oprettet.",
@@ -796,7 +813,8 @@
         "conflict": "Det kan ikke ændres nu, eller det blev ændret samtidig. Genindlæs siden.",
         "forbidden": "Din rolle har ikke adgang til den handling.",
         "notFound": "Det findes ikke længere.",
-        "failed": "Noget gik galt. Prøv igen."
+        "failed": "Noget gik galt. Prøv igen.",
+        "damageRepaired": "Skaden er markeret som udbedret."
       },
       "maintenance": {
         "title": "Værksted",
@@ -893,8 +911,20 @@
         "featured": "Fremhævet",
         "notices": {
           "created": "Modellen er oprettet.",
-          "saved": "Ændringerne er gemt."
-        }
+          "saved": "Ændringerne er gemt.",
+          "imageDeleted": "Billedet er slettet.",
+          "imageFirst": "Forsidebilledet er skiftet.",
+          "forbidden": "Din rolle har ikke adgang til den handling.",
+          "failed": "Noget gik galt. Prøv igen."
+        },
+        "images": "Billeder",
+        "imagesHint": "Vises i kataloget; det første er forsidebilledet. Højst {max} billeder. Brug liggende billeder, gerne 16:10.",
+        "noImages": "Ingen billeder endnu. Kataloget viser en pladsholder.",
+        "imageAlt": "{name}, billede {n}",
+        "firstImage": "Forsidebillede",
+        "makeFirst": "Brug som forsidebillede",
+        "deleteImage": "Slet",
+        "addImages": "Tilføj billeder"
       },
       "modelForm": {
         "basics": "Model",
@@ -940,7 +970,145 @@
           "failed": "Noget gik galt. Prøv igen."
         }
       }
-    }
+    },
+    "photos": {
+      "hint": "Tag billeder med telefonen eller vælg fra galleriet. De gemmes uden placering og andre metadata.",
+      "uploading": "Uploader {done} af {total} …",
+      "errors": {
+        "notImage": "En af filerne er ikke et billede.",
+        "tooLarge": "En af filerne er for stor.",
+        "tooMany": "Der er ikke plads til flere billeder.",
+        "forbidden": "Din rolle har ikke adgang til at uploade.",
+        "failed": "Et billede kunne ikke gemmes. Prøv igen."
+      }
+    },
+    "handover": {
+      "back": "Tilbage til {reference}",
+      "odometer": "Km-stand",
+      "odometerHint": "Mindst {km, number} km.",
+      "fuel": "Brændstof eller batteri",
+      "fuelHint": "Aflæs måleren i ottendedele.",
+      "fuelLevel": "{level, plural, =0 {Tom (0/{max})} =8 {Fuld ({max}/{max})} other {#/{max}}}",
+      "notes": "Bemærkninger (valgfri)",
+      "notesHint": "Fx ridser, rengøring eller ekstra nøgle. Skriv ikke kortoplysninger.",
+      "knownDamages": "Kendte skader",
+      "noKnownDamages": "Bilen har ingen kendte skader.",
+      "pickup": {
+        "title": "Udlevér bil",
+        "notAllowed": "Kun bekræftede bookinger kan udleveres.",
+        "unpaidTitle": "Bookingen er ikke betalt",
+        "unpaid": "Registrér betalingen på bookingen før udlevering. Mangler:",
+        "damagesHint": "Gå bilen rundt med kunden. Nye fund registreres som skader på næste side, sammen med fotos.",
+        "submit": "Udlevér bilen"
+      },
+      "return": {
+        "title": "Modtag bil",
+        "notAllowed": "Kun udleverede bookinger kan afleveres.",
+        "damagesHint": "Sammenlign med udleveringen. Nye skader registreres på næste side, sammen med fotos.",
+        "submit": "Modtag bilen",
+        "carStatus": "Bilen bagefter",
+        "statuses": {
+          "ACTIVE": "Klar til næste kunde",
+          "INSPECTION": "Skal tjekkes eller rengøres først",
+          "MAINTENANCE": "Skal på værksted"
+        }
+      },
+      "notices": {
+        "invalid": "Tjek felterne og prøv igen.",
+        "odometerDown": "Km-standen kan ikke være lavere end før.",
+        "unpaid": "Bookingen er ikke betalt. Registrér betalingen først.",
+        "tooEarly": "Bilen kan tidligst udleveres på afhentningsdagen.",
+        "conflict": "Bookingen er ændret i mellemtiden. Genindlæs siden.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "notFound": "Bookingen findes ikke.",
+        "failed": "Noget gik galt. Prøv igen."
+      }
+    },
+    "damage": {
+      "areas": {
+        "front": "Front",
+        "front-left": "Front venstre",
+        "front-right": "Front højre",
+        "left": "Venstre side",
+        "right": "Højre side",
+        "rear": "Bagende",
+        "rear-left": "Bag venstre",
+        "rear-right": "Bag højre",
+        "roof": "Tag",
+        "windscreen": "Forrude",
+        "wheels": "Hjul og fælge",
+        "interior": "Kabine",
+        "other": "Andet"
+      },
+      "severities": {
+        "MINOR": "Lille",
+        "MODERATE": "Mellem",
+        "MAJOR": "Stor"
+      },
+      "liabilities": {
+        "CUSTOMER": "Kunden",
+        "INTERNAL": "Os selv",
+        "THIRD_PARTY": "Tredjepart",
+        "UNDECIDED": "Ikke afklaret"
+      }
+    },
+    "inspection": {
+      "metaTitle": "Inspektion",
+      "types": {
+        "PICKUP": "Udlevering",
+        "RETURN": "Aflevering"
+      },
+      "backToBooking": "Tilbage til {reference}",
+      "notices": {
+        "pickedUp": "Bilen er udleveret. Tag fotos af bilen fra alle sider.",
+        "returned": "Bilen er modtaget, og bookingen er afsluttet. Tag fotos og registrér eventuelle nye skader.",
+        "damageAdded": "Skaden er registreret. Tilføj gerne fotos.",
+        "damageRepaired": "Skaden er markeret som udbedret.",
+        "invalid": "Tjek felterne og prøv igen.",
+        "conflict": "Det kan ikke ændres nu. Genindlæs siden.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "notFound": "Det findes ikke længere.",
+        "failed": "Noget gik galt. Prøv igen."
+      },
+      "odometer": "Km-stand",
+      "km": "{km, number} km",
+      "driven": "Kørt {km, number} km",
+      "fuel": "Brændstof",
+      "fuelLevel": "{level, plural, =0 {Tom (0/{max})} =8 {Fuld ({max}/{max})} other {#/{max}}}",
+      "fuelAtPickup": "Ved udlevering: {fuel}",
+      "performed": "Udført",
+      "notes": "Bemærkninger",
+      "photos": "Fotos",
+      "photosHint": "Tag mindst ét foto fra hver side, fronten, bagenden og kabinen.",
+      "noPhotos": "Ingen fotos endnu.",
+      "addPhotos": "Tag eller vælg fotos",
+      "photoAlt": "Foto {n} af bilen",
+      "compare": "Til sammenligning: {type}",
+      "open": "Åbn",
+      "otherPhotoAlt": "{type}, foto {n}",
+      "damages": "Skader",
+      "noDamages": "Ingen skader registreret.",
+      "newDamage": "Ny skade",
+      "existingDamage": "Kendt skade",
+      "repaired": "Udbedret",
+      "estimatedCost": "Anslået pris:",
+      "damagePhotoAlt": "Skade, {area}, foto {n}",
+      "addDamagePhotos": "Fotos af skaden",
+      "markRepaired": "Markér som udbedret",
+      "addDamage": "Registrér skade",
+      "addDamageReturn": "En ny skade knyttes til bookingen. Opkrævning hos kunden kommer med depositum (næste trin).",
+      "addDamagePickup": "En skade fundet ved udlevering er bilens egen og opkræves ikke hos kunden.",
+      "area": "Område",
+      "severity": "Omfang",
+      "liability": "Ansvar",
+      "liabilityHint": "Kan ændres senere af en leder.",
+      "estimatedCostLabel": "Anslået pris (valgfri)",
+      "amountHint": "I kroner, fx 1.500.",
+      "description": "Beskrivelse",
+      "descriptionHint": "Fx \"ridse på 10 cm under dørhåndtaget\".",
+      "saveDamage": "Registrér skade"
+    },
+    "tableLabel": "Tabel: {name}"
   },
   "email": {
     "greeting": "Hej {name}",

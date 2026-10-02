@@ -520,7 +520,9 @@
         "manual_payment": "Payment recorded",
         "pay_at_counter": "Phone booking, paid at the counter",
         "rescheduled": "New period",
-        "reservation_expired": "Payment deadline passed"
+        "reservation_expired": "Payment deadline passed",
+        "picked_up": "The car was handed over",
+        "returned": "The car was returned"
       },
       "actions": {
         "title": "Actions",
@@ -604,6 +606,16 @@
           "failed": "Something went wrong. Try again."
         },
         "markRefunded": "Mark as paid back"
+      },
+      "handover": {
+        "title": "Handover and return",
+        "pickup": "Hand over car",
+        "return": "Receive car",
+        "types": {
+          "PICKUP": "Handover",
+          "RETURN": "Return"
+        },
+        "summary": "{km, number} km · fuel {level}/8 · {photos, plural, one {# photo} other {# photos}} · {damages, plural, one {# damage} other {# damages}}"
       }
     },
     "customers": {
@@ -777,7 +789,12 @@
         "odometer": "Km",
         "odometerHint": "Can only go up.",
         "saveOdometer": "Save km",
-        "details": "Details"
+        "details": "Details",
+        "damages": "Damage",
+        "noDamages": "No recorded damage.",
+        "repairedOn": "repaired {date}",
+        "markRepaired": "Mark as repaired",
+        "inspections": "Handovers and returns"
       },
       "notices": {
         "created": "The car is created.",
@@ -796,7 +813,8 @@
         "conflict": "It cannot be changed now, or it was changed at the same time. Reload the page.",
         "forbidden": "Your role does not have access to that action.",
         "notFound": "It no longer exists.",
-        "failed": "Something went wrong. Try again."
+        "failed": "Something went wrong. Try again.",
+        "damageRepaired": "The damage is marked as repaired."
       },
       "maintenance": {
         "title": "Workshop",
@@ -893,8 +911,20 @@
         "featured": "Featured",
         "notices": {
           "created": "The model is created.",
-          "saved": "The changes are saved."
-        }
+          "saved": "The changes are saved.",
+          "imageDeleted": "The image is deleted.",
+          "imageFirst": "The main image is changed.",
+          "forbidden": "Your role does not have access to that action.",
+          "failed": "Something went wrong. Try again."
+        },
+        "images": "Images",
+        "imagesHint": "Shown in the catalogue; the first is the main image. At most {max} images. Use landscape images, ideally 16:10.",
+        "noImages": "No images yet. The catalogue shows a placeholder.",
+        "imageAlt": "{name}, image {n}",
+        "firstImage": "Main image",
+        "makeFirst": "Use as main image",
+        "deleteImage": "Delete",
+        "addImages": "Add images"
       },
       "modelForm": {
         "basics": "Model",
@@ -940,7 +970,145 @@
           "failed": "Something went wrong. Try again."
         }
       }
-    }
+    },
+    "photos": {
+      "hint": "Take photos with the phone or choose from the gallery. They are stored without location and other metadata.",
+      "uploading": "Uploading {done} of {total} …",
+      "errors": {
+        "notImage": "One of the files is not an image.",
+        "tooLarge": "One of the files is too large.",
+        "tooMany": "There is no room for more images.",
+        "forbidden": "Your role does not have access to upload.",
+        "failed": "An image could not be saved. Try again."
+      }
+    },
+    "handover": {
+      "back": "Back to {reference}",
+      "odometer": "Odometer",
+      "odometerHint": "At least {km, number} km.",
+      "fuel": "Fuel or battery",
+      "fuelHint": "Read the gauge in eighths.",
+      "fuelLevel": "{level, plural, =0 {Empty (0/{max})} =8 {Full ({max}/{max})} other {#/{max}}}",
+      "notes": "Notes (optional)",
+      "notesHint": "E.g. scratches, cleaning or a spare key. Never write card details.",
+      "knownDamages": "Known damage",
+      "noKnownDamages": "The car has no known damage.",
+      "pickup": {
+        "title": "Hand over car",
+        "notAllowed": "Only confirmed bookings can be handed over.",
+        "unpaidTitle": "The booking is not paid",
+        "unpaid": "Record the payment on the booking before handover. Outstanding:",
+        "damagesHint": "Walk around the car with the customer. New findings are recorded as damage on the next page, with photos.",
+        "submit": "Hand over the car"
+      },
+      "return": {
+        "title": "Receive car",
+        "notAllowed": "Only bookings that have been handed over can be returned.",
+        "damagesHint": "Compare with the handover. New damage is recorded on the next page, with photos.",
+        "submit": "Receive the car",
+        "carStatus": "The car afterwards",
+        "statuses": {
+          "ACTIVE": "Ready for the next customer",
+          "INSPECTION": "Needs a check or cleaning first",
+          "MAINTENANCE": "Needs the workshop"
+        }
+      },
+      "notices": {
+        "invalid": "Check the fields and try again.",
+        "odometerDown": "The odometer cannot be lower than before.",
+        "unpaid": "The booking is not paid. Record the payment first.",
+        "tooEarly": "The car can be handed over on the pickup day at the earliest.",
+        "conflict": "The booking has changed in the meantime. Reload the page.",
+        "forbidden": "Your role does not have access to that action.",
+        "notFound": "The booking does not exist.",
+        "failed": "Something went wrong. Try again."
+      }
+    },
+    "damage": {
+      "areas": {
+        "front": "Front",
+        "front-left": "Front left",
+        "front-right": "Front right",
+        "left": "Left side",
+        "right": "Right side",
+        "rear": "Rear",
+        "rear-left": "Rear left",
+        "rear-right": "Rear right",
+        "roof": "Roof",
+        "windscreen": "Windscreen",
+        "wheels": "Wheels and rims",
+        "interior": "Interior",
+        "other": "Other"
+      },
+      "severities": {
+        "MINOR": "Minor",
+        "MODERATE": "Moderate",
+        "MAJOR": "Major"
+      },
+      "liabilities": {
+        "CUSTOMER": "Customer",
+        "INTERNAL": "Ourselves",
+        "THIRD_PARTY": "Third party",
+        "UNDECIDED": "Undecided"
+      }
+    },
+    "inspection": {
+      "metaTitle": "Inspection",
+      "types": {
+        "PICKUP": "Handover",
+        "RETURN": "Return"
+      },
+      "backToBooking": "Back to {reference}",
+      "notices": {
+        "pickedUp": "The car is handed over. Take photos of the car from all sides.",
+        "returned": "The car is received, and the booking is completed. Take photos and record any new damage.",
+        "damageAdded": "The damage is recorded. Add photos if you can.",
+        "damageRepaired": "The damage is marked as repaired.",
+        "invalid": "Check the fields and try again.",
+        "conflict": "It cannot be changed now. Reload the page.",
+        "forbidden": "Your role does not have access to that action.",
+        "notFound": "It no longer exists.",
+        "failed": "Something went wrong. Try again."
+      },
+      "odometer": "Odometer",
+      "km": "{km, number} km",
+      "driven": "Driven {km, number} km",
+      "fuel": "Fuel",
+      "fuelLevel": "{level, plural, =0 {Empty (0/{max})} =8 {Full ({max}/{max})} other {#/{max}}}",
+      "fuelAtPickup": "At handover: {fuel}",
+      "performed": "Performed",
+      "notes": "Notes",
+      "photos": "Photos",
+      "photosHint": "Take at least one photo of each side, the front, the rear and the interior.",
+      "noPhotos": "No photos yet.",
+      "addPhotos": "Take or choose photos",
+      "photoAlt": "Photo {n} of the car",
+      "compare": "For comparison: {type}",
+      "open": "Open",
+      "otherPhotoAlt": "{type}, photo {n}",
+      "damages": "Damage",
+      "noDamages": "No damage recorded.",
+      "newDamage": "New damage",
+      "existingDamage": "Known damage",
+      "repaired": "Repaired",
+      "estimatedCost": "Estimated cost:",
+      "damagePhotoAlt": "Damage, {area}, photo {n}",
+      "addDamagePhotos": "Photos of the damage",
+      "markRepaired": "Mark as repaired",
+      "addDamage": "Record damage",
+      "addDamageReturn": "New damage is linked to the booking. Charging the customer comes with the deposit (next step).",
+      "addDamagePickup": "Damage found at handover belongs to the car and is not charged to the customer.",
+      "area": "Area",
+      "severity": "Severity",
+      "liability": "Liability",
+      "liabilityHint": "A manager can change it later.",
+      "estimatedCostLabel": "Estimated cost (optional)",
+      "amountHint": "In kroner, e.g. 1,500.",
+      "description": "Description",
+      "descriptionHint": "E.g. \"10 cm scratch below the door handle\".",
+      "saveDamage": "Record damage"
+    },
+    "tableLabel": "Table: {name}"
   },
   "email": {
     "greeting": "Hi {name}",

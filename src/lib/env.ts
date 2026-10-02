@@ -34,6 +34,16 @@ const serverSchema = z.object({
   WHATSAPP_WEBHOOK_VERIFY_TOKEN: z.string().optional(),
 
   MAPS_API_KEY: z.string().optional(),
+
+  // S3-kompatibel storage (Cloudflare R2 eller AWS S3, EU). Uden dem bruges en lokal mappe,
+  // men kun når APP_ENV er local.
+  STORAGE_ENDPOINT: z.url({ protocol: /^https?$/ }).optional(),
+  STORAGE_REGION: z.string().default("auto"),
+  STORAGE_BUCKET_PRIVATE: z.string().optional(),
+  STORAGE_BUCKET_PUBLIC: z.string().optional(),
+  STORAGE_ACCESS_KEY_ID: z.string().optional(),
+  STORAGE_SECRET_ACCESS_KEY: z.string().optional(),
+  STORAGE_LOCAL_DIR: z.string().optional(),
 });
 
 export type ServerEnv = z.infer<typeof serverSchema>;

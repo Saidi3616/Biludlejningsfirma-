@@ -109,7 +109,7 @@ export default async function AdminDashboardPage({ searchParams }: PageProps<"/a
         {data.timeline.length === 0 ? (
           <EmptyState title={t("dashboard.todayEmpty")} />
         ) : (
-          <Table label={t("dashboard.todayTitle")} className="bg-white">
+          <Table label={t("tableLabel", { name: t("dashboard.todayTitle") })} className="bg-white">
             <THead>
               <TR>
                 <TH>{t("dashboard.columns.time")}</TH>

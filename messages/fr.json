@@ -520,7 +520,9 @@
         "manual_payment": "Paiement enregistré",
         "pay_at_counter": "Réservation par téléphone, paiement au comptoir",
         "rescheduled": "Nouvelle période",
-        "reservation_expired": "Délai de paiement dépassé"
+        "reservation_expired": "Délai de paiement dépassé",
+        "picked_up": "La voiture a été remise",
+        "returned": "La voiture a été restituée"
       },
       "actions": {
         "title": "Actions",
@@ -604,6 +606,16 @@
           "failed": "Un problème est survenu. Réessayez."
         },
         "markRefunded": "Marquer comme remboursé"
+      },
+      "handover": {
+        "title": "Remise et restitution",
+        "pickup": "Remettre la voiture",
+        "return": "Réceptionner la voiture",
+        "types": {
+          "PICKUP": "Remise",
+          "RETURN": "Restitution"
+        },
+        "summary": "{km, number} km · carburant {level}/8 · {photos, plural, one {# photo} other {# photos}} · {damages, plural, one {# dommage} other {# dommages}}"
       }
     },
     "customers": {
@@ -777,7 +789,12 @@
         "odometer": "Km",
         "odometerHint": "Ne peut qu'augmenter.",
         "saveOdometer": "Enregistrer les km",
-        "details": "Informations"
+        "details": "Informations",
+        "damages": "Dommages",
+        "noDamages": "Aucun dommage enregistré.",
+        "repairedOn": "réparé le {date}",
+        "markRepaired": "Marquer comme réparé",
+        "inspections": "Remises et restitutions"
       },
       "notices": {
         "created": "La voiture est créée.",
@@ -796,7 +813,8 @@
         "conflict": "Impossible de modifier maintenant, ou une modification a eu lieu en même temps. Rechargez la page.",
         "forbidden": "Votre rôle n'a pas accès à cette action.",
         "notFound": "Cet élément n'existe plus.",
-        "failed": "Une erreur s'est produite. Réessayez."
+        "failed": "Une erreur s'est produite. Réessayez.",
+        "damageRepaired": "Le dommage est marqué comme réparé."
       },
       "maintenance": {
         "title": "Garage",
@@ -893,8 +911,20 @@
         "featured": "Mis en avant",
         "notices": {
           "created": "Le modèle est créé.",
-          "saved": "Les modifications sont enregistrées."
-        }
+          "saved": "Les modifications sont enregistrées.",
+          "imageDeleted": "L'image est supprimée.",
+          "imageFirst": "L'image principale est modifiée.",
+          "forbidden": "Votre rôle n'a pas accès à cette action.",
+          "failed": "Une erreur s'est produite. Réessayez."
+        },
+        "images": "Images",
+        "imagesHint": "Affichées dans le catalogue ; la première est l'image principale. {max} images au maximum. Utilisez des images en paysage, idéalement 16:10.",
+        "noImages": "Aucune image pour l'instant. Le catalogue affiche un espace réservé.",
+        "imageAlt": "{name}, image {n}",
+        "firstImage": "Image principale",
+        "makeFirst": "Utiliser comme image principale",
+        "deleteImage": "Supprimer",
+        "addImages": "Ajouter des images"
       },
       "modelForm": {
         "basics": "Modèle",
@@ -940,7 +970,145 @@
           "failed": "Une erreur s'est produite. Réessayez."
         }
       }
-    }
+    },
+    "photos": {
+      "hint": "Prenez des photos avec le téléphone ou choisissez dans la galerie. Elles sont enregistrées sans position ni autres métadonnées.",
+      "uploading": "Envoi {done} sur {total} …",
+      "errors": {
+        "notImage": "L'un des fichiers n'est pas une image.",
+        "tooLarge": "L'un des fichiers est trop volumineux.",
+        "tooMany": "Il n'y a plus de place pour d'autres images.",
+        "forbidden": "Votre rôle ne permet pas d'envoyer des fichiers.",
+        "failed": "Une image n'a pas pu être enregistrée. Réessayez."
+      }
+    },
+    "handover": {
+      "back": "Retour à {reference}",
+      "odometer": "Kilométrage",
+      "odometerHint": "Au moins {km, number} km.",
+      "fuel": "Carburant ou batterie",
+      "fuelHint": "Lisez la jauge en huitièmes.",
+      "fuelLevel": "{level, plural, =0 {Vide (0/{max})} =8 {Plein ({max}/{max})} other {#/{max}}}",
+      "notes": "Remarques (facultatives)",
+      "notesHint": "Par ex. rayures, nettoyage ou clé de secours. N'écrivez jamais de données de carte.",
+      "knownDamages": "Dommages connus",
+      "noKnownDamages": "La voiture n'a aucun dommage connu.",
+      "pickup": {
+        "title": "Remettre la voiture",
+        "notAllowed": "Seules les réservations confirmées peuvent être remises.",
+        "unpaidTitle": "La réservation n'est pas payée",
+        "unpaid": "Enregistrez le paiement sur la réservation avant la remise. Reste à payer :",
+        "damagesHint": "Faites le tour de la voiture avec le client. Les nouveaux constats sont enregistrés comme dommages à la page suivante, avec photos.",
+        "submit": "Remettre la voiture"
+      },
+      "return": {
+        "title": "Réceptionner la voiture",
+        "notAllowed": "Seules les réservations remises peuvent être restituées.",
+        "damagesHint": "Comparez avec la remise. Les nouveaux dommages sont enregistrés à la page suivante, avec photos.",
+        "submit": "Réceptionner la voiture",
+        "carStatus": "La voiture ensuite",
+        "statuses": {
+          "ACTIVE": "Prête pour le client suivant",
+          "INSPECTION": "À contrôler ou nettoyer d'abord",
+          "MAINTENANCE": "Doit aller au garage"
+        }
+      },
+      "notices": {
+        "invalid": "Vérifiez les champs et réessayez.",
+        "odometerDown": "Le kilométrage ne peut pas être inférieur à l'ancien.",
+        "unpaid": "La réservation n'est pas payée. Enregistrez d'abord le paiement.",
+        "tooEarly": "La voiture peut être remise au plus tôt le jour du retrait.",
+        "conflict": "La réservation a été modifiée entre-temps. Rechargez la page.",
+        "forbidden": "Votre rôle n'a pas accès à cette action.",
+        "notFound": "La réservation n'existe pas.",
+        "failed": "Une erreur s'est produite. Réessayez."
+      }
+    },
+    "damage": {
+      "areas": {
+        "front": "Avant",
+        "front-left": "Avant gauche",
+        "front-right": "Avant droit",
+        "left": "Côté gauche",
+        "right": "Côté droit",
+        "rear": "Arrière",
+        "rear-left": "Arrière gauche",
+        "rear-right": "Arrière droit",
+        "roof": "Toit",
+        "windscreen": "Pare-brise",
+        "wheels": "Roues et jantes",
+        "interior": "Habitacle",
+        "other": "Autre"
+      },
+      "severities": {
+        "MINOR": "Léger",
+        "MODERATE": "Moyen",
+        "MAJOR": "Important"
+      },
+      "liabilities": {
+        "CUSTOMER": "Client",
+        "INTERNAL": "Nous-mêmes",
+        "THIRD_PARTY": "Tiers",
+        "UNDECIDED": "Non déterminé"
+      }
+    },
+    "inspection": {
+      "metaTitle": "Inspection",
+      "types": {
+        "PICKUP": "Remise",
+        "RETURN": "Restitution"
+      },
+      "backToBooking": "Retour à {reference}",
+      "notices": {
+        "pickedUp": "La voiture est remise. Prenez des photos de tous les côtés.",
+        "returned": "La voiture est réceptionnée et la réservation est terminée. Prenez des photos et enregistrez les nouveaux dommages éventuels.",
+        "damageAdded": "Le dommage est enregistré. Ajoutez des photos si possible.",
+        "damageRepaired": "Le dommage est marqué comme réparé.",
+        "invalid": "Vérifiez les champs et réessayez.",
+        "conflict": "Impossible de modifier maintenant. Rechargez la page.",
+        "forbidden": "Votre rôle n'a pas accès à cette action.",
+        "notFound": "Cet élément n'existe plus.",
+        "failed": "Une erreur s'est produite. Réessayez."
+      },
+      "odometer": "Kilométrage",
+      "km": "{km, number} km",
+      "driven": "{km, number} km parcourus",
+      "fuel": "Carburant",
+      "fuelLevel": "{level, plural, =0 {Vide (0/{max})} =8 {Plein ({max}/{max})} other {#/{max}}}",
+      "fuelAtPickup": "À la remise : {fuel}",
+      "performed": "Effectuée",
+      "notes": "Remarques",
+      "photos": "Photos",
+      "photosHint": "Prenez au moins une photo de chaque côté, de l'avant, de l'arrière et de l'habitacle.",
+      "noPhotos": "Aucune photo pour l'instant.",
+      "addPhotos": "Prendre ou choisir des photos",
+      "photoAlt": "Photo {n} de la voiture",
+      "compare": "Pour comparaison : {type}",
+      "open": "Ouvrir",
+      "otherPhotoAlt": "{type}, photo {n}",
+      "damages": "Dommages",
+      "noDamages": "Aucun dommage enregistré.",
+      "newDamage": "Nouveau dommage",
+      "existingDamage": "Dommage connu",
+      "repaired": "Réparé",
+      "estimatedCost": "Coût estimé :",
+      "damagePhotoAlt": "Dommage, {area}, photo {n}",
+      "addDamagePhotos": "Photos du dommage",
+      "markRepaired": "Marquer comme réparé",
+      "addDamage": "Enregistrer un dommage",
+      "addDamageReturn": "Un nouveau dommage est lié à la réservation. La facturation au client viendra avec la caution (étape suivante).",
+      "addDamagePickup": "Un dommage constaté à la remise appartient à la voiture et n'est pas facturé au client.",
+      "area": "Zone",
+      "severity": "Gravité",
+      "liability": "Responsabilité",
+      "liabilityHint": "Un responsable peut la modifier plus tard.",
+      "estimatedCostLabel": "Coût estimé (facultatif)",
+      "amountHint": "En couronnes, par ex. 1.500.",
+      "description": "Description",
+      "descriptionHint": "Par ex. « rayure de 10 cm sous la poignée de porte ».",
+      "saveDamage": "Enregistrer le dommage"
+    },
+    "tableLabel": "Tableau : {name}"
   },
   "email": {
     "greeting": "Bonjour {name}",
