@@ -15,3 +15,6 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Penge er heltal i mindste enhed (`amountMinor`) plus valutakode. Aldrig floats.
 - Al input valideres med Zod på serveren.
 - Log aldrig passwords, tokens, kortdata eller persondata (se `src/lib/logger.ts`).
+- Ingen hardcodet brugertekst: al tekst i `messages/*.json` med samme nøgler på alle sprog (testet i `tests/unit/messages.test.ts`).
+- Brug logiske CSS-klasser (`ms-`, `pe-`, `start-`, `text-start`), så arabisk RTL virker.
+- Brug design-tokens fra `src/app/globals.css` og komponenterne i `src/components/ui`.

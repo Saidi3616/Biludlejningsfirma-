@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "title": "Location de voitures",
+    "description": "Trouvez votre voiture. Réservez en quelques minutes."
+  },
+  "common": {
+    "close": "Fermer",
+    "loading": "Chargement"
+  },
+  "nav": {
+    "skipToContent": "Aller au contenu",
+    "main": "Menu principal",
+    "cars": "Voitures",
+    "pricing": "Tarifs",
+    "locations": "Agences",
+    "about": "À propos",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "login": "Se connecter",
+    "menu": "Menu",
+    "openMenu": "Ouvrir le menu"
+  },
+  "language": {
+    "label": "Langue",
+    "da": "Dansk",
+    "en": "English",
+    "ar": "العربية",
+    "fr": "Français"
+  },
+  "whatsapp": {
+    "cta": "WhatsApp",
+    "floating": "Écrivez-nous sur WhatsApp",
+    "prefill": "Bonjour, j'ai une question sur la location d'une voiture."
+  },
+  "footer": {
+    "tagline": "Location de voitures professionnelle, sans frais cachés.",
+    "company": "Entreprise",
+    "help": "Aide",
+    "legal": "Mentions légales",
+    "reviews": "Avis",
+    "terms": "Conditions de location",
+    "privacy": "Politique de confidentialité",
+    "cookies": "Politique de cookies",
+    "cookieSettings": "Paramètres des cookies",
+    "rights": "© {year} {name}. Tous droits réservés."
+  },
+  "cookies": {
+    "title": "Nous utilisons des cookies",
+    "body": "Les cookies nécessaires font fonctionner le site. Avec votre accord, nous utilisons aussi des cookies pour les statistiques et le marketing. Vous pouvez modifier votre choix à tout moment.",
+    "acceptAll": "Tout accepter",
+    "necessaryOnly": "Nécessaires uniquement",
+    "settings": "Paramètres",
+    "save": "Enregistrer mes choix",
+    "necessary": "Nécessaires",
+    "necessaryDescription": "Indispensables pour la connexion, la réservation et la sécurité. Ne peuvent pas être désactivés.",
+    "analytics": "Statistiques",
+    "analyticsDescription": "Nous aident à comprendre comment le site est utilisé.",
+    "marketing": "Marketing",
+    "marketingDescription": "Utilisés pour afficher des offres pertinentes.",
+    "policy": "Lire la politique de cookies"
+  },
+  "home": {
+    "title": "Trouvez votre voiture. Réservez en quelques minutes.",
+    "subtitle": "La plateforme est en cours de développement."
+  },
+  "status": {
+    "booking": {
+      "PENDING_PAYMENT": "En attente de paiement",
+      "CONFIRMED": "Confirmée",
+      "ACTIVE": "En cours",
+      "COMPLETED": "Terminée",
+      "CANCELLED": "Annulée",
+      "EXPIRED": "Expirée",
+      "NO_SHOW": "Non présenté"
+    },
+    "payment": {
+      "UNPAID": "Non payée",
+      "PAID": "Payée",
+      "PARTIALLY_REFUNDED": "Partiellement remboursée",
+      "REFUNDED": "Remboursée",
+      "FAILED": "Paiement échoué"
+    },
+    "car": {
+      "AVAILABLE": "Disponible",
+      "RESERVED": "Réservée",
+      "RENTED": "Louée",
+      "RETURNED": "Restituée",
+      "INSPECTION": "En inspection",
+      "MAINTENANCE": "En entretien",
+      "OUT_OF_SERVICE": "Hors service"
+    }
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "body": "La page a été déplacée ou n'existe pas encore.",
+    "home": "Retour à l'accueil"
+  }
+}
