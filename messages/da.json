@@ -225,7 +225,58 @@
   "account": {
     "title": "Min konto",
     "signedInAs": "Logget ind som {name} ({email})",
-    "comingSoon": "Her kan du snart se dine bookinger, betalinger og dokumenter."
+    "nav": {
+      "label": "Min konto",
+      "bookings": "Bookinger",
+      "payments": "Betalinger",
+      "profile": "Profil"
+    },
+    "bookings": {
+      "title": "Dine bookinger",
+      "upcoming": "Kommende",
+      "past": "Tidligere",
+      "emptyTitle": "Ingen kommende bookinger",
+      "emptyBody": "Når du booker en bil, kan du se og ændre den her.",
+      "findCar": "Find en bil",
+      "meta": "{reference} · {location}",
+      "back": "Alle bookinger"
+    },
+    "payments": {
+      "title": "Betalinger og kvitteringer",
+      "charge": "Betaling",
+      "refund": "Refusion",
+      "refundPending": "Refusion (under behandling)",
+      "card": "{brand} •••• {last4}",
+      "methods": {
+        "CARD": "Kort",
+        "MOBILEPAY": "MobilePay",
+        "APPLE_PAY": "Apple Pay",
+        "GOOGLE_PAY": "Google Pay",
+        "CASH": "Kontant",
+        "BANK_TRANSFER": "Bankoverførsel"
+      },
+      "booking": "Booking {reference}",
+      "receipt": "Kvittering",
+      "emptyTitle": "Ingen betalinger endnu",
+      "emptyBody": "Dine betalinger og kvitteringer vises her."
+    },
+    "profile": {
+      "title": "Profil",
+      "intro": "Oplysningerne bruges på dine kommende bookinger og i vores beskeder til dig.",
+      "firstName": "Fornavn",
+      "lastName": "Efternavn",
+      "email": "E-mail",
+      "emailHint": "Skriv til os, hvis du vil ændre din e-mail.",
+      "phone": "Mobilnummer",
+      "phoneHint": "Fx 12 34 56 78. Bruges til beskeder om dine bookinger.",
+      "phoneError": "Skriv et gyldigt mobilnummer, fx 12 34 56 78 eller +46 70 123 45 67.",
+      "locale": "Sprog",
+      "localeHint": "Vi skriver til dig på dette sprog.",
+      "submit": "Gem",
+      "saved": "Dine oplysninger er gemt.",
+      "error": "Noget gik galt. Prøv igen.",
+      "required": "Skal udfyldes."
+    }
   },
   "admin": {
     "title": "Administration",
@@ -763,7 +814,8 @@
       "pendingBody": "Det tager normalt kun et øjeblik. Siden opdaterer sig selv.",
       "failedTitle": "Betalingen gik ikke igennem",
       "failedBody": "Bilen er stadig reserveret til dig et kort øjeblik. Prøv at betale igen.",
-      "retry": "Prøv at betale igen"
+      "retry": "Prøv at betale igen",
+      "manage": "Se eller annullér din booking"
     }
   },
   "notifications": {
@@ -780,7 +832,9 @@
       "bringWithDeposit": "Husk dit kørekort og et betalingskort til depositummet på {deposit}, når du henter bilen.",
       "questions": "Har du spørgsmål, så skriv til os på WhatsApp, eller svar på denne e-mail.",
       "whatsappButton": "Skriv til os på WhatsApp",
-      "whatsappPrefill": "Hej, jeg har et spørgsmål om min booking {reference}."
+      "whatsappPrefill": "Hej, jeg har et spørgsmål om min booking {reference}.",
+      "manage": "Se eller annullér din booking",
+      "refund": "Refunderes"
     },
     "BOOKING_CONFIRMED": {
       "subject": "Din booking {reference} er bekræftet",
@@ -812,6 +866,54 @@
       "subject": "Hvordan var din oplevelse?",
       "intro": "Vi vil meget gerne høre, hvordan din leje gik. Det tager under et minut.",
       "button": "Giv en bedømmelse"
+    },
+    "BOOKING_CANCELLED": {
+      "subject": "Din booking {reference} er annulleret",
+      "intro": "Din booking {reference} er annulleret, og bilen er frigivet.",
+      "refund": "Vi refunderer {amount} til dit betalingskort. Der kan gå 5–10 bankdage, før pengene står på din konto.",
+      "noRefund": "Efter annulleringsbetingelserne refunderes der ikke noget for denne booking."
     }
+  },
+  "manage": {
+    "title": "Booking {reference}",
+    "summaryTitle": "Din booking",
+    "cancelledTitle": "Din booking er annulleret",
+    "cancelledRefund": "Vi refunderer {amount} til dit betalingskort. Der kan gå 5–10 bankdage, før pengene står på din konto. Du får en kvittering på e-mail.",
+    "cancelledNoRefund": "Efter annulleringsbetingelserne refunderes der ikke noget. Du får en kvittering på e-mail.",
+    "pendingPayment": "Bookingen er ikke betalt endnu.",
+    "payNow": "Betal nu",
+    "whatsapp": "Skriv til os på WhatsApp",
+    "whatsappPrefill": "Hej, jeg har et spørgsmål om min booking {reference}.",
+    "receipt": "Kvittering",
+    "paymentsTitle": "Betalinger",
+    "changeTitle": "Vil du ændre noget?",
+    "changeBody": "Skriv til os på WhatsApp, hvis du vil ændre dato, tid eller bil. Vi tjekker, om det kan lade sig gøre, og fortæller dig, hvad det koster.",
+    "cancel": {
+      "title": "Annullér booking",
+      "free": "Gratis annullering indtil {deadline}. Annullerer du nu, får du hele beløbet tilbage: {amount}.",
+      "late": "Der er under {hours} timer til afhentning. Annullerer du nu, får du {percent} % tilbage: {amount}.",
+      "confirm": "Ja, jeg vil annullere min booking",
+      "submit": "Annullér booking",
+      "errors": {
+        "confirm": "Sæt flueben for at bekræfte, at du vil annullere.",
+        "notAllowed": "Bookingen kan ikke længere annulleres online. Skriv til os på WhatsApp.",
+        "generic": "Noget gik galt. Prøv igen, eller skriv til os på WhatsApp."
+      }
+    },
+    "linkInvalid": {
+      "title": "Linket virker ikke",
+      "body": "Linket til din booking er ugyldigt eller udløbet. Skriv til os på WhatsApp med dit bookingnummer, så hjælper vi dig.",
+      "whatsapp": "Skriv til os på WhatsApp"
+    }
+  },
+  "receipt": {
+    "title": "Kvittering {reference}",
+    "date": "Dato: {date}",
+    "print": "Print eller gem som PDF",
+    "seller": "Udlejer",
+    "customer": "Kunde",
+    "lines": "Specifikation",
+    "vat": "Heraf moms ({percent} %)",
+    "payments": "Betalinger"
   }
 }

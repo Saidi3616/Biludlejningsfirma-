@@ -1,5 +1,6 @@
 import "server-only";
-import { createHash, randomBytes, randomInt } from "node:crypto";
+import { createHash, createHmac, randomInt } from "node:crypto";
+import { appSecret } from "@/server/secrets";
 
 /** Uden 0/O, 1/I/L, så referencen kan læses op i telefonen. */
 const REFERENCE_ALPHABET = "23456789ABCDEFGHJKMNPQRSTUVWXYZ";
@@ -15,11 +16,14 @@ export function generateReference(): string {
 }
 
 /**
- * Gæstens "administrér booking"-token (K13). Kun hashen gemmes; selve tokenet sendes i
- * bekræftelsesmailen og kan ikke genskabes fra databasen.
+ * Gæstens "administrér booking"-token (K7). Det er signeret med appens hemmelighed, så e-mails
+ * kan bygge linket uden at tokenet ligger i databasen; kun hashen gemmes på bookingen.
+ * Slettes hashen, virker linket ikke længere.
  */
-export function generateManageToken(): { token: string; hash: string } {
-  const token = randomBytes(32).toString("base64url");
+export function manageTokenFor(reference: string): { token: string; hash: string } {
+  const token = createHmac("sha256", appSecret())
+    .update(`booking-manage:${reference}`)
+    .digest("base64url");
   return { token, hash: hashManageToken(token) };
 }
 

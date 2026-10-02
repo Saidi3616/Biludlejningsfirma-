@@ -21,6 +21,8 @@ const CLIENT_NAMESPACES = [
   "cookies",
   "language",
   "booking",
+  "account",
+  "manage",
 ];
 
 function clientMessages(messages: Record<string, unknown>) {

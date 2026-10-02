@@ -224,8 +224,59 @@
   },
   "account": {
     "title": "My account",
-    "signedInAs": "Logged in as {name} ({email})",
-    "comingSoon": "Soon you will see your bookings, payments and documents here."
+    "signedInAs": "Signed in as {name} ({email})",
+    "nav": {
+      "label": "My account",
+      "bookings": "Bookings",
+      "payments": "Payments",
+      "profile": "Profile"
+    },
+    "bookings": {
+      "title": "Your bookings",
+      "upcoming": "Upcoming",
+      "past": "Past",
+      "emptyTitle": "No upcoming bookings",
+      "emptyBody": "When you book a car, you can see and change it here.",
+      "findCar": "Find a car",
+      "meta": "{reference} · {location}",
+      "back": "All bookings"
+    },
+    "payments": {
+      "title": "Payments and receipts",
+      "charge": "Payment",
+      "refund": "Refund",
+      "refundPending": "Refund (processing)",
+      "card": "{brand} •••• {last4}",
+      "methods": {
+        "CARD": "Card",
+        "MOBILEPAY": "MobilePay",
+        "APPLE_PAY": "Apple Pay",
+        "GOOGLE_PAY": "Google Pay",
+        "CASH": "Cash",
+        "BANK_TRANSFER": "Bank transfer"
+      },
+      "booking": "Booking {reference}",
+      "receipt": "Receipt",
+      "emptyTitle": "No payments yet",
+      "emptyBody": "Your payments and receipts will appear here."
+    },
+    "profile": {
+      "title": "Profile",
+      "intro": "We use these details for your upcoming bookings and in our messages to you.",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "emailHint": "Contact us if you want to change your email.",
+      "phone": "Mobile number",
+      "phoneHint": "E.g. +45 12 34 56 78. Used for messages about your bookings.",
+      "phoneError": "Enter a valid mobile number, e.g. 12 34 56 78 or +46 70 123 45 67.",
+      "locale": "Language",
+      "localeHint": "We will write to you in this language.",
+      "submit": "Save",
+      "saved": "Your details have been saved.",
+      "error": "Something went wrong. Please try again.",
+      "required": "Required."
+    }
   },
   "admin": {
     "title": "Administration",
@@ -763,7 +814,8 @@
       "pendingBody": "This usually only takes a moment. The page updates itself.",
       "failedTitle": "The payment didn't go through",
       "failedBody": "The car is still reserved for you for a short while. Try paying again.",
-      "retry": "Try paying again"
+      "retry": "Try paying again",
+      "manage": "View or cancel your booking"
     }
   },
   "notifications": {
@@ -780,7 +832,9 @@
       "bringWithDeposit": "Remember your driving licence and a payment card for the deposit of {deposit} when you pick up the car.",
       "questions": "If you have any questions, message us on WhatsApp or reply to this email.",
       "whatsappButton": "Message us on WhatsApp",
-      "whatsappPrefill": "Hi, I have a question about my booking {reference}."
+      "whatsappPrefill": "Hi, I have a question about my booking {reference}.",
+      "manage": "View or cancel your booking",
+      "refund": "Refund"
     },
     "BOOKING_CONFIRMED": {
       "subject": "Your booking {reference} is confirmed",
@@ -812,6 +866,54 @@
       "subject": "How was your experience?",
       "intro": "We would love to hear how your rental went. It takes less than a minute.",
       "button": "Leave a review"
+    },
+    "BOOKING_CANCELLED": {
+      "subject": "Your booking {reference} has been cancelled",
+      "intro": "Your booking {reference} has been cancelled and the car has been released.",
+      "refund": "We are refunding {amount} to your payment card. It can take 5–10 business days before the money is in your account.",
+      "noRefund": "Under the cancellation terms, nothing is refunded for this booking."
     }
+  },
+  "manage": {
+    "title": "Booking {reference}",
+    "summaryTitle": "Your booking",
+    "cancelledTitle": "Your booking has been cancelled",
+    "cancelledRefund": "We are refunding {amount} to your payment card. It can take 5–10 business days before the money is in your account. You will receive a receipt by email.",
+    "cancelledNoRefund": "Under the cancellation terms, nothing is refunded. You will receive a receipt by email.",
+    "pendingPayment": "This booking has not been paid yet.",
+    "payNow": "Pay now",
+    "whatsapp": "Message us on WhatsApp",
+    "whatsappPrefill": "Hi, I have a question about my booking {reference}.",
+    "receipt": "Receipt",
+    "paymentsTitle": "Payments",
+    "changeTitle": "Need to change something?",
+    "changeBody": "Message us on WhatsApp if you want to change the date, time or car. We will check whether it is possible and tell you what it costs.",
+    "cancel": {
+      "title": "Cancel booking",
+      "free": "Free cancellation until {deadline}. If you cancel now, you get the full amount back: {amount}.",
+      "late": "Pick-up is less than {hours} hours away. If you cancel now, you get {percent}% back: {amount}.",
+      "confirm": "Yes, I want to cancel my booking",
+      "submit": "Cancel booking",
+      "errors": {
+        "confirm": "Tick the box to confirm that you want to cancel.",
+        "notAllowed": "This booking can no longer be cancelled online. Please message us on WhatsApp.",
+        "generic": "Something went wrong. Please try again or message us on WhatsApp."
+      }
+    },
+    "linkInvalid": {
+      "title": "This link does not work",
+      "body": "The link to your booking is invalid or has expired. Message us on WhatsApp with your booking number and we will help you.",
+      "whatsapp": "Message us on WhatsApp"
+    }
+  },
+  "receipt": {
+    "title": "Receipt {reference}",
+    "date": "Date: {date}",
+    "print": "Print or save as PDF",
+    "seller": "Rental company",
+    "customer": "Customer",
+    "lines": "Details",
+    "vat": "Including VAT ({percent}%)",
+    "payments": "Payments"
   }
 }

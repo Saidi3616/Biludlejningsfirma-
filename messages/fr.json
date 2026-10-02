@@ -225,7 +225,58 @@
   "account": {
     "title": "Mon compte",
     "signedInAs": "Connecté en tant que {name} ({email})",
-    "comingSoon": "Vous verrez bientôt ici vos réservations, paiements et documents."
+    "nav": {
+      "label": "Mon compte",
+      "bookings": "Réservations",
+      "payments": "Paiements",
+      "profile": "Profil"
+    },
+    "bookings": {
+      "title": "Vos réservations",
+      "upcoming": "À venir",
+      "past": "Passées",
+      "emptyTitle": "Aucune réservation à venir",
+      "emptyBody": "Quand vous réservez une voiture, vous pouvez la consulter et la modifier ici.",
+      "findCar": "Trouver une voiture",
+      "meta": "{reference} · {location}",
+      "back": "Toutes les réservations"
+    },
+    "payments": {
+      "title": "Paiements et reçus",
+      "charge": "Paiement",
+      "refund": "Remboursement",
+      "refundPending": "Remboursement (en cours)",
+      "card": "{brand} •••• {last4}",
+      "methods": {
+        "CARD": "Carte",
+        "MOBILEPAY": "MobilePay",
+        "APPLE_PAY": "Apple Pay",
+        "GOOGLE_PAY": "Google Pay",
+        "CASH": "Espèces",
+        "BANK_TRANSFER": "Virement bancaire"
+      },
+      "booking": "Réservation {reference}",
+      "receipt": "Reçu",
+      "emptyTitle": "Aucun paiement pour l'instant",
+      "emptyBody": "Vos paiements et reçus apparaîtront ici."
+    },
+    "profile": {
+      "title": "Profil",
+      "intro": "Nous utilisons ces informations pour vos prochaines réservations et dans nos messages.",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "E-mail",
+      "emailHint": "Contactez-nous si vous souhaitez changer votre e-mail.",
+      "phone": "Numéro de portable",
+      "phoneHint": "Par ex. +33 6 12 34 56 78. Utilisé pour les messages sur vos réservations.",
+      "phoneError": "Saisissez un numéro de portable valide, par ex. 12 34 56 78 ou +46 70 123 45 67.",
+      "locale": "Langue",
+      "localeHint": "Nous vous écrirons dans cette langue.",
+      "submit": "Enregistrer",
+      "saved": "Vos informations ont été enregistrées.",
+      "error": "Une erreur s'est produite. Veuillez réessayer.",
+      "required": "Obligatoire."
+    }
   },
   "admin": {
     "title": "Administration",
@@ -763,7 +814,8 @@
       "pendingBody": "Cela ne prend généralement qu'un instant. La page se met à jour automatiquement.",
       "failedTitle": "Le paiement n'a pas abouti",
       "failedBody": "La voiture vous est encore réservée pendant un court moment. Réessayez de payer.",
-      "retry": "Réessayer de payer"
+      "retry": "Réessayer de payer",
+      "manage": "Voir ou annuler votre réservation"
     }
   },
   "notifications": {
@@ -780,7 +832,9 @@
       "bringWithDeposit": "N'oubliez pas votre permis de conduire et une carte de paiement pour la caution de {deposit} lors de la prise en charge.",
       "questions": "Pour toute question, écrivez-nous sur WhatsApp ou répondez à cet e-mail.",
       "whatsappButton": "Écrivez-nous sur WhatsApp",
-      "whatsappPrefill": "Bonjour, j'ai une question sur ma réservation {reference}."
+      "whatsappPrefill": "Bonjour, j'ai une question sur ma réservation {reference}.",
+      "manage": "Voir ou annuler votre réservation",
+      "refund": "Remboursement"
     },
     "BOOKING_CONFIRMED": {
       "subject": "Votre réservation {reference} est confirmée",
@@ -812,6 +866,54 @@
       "subject": "Comment s'est passée votre location ?",
       "intro": "Nous aimerions savoir comment s'est passée votre location. Cela prend moins d'une minute.",
       "button": "Donner un avis"
+    },
+    "BOOKING_CANCELLED": {
+      "subject": "Votre réservation {reference} est annulée",
+      "intro": "Votre réservation {reference} est annulée et la voiture a été libérée.",
+      "refund": "Nous remboursons {amount} sur votre carte de paiement. Le délai peut être de 5 à 10 jours ouvrés.",
+      "noRefund": "Selon les conditions d'annulation, aucun remboursement n'est effectué pour cette réservation."
     }
+  },
+  "manage": {
+    "title": "Réservation {reference}",
+    "summaryTitle": "Votre réservation",
+    "cancelledTitle": "Votre réservation est annulée",
+    "cancelledRefund": "Nous remboursons {amount} sur votre carte de paiement. Le délai peut être de 5 à 10 jours ouvrés. Vous recevrez un reçu par e-mail.",
+    "cancelledNoRefund": "Selon les conditions d'annulation, aucun remboursement n'est effectué. Vous recevrez un reçu par e-mail.",
+    "pendingPayment": "Cette réservation n'est pas encore payée.",
+    "payNow": "Payer maintenant",
+    "whatsapp": "Écrivez-nous sur WhatsApp",
+    "whatsappPrefill": "Bonjour, j'ai une question sur ma réservation {reference}.",
+    "receipt": "Reçu",
+    "paymentsTitle": "Paiements",
+    "changeTitle": "Besoin de modifier quelque chose ?",
+    "changeBody": "Écrivez-nous sur WhatsApp pour changer la date, l'heure ou la voiture. Nous vérifions si c'est possible et vous indiquons le prix.",
+    "cancel": {
+      "title": "Annuler la réservation",
+      "free": "Annulation gratuite jusqu'au {deadline}. Si vous annulez maintenant, vous êtes remboursé intégralement : {amount}.",
+      "late": "La prise en charge a lieu dans moins de {hours} heures. Si vous annulez maintenant, vous êtes remboursé à {percent} % : {amount}.",
+      "confirm": "Oui, je veux annuler ma réservation",
+      "submit": "Annuler la réservation",
+      "errors": {
+        "confirm": "Cochez la case pour confirmer l'annulation.",
+        "notAllowed": "Cette réservation ne peut plus être annulée en ligne. Écrivez-nous sur WhatsApp.",
+        "generic": "Une erreur s'est produite. Réessayez ou écrivez-nous sur WhatsApp."
+      }
+    },
+    "linkInvalid": {
+      "title": "Ce lien ne fonctionne pas",
+      "body": "Le lien vers votre réservation est invalide ou a expiré. Écrivez-nous sur WhatsApp avec votre numéro de réservation et nous vous aiderons.",
+      "whatsapp": "Écrivez-nous sur WhatsApp"
+    }
+  },
+  "receipt": {
+    "title": "Reçu {reference}",
+    "date": "Date : {date}",
+    "print": "Imprimer ou enregistrer en PDF",
+    "seller": "Loueur",
+    "customer": "Client",
+    "lines": "Détail",
+    "vat": "Dont TVA ({percent} %)",
+    "payments": "Paiements"
   }
 }

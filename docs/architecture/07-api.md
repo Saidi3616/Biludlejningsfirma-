@@ -50,10 +50,10 @@ Fejlkoder er stabile strenge (fx `VALIDATION_FAILED`, `UNAUTHENTICATED`, `FORBID
 |---|---|---|
 | POST | `/api/v1/bookings` | Opret reservation (`PENDING_PAYMENT`, 15 min). Body: quote-input + kundeoplysninger + accepteret vilkår-version. Prisen **genberegnes** på serveren — klientens beløb ignoreres |
 | GET | `/api/v1/bookings/:reference` | Kræver ejer-session **eller** `?token=` (gæst) **eller** STAFF+ |
-| POST | `/api/v1/bookings/:reference/cancel` | Kunde annullerer efter politik |
+| POST | `/api/v1/bookings/:reference/cancel` | Kunde annullerer efter politik. *M9: server action på bookingsiden (`cancelBooking()` i `src/server/booking/cancel.ts`); REST-endpointet kommer, når en app skal bruge det* |
 | POST | `/api/v1/bookings/:reference/payment-intent` | Opret/hent Stripe PaymentIntent → `clientSecret` |
 | GET | `/api/v1/bookings/:reference/contract.pdf` | Signeret URL til kontrakt |
-| GET | `/api/v1/bookings/:reference/receipt.pdf` | Kvittering |
+| GET | `/api/v1/bookings/:reference/receipt.pdf` | Kvittering. *M9: printvenlig side `/booking/[reference]/receipt` (gem som PDF fra browseren)* |
 | POST | `/api/v1/reviews` | Opret anmeldelse (signeret token fra e-mail) |
 
 (Master promptens `POST /api/payments` svarer til `POST /bookings/:reference/payment-intent`; selve bekræftelsen kommer via webhook — klienten kan aldrig selv markere en booking som betalt.)

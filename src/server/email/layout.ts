@@ -18,6 +18,8 @@ export type EmailContent = {
   /** Fx bookingnummer, bil og tider. */
   details?: { label: string; value: string }[];
   button?: { label: string; url: string };
+  /** Sekundært link under knappen, fx "Se eller annullér din booking". */
+  link?: { label: string; url: string };
   closing: string[];
   signature: string;
   footer: string;
@@ -47,6 +49,10 @@ ${content.details
     ? `<p style="margin:0 0 24px"><a href="${escapeHtml(content.button.url)}" style="display:inline-block;background:#114853;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">${escapeHtml(content.button.label)}</a></p>`
     : "";
 
+  const link = content.link
+    ? `<p style="margin:0 0 24px"><a href="${escapeHtml(content.link.url)}" style="color:#114853;font-weight:600">${escapeHtml(content.link.label)}</a></p>`
+    : "";
+
   const paragraph = (text: string) =>
     `<p style="margin:0 0 16px;line-height:1.5">${escapeHtml(text)}</p>`;
 
@@ -61,6 +67,7 @@ ${content.details
     ${content.paragraphs.map(paragraph).join("\n    ")}
     ${details}
     ${button}
+    ${link}
     ${content.closing.map(paragraph).join("\n    ")}
     <p style="margin:0;${muted}">${escapeHtml(content.signature)}</p>
   </div>
@@ -77,6 +84,7 @@ ${content.details
     ...(content.details ?? []).map((row) => `${row.label}: ${row.value}`),
     ...(content.details?.length ? [""] : []),
     ...(content.button ? [`${content.button.label}: ${content.button.url}`, ""] : []),
+    ...(content.link ? [`${content.link.label}: ${content.link.url}`, ""] : []),
     ...content.closing.flatMap((line) => [line, ""]),
     content.signature,
     "",

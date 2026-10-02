@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CalendarPlus, CheckCircle2 } from "lucide-react";
 import { localizedPath } from "@/i18n/paths";
 import type { Locale } from "@/i18n/routing";
+import NextLink from "next/link";
 import { Link } from "@/i18n/navigation";
 import { whatsappLink } from "@/config/site";
 import { Alert } from "@/components/ui/alert";
@@ -45,6 +46,10 @@ export default async function ConfirmationPage({
     bookingSummary(bookingId),
     getCurrentUser(),
   ]);
+  // Annulleret efter bekræftelse: bookingsiden viser status og refusion.
+  if (booking.status === "CANCELLED" && booking.wasConfirmed) {
+    redirect(localizedPath(locale, `/booking/${reference}`));
+  }
   const payHref = localizedPath(locale, `/booking/pay/${reference}`);
   const whatsapp = (
     <Button asChild variant="whatsapp">
@@ -140,6 +145,15 @@ export default async function ConfirmationPage({
             </Button>
             {whatsapp}
           </div>
+          <NextLink
+            href={localizedPath(
+              locale,
+              user ? `/account/bookings/${reference}` : `/booking/${reference}`,
+            )}
+            className="self-start font-medium text-brand-700 underline"
+          >
+            {t("confirmation.manage")}
+          </NextLink>
 
           {user ? null : (
             <Alert tone="info">

@@ -1,23 +1,5 @@
-import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
-
-/**
- * Bookingflowet mod seed-data (pnpm db:seed) med simuleret betaling (FAKE_PAYMENTS=true).
- * Hver test vælger en tilfældig tirsdag langt ude i fremtiden, så gentagne kørsler ikke
- * løber tør for ledige biler.
- */
-function randomTuesday() {
-  const date = new Date(Date.now() + (60 + Math.floor(Math.random() * 600)) * 86_400_000);
-  while (date.getUTCDay() !== 2) date.setUTCDate(date.getUTCDate() + 1);
-  const pickup = date.toISOString().slice(0, 10);
-  date.setUTCDate(date.getUTCDate() + 3);
-  return { pickup, return: date.toISOString().slice(0, 10) };
-}
-
-function carUrl() {
-  const dates = randomTuesday();
-  return `/cars/volkswagen-golf?location=koebenhavn&pickupDate=${dates.pickup}&pickupTime=10:00&returnDate=${dates.return}&returnTime=10:00`;
-}
+import { carUrl, expectNoSeriousA11yIssues } from "./booking-helpers";
 
 test.beforeEach(async ({ page, context, baseURL }) => {
   const consent = { v: 1, at: new Date().toISOString(), analytics: false, marketing: false };
@@ -27,16 +9,6 @@ test.beforeEach(async ({ page, context, baseURL }) => {
   const octet = () => Math.floor(Math.random() * 250) + 1;
   await page.setExtraHTTPHeaders({ "x-forwarded-for": `198.18.${octet()}.${octet()}` });
 });
-
-async function expectNoSeriousA11yIssues(page: Page) {
-  const results = await new AxeBuilder({ page })
-    .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
-    .analyze();
-  const serious = results.violations.filter(
-    (v) => v.impact === "serious" || v.impact === "critical",
-  );
-  expect(serious.map((v) => `${v.id}: ${v.nodes.map((n) => n.target).join(", ")}`)).toEqual([]);
-}
 
 async function fillDetails(page: Page) {
   await page.getByLabel("Fornavn").fill("E2E");

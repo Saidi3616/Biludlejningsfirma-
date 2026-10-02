@@ -1,7 +1,7 @@
 import type { BookingStatus } from "@/generated/prisma/enums";
 
 /**
- * De 7 automatiske beskeder (kravspecifikationen). Hver skabelon sendes kun, hvis bookingen
+ * De 7 automatiske beskeder (kravspecifikationen) plus kvittering for annullering (E4). Hver skabelon sendes kun, hvis bookingen
  * stadig har en af de tilladte statusser, når den skal afsendes; ellers springes den over.
  */
 export const notificationTemplates = {
@@ -16,6 +16,8 @@ export const notificationTemplates = {
   RETURN_REMINDER: { statuses: ["CONFIRMED", "ACTIVE"] },
   THANK_YOU: { statuses: ["COMPLETED"] },
   REVIEW_REQUEST: { statuses: ["COMPLETED"] },
+  /** Kvittering for annullering med refusionsbeløb (05-user-flows.md, E4). */
+  BOOKING_CANCELLED: { statuses: ["CANCELLED"] },
 } satisfies Record<string, { statuses: BookingStatus[] }>;
 
 export type NotificationTemplate = keyof typeof notificationTemplates;

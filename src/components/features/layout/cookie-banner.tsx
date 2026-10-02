@@ -71,7 +71,7 @@ export function CookieBanner() {
       aria-labelledby="cookie-title"
       aria-describedby="cookie-body"
       data-consent-pending={pending ? "" : undefined}
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-white p-4 shadow-(--shadow-raised) sm:inset-x-auto sm:end-4 sm:bottom-4 sm:max-w-md sm:rounded-xl sm:border"
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-white p-4 shadow-(--shadow-raised) sm:inset-x-auto sm:end-4 sm:bottom-4 sm:max-w-md sm:rounded-xl sm:border print:hidden"
     >
       <h2 id="cookie-title" className="text-lg font-semibold text-ink-900">
         {t("title")}

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { canTransition } from "@/server/booking/state";
-import { generateManageToken, generateReference, hashManageToken } from "@/server/booking/tokens";
+import { generateReference, hashManageToken, manageTokenFor } from "@/server/booking/tokens";
 
 describe("bookingens livscyklus", () => {
   it("tilladte skift", () => {
@@ -24,10 +24,12 @@ describe("reference og token", () => {
     for (let i = 0; i < 200; i++) expect(generateReference()).toMatch(/^BK-[2-9A-HJKMNP-Z]{6}$/);
   });
 
-  it("kun hashen af tokenet gemmes", () => {
-    const { token, hash } = generateManageToken();
+  it("kun hashen af tokenet gemmes; tokenet er signeret pr. booking", () => {
+    const { token, hash } = manageTokenFor("BK-ABC234");
     expect(token.length).toBeGreaterThanOrEqual(43);
     expect(hash).toBe(hashManageToken(token));
     expect(hash).not.toContain(token);
+    expect(manageTokenFor("BK-ABC234").token).toBe(token);
+    expect(manageTokenFor("BK-ABC235").token).not.toBe(token);
   });
 });

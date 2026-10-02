@@ -9,18 +9,9 @@ import { serverEnv } from "@/lib/env";
 import { PASSWORD_MAX_LENGTH, PASSWORD_MIN_LENGTH } from "@/lib/password";
 import { logger } from "@/lib/logger";
 import { db } from "@/server/db";
+import { appSecret } from "@/server/secrets";
 import { authEmail, emailLocale } from "@/server/email/auth-emails";
 import { sendEmail } from "@/server/email/send";
-
-/** Kun til lokal udvikling og tests. Uden for `local` kræves AUTH_SECRET (se authSecret()). */
-const DEV_SECRET = "local-development-secret-not-for-production-use-0000";
-
-function authSecret() {
-  const env = serverEnv();
-  if (env.AUTH_SECRET) return env.AUTH_SECRET;
-  if (env.APP_ENV === "local") return DEV_SECRET;
-  throw new Error("AUTH_SECRET mangler");
-}
 
 export function authBaseUrl() {
   return serverEnv().AUTH_URL ?? "http://localhost:3000";
@@ -32,7 +23,7 @@ function createAuth() {
   return betterAuth({
     appName: site.name,
     baseURL,
-    secret: authSecret(),
+    secret: appSecret(),
     database: prismaAdapter(db, { provider: "postgresql" }),
     telemetry: { enabled: false },
 

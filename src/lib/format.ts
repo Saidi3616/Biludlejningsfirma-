@@ -38,6 +38,17 @@ export function formatDateTime(instant: Date, locale: string, timeZone: string):
   }).format(instant);
 }
 
+/** Dato med år, fx "2. okt. 2026" (kvitteringer og betalinger). */
+export function formatDate(instant: Date, locale: string, timeZone: string): string {
+  return new Intl.DateTimeFormat(intlLocale[locale] ?? locale, {
+    timeZone,
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    numberingSystem: "latn",
+  }).format(instant);
+}
+
 /** Ugedagens navn (1 = mandag … 7 = søndag) på sproget. */
 export function weekdayName(weekday: number, locale: string): string {
   // 5. januar 2026 er en mandag.

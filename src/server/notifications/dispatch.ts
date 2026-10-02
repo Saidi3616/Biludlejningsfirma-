@@ -1,10 +1,15 @@
 import "server-only";
-import type { NotificationStatus } from "@/generated/prisma/client";
+import type {
+  NotificationStatus,
+  PaymentKind,
+  PaymentRecordStatus,
+} from "@/generated/prisma/client";
 import { notificationRules } from "@/config/notifications";
 import { hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { serverEnv } from "@/lib/env";
 import { logger } from "@/lib/logger";
+import { manageTokenFor } from "@/server/booking/tokens";
 import { db } from "@/server/db";
 import { sendEmail } from "@/server/email/send";
 import { sendWhatsApp, whatsappEnabled } from "./channels/whatsapp";
@@ -52,10 +57,7 @@ async function deliver(id: string, now: Date): Promise<keyof DispatchResult> {
           carModel: { select: { brand: true, model: true } },
           pickupLocation: true,
           returnLocation: true,
-          payments: {
-            where: { kind: "CHARGE", status: "SUCCEEDED" },
-            select: { amountMinor: true },
-          },
+          payments: { select: { kind: true, status: true, amountMinor: true } },
         },
       },
     },
@@ -82,7 +84,14 @@ async function deliver(id: string, now: Date): Promise<keyof DispatchResult> {
     return "skipped";
   }
 
+  // Gæster får deres "administrér booking"-link; kunder med konto går via login.
+  const manage = manageTokenFor(booking.reference);
+  const managePath: `/${string}` =
+    booking.manageTokenHash === manage.hash
+      ? `/booking/manage/${manage.token}`
+      : `/account/bookings/${booking.reference}`;
   const context: NotificationContext = {
+    managePath,
     reference: booking.reference,
     firstName: booking.customer.firstName,
     email: booking.customer.email,
@@ -93,7 +102,8 @@ async function deliver(id: string, now: Date): Promise<keyof DispatchResult> {
     returnLocation: booking.returnLocation,
     deliveryAddress: booking.deliveryAddress,
     totalMinor: booking.totalMinor,
-    paidMinor: booking.payments.reduce((sum, payment) => sum + payment.amountMinor, 0),
+    paidMinor: sumPayments(booking.payments, "CHARGE"),
+    refundMinor: sumPayments(booking.payments, "REFUND"),
     depositMinor: booking.depositMinor,
     currency: booking.currency,
   };
@@ -144,4 +154,16 @@ async function deliver(id: string, now: Date): Promise<keyof DispatchResult> {
     logger.warn({ notificationId: id, template, attempts }, "notification failed, will retry");
     return "retry";
   }
+}
+
+/** Gennemførte betalinger; refusioner tæller også, mens de er sat i gang. */
+function sumPayments(
+  payments: { kind: PaymentKind; status: PaymentRecordStatus; amountMinor: number }[],
+  kind: "CHARGE" | "REFUND",
+) {
+  const counted: PaymentRecordStatus[] =
+    kind === "CHARGE" ? ["SUCCEEDED"] : ["PENDING", "SUCCEEDED"];
+  return payments
+    .filter((payment) => payment.kind === kind && counted.includes(payment.status))
+    .reduce((sum, payment) => sum + payment.amountMinor, 0);
 }
