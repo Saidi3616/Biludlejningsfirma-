@@ -20,6 +20,8 @@ export function carUrl(slug = "volkswagen-golf") {
 }
 
 export async function expectNoSeriousA11yIssues(page: Page) {
+  // Efter klient-navigation sætter Next.js titlen lidt efter indholdet; axe skal se den færdige side.
+  await expect.poll(() => page.title()).not.toBe("");
   const results = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
     .analyze();

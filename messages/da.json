@@ -337,7 +337,8 @@
       "pricing": "Priser",
       "users": "Brugere",
       "reviews": "Anmeldelser",
-      "statistics": "Statistik"
+      "statistics": "Statistik",
+      "auditLog": "Audit-log"
     },
     "toSite": "Til hjemmesiden",
     "roles": {
@@ -1835,6 +1836,29 @@
       },
       "empty": "Ingen bookinger i perioden.",
       "footnote": "Omsætning er betalinger minus refusioner i perioden. Belægning er udlejede timer delt med bilernes timer. En gentagen kunde har lejet hos os før perioden."
+    },
+    "auditLog": {
+      "title": "Audit-log",
+      "intro": "Alle ændringer foretaget i administrationen og af kunder i GDPR-sager. Persondata gemmes ikke i loggen.",
+      "entity": "Type",
+      "allEntities": "Alle typer",
+      "action": "Handling",
+      "actionHint": "Fx booking. eller customer.anonymize",
+      "submit": "Filtrér",
+      "count": "{count, plural, one {# hændelse} other {# hændelser}}",
+      "empty": "Ingen hændelser.",
+      "system": "Systemet",
+      "show": "Vis detaljer",
+      "previous": "Forrige",
+      "next": "Næste",
+      "page": "Side {page} af {pages}",
+      "columns": {
+        "time": "Tidspunkt",
+        "who": "Hvem",
+        "action": "Handling",
+        "entity": "Hvad",
+        "details": "Detaljer"
+      }
     }
   },
   "email": {

@@ -125,4 +125,15 @@ test("leder: eksport og anonymisering af en kunde", async ({ page }, info) => {
     page.getByRole("heading", { level: 1, name: "Kunden er anonymiseret." }),
   ).toBeVisible();
   await expect(page.getByRole("button", { name: "Anonymisér kunden" })).toHaveCount(0);
+
+  // Handlingen står i audit-loggen.
+  await page.getByRole("link", { name: "Audit-log" }).click();
+  await expect(page.getByRole("heading", { level: 1, name: "Audit-log" })).toBeVisible();
+  await expect(page).toHaveTitle(/Audit-log/);
+  await expectNoSeriousA11yIssues(page);
+  await page.getByLabel("Handling").fill("customer.anonymize");
+  await page.getByRole("button", { name: "Filtrér" }).click();
+  await expect(
+    page.getByRole("row").filter({ hasText: "customer.anonymize" }).first(),
+  ).toBeVisible();
 });

@@ -337,7 +337,8 @@
       "pricing": "Prices",
       "users": "Users",
       "reviews": "Reviews",
-      "statistics": "Statistics"
+      "statistics": "Statistics",
+      "auditLog": "Audit log"
     },
     "toSite": "Go to website",
     "roles": {
@@ -1835,6 +1836,29 @@
       },
       "empty": "No bookings in the period.",
       "footnote": "Revenue is payments minus refunds in the period. Occupancy is rented hours divided by the cars' hours. A repeat customer has rented from us before the period."
+    },
+    "auditLog": {
+      "title": "Audit log",
+      "intro": "Every change made in the admin and by customers in GDPR matters. Personal data is not stored in the log.",
+      "entity": "Type",
+      "allEntities": "All types",
+      "action": "Action",
+      "actionHint": "E.g. booking. or customer.anonymize",
+      "submit": "Filter",
+      "count": "{count, plural, one {# event} other {# events}}",
+      "empty": "No events.",
+      "system": "System",
+      "show": "Show details",
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {page} of {pages}",
+      "columns": {
+        "time": "Time",
+        "who": "Who",
+        "action": "Action",
+        "entity": "What",
+        "details": "Details"
+      }
     }
   },
   "email": {
