@@ -1,6 +1,12 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { carSearchSchema, parseCarSearch } from "@/lib/validation/search";
-import { carAvailability, findCars, getCar, pricingOverview } from "@/server/catalog/service";
+import {
+  carAvailability,
+  findCars,
+  getCar,
+  pricingOverview,
+  sitemapSlugs,
+} from "@/server/catalog/service";
 import { submitContactMessage } from "@/server/contact/service";
 import { db } from "@/server/db";
 import { addPrices, bookingData, createFleet, resetDb } from "./helpers";
@@ -250,5 +256,46 @@ describe("kontaktformular", () => {
       now: new Date(now.getTime() + 61 * 60_000),
     });
     expect(await db.message.count()).toBe(7);
+  });
+});
+
+describe("sitemap (M16)", () => {
+  it("kun biler med pris og aktive lokationer", async () => {
+    // Elbilen har en pris; en model uden pris og en lukket lokation udelades.
+    await addElectric();
+    const noPrice = await db.carCategory.create({ data: { slug: "van", nameI18n: { da: "Van" } } });
+    await db.carModel.create({
+      data: {
+        categoryId: noPrice.id,
+        slug: "uden-pris",
+        brand: "Ford",
+        model: "Transit",
+        year: 2024,
+        transmission: "MANUAL",
+        fuel: "DIESEL",
+        seats: 3,
+        bags: 6,
+        doors: 4,
+        includedKmPerDay: 100,
+        extraKmFeeMinor: 300,
+        depositMinor: 500000,
+      },
+    });
+    await db.location.create({
+      data: {
+        slug: "lukket",
+        name: "Lukket",
+        address: "Vej 1",
+        postalCode: "2000",
+        city: "Frederiksberg",
+        lat: 55.68,
+        lng: 12.53,
+        isActive: false,
+      },
+    });
+    const slugs = await sitemapSlugs(now);
+    expect(slugs.cars.map((car) => car.slug)).toEqual(["tesla-model-3", "test-model"]);
+    expect(slugs.locations.map((location) => location.slug)).toEqual(["test"]);
+    expect(slugs.cars[0]!.updatedAt).toBeInstanceOf(Date);
   });
 });

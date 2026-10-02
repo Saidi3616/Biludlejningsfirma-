@@ -1,9 +1,13 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { localizedPath } from "@/i18n/paths";
 import type { Locale } from "@/i18n/routing";
+import { privatePage } from "@/lib/seo";
 import { Container } from "@/components/ui/layout";
 import { AccountNav } from "@/components/features/account/account-nav";
 import { LogoutButton } from "@/components/features/auth/logout-button";
+
+export const metadata: Metadata = privatePage;
 
 /** Fælles ramme for Min konto. Hver side tjekker selv login (requireCustomer). */
 export default async function AccountLayout({

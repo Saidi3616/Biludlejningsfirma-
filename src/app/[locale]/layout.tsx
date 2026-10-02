@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
@@ -8,6 +8,8 @@ import { SiteFooter } from "@/components/features/layout/site-footer";
 import { WhatsAppFloatingButton } from "@/components/features/layout/whatsapp-floating-button";
 import { CookieBanner } from "@/components/features/layout/cookie-banner";
 import { consentPrecheckScript } from "@/lib/consent";
+import { siteUrl } from "@/lib/seo";
+import { ServiceWorkerRegistration } from "@/components/features/layout/service-worker-registration";
 import { geistSans, plexArabic } from "../fonts";
 import "../globals.css";
 
@@ -38,10 +40,18 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Pr
   const { locale } = await params;
   const t = await getTranslations({ locale: locale as never, namespace: "meta" });
   return {
+    metadataBase: new URL(siteUrl()),
     title: { default: t("title"), template: `%s · ${t("title")}` },
     description: t("description"),
+    applicationName: t("title"),
+    appleWebApp: { capable: true, title: t("title"), statusBarStyle: "default" },
+    icons: { apple: "/icons/apple-touch-icon.png" },
   };
 }
+
+export const viewport: Viewport = {
+  themeColor: "#114853",
+};
 
 export default async function LocaleLayout({ children, params }: LayoutProps<"/[locale]">) {
   const { locale } = await params;
@@ -78,6 +88,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
           <SiteFooter />
           <WhatsAppFloatingButton />
           <CookieBanner />
+          <ServiceWorkerRegistration />
         </NextIntlClientProvider>
       </body>
     </html>

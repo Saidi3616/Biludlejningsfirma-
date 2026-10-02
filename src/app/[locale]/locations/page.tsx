@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { MapPin } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
+import { pageMetadata } from "@/lib/seo";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardBody } from "@/components/ui/card";
 import { Container } from "@/components/ui/layout";
@@ -16,7 +17,10 @@ export async function generateMetadata({
 }: PageProps<"/[locale]/locations">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale: locale as Locale, namespace: "locations" });
-  return { title: t("title"), description: t("description") };
+  return pageMetadata(locale as Locale, "/locations", {
+    title: t("title"),
+    description: t("description"),
+  });
 }
 
 export default async function LocationsPage({ params }: PageProps<"/[locale]/locations">) {

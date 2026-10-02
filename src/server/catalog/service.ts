@@ -397,6 +397,23 @@ export async function publishedReviews(limit: number) {
   return { reviews, average: stats._avg.rating, count: stats._count };
 }
 
+/** Sider til sitemap.xml: kun biler, der kan vises (har en pris), og aktive lokationer. */
+export async function sitemapSlugs(now = new Date()) {
+  const [models, locations] = await Promise.all([
+    loadModels(),
+    db.location.findMany({
+      where: { isActive: true },
+      orderBy: { slug: "asc" },
+      select: { slug: true, updatedAt: true },
+    }),
+  ]);
+  const cars = models
+    .filter((row) => toCatalogCar(row, "da", now) !== null)
+    .map((row) => ({ slug: row.slug, updatedAt: row.updatedAt }))
+    .sort((a, b) => a.slug.localeCompare(b.slug));
+  return { cars, locations };
+}
+
 /** Lokationer til søgeformularen. */
 export async function searchLocations() {
   return db.location.findMany({

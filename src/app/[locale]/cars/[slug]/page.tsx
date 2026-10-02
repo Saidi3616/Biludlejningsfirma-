@@ -22,7 +22,10 @@ import { WhatsAppIcon } from "@/components/features/layout/whatsapp-icon";
 import { SearchForm } from "@/components/features/search/search-form";
 import { localDateKey, localTimeKey } from "@/lib/dates";
 import { formatDateTime, formatMoney } from "@/lib/format";
+import { absoluteUrl, pageMetadata } from "@/lib/seo";
+import { carJsonLd } from "@/lib/structured-data";
 import { parseCarSearch, periodQuery } from "@/lib/validation/search";
+import { JsonLd } from "@/components/features/seo/json-ld";
 import {
   businessToday,
   carAvailability,
@@ -40,7 +43,11 @@ export async function generateMetadata({
   const { locale, slug } = (await params) as { locale: Locale; slug: string };
   const car = await getCar(slug, { locale });
   if (!car) return {};
-  return { title: car.name, description: car.description || undefined };
+  return pageMetadata(locale, `/cars/${slug}`, {
+    title: car.name,
+    description: car.description || undefined,
+    image: car.image,
+  });
 }
 
 export default async function CarPage({
@@ -70,6 +77,7 @@ export default async function CarPage({
 
   return (
     <Container className="flex flex-col gap-8 py-8 sm:py-10">
+      <JsonLd data={carJsonLd(car, absoluteUrl(localizedPath(locale, `/cars/${car.slug}`)))} />
       <Link
         href={{ pathname: "/cars", query }}
         className="inline-flex items-center gap-2 self-start text-base font-medium text-brand-700 hover:underline"

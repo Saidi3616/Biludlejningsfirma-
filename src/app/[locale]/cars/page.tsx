@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { localizedPath } from "@/i18n/paths";
 import type { Locale } from "@/i18n/routing";
+import { pageMetadata } from "@/lib/seo";
 import { rentalRules } from "@/config/rental";
 import { Alert } from "@/components/ui/alert";
 import { EmptyState } from "@/components/ui/feedback";
@@ -25,7 +26,10 @@ export const dynamic = "force-dynamic";
 export async function generateMetadata({ params }: PageProps<"/[locale]/cars">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale: locale as Locale, namespace: "cars" });
-  return { title: t("title"), description: t("description") };
+  return pageMetadata(locale as Locale, "/cars", {
+    title: t("title"),
+    description: t("description"),
+  });
 }
 
 /** Filtrene som skjulte felter i søgeformularen, så de bevares ved ny søgning. */

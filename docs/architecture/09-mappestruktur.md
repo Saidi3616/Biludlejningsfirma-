@@ -24,7 +24,8 @@
 │   ├── ar.json
 │   └── fr.json
 ├── public/
-│   ├── icons/                        # PWA-ikoner
+│   ├── icons/                        # PWA-ikoner (scripts/generate-icons.mjs)
+│   ├── sw.js                         # service worker: offline-side + cache af statiske filer
 │   └── images/placeholders/
 ├── src/
 │   ├── app/

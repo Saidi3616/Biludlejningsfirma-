@@ -30,7 +30,7 @@ Princip: **moden, udbredt og kedelig teknologi**. Alt herunder har stor communit
 | Test | **Vitest** (unit/integration mod rigtig Postgres i Docker) + **Playwright** (E2E, mobile viewports) | Bookingmotor og prisberegning testes mod rigtig database, så exclusion-constraint og samtidighed faktisk bliver testet. |
 | Kodekvalitet | ESLint, Prettier, TypeScript strict, Husky + lint-staged | |
 | CI/CD | **GitHub Actions** | Lint, typecheck, tests, Prisma migrate check, Playwright på hver PR. |
-| PWA | Web App Manifest + service worker (Serwist) | Installérbar, offline-side, cache af statiske assets. Ingen offline-booking (kræver live tilgængelighed). |
+| PWA | Web App Manifest + egen lille service worker (`public/sw.js`) | Installérbar, offline-side, cache af statiske assets. Ingen offline-booking (kræver live tilgængelighed). *Ændret i M16: Serwist var planen, men vi cacher kun statiske filer og én offline-side, så ~100 linjer egen kode er enklere end en afhængighed, der kræver særlig opsætning af bundleren.* |
 
 ## Hosting / deployment
 
