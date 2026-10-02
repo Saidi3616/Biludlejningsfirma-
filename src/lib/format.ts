@@ -38,6 +38,19 @@ export function formatDateTime(instant: Date, locale: string, timeZone: string):
   }).format(instant);
 }
 
+/** Dato med år og klokkeslæt, fx "2. okt. 2026 14.30" (kontrakter). */
+export function formatDateTimeFull(instant: Date, locale: string, timeZone: string): string {
+  return new Intl.DateTimeFormat(intlLocale[locale] ?? locale, {
+    timeZone,
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    numberingSystem: "latn",
+  }).format(instant);
+}
+
 /** Dato med år, fx "2. okt. 2026" (kvitteringer og betalinger). */
 export function formatDate(instant: Date, locale: string, timeZone: string): string {
   return new Intl.DateTimeFormat(intlLocale[locale] ?? locale, {

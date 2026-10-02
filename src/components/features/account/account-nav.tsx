@@ -16,6 +16,11 @@ const items = [
     match: (path: string) => path.startsWith("/account/payments"),
   },
   {
+    href: "/account/documents",
+    key: "documents",
+    match: (path: string) => path.startsWith("/account/documents"),
+  },
+  {
     href: "/account/profile",
     key: "profile",
     match: (path: string) => path.startsWith("/account/profile"),

@@ -30,7 +30,7 @@ import {
 } from "@/server/inspections/service";
 import { localStorageProvider } from "@/server/storage/local";
 import { storage, useStorageForTests } from "@/server/storage";
-import { addPrices, bookingData, createFleet, resetDb } from "./helpers";
+import { addPrices, bookingData, createFleet, resetDb, signedContract } from "./helpers";
 
 type Fleet = Awaited<ReturnType<typeof createFleet>>;
 let fleet: Fleet;
@@ -89,6 +89,7 @@ async function paidBooking(options: { paid?: boolean; pickupInHours?: number } =
       },
     });
   }
+  await signedContract(booking.id);
   return booking;
 }
 
@@ -144,6 +145,7 @@ describe("udlevering", () => {
     expect((await failure(pickUp(staff, unpaid.id, handover, now))).details).toMatchObject({
       reason: "UNPAID",
     });
+    await db.contract.deleteMany({ where: { bookingId: unpaid.id } });
     await db.booking.delete({ where: { id: unpaid.id } });
 
     const later = await paidBooking({ pickupInHours: 72 });
@@ -151,6 +153,7 @@ describe("udlevering", () => {
       reason: "TOO_EARLY",
     });
     await db.payment.deleteMany({ where: { bookingId: later.id } });
+    await db.contract.deleteMany({ where: { bookingId: later.id } });
     await db.booking.delete({ where: { id: later.id } });
 
     const booking = await paidBooking();

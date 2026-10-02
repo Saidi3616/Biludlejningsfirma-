@@ -1,7 +1,15 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ArrowLeft, KeyRound, Receipt, RotateCcw, Wallet } from "lucide-react";
+import {
+  ArrowLeft,
+  FileSignature,
+  FileText,
+  KeyRound,
+  Receipt,
+  RotateCcw,
+  Wallet,
+} from "lucide-react";
 import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -232,7 +240,7 @@ export default async function AdminBookingPage({
         </Alert>
       ) : null}
 
-      {(canInspect && handover) || inspections.length > 0 ? (
+      {(canInspect && handover) || inspections.length > 0 || booking.contract?.signedAt ? (
         <section aria-labelledby="handover" className="flex flex-col gap-3">
           <h2 id="handover" className="text-lg font-semibold text-ink-900">
             {t("handover.title")}
@@ -247,6 +255,14 @@ export default async function AdminBookingPage({
                   </Link>
                 </Button>
               ) : null}
+              {handover === "pickup" && canWrite && !booking.contract?.signedAt ? (
+                <Button asChild variant="secondary">
+                  <Link href={`/admin/bookings/${booking.reference}/contract`}>
+                    <FileSignature aria-hidden />
+                    {t("handover.contract")}
+                  </Link>
+                </Button>
+              ) : null}
               <Button asChild>
                 <Link href={`/admin/bookings/${booking.reference}/${handover}`}>
                   <KeyRound aria-hidden />
@@ -254,6 +270,17 @@ export default async function AdminBookingPage({
                 </Link>
               </Button>
             </div>
+          ) : null}
+          {booking.contract?.signedAt ? (
+            <a
+              href={`/admin/bookings/${booking.reference}/contract/pdf`}
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center gap-2 self-start text-sm font-medium text-brand-700 underline"
+            >
+              <FileText className="size-4" aria-hidden />
+              {t("handover.contractSigned")}
+            </a>
           ) : null}
           {booking.status === "COMPLETED" && canWrite ? (
             booking.settledAt ? (

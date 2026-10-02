@@ -229,7 +229,8 @@
       "label": "Min konto",
       "bookings": "Bookinger",
       "payments": "Betalinger",
-      "profile": "Profil"
+      "profile": "Profil",
+      "documents": "Dokumenter"
     },
     "bookings": {
       "title": "Dine bookinger",
@@ -277,6 +278,15 @@
       "saved": "Dine oplysninger er gemt.",
       "error": "Noget gik galt. Prøv igen.",
       "required": "Skal udfyldes."
+    },
+    "documents": {
+      "title": "Dokumenter",
+      "contract": "Lejekontrakt {reference}",
+      "meta": "{car} · underskrevet {date}",
+      "booking": "Se booking",
+      "download": "Hent PDF",
+      "emptyTitle": "Ingen dokumenter endnu",
+      "emptyBody": "Din lejekontrakt vises her, når du har underskrevet den ved afhentningen."
     }
   },
   "admin": {
@@ -622,7 +632,9 @@
         "deposit": "Tag depositum",
         "settle": "Afregn",
         "settled": "Afregnet {date}.",
-        "showSettlement": "Se afregning"
+        "showSettlement": "Se afregning",
+        "contract": "Lejekontrakt",
+        "contractSigned": "Kontrakt (PDF)"
       }
     },
     "customers": {
@@ -1009,7 +1021,10 @@
         "submit": "Udlevér bilen",
         "depositTitle": "Depositum mangler",
         "deposit": "Tag depositum, før bilen udleveres:",
-        "takeDeposit": "Tag depositum"
+        "takeDeposit": "Tag depositum",
+        "contractTitle": "Kontrakten er ikke underskrevet",
+        "contract": "Kunden skal underskrive lejekontrakten, før bilen udleveres.",
+        "signContract": "Underskriv kontrakt"
       },
       "return": {
         "title": "Modtag bil",
@@ -1032,7 +1047,8 @@
         "forbidden": "Din rolle har ikke adgang til den handling.",
         "notFound": "Bookingen findes ikke.",
         "failed": "Noget gik galt. Prøv igen.",
-        "depositMissing": "Depositum mangler. Tag depositum først."
+        "depositMissing": "Depositum mangler. Tag depositum først.",
+        "contractMissing": "Kontrakten er ikke underskrevet. Få kunden til at underskrive først."
       }
     },
     "damage": {
@@ -1190,6 +1206,31 @@
       "noDeposit": "Der er intet depositum. Tillæg skal betales af kunden.",
       "credit": "Kunden har betalt {amount} for meget; det modregnes i tillæggene.",
       "submit": "Afregn booking"
+    },
+    "contract": {
+      "title": "Lejekontrakt",
+      "back": "Tilbage til {reference}",
+      "intro": "Gennemgå kontrakten med kunden. Kunden skriver sit navn og underskriver med fingeren.",
+      "preview": "Se kontrakten (PDF)",
+      "signerName": "Kundens fulde navn",
+      "signerHint": "Som det står på kørekortet.",
+      "signature": "Underskrift",
+      "signatureHint": "Tegn med fingeren eller musen i feltet.",
+      "clear": "Ryd underskrift",
+      "accept": "Kunden har læst og accepterer lejebetingelserne og priserne i kontrakten.",
+      "submit": "Underskriv kontrakten",
+      "signed": "Underskrevet af {name} {date}.",
+      "download": "Hent kontrakten (PDF)",
+      "toPickup": "Udlevér bil",
+      "notDue": "Kontrakten kan kun underskrives på en bekræftet booking, før bilen udleveres.",
+      "notices": {
+        "signed": "Kontrakten er underskrevet.",
+        "invalid": "Tjek felterne og prøv igen.",
+        "signatureMissing": "Kunden skal underskrive i feltet.",
+        "conflict": "Kontrakten kan ikke underskrives nu. Genindlæs siden.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "failed": "Noget gik galt. Prøv igen."
+      }
     }
   },
   "email": {
@@ -1457,7 +1498,7 @@
       },
       {
         "title": "Aflevering",
-        "body": "Bilen afleveres på det aftalte sted og tidspunkt. Ved forsinkelse ud over tolerancen afregnes en ekstra dag."
+        "body": "Bilen afleveres på det aftalte sted og tidspunkt. Ved forsinkelse ud over tolerancen betales et tillæg for hver påbegyndt time, som står i kontrakten."
       }
     ]
   },
@@ -1770,7 +1811,8 @@
       "title": "Linket virker ikke",
       "body": "Linket til din booking er ugyldigt eller udløbet. Skriv til os på WhatsApp med dit bookingnummer, så hjælper vi dig.",
       "whatsapp": "Skriv til os på WhatsApp"
-    }
+    },
+    "contract": "Lejekontrakt (PDF)"
   },
   "receipt": {
     "title": "Kvittering {reference}",
@@ -1781,5 +1823,28 @@
     "lines": "Specifikation",
     "vat": "Heraf moms ({percent} %)",
     "payments": "Betalinger"
+  },
+  "contract": {
+    "title": "Lejekontrakt",
+    "reference": "Booking {reference}",
+    "termsVersion": "Vilkår version {version}",
+    "landlord": "Udlejer",
+    "renter": "Lejer",
+    "car": "Bil",
+    "registration": "Reg.nr. {number}",
+    "period": "Lejeperiode",
+    "pickup": "Afhentning",
+    "return": "Aflevering",
+    "price": "Pris",
+    "total": "I alt",
+    "included": "Inkluderet",
+    "fees": "Tillæg",
+    "terms": "Lejebetingelser",
+    "signature": "Underskrift",
+    "signedBy": "Underskrevet af {name} {date}",
+    "signedNote": "Underskrevet elektronisk på skærmen ved udleveringen.",
+    "unsigned": "Ikke underskrevet endnu.",
+    "page": "Side {page} af {total}",
+    "download": "Lejekontrakt (PDF)"
   }
 }

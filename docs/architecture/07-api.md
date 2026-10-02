@@ -52,7 +52,7 @@ Fejlkoder er stabile strenge (fx `VALIDATION_FAILED`, `UNAUTHENTICATED`, `FORBID
 | GET | `/api/v1/bookings/:reference` | Kræver ejer-session **eller** `?token=` (gæst) **eller** STAFF+ |
 | POST | `/api/v1/bookings/:reference/cancel` | Kunde annullerer efter politik. *M9: server action på bookingsiden (`cancelBooking()` i `src/server/booking/cancel.ts`); REST-endpointet kommer, når en app skal bruge det* |
 | POST | `/api/v1/bookings/:reference/payment-intent` | Opret/hent Stripe PaymentIntent → `clientSecret` |
-| GET | `/api/v1/bookings/:reference/contract.pdf` | Signeret URL til kontrakt |
+| GET | `/api/v1/bookings/:reference/contract.pdf` | Signeret URL til kontrakt. *M12: `/booking/[reference]/contract` sender den underskrevne PDF direkte efter samme adgangstjek som bookingsiden (ejer eller gæste-cookie)* |
 | GET | `/api/v1/bookings/:reference/receipt.pdf` | Kvittering. *M9: printvenlig side `/booking/[reference]/receipt` (gem som PDF fra browseren)* |
 | POST | `/api/v1/reviews` | Opret anmeldelse (signeret token fra e-mail) |
 
@@ -83,7 +83,7 @@ Auth-endpoints (`/api/auth/*`: login, logout, register, verify, reset) leveres a
 | Betalinger | `POST /admin/bookings/:ref/payments` (manuel registrering), `POST /admin/bookings/:ref/deposit/{hold,capture,release}` (MVP: server actions på `/admin/bookings/[ref]/deposit` og `/settle`; capture og frigivelse sker samlet ved afregningen) |
 | Inspektioner | `POST /admin/bookings/:ref/inspections`, `GET /admin/inspections/:id`, `POST /admin/inspections/:id/photos` |
 | Skader | `GET /admin/damages`, `POST/PATCH /admin/damages/:id` |
-| Kontrakter | `POST /admin/bookings/:ref/contract`, `POST /admin/contracts/:id/sign` |
+| Kontrakter | `POST /admin/bookings/:ref/contract`, `POST /admin/contracts/:id/sign` (MVP: server action på `/admin/bookings/[ref]/contract`; PDF på `/admin/bookings/[ref]/contract/pdf`, udkast før underskrift) |
 | Kunder | `GET /admin/customers`, `GET/PATCH /admin/customers/:id`, `POST /admin/customers/:id/{export,anonymize}` |
 | Flåde | `CRUD /admin/car-models`, `CRUD /admin/cars`, `POST /admin/cars/:id/{status,odometer}`, `POST /admin/car-models/:id/images` |
 | Vedligehold | `CRUD /admin/maintenance` |

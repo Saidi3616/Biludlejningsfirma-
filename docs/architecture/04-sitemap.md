@@ -50,7 +50,7 @@ Hver side får `hreflang`-links og canonical URL. Se [K11](13-konflikter.md#k11-
     ├── /account/bookings        Kommende + tidligere
     │   └── /account/bookings/[reference]   Detaljer, kontrakt, kvittering, annullér, WhatsApp
     ├── /account/payments        Betalinger og fakturaer/kvitteringer
-    ├── /account/documents       Kontrakter, kørekort (upload)  [M12: kontrakt; upload kræver fillager]
+    ├── /account/documents       Kontrakter, kørekort (upload)  [M12: underskrevne kontrakter som PDF; kørekort-upload senere]
     ├── /account/profile         Profil + kontaktoplysninger + kørekort
     ├── /account/privacy         Samtykker, dataeksport, slet konto  [M15]
     └── /account/saved           Gemte biler  [PHASE 2]

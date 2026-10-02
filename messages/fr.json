@@ -229,7 +229,8 @@
       "label": "Mon compte",
       "bookings": "Réservations",
       "payments": "Paiements",
-      "profile": "Profil"
+      "profile": "Profil",
+      "documents": "Documents"
     },
     "bookings": {
       "title": "Vos réservations",
@@ -277,6 +278,15 @@
       "saved": "Vos informations ont été enregistrées.",
       "error": "Une erreur s'est produite. Veuillez réessayer.",
       "required": "Obligatoire."
+    },
+    "documents": {
+      "title": "Documents",
+      "contract": "Contrat de location {reference}",
+      "meta": "{car} · signé le {date}",
+      "booking": "Voir la réservation",
+      "download": "Télécharger le PDF",
+      "emptyTitle": "Aucun document pour le moment",
+      "emptyBody": "Votre contrat de location apparaîtra ici une fois signé lors de la prise en charge."
     }
   },
   "admin": {
@@ -622,7 +632,9 @@
         "deposit": "Prendre la caution",
         "settle": "Clôturer",
         "settled": "Clôturée le {date}.",
-        "showSettlement": "Voir la clôture"
+        "showSettlement": "Voir la clôture",
+        "contract": "Contrat de location",
+        "contractSigned": "Contrat (PDF)"
       }
     },
     "customers": {
@@ -1009,7 +1021,10 @@
         "submit": "Remettre la voiture",
         "depositTitle": "Caution manquante",
         "deposit": "Prenez la caution avant de remettre la voiture :",
-        "takeDeposit": "Prendre la caution"
+        "takeDeposit": "Prendre la caution",
+        "contractTitle": "Le contrat n'est pas signé",
+        "contract": "Le client doit signer le contrat de location avant la remise de la voiture.",
+        "signContract": "Signer le contrat"
       },
       "return": {
         "title": "Réceptionner la voiture",
@@ -1032,7 +1047,8 @@
         "forbidden": "Votre rôle n'a pas accès à cette action.",
         "notFound": "La réservation n'existe pas.",
         "failed": "Une erreur s'est produite. Réessayez.",
-        "depositMissing": "La caution manque. Prenez d'abord la caution."
+        "depositMissing": "La caution manque. Prenez d'abord la caution.",
+        "contractMissing": "Le contrat n'est pas signé. Faites-le signer au client d'abord."
       }
     },
     "damage": {
@@ -1190,6 +1206,31 @@
       "noDeposit": "Il n'y a pas de caution. Le client doit payer les frais.",
       "credit": "Le client a payé {amount} de trop ; c'est déduit des frais.",
       "submit": "Clôturer la réservation"
+    },
+    "contract": {
+      "title": "Contrat de location",
+      "back": "Retour à {reference}",
+      "intro": "Parcourez le contrat avec le client. Le client saisit son nom et signe avec le doigt.",
+      "preview": "Voir le contrat (PDF)",
+      "signerName": "Nom complet du client",
+      "signerHint": "Tel qu'indiqué sur le permis de conduire.",
+      "signature": "Signature",
+      "signatureHint": "Dessinez avec le doigt ou la souris dans le cadre.",
+      "clear": "Effacer la signature",
+      "accept": "Le client a lu et accepte les conditions de location et les prix du contrat.",
+      "submit": "Signer le contrat",
+      "signed": "Signé par {name} le {date}.",
+      "download": "Télécharger le contrat (PDF)",
+      "toPickup": "Remettre la voiture",
+      "notDue": "Le contrat ne peut être signé que pour une réservation confirmée, avant la remise de la voiture.",
+      "notices": {
+        "signed": "Le contrat a été signé.",
+        "invalid": "Vérifiez les champs et réessayez.",
+        "signatureMissing": "Le client doit signer dans le cadre.",
+        "conflict": "Le contrat ne peut pas être signé maintenant. Rechargez la page.",
+        "forbidden": "Votre rôle n'a pas accès à cette action.",
+        "failed": "Une erreur s'est produite. Réessayez."
+      }
     }
   },
   "email": {
@@ -1457,7 +1498,7 @@
       },
       {
         "title": "Retour",
-        "body": "Rendez la voiture au lieu et à l'heure convenus. Au-delà de la tolérance, un jour supplémentaire est facturé."
+        "body": "La voiture est restituée au lieu et à l'heure convenus. En cas de retard au-delà de la tolérance, un supplément est facturé par heure entamée, comme indiqué dans le contrat."
       }
     ]
   },
@@ -1770,7 +1811,8 @@
       "title": "Ce lien ne fonctionne pas",
       "body": "Le lien vers votre réservation est invalide ou a expiré. Écrivez-nous sur WhatsApp avec votre numéro de réservation et nous vous aiderons.",
       "whatsapp": "Écrivez-nous sur WhatsApp"
-    }
+    },
+    "contract": "Contrat de location (PDF)"
   },
   "receipt": {
     "title": "Reçu {reference}",
@@ -1781,5 +1823,28 @@
     "lines": "Détail",
     "vat": "Dont TVA ({percent} %)",
     "payments": "Paiements"
+  },
+  "contract": {
+    "title": "Contrat de location",
+    "reference": "Réservation {reference}",
+    "termsVersion": "Conditions version {version}",
+    "landlord": "Loueur",
+    "renter": "Locataire",
+    "car": "Voiture",
+    "registration": "Immatriculation {number}",
+    "period": "Période de location",
+    "pickup": "Prise en charge",
+    "return": "Restitution",
+    "price": "Prix",
+    "total": "Total",
+    "included": "Inclus",
+    "fees": "Suppléments",
+    "terms": "Conditions de location",
+    "signature": "Signature",
+    "signedBy": "Signé par {name} le {date}",
+    "signedNote": "Signé électroniquement à l'écran lors de la prise en charge.",
+    "unsigned": "Pas encore signé.",
+    "page": "Page {page} sur {total}",
+    "download": "Contrat de location (PDF)"
   }
 }

@@ -5,7 +5,7 @@ import { Client } from "pg";
 import { expectNoSeriousA11yIssues } from "./booking-helpers";
 import { E2E_PASSWORD, e2eUsers } from "./users";
 
-/** M11: depositum, udlevering og aflevering med fotos og skader, og afregning (F1, F2). */
+/** M11–M12: depositum, kontrakt, udlevering og aflevering med fotos og skader, og afregning (F1, F2). */
 test.beforeEach(async ({ page }) => {
   const octet = () => Math.floor(Math.random() * 250) + 1;
   await page.setExtraHTTPHeaders({ "x-forwarded-for": `198.22.${octet()}.${octet()}` });
@@ -87,6 +87,31 @@ test("depositum, udlevering, aflevering og afregning", async ({ page }) => {
   await page.getByRole("button", { name: /Registrér 3\.000\skr\. modtaget/ }).click();
   await expect(page.getByText("Depositummet er på plads.", { exact: false })).toBeVisible();
 
+  // Kontrakten: kunden underskriver på skærmen, før bilen kan udleveres (M12).
+  await page.getByRole("link", { name: "Udlevér bil" }).click();
+  await expect(page.getByText("Kontrakten er ikke underskrevet", { exact: true })).toBeVisible();
+  await page.getByRole("link", { name: "Underskriv kontrakt" }).click();
+  await expect(page.getByRole("heading", { level: 1, name: "Lejekontrakt" })).toBeVisible();
+  await expect(page).toHaveTitle(/Lejekontrakt/);
+  await expectNoSeriousA11yIssues(page);
+  const draft = await page.request.get(`/admin/bookings/${reference}/contract/pdf`);
+  expect(draft.headers()["content-type"]).toBe("application/pdf");
+  expect((await draft.body()).subarray(0, 5).toString()).toBe("%PDF-");
+  await page.getByRole("checkbox", { name: /accepterer lejebetingelserne/ }).check();
+  await page.getByRole("button", { name: "Underskriv kontrakten" }).click();
+  await expect(page.getByText("Kunden skal underskrive i feltet.")).toBeVisible();
+  const pad = page.getByTestId("signature-pad");
+  const box = (await pad.boundingBox())!;
+  await page.mouse.move(box.x + box.width * 0.1, box.y + box.height * 0.7);
+  await page.mouse.down();
+  await page.mouse.move(box.x + box.width * 0.4, box.y + box.height * 0.2, { steps: 8 });
+  await page.mouse.move(box.x + box.width * 0.8, box.y + box.height * 0.6, { steps: 8 });
+  await page.mouse.up();
+  await page.getByRole("checkbox", { name: /accepterer lejebetingelserne/ }).check();
+  await page.getByRole("button", { name: "Underskriv kontrakten" }).click();
+  await expect(page).toHaveURL(/\/contract\?notice=signed$/);
+  await expect(page.getByText(/Underskrevet af /)).toBeVisible();
+
   // Udlevering: lavere km afvises, derefter udleveres bilen.
   await page.getByRole("link", { name: "Udlevér bil" }).click();
   await expect(page.getByRole("heading", { level: 1, name: "Udlevér bil" })).toBeVisible();
@@ -146,5 +171,6 @@ test("depositum, udlevering, aflevering og afregning", async ({ page }) => {
   await expect(page.getByText("Afsluttet").first()).toBeVisible();
   await expect(page.getByRole("link", { name: "Aflevering" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Se afregning" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Kontrakt (PDF)" })).toBeVisible();
   await expect(page.getByText("Brændstof eller strøm")).toBeVisible();
 });

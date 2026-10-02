@@ -156,3 +156,31 @@ export async function updateProfile(
     }),
   ]);
 }
+
+/** Kundens underskrevne lejekontrakter, nyeste først (04-sitemap: /account/documents). */
+export async function customerContracts(userId: string) {
+  const contracts = await db.contract.findMany({
+    where: {
+      booking: { customer: { userId } },
+      signedAt: { not: null },
+      pdfDocumentId: { not: null },
+    },
+    orderBy: { signedAt: "desc" },
+    select: {
+      signedAt: true,
+      booking: {
+        select: {
+          reference: true,
+          pickupLocation: { select: { timezone: true } },
+          carModel: { select: { brand: true, model: true } },
+        },
+      },
+    },
+  });
+  return contracts.map(({ signedAt, booking }) => ({
+    reference: booking.reference,
+    car: `${booking.carModel.brand} ${booking.carModel.model}`,
+    signedAt: signedAt!,
+    timeZone: booking.pickupLocation.timezone,
+  }));
+}
