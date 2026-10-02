@@ -24,3 +24,25 @@ export function formatMoney(amountMinor: number, currency: string, locale: strin
     numberingSystem: "latn",
   }).format(amount);
 }
+
+/** Dato og klokkeslæt i lokationens tidszone, fx "man. 1. jun. 10.00". */
+export function formatDateTime(instant: Date, locale: string, timeZone: string): string {
+  return new Intl.DateTimeFormat(intlLocale[locale] ?? locale, {
+    timeZone,
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    numberingSystem: "latn",
+  }).format(instant);
+}
+
+/** Ugedagens navn (1 = mandag … 7 = søndag) på sproget. */
+export function weekdayName(weekday: number, locale: string): string {
+  // 5. januar 2026 er en mandag.
+  return new Intl.DateTimeFormat(intlLocale[locale] ?? locale, {
+    weekday: "long",
+    timeZone: "UTC",
+  }).format(new Date(Date.UTC(2026, 0, 4 + weekday)));
+}

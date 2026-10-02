@@ -62,7 +62,60 @@
   },
   "home": {
     "title": "Trouvez votre voiture. Réservez en quelques minutes.",
-    "subtitle": "La plateforme est en cours de développement."
+    "subtitle": "Choisissez le lieu et l'heure, voyez tout de suite le prix total et récupérez une voiture prête à partir.",
+    "searchTitle": "Rechercher des voitures disponibles",
+    "popular": {
+      "title": "Voitures populaires",
+      "description": "Les favorites de nos clients en ce moment.",
+      "all": "Voir toutes les voitures"
+    },
+    "why": {
+      "title": "Pourquoi nos clients louent chez nous",
+      "items": [
+        {
+          "title": "Aucuns frais cachés",
+          "body": "Vous voyez le prix total avant de réserver. TVA et assurance obligatoire toujours incluses."
+        },
+        {
+          "title": "Voitures récentes",
+          "body": "Des voitures bien entretenues, vérifiées et nettoyées avant chaque location."
+        },
+        {
+          "title": "Retrait rapide",
+          "body": "La voiture est prête à votre arrivée. Le retrait ne prend que quelques minutes."
+        },
+        {
+          "title": "De l'aide quand il faut",
+          "body": "Écrivez-nous sur WhatsApp ou appelez-nous en cas de besoin."
+        }
+      ]
+    },
+    "how": {
+      "title": "Comment louer une voiture",
+      "steps": [
+        {
+          "title": "Choisissez voiture et dates",
+          "body": "Recherchez par lieu et dates et voyez les voitures disponibles avec le prix total."
+        },
+        {
+          "title": "Réservez et payez en ligne",
+          "body": "Ajoutez des options et payez par carte, MobilePay, Apple Pay ou Google Pay."
+        },
+        {
+          "title": "Récupérez la voiture",
+          "body": "Présentez votre permis au retrait et vous êtes prêt à partir."
+        }
+      ]
+    },
+    "reviews": {
+      "title": "Ce que disent nos clients",
+      "average": "{average} sur 5 · {count, plural, one {# avis} other {# avis}}"
+    },
+    "whatsappCta": {
+      "title": "Des questions ?",
+      "body": "Écrivez-nous sur WhatsApp. Nous répondons généralement pendant les heures d'ouverture.",
+      "button": "Écrire sur WhatsApp"
+    }
   },
   "status": {
     "booking": {
@@ -260,5 +313,340 @@
       "button": "Se connecter",
       "note": "Si ce n'était pas vous, ignorez cet e-mail. Votre compte n'a pas changé."
     }
+  },
+  "search": {
+    "pickupLocation": "Retrait",
+    "returnLocation": "Retour",
+    "sameAsPickup": "Même lieu que le retrait",
+    "chooseLocation": "Choisir un lieu",
+    "pickupDate": "Date de retrait",
+    "pickupTime": "Heure",
+    "returnDate": "Date de retour",
+    "returnTime": "Heure",
+    "submit": "Trouver des voitures",
+    "update": "Mettre à jour"
+  },
+  "cars": {
+    "title": "Voitures",
+    "description": "Découvrez toutes nos voitures. Choisissez un lieu et des dates pour voir ce qui est disponible et à quel prix.",
+    "searchTitle": "Voitures disponibles",
+    "filters": "Filtres",
+    "category": "Catégorie",
+    "transmission": "Boîte de vitesses",
+    "fuel": "Carburant",
+    "seats": "Places",
+    "seatsMin": "Au moins {count}",
+    "any": "Toutes",
+    "apply": "Afficher",
+    "reset": "Réinitialiser les filtres",
+    "sort": "Trier",
+    "sortOptions": {
+      "recommended": "Recommandées",
+      "price_asc": "Prix croissant",
+      "price_desc": "Prix décroissant",
+      "popular": "Les plus populaires",
+      "newest": "Les plus récentes"
+    },
+    "results": "{count, plural, one {# voiture} other {# voitures}}",
+    "period": "{from} – {to} · {days, plural, one {# jour} other {# jours}}",
+    "fromPerDay": "à partir de {price}",
+    "perDay": "par jour",
+    "total": "{price} au total",
+    "details": "Voir la voiture",
+    "searchHint": "Choisissez un lieu et des dates pour voir les voitures disponibles et le prix total.",
+    "empty": {
+      "title": "Aucune voiture ne correspond",
+      "body": "Essayez d'autres dates, un autre lieu ou moins de filtres."
+    },
+    "errors": {
+      "OUTSIDE_OPENING_HOURS": "Le lieu est fermé à l'heure choisie. Choisissez une heure pendant les heures d'ouverture.",
+      "TOO_SOON": "Le retrait est trop proche. Réservez au moins {hours, plural, one {# heure} other {# heures}} à l'avance.",
+      "VALIDATION_FAILED": "Vérifiez les dates. Le retour doit être après le retrait et la location ne peut dépasser {days} jours.",
+      "generic": "La recherche est impossible pour le moment. Réessayez dans un instant."
+    },
+    "specs": {
+      "seats": "{count} places",
+      "bags": "{count, plural, one {# valise} other {# valises}}",
+      "doors": "{count} portes",
+      "airConditioning": "Climatisation",
+      "year": "Année {year}"
+    },
+    "transmissionNames": {
+      "MANUAL": "Manuelle",
+      "AUTOMATIC": "Automatique"
+    },
+    "fuelNames": {
+      "PETROL": "Essence",
+      "DIESEL": "Diesel",
+      "HYBRID": "Hybride",
+      "ELECTRIC": "Électrique"
+    },
+    "imagePlaceholder": "{name}, vue de profil, fond clair"
+  },
+  "car": {
+    "back": "Toutes les voitures",
+    "specsTitle": "Caractéristiques",
+    "pricesTitle": "Tarifs",
+    "pricesIntro": "Plus vous louez longtemps, plus le prix par jour baisse. Le prix ne dépasse jamais le forfait suivant.",
+    "days": "{count, plural, one {# jour} other {# jours}}",
+    "package": "Forfait",
+    "perDay": "Par jour",
+    "includedTitle": "Inclus",
+    "includedKm": "{km} km par jour",
+    "insurance": "Assurance responsabilité civile et dommages obligatoire",
+    "vat": "TVA",
+    "notIncludedTitle": "Non inclus",
+    "extraKm": "Kilomètres supplémentaires : {price} par km",
+    "fuel": "Carburant ou recharge. Rendez la voiture avec le même niveau qu'au retrait.",
+    "deposit": "Caution : {price}",
+    "depositNote": "La caution est bloquée sur votre carte au retrait et libérée au retour de la voiture sans dommage. Pour les locations de plus de {days} jours, le montant est débité puis remboursé.",
+    "availabilityTitle": "Vérifier la disponibilité et le prix",
+    "availabilityHint": "Choisissez un lieu et des dates pour savoir si la voiture est disponible et combien elle coûte au total.",
+    "available": "Disponible pour ces dates",
+    "unavailable": "La voiture n'est pas disponible pour les dates choisies.",
+    "nextAvailable": "Disponible à partir du :",
+    "alternatives": "Autres voitures disponibles pour ces dates",
+    "priceSummary": "Récapitulatif du prix",
+    "lines": {
+      "RENTAL": "Location, {days, plural, one {# jour} other {# jours}}",
+      "DELIVERY_FEE": "Livraison",
+      "ONE_WAY_FEE": "Retour dans un autre lieu",
+      "DISCOUNT": "Remise",
+      "EXTRA": "Options",
+      "FEE": "Frais"
+    },
+    "totalLabel": "Total",
+    "vatIncluded": "Dont TVA {price}",
+    "book": "Réserver cette voiture",
+    "askWhatsapp": "Poser une question sur WhatsApp",
+    "whatsappPrefill": "Bonjour, je suis intéressé(e) par la {name}.",
+    "whatsappPrefillPeriod": "Bonjour, je suis intéressé(e) par la {name} du {from} au {to}.",
+    "locationsTitle": "Disponible à",
+    "rentalPeriod": "Durée"
+  },
+  "pricing": {
+    "title": "Tarifs",
+    "description": "Tous les prix sont en couronnes danoises, TVA et assurance obligatoire incluses.",
+    "ladderTitle": "Tarifs par catégorie",
+    "ladderNote": "Si vous louez un nombre de jours entre deux forfaits, vous payez le prix par jour du plus petit forfait, mais jamais plus que le plus grand.",
+    "days": "{count, plural, one {# jour} other {# jours}}",
+    "package": "Forfait",
+    "perDay": "Par jour",
+    "extrasTitle": "Options",
+    "extraPerDay": "{price} par jour",
+    "extraPerBooking": "{price} par location",
+    "extraMax": "max. {price}",
+    "feesTitle": "Livraison et retour dans un autre lieu",
+    "oneWay": "Retour à {location} : {price}",
+    "delivery": "Livraison depuis {location}, jusqu'à {km} km : {price}",
+    "noFees": "Aucuns frais de livraison ou de retour dans un autre lieu.",
+    "cta": "Trouver une voiture disponible"
+  },
+  "locations": {
+    "title": "Agences",
+    "description": "Où retirer et rendre nos voitures.",
+    "openingHours": "Horaires d'ouverture",
+    "closed": "Fermé",
+    "address": "Adresse",
+    "showMap": "Voir sur la carte",
+    "delivery": "Nous pouvons livrer la voiture à votre adresse.",
+    "types": {
+      "OFFICE": "Agence",
+      "AIRPORT": "Aéroport",
+      "PARTNER": "Partenaire"
+    },
+    "findCars": "Voitures à {name}",
+    "contact": "Contact"
+  },
+  "about": {
+    "title": "À propos",
+    "description": "Nous rendons la location de voiture simple et sûre.",
+    "sections": [
+      {
+        "title": "Qui nous sommes",
+        "body": "Nous sommes un loueur local qui mise sur des voitures bien entretenues, des prix clairs et un service personnel."
+      },
+      {
+        "title": "Notre promesse",
+        "body": "Vous voyez toujours le prix total avant de réserver. Aucune surprise au comptoir."
+      },
+      {
+        "title": "Nous contacter",
+        "body": "Pour toute question, écrivez-nous sur WhatsApp, envoyez un e-mail ou appelez-nous."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "description": "Les réponses aux questions les plus courantes.",
+    "items": [
+      {
+        "q": "Que dois-je apporter pour retirer la voiture ?",
+        "a": "Un permis de conduire valide, une carte de paiement au nom du locataire pour la caution et votre confirmation de réservation."
+      },
+      {
+        "q": "Comment fonctionne la caution ?",
+        "a": "Le montant est bloqué sur votre carte au retrait et libéré au retour de la voiture sans dommage. Pour les longues locations, il est débité puis remboursé après le retour."
+      },
+      {
+        "q": "L'assurance est-elle incluse ?",
+        "a": "Oui. L'assurance responsabilité civile et dommages obligatoire est toujours incluse. La franchise figure dans les conditions de location."
+      },
+      {
+        "q": "Combien de kilomètres puis-je parcourir ?",
+        "a": "Chaque voiture inclut un nombre de kilomètres par jour. Le prix des kilomètres supplémentaires figure sur la page de la voiture."
+      },
+      {
+        "q": "Et le carburant ?",
+        "a": "La voiture est remise avec un certain niveau de carburant ou de charge et doit être rendue au même niveau."
+      },
+      {
+        "q": "Puis-je annuler ?",
+        "a": "Oui. Les règles d'annulation figurent dans les conditions de location et dans votre confirmation."
+      },
+      {
+        "q": "La voiture peut-elle être livrée à mon adresse ?",
+        "a": "Depuis certaines agences, oui. Le prix dépend de la distance et s'affiche avant le paiement."
+      },
+      {
+        "q": "Puis-je rendre la voiture dans une autre agence ?",
+        "a": "Oui, entre nos agences. Les frais s'affichent dans le récapitulatif avant la réservation."
+      }
+    ]
+  },
+  "legal": {
+    "draftNotice": "Brouillon : ce texte doit être relu et approuvé par l'entreprise avant la mise en ligne."
+  },
+  "terms": {
+    "title": "Conditions de location",
+    "description": "Les conditions pour louer une voiture chez nous.",
+    "sections": [
+      {
+        "title": "Locataire et permis",
+        "body": "Le locataire doit être titulaire d'un permis de conduire valide. Les exigences d'âge et d'ancienneté du permis sont indiquées lors de la réservation."
+      },
+      {
+        "title": "Réservation et paiement",
+        "body": "La réservation est ferme une fois le paiement effectué. Le prix comprend la location, les options choisies et les frais affichés lors de la réservation."
+      },
+      {
+        "title": "Caution",
+        "body": "Une caution est bloquée sur la carte du locataire au retrait. Elle est libérée lorsque la voiture est rendue dans le même état."
+      },
+      {
+        "title": "Kilomètres et carburant",
+        "body": "Les kilomètres inclus figurent sur la page de la voiture. Les kilomètres supplémentaires sont facturés au tarif indiqué. Rendez la voiture avec le même niveau de carburant ou de charge."
+      },
+      {
+        "title": "Assurance et franchise",
+        "body": "La voiture est couverte par une assurance responsabilité civile et dommages obligatoire. En cas de dommage, le locataire paie la franchise."
+      },
+      {
+        "title": "Annulation",
+        "body": "Annulez via le lien de votre confirmation ou depuis votre compte. Les règles de remboursement sont affichées lors de la réservation."
+      },
+      {
+        "title": "Dommages et accidents",
+        "body": "Signalez immédiatement tout dommage ou accident. La voiture est inspectée au retrait et au retour."
+      },
+      {
+        "title": "Retour",
+        "body": "Rendez la voiture au lieu et à l'heure convenus. Au-delà de la tolérance, un jour supplémentaire est facturé."
+      }
+    ]
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "description": "Comment nous traitons vos données personnelles.",
+    "sections": [
+      {
+        "title": "Responsable du traitement",
+        "body": "La société de location est responsable des données que vous nous fournissez. Vous pouvez nous joindre via la page contact."
+      },
+      {
+        "title": "Données traitées",
+        "body": "Nom, coordonnées, informations de permis, réservations, paiements et messages."
+      },
+      {
+        "title": "Finalités",
+        "body": "Exécuter le contrat de location, respecter nos obligations légales (comptabilité) et répondre à vos demandes."
+      },
+      {
+        "title": "Paiement",
+        "body": "Les paiements sont gérés par notre prestataire. Nous ne conservons jamais vos données de carte."
+      },
+      {
+        "title": "Conservation",
+        "body": "Nous conservons les données le temps nécessaire ou exigé par la loi, puis nous les supprimons."
+      },
+      {
+        "title": "Vos droits",
+        "body": "Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation et de portabilité, ainsi que d'un droit d'opposition."
+      },
+      {
+        "title": "Réclamation",
+        "body": "Vous pouvez saisir l'autorité danoise de protection des données (Datatilsynet)."
+      }
+    ]
+  },
+  "cookiePolicy": {
+    "title": "Politique de cookies",
+    "description": "Les cookies que nous utilisons et comment modifier votre consentement.",
+    "sections": [
+      {
+        "title": "Cookies nécessaires",
+        "body": "Utilisés pour la connexion, la langue, la sécurité et la mémorisation de votre choix. Ils ne peuvent pas être désactivés."
+      },
+      {
+        "title": "Statistiques",
+        "body": "Nous aident à comprendre l'utilisation du site. Déposés uniquement avec votre accord."
+      },
+      {
+        "title": "Marketing",
+        "body": "Servent à mesurer les publicités. Déposés uniquement avec votre accord."
+      }
+    ],
+    "change": "Vous pouvez modifier votre choix à tout moment :"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Écrivez, appelez ou passez nous voir. Nous sommes là pour vous aider.",
+    "phone": "Téléphone",
+    "email": "E-mail",
+    "whatsapp": "WhatsApp",
+    "formTitle": "Envoyez-nous un message",
+    "form": {
+      "name": "Nom",
+      "email": "E-mail",
+      "phone": "Téléphone (facultatif)",
+      "subject": "Objet (facultatif)",
+      "message": "Message",
+      "website": "Laissez ce champ vide",
+      "privacy": "Nous utilisons vos coordonnées uniquement pour vous répondre.",
+      "submit": "Envoyer",
+      "success": "Merci pour votre message. Nous vous répondrons au plus vite.",
+      "errors": {
+        "fields": "Vérifiez les champs signalés.",
+        "rateLimited": "Vous avez envoyé beaucoup de messages. Réessayez plus tard.",
+        "generic": "Le message n'a pas pu être envoyé. Réessayez ou écrivez-nous sur WhatsApp."
+      },
+      "fieldErrors": {
+        "name": "Indiquez votre nom.",
+        "email": "Indiquez une adresse e-mail valide.",
+        "phone": "Indiquez un numéro de téléphone valide.",
+        "message": "Écrivez au moins 10 caractères."
+      }
+    }
+  },
+  "reviews": {
+    "title": "Avis",
+    "description": "Les avis de clients qui ont loué une voiture chez nous.",
+    "empty": "Aucun avis pour le moment.",
+    "rating": "{rating} étoiles sur 5"
+  },
+  "booking": {
+    "title": "Réservation",
+    "comingSoon": "La réservation et le paiement en ligne ouvrent bientôt. En attendant, nous vous aidons volontiers sur WhatsApp.",
+    "whatsapp": "Réserver via WhatsApp"
   }
 }

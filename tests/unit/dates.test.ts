@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { localDateKey, rentalDays, toLocal } from "@/lib/dates";
+import { fromLocal, localDateKey, localTimeKey, rentalDays, toLocal } from "@/lib/dates";
 
 const CPH = "Europe/Copenhagen";
 const GRACE = 59;
@@ -72,5 +72,28 @@ describe("lokal dato", () => {
       hour: 1,
       minute: 30,
     });
+  });
+});
+
+describe("fromLocal", () => {
+  const tz = "Europe/Copenhagen";
+
+  it("dansk vægur-tid til UTC i sommer- og vintertid", () => {
+    expect(fromLocal("2026-06-01", "10:00", tz).toISOString()).toBe("2026-06-01T08:00:00.000Z");
+    expect(fromLocal("2026-12-01", "10:00", tz).toISOString()).toBe("2026-12-01T09:00:00.000Z");
+  });
+
+  it("dagene med tidsskift", () => {
+    // 29. marts 2026: 02:00 → 03:00. 01:30 er vintertid, 03:30 sommertid.
+    expect(fromLocal("2026-03-29", "01:30", tz).toISOString()).toBe("2026-03-29T00:30:00.000Z");
+    expect(fromLocal("2026-03-29", "03:30", tz).toISOString()).toBe("2026-03-29T01:30:00.000Z");
+    // 25. oktober 2026: 03:00 → 02:00.
+    expect(fromLocal("2026-10-25", "12:00", tz).toISOString()).toBe("2026-10-25T11:00:00.000Z");
+  });
+
+  it("er det omvendte af toLocal", () => {
+    const instant = fromLocal("2026-07-15", "23:30", tz);
+    expect(localDateKey(instant, tz)).toBe("2026-07-15");
+    expect(localTimeKey(instant, tz)).toBe("23:30");
   });
 });

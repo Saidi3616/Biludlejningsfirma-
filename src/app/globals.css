@@ -112,3 +112,8 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Cookie-banneret i server-HTML'en skjules før første visning, hvis der allerede er valgt. */
+.has-consent [data-consent-pending] {
+  display: none;
+}

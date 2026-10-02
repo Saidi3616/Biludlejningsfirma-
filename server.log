@@ -1,0 +1,12 @@
+
+> biludlejning@0.1.0 start /home/claude/Biludlejningsfirma-
+> next start -p 3100
+
+▲ Next.js 16.3.8
+- Local:         http://localhost:3100
+- Network:       http://192.0.2.2:3100
+✓ Ready in 252ms
+✓ Running next.config.ts took 111ms
+⚠ "next start" does not work with "output: standalone" configuration. Use "node .next/standalone/server.js" instead.
+Killed
+ ELIFECYCLE  Command failed with exit code 137.

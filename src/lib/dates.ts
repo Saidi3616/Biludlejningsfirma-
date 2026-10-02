@@ -83,3 +83,26 @@ export function rentalDays(
   const days = remainder > graceMinutes ? fullDays + 1 : fullDays;
   return Math.max(1, days);
 }
+
+/**
+ * Tidspunktet, hvor lokationens ur viser `date` kl. `time` ("YYYY-MM-DD", "HH:MM").
+ * Bruges, når kunden vælger dato og klokkeslæt for afhentning i lokationens tidszone.
+ * Et klokkeslæt, der ikke findes (sommertidens spring), lander på næste gyldige tidspunkt.
+ */
+export function fromLocal(date: string, time: string, timeZone: string): Date {
+  const [year, month, day] = date.split("-").map(Number) as [number, number, number];
+  const [hour, minute] = time.split(":").map(Number) as [number, number];
+  const target = Date.UTC(year, month - 1, day, hour, minute);
+  let instant = target;
+  // To gennemløb er nok: første finder forskydningen, andet retter for et skift imellem.
+  for (let i = 0; i < 2; i++) {
+    instant -= wallClockMinutes(toLocal(new Date(instant), timeZone)) * MINUTE - target;
+  }
+  return new Date(instant);
+}
+
+/** Klokkeslæt "HH:MM" på lokationens ur. */
+export function localTimeKey(instant: Date, timeZone: string): string {
+  const { hour, minute } = toLocal(instant, timeZone);
+  return `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`;
+}

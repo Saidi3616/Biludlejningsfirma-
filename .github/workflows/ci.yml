@@ -64,6 +64,10 @@ jobs:
       - name: Build
         run: pnpm build
 
+      # Integrationstestene tømmer databasen, så demo-data lægges ind lige før E2E.
+      - name: Seed (demo-data til E2E)
+        run: pnpm db:seed
+
       - name: Install Playwright browser
         run: pnpm exec playwright install --with-deps chromium
 

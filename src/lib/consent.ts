@@ -35,3 +35,10 @@ export function readConsentCookie(): string {
   const match = document.cookie.split("; ").find((part) => part.startsWith(`${CONSENT_COOKIE}=`));
   return match?.slice(CONSENT_COOKIE.length + 1) ?? "";
 }
+
+/**
+ * Lille script i <head>, der kører før første visning: har besøgende allerede valgt, får <html>
+ * klassen "has-consent", så det server-renderede banner skjules uden at blinke. Banneret kan
+ * dermed ligge i den første HTML, hvilket gør siden hurtigere for nye besøgende.
+ */
+export const consentPrecheckScript = `try{var m=document.cookie.match(/(?:^|; )${CONSENT_COOKIE}=([^;]*)/);if(m&&JSON.parse(decodeURIComponent(m[1])).v===${CONSENT_VERSION})document.documentElement.classList.add("has-consent")}catch(e){}`;
