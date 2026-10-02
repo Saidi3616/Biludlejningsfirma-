@@ -128,6 +128,8 @@ Booking → "Annullér" → årsag → politik foreslår refusionsbeløb (kan ov
 
 MVP (M13 del 1): `/admin/pricing` viser kategoriens pristrappe med standardpriser, modelpriser og sæsoner (gyldig fra/til, prioritet), advarer når kategorien mangler en standardpris for 1 dag, og har en forhåndsvisning med samme trappe som prismotoren. `/admin/extras` opretter og retter ekstraudstyr; udstyr, der har været booket, kan kun skjules. Lagerantal gemmes til overblik, men håndhæves ikke ved booking endnu. Begge kræver MANAGER (`catalog:write`) og logges i audit-loggen. Rabatkoder og lokationer følger i del 2, brugere i del 3.
 
+MVP (M13 del 2): `/admin/discounts` opretter, retter, stopper og sletter rabatkoder. Koden gemmes med store bogstaver; procent er 1–100, fast beløb er i DKK. Perioden er hele dage i dansk tid (sidste dag gælder til midnat). En kode, der er brugt i en booking, kan ikke slettes eller omdøbes, kun stoppes. `/admin/locations` opretter og retter lokationer (deaktivering i stedet for sletning), ugens åbningstider (én periode pr. dag eller døgnåbent), særlige dage og leveringszoner. Døgnåbent gemmes som syv rækker 00:00–00:00 (lukketid 00:00 = midnat, også i databasens check), så en særlig dag kun påvirker sin egen dato.
+
 ## F9. Beskeder og notifikationer
 
 - `/admin/messages`: indbakke for kontaktformular (status: ny → i gang → besvaret). Svar sendes pr. e-mail fra systemet og logges.
