@@ -30,14 +30,18 @@ Rigtige nøgler må aldrig committes. `.env*` er ignoreret af Git, undtagen `.en
 
 ## Database
 
-| Kommando           | Formål                                           |
-| ------------------ | ------------------------------------------------ |
-| `pnpm db:migrate`  | Opret og kør en ny migration under udvikling     |
-| `pnpm db:deploy`   | Kør eksisterende migrationer (CI, staging, prod) |
-| `pnpm db:generate` | Generér Prisma-klienten                          |
-| `pnpm db:studio`   | Åbn Prisma Studio                                |
+| Kommando           | Formål                                                     |
+| ------------------ | ---------------------------------------------------------- |
+| `pnpm db:migrate`  | Opret og kør en ny migration under udvikling               |
+| `pnpm db:deploy`   | Kør eksisterende migrationer (CI, staging, prod)           |
+| `pnpm db:seed`     | Indlæs demo-data (lokationer, biler, priser, ekstraudstyr) |
+| `pnpm db:reset`    | Slet databasen lokalt, kør alle migrationer og seed igen   |
+| `pnpm db:generate` | Generér Prisma-klienten                                    |
+| `pnpm db:studio`   | Åbn Prisma Studio og se data i browseren                   |
 
-Skemaet ligger i `prisma/schema.prisma`. Datamodellen tilføjes i M2.
+Skemaet ligger i `prisma/schema.prisma` og er beskrevet i [03-database-erd.md](docs/architecture/03-database-erd.md). Regler, som Prisma ikke kan udtrykke (beskyttelse mod dobbeltbooking, overlap med vedligehold, CHECK-constraints), ligger som SQL i migrationen `*_booking_constraints`.
+
+Demo-data er fiktive (adresser, registreringsnumre, stelnumre) og kan ikke køres mod produktion.
 
 ## Udvikling
 
@@ -63,7 +67,7 @@ Forretningslogik hører til i `src/server`, aldrig i komponenter. Se [09-mappest
 ```bash
 pnpm test               # alle tests
 pnpm test:unit          # kun unit-tests
-pnpm test:integration   # kræver en kørende database
+pnpm test:integration   # kræver Postgres; bruger TEST_DATABASE_URL, som tømmes
 pnpm build && pnpm test:e2e   # Playwright: mobil + desktop, RTL, tilgængelighed (axe)
 ```
 

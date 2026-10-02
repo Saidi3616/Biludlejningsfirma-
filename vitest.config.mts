@@ -9,5 +9,8 @@ export default defineConfig({
     environment: "node",
     include: ["tests/unit/**/*.test.ts", "tests/integration/**/*.test.ts"],
     setupFiles: ["tests/setup.ts"],
+    globalSetup: ["tests/global-setup.ts"],
+    // Integrationstests deler én database og må ikke køre samtidig.
+    fileParallelism: false,
   },
 });

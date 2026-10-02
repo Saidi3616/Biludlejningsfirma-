@@ -446,6 +446,8 @@ ALTER TABLE booking ADD CONSTRAINT booking_dates_valid CHECK (return_at > pickup
 
 `blocked_range = tstzrange(pickup_at - buffer_before, return_at + buffer_after)` — bufferen (fx 2 timer til rengøring og klargøring) er en indstilling pr. lokation.
 
+> **Implementeringsnote (M2).** I koden gemmes intervallet som to kolonner, `blockedFrom` og `blockedUntil`, og constraintet bruger udtrykket `tstzrange("blockedFrom", "blockedUntil", '[)')`. Det undgår en kolonnetype, Prisma ikke understøtter. Overlap mellem booking og vedligehold håndhæves af triggere med en advisory lock pr. bil, så samtidige transaktioner ikke begge kan slippe igennem. Rabatkoder gemmes med store bogstaver (CHECK) i stedet for `citext`. Tabel- og kolonnenavne følger Prismas standard (`"Booking"."carId"`). Den præcise SQL ligger i `prisma/migrations/*_booking_constraints/migration.sql` og er dækket af `tests/integration/booking-constraints.test.ts`.
+
 ### Tildeling af fysisk bil (inde i én transaktion)
 
 1. Find biler af den valgte `CarModel` på afhentningslokationen med `op_status = 'ACTIVE'`, uden overlappende booking eller vedligehold.

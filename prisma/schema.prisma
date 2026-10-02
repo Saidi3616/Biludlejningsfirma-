@@ -1,4 +1,12 @@
-// Datamodellen tilføjes i M2 (se docs/architecture/03-database-erd.md).
+// Datamodel: se docs/architecture/03-database-erd.md.
+//
+// Konventioner
+// - Penge er altid heltal i mindste enhed (`...Minor`) + `currency` (ISO 4217).
+// - Tidspunkter er timestamptz (UTC); visning sker i lokationens tidszone.
+// - Oversatte felter (`...I18n`) er JSON: { "da": "...", "en": "...", "ar": "...", "fr": "..." }.
+// - Intet hard delete af data med historik: brug `isActive`, `archivedAt` eller anonymisering.
+// - Constraints, som Prisma ikke kan udtrykke (EXCLUDE, CHECK, triggere), ligger som rå SQL
+//   i migrationen `..._booking_constraints`.
 
 generator client {
   provider = "prisma-client"
@@ -7,4 +15,880 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+}
+
+// ─── Brugere og kunder ───────────────────────────────────────────────────────
+
+enum Role {
+  SUPER_ADMIN
+  MANAGER
+  STAFF
+  CUSTOMER
+}
+
+/// Login-identitet. Felterne følger auth-bibliotekets skema (M3 tilføjer sessions/konti).
+model User {
+  id               String    @id @default(uuid(7)) @db.Uuid
+  email            String    @unique
+  name             String
+  emailVerified    Boolean   @default(false)
+  image            String?
+  role             Role      @default(CUSTOMER)
+  twoFactorEnabled Boolean   @default(false)
+  lastLoginAt      DateTime? @db.Timestamptz
+  disabledAt       DateTime? @db.Timestamptz
+  createdAt        DateTime  @default(now()) @db.Timestamptz
+  updatedAt        DateTime  @updatedAt @db.Timestamptz
+
+  customer         Customer?
+  auditLogs        AuditLog[]
+  statusEvents     BookingStatusEvent[]
+  recordedPayments Payment[]
+  inspections      Inspection[]
+  assignedMessages Message[]
+}
+
+/// Lejer. Kan eksistere uden User (gæstebooking, K7).
+model Customer {
+  id               String    @id @default(uuid(7)) @db.Uuid
+  userId           String?   @unique @db.Uuid
+  firstName        String
+  lastName         String
+  email            String
+  phoneE164        String?
+  addressLine      String?
+  postalCode       String?
+  city             String?
+  country          String?   @db.Char(2)
+  /// Krypteret i applikationen (M15). Gemmes aldrig i logs.
+  dateOfBirthEnc   String?
+  /// Krypteret i applikationen (M15).
+  licenseNumberEnc String?
+  licenseCountry   String?   @db.Char(2)
+  licenseIssuedAt  DateTime? @db.Date
+  licenseExpiresAt DateTime? @db.Date
+  preferredLocale  String    @default("da")
+  anonymizedAt     DateTime? @db.Timestamptz
+  createdAt        DateTime  @default(now()) @db.Timestamptz
+  updatedAt        DateTime  @updatedAt @db.Timestamptz
+
+  user          User?                @relation(fields: [userId], references: [id])
+  bookings      Booking[]
+  consents      Consent[]
+  reviews       Review[]
+  messages      Message[]
+  notifications Notification[]
+  redemptions   DiscountRedemption[]
+
+  @@index([email])
+}
+
+// ─── Lokationer ──────────────────────────────────────────────────────────────
+
+enum LocationType {
+  OFFICE
+  AIRPORT
+  PARTNER
+}
+
+model Location {
+  id                  String       @id @default(uuid(7)) @db.Uuid
+  slug                String       @unique
+  name                String
+  type                LocationType @default(OFFICE)
+  address             String
+  postalCode          String
+  city                String
+  country             String       @default("DK") @db.Char(2)
+  lat                 Decimal      @db.Decimal(9, 6)
+  lng                 Decimal      @db.Decimal(9, 6)
+  timezone            String       @default("Europe/Copenhagen")
+  phone               String?
+  whatsapp            String?
+  email               String?
+  /// Klargøringstid før og efter hver leje (rengøring, tjek). Kopieres til bookingen.
+  bufferBeforeMinutes Int          @default(60)
+  bufferAfterMinutes  Int          @default(120)
+  /// Gebyr hvis bilen afleveres her men blev hentet et andet sted.
+  oneWayFeeMinor      Int?
+  deliveryEnabled     Boolean      @default(false)
+  isActive            Boolean      @default(true)
+  createdAt           DateTime     @default(now()) @db.Timestamptz
+  updatedAt           DateTime     @updatedAt @db.Timestamptz
+
+  openingHours   OpeningHours[]
+  deliveryZones  DeliveryZone[]
+  cars           Car[]
+  pickupBookings Booking[]      @relation("PickupLocation")
+  returnBookings Booking[]      @relation("ReturnLocation")
+}
+
+/// Ugentlige åbningstider (weekday 1 = mandag … 7 = søndag) eller en særlig dato.
+model OpeningHours {
+  id          String    @id @default(uuid(7)) @db.Uuid
+  locationId  String    @db.Uuid
+  weekday     Int?
+  specialDate DateTime? @db.Date
+  opensAt     String?   @db.Char(5) // "08:00"
+  closesAt    String?   @db.Char(5) // "18:00"
+  closed      Boolean   @default(false)
+
+  location Location @relation(fields: [locationId], references: [id], onDelete: Cascade)
+
+  @@index([locationId])
+}
+
+model DeliveryZone {
+  id            String @id @default(uuid(7)) @db.Uuid
+  locationId    String @db.Uuid
+  maxDistanceKm Int
+  feeMinor      Int
+  currency      String @default("DKK") @db.Char(3)
+
+  location Location @relation(fields: [locationId], references: [id], onDelete: Cascade)
+
+  @@unique([locationId, maxDistanceKm])
+}
+
+// ─── Flåde ───────────────────────────────────────────────────────────────────
+
+model CarCategory {
+  id        String @id @default(uuid(7)) @db.Uuid
+  slug      String @unique
+  nameI18n  Json
+  sortOrder Int    @default(0)
+
+  models       CarModel[]
+  pricingRules PricingRule[]
+  discounts    Discount[]
+}
+
+enum Transmission {
+  MANUAL
+  AUTOMATIC
+}
+
+enum Fuel {
+  PETROL
+  DIESEL
+  HYBRID
+  ELECTRIC
+}
+
+/// Det kunden ser og booker i kataloget. Konkrete biler tildeles ved booking (K5).
+model CarModel {
+  id               String       @id @default(uuid(7)) @db.Uuid
+  categoryId       String       @db.Uuid
+  slug             String       @unique
+  brand            String
+  model            String
+  year             Int
+  transmission     Transmission
+  fuel             Fuel
+  seats            Int
+  bags             Int
+  doors            Int
+  airConditioning  Boolean      @default(true)
+  includedKmPerDay Int
+  extraKmFeeMinor  Int
+  depositMinor     Int
+  currency         String       @default("DKK") @db.Char(3)
+  descriptionI18n  Json?
+  popularityScore  Int          @default(0)
+  isFeatured       Boolean      @default(false)
+  isActive         Boolean      @default(true)
+  createdAt        DateTime     @default(now()) @db.Timestamptz
+  updatedAt        DateTime     @updatedAt @db.Timestamptz
+
+  category     CarCategory   @relation(fields: [categoryId], references: [id])
+  images       CarImage[]
+  cars         Car[]
+  pricingRules PricingRule[]
+  bookings     Booking[]
+  discounts    Discount[]
+
+  @@index([categoryId, isActive])
+}
+
+model CarImage {
+  id         String @id @default(uuid(7)) @db.Uuid
+  carModelId String @db.Uuid
+  storageKey String
+  altI18n    Json
+  sortOrder  Int    @default(0)
+
+  carModel CarModel @relation(fields: [carModelId], references: [id], onDelete: Cascade)
+
+  @@index([carModelId])
+}
+
+/// Operationel tilstand. "Reserveret" og "Udlejet" udledes af bookinger (K2).
+enum CarOpStatus {
+  ACTIVE
+  INSPECTION
+  MAINTENANCE
+  OUT_OF_SERVICE
+  RETIRED
+}
+
+/// Fysisk køretøj.
+model Car {
+  id                 String      @id @default(uuid(7)) @db.Uuid
+  carModelId         String      @db.Uuid
+  homeLocationId     String      @db.Uuid
+  registrationNumber String      @unique
+  vin                String      @unique
+  color              String?
+  odometerKm         Int
+  /// Ottendedele: 0 = tom, 8 = fuld.
+  fuelLevel          Int         @default(8)
+  opStatus           CarOpStatus @default(ACTIVE)
+  purchaseDate       DateTime?   @db.Date
+  purchasePriceMinor Int?
+  insurancePolicy    String?
+  insuranceExpiresAt DateTime?   @db.Date
+  nextInspectionDue  DateTime?   @db.Date
+  nextServiceDue     DateTime?   @db.Date
+  nextServiceKm      Int?
+  tyreType           String?
+  createdAt          DateTime    @default(now()) @db.Timestamptz
+  updatedAt          DateTime    @updatedAt @db.Timestamptz
+
+  carModel     CarModel      @relation(fields: [carModelId], references: [id])
+  homeLocation Location      @relation(fields: [homeLocationId], references: [id])
+  bookings     Booking[]
+  inspections  Inspection[]
+  damages      Damage[]
+  maintenance  Maintenance[]
+
+  @@index([carModelId, homeLocationId, opStatus])
+}
+
+// ─── Priser, ekstraudstyr og rabatter ───────────────────────────────────────
+
+/// Pristrappe: fra `minDays` dage gælder `perDayMinor` pr. dag. `packageMinor` er
+/// pakkeprisen for præcis `minDays` dage og bruges som loft (K3).
+model PricingRule {
+  id           String    @id @default(uuid(7)) @db.Uuid
+  categoryId   String    @db.Uuid
+  /// Valgfri override for én model.
+  carModelId   String?   @db.Uuid
+  minDays      Int
+  packageMinor Int
+  perDayMinor  Int
+  currency     String    @default("DKK") @db.Char(3)
+  validFrom    DateTime? @db.Date
+  validTo      DateTime? @db.Date
+  priority     Int       @default(0)
+  createdAt    DateTime  @default(now()) @db.Timestamptz
+  updatedAt    DateTime  @updatedAt @db.Timestamptz
+
+  category CarCategory @relation(fields: [categoryId], references: [id])
+  carModel CarModel?   @relation(fields: [carModelId], references: [id])
+
+  @@index([categoryId, carModelId])
+}
+
+enum ExtraPricing {
+  PER_DAY
+  PER_BOOKING
+}
+
+model Extra {
+  id              String       @id @default(uuid(7)) @db.Uuid
+  code            String       @unique
+  nameI18n        Json
+  descriptionI18n Json?
+  pricing         ExtraPricing
+  priceMinor      Int
+  /// Loft for PER_DAY-ekstraudstyr ved lange lejer.
+  maxPriceMinor   Int?
+  currency        String       @default("DKK") @db.Char(3)
+  maxQuantity     Int          @default(1)
+  /// Antal på lager; null = ubegrænset.
+  stock           Int?
+  sortOrder       Int          @default(0)
+  isActive        Boolean      @default(true)
+  createdAt       DateTime     @default(now()) @db.Timestamptz
+  updatedAt       DateTime     @updatedAt @db.Timestamptz
+
+  bookingItems BookingItem[]
+}
+
+enum DiscountType {
+  PERCENT
+  FIXED
+}
+
+model Discount {
+  id                 String       @id @default(uuid(7)) @db.Uuid
+  /// Gemmes med store bogstaver; sammenlignes uden hensyn til store/små.
+  code               String       @unique
+  type               DiscountType
+  /// Procent (1–100) eller beløb i mindste enhed.
+  value              Int
+  currency           String?      @db.Char(3)
+  validFrom          DateTime?    @db.Timestamptz
+  validTo            DateTime?    @db.Timestamptz
+  minBookingMinor    Int?
+  minDays            Int?
+  maxUses            Int?
+  maxUsesPerCustomer Int?
+  isActive           Boolean      @default(true)
+  createdAt          DateTime     @default(now()) @db.Timestamptz
+  updatedAt          DateTime     @updatedAt @db.Timestamptz
+
+  /// Tom = gælder alle.
+  categories  CarCategory[]
+  carModels   CarModel[]
+  bookings    Booking[]
+  redemptions DiscountRedemption[]
+}
+
+model DiscountRedemption {
+  id          String   @id @default(uuid(7)) @db.Uuid
+  discountId  String   @db.Uuid
+  bookingId   String   @unique @db.Uuid
+  customerId  String   @db.Uuid
+  amountMinor Int
+  createdAt   DateTime @default(now()) @db.Timestamptz
+
+  discount Discount @relation(fields: [discountId], references: [id])
+  booking  Booking  @relation(fields: [bookingId], references: [id])
+  customer Customer @relation(fields: [customerId], references: [id])
+
+  @@index([discountId])
+}
+
+// ─── Bookinger ───────────────────────────────────────────────────────────────
+
+/// Bookingens livscyklus. Betaling er et separat felt (K1).
+enum BookingStatus {
+  PENDING_PAYMENT
+  CONFIRMED
+  ACTIVE
+  COMPLETED
+  CANCELLED
+  EXPIRED
+  NO_SHOW
+}
+
+enum PaymentStatus {
+  UNPAID
+  PAID
+  PARTIALLY_REFUNDED
+  REFUNDED
+  FAILED
+}
+
+enum DepositStatus {
+  NOT_REQUIRED
+  PENDING
+  HELD
+  CAPTURED
+  RELEASED
+}
+
+enum Fulfilment {
+  PICKUP
+  DELIVERY
+}
+
+model Booking {
+  id               String        @id @default(uuid(7)) @db.Uuid
+  /// Kort, læsbar reference til kunden, fx "BK-7Q4F2".
+  reference        String        @unique
+  customerId       String        @db.Uuid
+  carModelId       String        @db.Uuid
+  carId            String        @db.Uuid
+  pickupLocationId String        @db.Uuid
+  returnLocationId String        @db.Uuid
+  pickupAt         DateTime      @db.Timestamptz
+  returnAt         DateTime      @db.Timestamptz
+  /// Perioden bilen er blokeret: lejeperioden plus klargøringsbuffer. Beregnes af
+  /// booking-servicen og bruges af dobbeltbookings-constraintet.
+  blockedFrom      DateTime      @db.Timestamptz
+  blockedUntil     DateTime      @db.Timestamptz
+  status           BookingStatus @default(PENDING_PAYMENT)
+  paymentStatus    PaymentStatus @default(UNPAID)
+  depositStatus    DepositStatus @default(NOT_REQUIRED)
+  fulfilment       Fulfilment    @default(PICKUP)
+  deliveryAddress  String?
+  subtotalMinor    Int
+  discountMinor    Int           @default(0)
+  totalMinor       Int
+  depositMinor     Int           @default(0)
+  currency         String        @default("DKK") @db.Char(3)
+  locale           String        @default("da")
+  /// Hash af gæstens "administrér booking"-token. Selve tokenet gemmes aldrig.
+  manageTokenHash  String?       @unique
+  /// Reservationen udløber, hvis betaling ikke gennemføres inden da.
+  expiresAt        DateTime?     @db.Timestamptz
+  termsVersion     String?
+  discountId       String?       @db.Uuid
+  createdAt        DateTime      @default(now()) @db.Timestamptz
+  updatedAt        DateTime      @updatedAt @db.Timestamptz
+
+  customer       Customer             @relation(fields: [customerId], references: [id])
+  carModel       CarModel             @relation(fields: [carModelId], references: [id])
+  car            Car                  @relation(fields: [carId], references: [id])
+  pickupLocation Location             @relation("PickupLocation", fields: [pickupLocationId], references: [id])
+  returnLocation Location             @relation("ReturnLocation", fields: [returnLocationId], references: [id])
+  discount       Discount?            @relation(fields: [discountId], references: [id])
+  items          BookingItem[]
+  payments       Payment[]
+  statusEvents   BookingStatusEvent[]
+  inspections    Inspection[]
+  damages        Damage[]
+  contract       Contract?
+  notifications  Notification[]
+  review         Review?
+  redemption     DiscountRedemption?
+  messages       Message[]
+
+  @@index([status, pickupAt])
+  @@index([status, returnAt])
+  @@index([customerId])
+  @@index([carId, blockedFrom])
+}
+
+enum BookingItemType {
+  RENTAL
+  EXTRA
+  DELIVERY_FEE
+  ONE_WAY_FEE
+  FEE
+  DISCOUNT
+  EXTRA_KM
+  FUEL
+  LATE_FEE
+  DAMAGE
+}
+
+/// Prislinje. Et snapshot: ændres ikke, når priser ændres senere.
+model BookingItem {
+  id             String          @id @default(uuid(7)) @db.Uuid
+  bookingId      String          @db.Uuid
+  type           BookingItemType
+  extraId        String?         @db.Uuid
+  labelSnapshot  String
+  quantity       Int             @default(1)
+  unitPriceMinor Int
+  totalMinor     Int
+  currency       String          @db.Char(3)
+  createdAt      DateTime        @default(now()) @db.Timestamptz
+
+  booking Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  extra   Extra?  @relation(fields: [extraId], references: [id])
+
+  @@index([bookingId])
+}
+
+model BookingStatusEvent {
+  id          String   @id @default(uuid(7)) @db.Uuid
+  bookingId   String   @db.Uuid
+  fromStatus  String?
+  toStatus    String
+  actorUserId String?  @db.Uuid
+  reason      String?
+  createdAt   DateTime @default(now()) @db.Timestamptz
+
+  booking Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  actor   User?   @relation(fields: [actorUserId], references: [id])
+
+  @@index([bookingId])
+}
+
+// ─── Betalinger ──────────────────────────────────────────────────────────────
+
+enum PaymentKind {
+  CHARGE
+  DEPOSIT_HOLD
+  DEPOSIT_CAPTURE
+  REFUND
+  MANUAL
+}
+
+enum PaymentRecordStatus {
+  PENDING
+  REQUIRES_ACTION
+  SUCCEEDED
+  FAILED
+  CANCELLED
+}
+
+enum PaymentMethod {
+  CARD
+  MOBILEPAY
+  APPLE_PAY
+  GOOGLE_PAY
+  CASH
+  BANK_TRANSFER
+}
+
+/// Kortdata gemmes aldrig. Kun udbyderens reference og evt. brand/sidste 4 cifre.
+model Payment {
+  id               String              @id @default(uuid(7)) @db.Uuid
+  bookingId        String              @db.Uuid
+  parentPaymentId  String?             @db.Uuid
+  kind             PaymentKind
+  status           PaymentRecordStatus @default(PENDING)
+  method           PaymentMethod?
+  amountMinor      Int
+  currency         String              @db.Char(3)
+  provider         String              @default("stripe")
+  providerRef      String?             @unique
+  cardBrand        String?
+  cardLast4        String?             @db.Char(4)
+  failureCode      String?
+  recordedByUserId String?             @db.Uuid
+  createdAt        DateTime            @default(now()) @db.Timestamptz
+  updatedAt        DateTime            @updatedAt @db.Timestamptz
+
+  booking    Booking   @relation(fields: [bookingId], references: [id])
+  parent     Payment?  @relation("Refunds", fields: [parentPaymentId], references: [id])
+  refunds    Payment[] @relation("Refunds")
+  recordedBy User?     @relation(fields: [recordedByUserId], references: [id])
+
+  @@index([bookingId])
+}
+
+/// Idempotens for webhooks: hvert event behandles kun én gang.
+model ProcessedWebhook {
+  providerEventId String   @id
+  provider        String
+  processedAt     DateTime @default(now()) @db.Timestamptz
+}
+
+// ─── Drift: inspektioner, skader, vedligehold ────────────────────────────────
+
+enum InspectionType {
+  PICKUP
+  RETURN
+}
+
+model Inspection {
+  id                   String         @id @default(uuid(7)) @db.Uuid
+  bookingId            String?        @db.Uuid
+  carId                String         @db.Uuid
+  type                 InspectionType
+  odometerKm           Int
+  fuelLevel            Int
+  notes                String?
+  performedByUserId    String?        @db.Uuid
+  performedAt          DateTime       @default(now()) @db.Timestamptz
+  customerSignatureKey String?
+
+  booking     Booking? @relation(fields: [bookingId], references: [id])
+  car         Car      @relation(fields: [carId], references: [id])
+  performedBy User?    @relation(fields: [performedByUserId], references: [id])
+  damages     Damage[]
+
+  @@index([carId, performedAt])
+  @@index([bookingId])
+}
+
+enum DamageSeverity {
+  MINOR
+  MODERATE
+  MAJOR
+}
+
+enum DamageOrigin {
+  EXISTING
+  NEW
+}
+
+enum DamageLiability {
+  CUSTOMER
+  INTERNAL
+  THIRD_PARTY
+  UNDECIDED
+}
+
+model Damage {
+  id                     String          @id @default(uuid(7)) @db.Uuid
+  carId                  String          @db.Uuid
+  detectedInInspectionId String?         @db.Uuid
+  bookingId              String?         @db.Uuid
+  /// Område på bilen, fx "front-left".
+  area                   String
+  severity               DamageSeverity
+  origin                 DamageOrigin
+  liability              DamageLiability @default(UNDECIDED)
+  description            String
+  estimatedCostMinor     Int?
+  repairedAt             DateTime?       @db.Timestamptz
+  createdAt              DateTime        @default(now()) @db.Timestamptz
+  updatedAt              DateTime        @updatedAt @db.Timestamptz
+
+  car        Car         @relation(fields: [carId], references: [id])
+  inspection Inspection? @relation(fields: [detectedInInspectionId], references: [id])
+  booking    Booking?    @relation(fields: [bookingId], references: [id])
+
+  @@index([carId, repairedAt])
+}
+
+enum MaintenanceType {
+  SERVICE
+  INSPECTION_SYN
+  TYRES
+  REPAIR
+  CLEANING
+}
+
+enum MaintenanceStatus {
+  PLANNED
+  IN_PROGRESS
+  DONE
+  CANCELLED
+}
+
+/// Vedligehold blokerer bilen i perioden, ligesom en booking.
+model Maintenance {
+  id         String            @id @default(uuid(7)) @db.Uuid
+  carId      String            @db.Uuid
+  type       MaintenanceType
+  status     MaintenanceStatus @default(PLANNED)
+  startsAt   DateTime          @db.Timestamptz
+  endsAt     DateTime          @db.Timestamptz
+  odometerKm Int?
+  costMinor  Int?
+  vendor     String?
+  notes      String?
+  createdAt  DateTime          @default(now()) @db.Timestamptz
+  updatedAt  DateTime          @updatedAt @db.Timestamptz
+
+  car Car @relation(fields: [carId], references: [id])
+
+  @@index([carId, startsAt])
+}
+
+// ─── Dokumenter og kontrakter ────────────────────────────────────────────────
+
+enum DocumentOwnerType {
+  CUSTOMER
+  CAR
+  BOOKING
+  INSPECTION
+  DAMAGE
+  CONTRACT
+}
+
+enum DocumentKind {
+  LICENSE
+  ID
+  CONTRACT_PDF
+  INVOICE
+  RECEIPT
+  PHOTO
+  INSURANCE
+  OTHER
+}
+
+enum DocumentVisibility {
+  PRIVATE
+  CUSTOMER_VISIBLE
+}
+
+/// Metadata for en fil i privat storage. Filen hentes kun via kortlivede signerede URL'er.
+model Document {
+  id          String             @id @default(uuid(7)) @db.Uuid
+  ownerType   DocumentOwnerType
+  ownerId     String             @db.Uuid
+  kind        DocumentKind
+  storageKey  String             @unique
+  mimeType    String
+  sizeBytes   Int
+  sha256      String             @db.Char(64)
+  visibility  DocumentVisibility @default(PRIVATE)
+  /// Slettes automatisk efter denne dato (retention, GDPR).
+  deleteAfter DateTime?          @db.Timestamptz
+  createdAt   DateTime           @default(now()) @db.Timestamptz
+
+  contract Contract?
+
+  @@index([ownerType, ownerId])
+  @@index([deleteAfter])
+}
+
+model Contract {
+  id                  String    @id @default(uuid(7)) @db.Uuid
+  bookingId           String    @unique @db.Uuid
+  version             Int       @default(1)
+  /// Vilkår, priser og bil som de var ved underskrift.
+  termsSnapshot       Json
+  signerName          String?
+  signedAt            DateTime? @db.Timestamptz
+  signedIpHash        String?
+  signatureStorageKey String?
+  pdfDocumentId       String?   @unique @db.Uuid
+  createdAt           DateTime  @default(now()) @db.Timestamptz
+
+  booking     Booking   @relation(fields: [bookingId], references: [id])
+  pdfDocument Document? @relation(fields: [pdfDocumentId], references: [id])
+}
+
+// ─── Kommunikation ───────────────────────────────────────────────────────────
+
+enum MessageDirection {
+  INBOUND
+  OUTBOUND
+}
+
+enum MessageChannel {
+  CONTACT_FORM
+  EMAIL
+  WHATSAPP
+  SMS
+  PHONE_NOTE
+}
+
+enum MessageStatus {
+  NEW
+  IN_PROGRESS
+  ANSWERED
+  CLOSED
+}
+
+/// Kontaktformular-henvendelser og kommunikationslog.
+model Message {
+  id             String           @id @default(uuid(7)) @db.Uuid
+  customerId     String?          @db.Uuid
+  bookingId      String?          @db.Uuid
+  direction      MessageDirection
+  channel        MessageChannel
+  name           String?
+  email          String?
+  phone          String?
+  subject        String?
+  body           String
+  status         MessageStatus    @default(NEW)
+  assignedUserId String?          @db.Uuid
+  createdAt      DateTime         @default(now()) @db.Timestamptz
+  updatedAt      DateTime         @updatedAt @db.Timestamptz
+
+  customer     Customer? @relation(fields: [customerId], references: [id])
+  booking      Booking?  @relation(fields: [bookingId], references: [id])
+  assignedUser User?     @relation(fields: [assignedUserId], references: [id])
+
+  @@index([status, createdAt])
+}
+
+enum NotificationChannel {
+  EMAIL
+  WHATSAPP
+  SMS
+}
+
+enum NotificationStatus {
+  PENDING
+  SENDING
+  SENT
+  FAILED
+  SKIPPED
+}
+
+/// Outbox: skrives i samme transaktion som hændelsen og sendes af et cron-job.
+model Notification {
+  id                String              @id @default(uuid(7)) @db.Uuid
+  bookingId         String?             @db.Uuid
+  customerId        String?             @db.Uuid
+  template          String
+  channel           NotificationChannel
+  locale            String
+  payload           Json
+  scheduledAt       DateTime            @default(now()) @db.Timestamptz
+  status            NotificationStatus  @default(PENDING)
+  attempts          Int                 @default(0)
+  nextAttemptAt     DateTime            @default(now()) @db.Timestamptz
+  providerMessageId String?
+  lastError         String?
+  /// Forhindrer dubletter, fx "BOOKING_RECEIVED:<bookingId>:EMAIL".
+  dedupeKey         String              @unique
+  sentAt            DateTime?           @db.Timestamptz
+  createdAt         DateTime            @default(now()) @db.Timestamptz
+
+  booking  Booking?  @relation(fields: [bookingId], references: [id])
+  customer Customer? @relation(fields: [customerId], references: [id])
+
+  @@index([status, nextAttemptAt])
+}
+
+enum ReviewStatus {
+  PENDING
+  PUBLISHED
+  HIDDEN
+}
+
+model Review {
+  id          String       @id @default(uuid(7)) @db.Uuid
+  bookingId   String       @unique @db.Uuid
+  customerId  String       @db.Uuid
+  rating      Int
+  comment     String?
+  displayName String
+  status      ReviewStatus @default(PENDING)
+  createdAt   DateTime     @default(now()) @db.Timestamptz
+  updatedAt   DateTime     @updatedAt @db.Timestamptz
+
+  booking  Booking  @relation(fields: [bookingId], references: [id])
+  customer Customer @relation(fields: [customerId], references: [id])
+
+  @@index([status, createdAt])
+}
+
+// ─── GDPR og revision ────────────────────────────────────────────────────────
+
+enum ConsentPurpose {
+  NECESSARY
+  ANALYTICS
+  MARKETING
+  WHATSAPP_MESSAGES
+  TERMS
+  PRIVACY
+}
+
+model Consent {
+  id            String         @id @default(uuid(7)) @db.Uuid
+  customerId    String?        @db.Uuid
+  /// Til cookie-samtykke fra besøgende uden konto.
+  anonymousId   String?
+  purpose       ConsentPurpose
+  granted       Boolean
+  policyVersion String
+  source        String
+  createdAt     DateTime       @default(now()) @db.Timestamptz
+
+  customer Customer? @relation(fields: [customerId], references: [id])
+
+  @@index([customerId, purpose])
+}
+
+/// Hvem gjorde hvad. `diff` må aldrig indeholde følsomme felter.
+model AuditLog {
+  id          String   @id @default(uuid(7)) @db.Uuid
+  actorUserId String?  @db.Uuid
+  action      String
+  entityType  String
+  entityId    String?
+  diff        Json?
+  ipHash      String?
+  requestId   String?
+  createdAt   DateTime @default(now()) @db.Timestamptz
+
+  actor User? @relation(fields: [actorUserId], references: [id])
+
+  @@index([entityType, entityId])
+  @@index([createdAt])
+}
+
+model ExchangeRate {
+  id        String   @id @default(uuid(7)) @db.Uuid
+  base      String   @db.Char(3)
+  quote     String   @db.Char(3)
+  rate      Decimal  @db.Decimal(18, 8)
+  fetchedAt DateTime @default(now()) @db.Timestamptz
+
+  @@index([base, quote, fetchedAt])
 }
