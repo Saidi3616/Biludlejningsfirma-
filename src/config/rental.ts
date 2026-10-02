@@ -9,6 +9,10 @@ export const rentalRules = {
   maxRentalDays: 90,
   /** Lejer over så mange dage: depositum trækkes og refunderes ved aflevering i stedet for et hold (K6). */
   depositHoldMaxDays: 7,
+  /** Online-booking skal ske mindst så mange minutter før afhentning (klargøring af bilen). */
+  minLeadMinutes: 120,
+  /** En ubetalt booking holder bilen så længe (01-systemarkitektur.md, beslutning 2). */
+  reservationMinutes: 15,
   /** Dansk moms. Alle priser er inkl. moms. */
   vatRatePercent: 25,
 } as const;

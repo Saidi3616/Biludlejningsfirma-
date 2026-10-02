@@ -29,7 +29,7 @@ Markeret med **🔴 blokerer** (skal afklares før den relevante milestone), **�
 | # | Spørgsmål | Prioritet |
 |---|---|---|
 | 13 | Prisliste pr. kategori (1/3/7/30 dage) og godkendelse af trappe-reglen i [K3](13-konflikter.md#k3-prisberegning-dage--dagspris-vs-pakkepriser) | 🔴 |
-| 14 | **Definition af en lejedag:** 24-timers blokke? Tolerance før ekstra dag (fx 59 min)? | 🔴 |
+| 14 | **Definition af en lejedag:** 24-timers blokke? Tolerance før ekstra dag (fx 59 min)? Mindste varsel for online-booking (foreløbig 2 timer, `src/config/rental.ts`)? | 🔴 |
 | 15 | Sæsonpriser / weekendpriser? | 🟡 |
 | 16 | Depositum pr. kategori, og accept af løsningen i [K6](13-konflikter.md#k6-depositum) | 🔴 |
 | 17 | Inkluderede km pr. dag og pris pr. ekstra km pr. kategori | 🔴 |

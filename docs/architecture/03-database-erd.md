@@ -450,6 +450,8 @@ ALTER TABLE booking ADD CONSTRAINT booking_dates_valid CHECK (return_at > pickup
 
 > **Implementeringsnote (M3).** Login-tabellerne følger Better Auths skema: `Session`, `Account` (password som scrypt-hash i `Account.password` med `providerId = "credential"`, ikke i `User`), `Verification` (engangstokens), `TwoFactor` (TOTP-hemmelighed og backupkoder, krypteret med `AUTH_SECRET`) og `RateLimit`. `User` har fået `locale`, så e-mails sendes på brugerens sprog. E-mails gemmes med små bogstaver (CHECK `user_email_lowercase`). Se `prisma/migrations/*_auth*`.
 
+> **Implementeringsnote (M5).** `Booking` har fået `idempotencyKey` (unik), så `POST /bookings` med samme Idempotency-Key giver den samme booking, og et indeks på `(status, expiresAt)` til udløbsjobbet. `blockedFrom` = afhentning minus afhentningsstedets `bufferBeforeMinutes`; `blockedUntil` = aflevering plus afleveringsstedets `bufferAfterMinutes`. Se `prisma/migrations/*_booking_engine`.
+
 ### Tildeling af fysisk bil (inde i én transaktion)
 
 1. Find biler af den valgte `CarModel` på afhentningslokationen med `op_status = 'ACTIVE'`, uden overlappende booking eller vedligehold.
