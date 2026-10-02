@@ -1,0 +1,10 @@
+// Datamodellen tilføjes i M2 (se docs/architecture/03-database-erd.md).
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
