@@ -142,7 +142,8 @@ export async function retryRefund(ctx: PolicyContext, paymentId: string) {
       status: true,
       amountMinor: true,
       provider: true,
-      parent: { select: { providerRef: true } },
+      // Et trukket depositum refunderes via depositummets betaling.
+      parent: { select: { providerRef: true, parent: { select: { providerRef: true } } } },
     },
   });
   if (!refund || refund.kind !== "REFUND" || refund.status !== "PENDING") {
@@ -166,11 +167,12 @@ export async function retryRefund(ctx: PolicyContext, paymentId: string) {
     });
     return;
   }
-  if (!refund.parent?.providerRef) {
+  const chargeRef = refund.parent?.providerRef ?? refund.parent?.parent?.providerRef;
+  if (!chargeRef) {
     throw new AppError("CONFLICT", "Refusionen kan ikke prøves igen");
   }
   const failed = await processRefunds(refund.bookingId, [
-    { id: refund.id, chargeRef: refund.parent.providerRef, amountMinor: refund.amountMinor },
+    { id: refund.id, chargeRef, amountMinor: refund.amountMinor },
   ]);
   await audit(db, {
     actorUserId,

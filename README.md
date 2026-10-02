@@ -92,6 +92,7 @@ Forretningslogik hører til i `src/server`, aldrig i komponenter. Se [09-mappest
 - Bookingen bekræftes kun af webhooken `POST /api/webhooks/stripe`. Hvert event gemmes i `ProcessedWebhook`, så samme event aldrig behandles to gange. Lander en betaling på en booking, der ikke kan bekræftes (fx bilen er taget efter udløb), refunderes den automatisk.
 - Lokalt og i CI uden Stripe: sæt `FAKE_PAYMENTS=true` (kun med `APP_ENV=local`). Betalingssiden viser så knapper til at gennemføre eller afvise en testbetaling.
 - Stripe lokalt: `stripe listen --forward-to localhost:3000/api/webhooks/stripe` og sæt `STRIPE_WEBHOOK_SECRET` til den viste `whsec_…`.
+- Webhooken i Stripe skal sende `payment_intent.succeeded`, `payment_intent.payment_failed` og `payment_intent.amount_capturable_updated` (depositum reserveret).
 
 ### Notifikationer
 
@@ -132,6 +133,8 @@ Forretningslogik hører til i `src/server`, aldrig i komponenter. Se [09-mappest
 ### Udlevering, aflevering og filer
 
 - På bookingen starter "Udlevér bil" udleveringen (bekræftet og betalt booking, tidligst på afhentningsdagen): km og brændstof registreres, bookingen bliver aktiv, og personalet tager fotos og registrerer kendte skader på inspektionssiden (`/admin/inspections/[id]`). "Modtag bil" afslutter bookingen, sætter bilens km og status og viser udleveringens fotos til sammenligning; nye skader knyttes til bookingen.
+- Udlevering kræver depositum, hvis modellen har et: "Tag depositum" på bookingen lader kunden indtaste kortet på personalets skærm (reservation ved lejer op til 7 dage, ellers træk og tilbagebetaling, K6), eller personalet registrerer det kontant eller på terminalen.
+- Efter aflevering afregnes bookingen (`/admin/bookings/[ref]/settle`): forslag til tillæg for ekstra km, brændstof og for sen aflevering, som kan rettes; nye skader kræver en leder, der vælger ansvar og beløb. Tillæggene trækkes fra depositummet, og resten frigives (kort) eller betales tilbage kontant. Satserne er et forslag i `feeRates` (`src/config/rental.ts`) og vises på bilsiden under "Ikke inkluderet".
 - Bilsiden viser bilens skader (kan markeres som udbedret) og dens udleveringer og afleveringer. Ledere kan uploade billeder til katalogmodeller; det første vises i kataloget.
 - Filer går gennem `StorageProvider` (`src/server/storage`). Uden `STORAGE_*` gemmes de i `.storage/` (kun `APP_ENV=local`). I drift bruges en S3-kompatibel storage (Cloudflare R2 eller AWS S3 i EU) med en privat og en offentlig bucket; nøglerne sættes som miljøvariabler hos hostingen.
 - Alle fotos gemmes igen som WebP uden metadata (GPS-position, kamera og tidspunkt fjernes) med `sharp`. Inspektions- og skadefotos er private og vises kun i admin via `/admin/files/[id]` efter adgangstjek; bilbilleder vises via `/media/…`.

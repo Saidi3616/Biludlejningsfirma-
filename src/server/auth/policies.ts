@@ -35,6 +35,8 @@ const adminPermissions = {
   "booking:requestCancel": "STAFF",
   "booking:cancel": "MANAGER",
   "payment:refund": "MANAGER",
+  // Ansvar og beløb for skader ved afregningen
+  "damage:approveCost": "MANAGER",
   // Flåde og service: STAFF læser og ændrer status, MANAGER+ ændrer alt
   "fleet:read": "STAFF",
   "fleet:setStatus": "STAFF",

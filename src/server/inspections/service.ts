@@ -31,6 +31,9 @@ export async function handoverContext(ctx: PolicyContext, bookingId: string) {
       returnAt: true,
       totalMinor: true,
       currency: true,
+      depositStatus: true,
+      depositMinor: true,
+      settledAt: true,
       pickupLocation: { select: { timezone: true } },
       customer: { select: { firstName: true, lastName: true } },
       carModel: { select: { brand: true, model: true } },
@@ -56,9 +59,9 @@ export async function handoverContext(ctx: PolicyContext, bookingId: string) {
 export type HandoverContext = Awaited<ReturnType<typeof handoverContext>>;
 
 /**
- * Udlevering (F1): bekræftet og betalt booking, tidligst på afhentningsdagen. Km kan ikke
- * være lavere end bilens. Opretter pickup-inspektionen, opdaterer bilens km og sætter
- * bookingen til ACTIVE i én transaktion. Kørekort, kontrakt og depositum kommer i M11 del 3/M12.
+ * Udlevering (F1): bekræftet og betalt booking med depositum, tidligst på afhentningsdagen. Km
+ * kan ikke være lavere end bilens. Opretter pickup-inspektionen, opdaterer bilens km og sætter
+ * bookingen til ACTIVE i én transaktion. Kørekort og kontrakt kommer i M12.
  */
 export async function pickUp(
   ctx: PolicyContext,
@@ -74,6 +77,9 @@ export async function pickUp(
   }
   if (booking.balanceMinor > 0) {
     throw new AppError("CONFLICT", "Bookingen er ikke betalt", { reason: "UNPAID" });
+  }
+  if (booking.depositStatus === "PENDING") {
+    throw new AppError("CONFLICT", "Depositum mangler", { reason: "DEPOSIT_MISSING" });
   }
   const zone = booking.pickupLocation.timezone;
   if (localDateKey(now, zone) < localDateKey(booking.pickupAt, zone)) {
@@ -119,7 +125,7 @@ export async function pickUp(
 
 /**
  * Aflevering (F2): retur-inspektion, bilens km og driftsstatus, og bookingen → COMPLETED.
- * Tillæg for km, brændstof og forsinkelse samt depositum kommer i M11 del 3.
+ * Tillæg og depositum afregnes bagefter (`settleBooking`), når fotos og skader er registreret.
  */
 export async function receiveReturn(
   ctx: PolicyContext,
@@ -201,6 +207,7 @@ export async function inspectionDetail(ctx: PolicyContext, inspectionId: string)
           id: true,
           reference: true,
           status: true,
+          settledAt: true,
           pickupLocation: { select: { timezone: true } },
           customer: { select: { firstName: true, lastName: true } },
           inspections: {
@@ -288,7 +295,7 @@ export async function addInspectionPhoto(
 /**
  * Skade fundet ved en inspektion (STAFF+). Ved udlevering er den eksisterende (bilen havde
  * den før lejen); ved aflevering er den ny og knyttes til bookingen. Ansvar og beløb kan
- * sættes nu; opkrævning kræver en leder (M11 del 3).
+ * sættes nu; ved afregningen godkender en leder ansvar og beløb (`settleBooking`).
  */
 export async function addDamage(
   ctx: PolicyContext,

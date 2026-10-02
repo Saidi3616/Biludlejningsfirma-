@@ -19,7 +19,7 @@ export function parseKroner(value: string): number | null {
   return Number.isSafeInteger(minor) ? minor : null;
 }
 
-const kroner = z
+export const kroner = z
   .string()
   .trim()
   .transform((value, ctx) => {
@@ -96,3 +96,7 @@ export const phoneBookingSchema = z.object({
 });
 
 export type PhoneBookingField = keyof z.input<typeof phoneBookingSchema>;
+
+/** Depositum modtaget ved skranken: kontant eller på betalingsterminalen. */
+export const depositMethods = ["CASH", "CARD"] as const;
+export const manualDepositSchema = z.object({ method: z.enum(depositMethods) });

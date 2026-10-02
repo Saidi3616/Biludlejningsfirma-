@@ -48,7 +48,7 @@ flowchart TD
   F -- hold fejler --> F2[Alternativ: kontant/anden betaling<br/>registreres manuelt, eller afvis udlevering]
 ```
 
-MVP (M11 del 2): udlevering kræver en bekræftet og fuldt betalt booking og tidligst afhentningsdagen. Kørekortkontrol, kontrakt (M12) og depositum (M11 del 3) kommer i de næste trin. Fotos tages på inspektionssiden efter udleveringen; der er ikke et fast minimum af fotos (afventer virksomhedens politik).
+MVP (M11): udlevering kræver en bekræftet og fuldt betalt booking, tidligst afhentningsdagen, og et depositum, hvis modellen har et. Depositum tages før udleveringen på `/admin/bookings/[ref]/deposit`: kunden indtaster kortet på personalets skærm (kun kort, K6), eller personalet registrerer det kontant eller på terminalen. Lejer op til 7 dage reserveres (manuel capture); længere lejer trækkes og betales tilbage ved afregningen. Et afvist kort ændrer ikke lejens betaling. Kørekortkontrol og kontrakt kommer i M12. Fotos tages på inspektionssiden efter udleveringen; der er ikke et fast minimum af fotos (afventer virksomhedens politik).
 
 ## F2. Aflevering (return)
 
@@ -69,7 +69,7 @@ flowchart TD
   K --> L[Notifikationer: 'Tak for din booking' → senere 'Bedøm din oplevelse']
 ```
 
-MVP (M11 del 2): aflevering registrerer km, brændstof og bilens næste status, afslutter bookingen og viser udleveringens fotos og skader ved siden af. Nye skader får område, omfang, ansvar og anslået pris. Tillæg, depositum og lederens godkendelse af skadebeløb kommer i M11 del 3. Sammenligningen er pr. inspektion (fotos side om side) og pr. område for skader; fotos tagges ikke med område.
+MVP (M11): aflevering registrerer km, brændstof og bilens næste status, afslutter bookingen og viser udleveringens fotos og skader ved siden af. Nye skader får område, omfang, ansvar og anslået pris. Derefter afregnes bookingen på `/admin/bookings/[ref]/settle`: systemet foreslår tillæg for ekstra km (modellens sats), brændstof og for sen aflevering (satser i `feeRates`, `src/config/rental.ts`), og personalet kan rette beløbene. Nye skader kræver en leder (`damage:approveCost`), der vælger ansvar og godkender beløbet; kun skader med kunden som ansvarlig opkræves. Tillæggene lægges på bookingen som prislinjer, trækkes fra depositummet (capture af reservationen, eller delvis refusion af et trukket depositum), og resten frigives eller betales tilbage kontant. Er tillæggene større end depositummet, står resten som manglende betaling. Kunden får endnu ikke en e-mail om tillæg; de ses på bookingen i kundekontoen. Sammenligningen er pr. inspektion (fotos side om side) og pr. område for skader; fotos tagges ikke med område.
 
 ## F3. Telefon-/skrankebooking
 

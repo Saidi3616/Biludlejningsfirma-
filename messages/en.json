@@ -258,7 +258,8 @@
       "booking": "Booking {reference}",
       "receipt": "Receipt",
       "emptyTitle": "No payments yet",
-      "emptyBody": "Your payments and receipts will appear here."
+      "emptyBody": "Your payments and receipts will appear here.",
+      "depositCapture": "Taken from deposit"
     },
     "profile": {
       "title": "Profile",
@@ -327,7 +328,8 @@
         "gdpr:export": "Export customer data",
         "gdpr:anonymize": "Anonymise customers",
         "users:manage": "Manage staff and roles",
-        "settings:write": "Change settings"
+        "settings:write": "Change settings",
+        "damage:approveCost": "Approve liability and amounts for damage"
       },
       "location": "Location",
       "allLocations": "All locations",
@@ -442,7 +444,8 @@
         "DEPOSIT_HOLD": "Deposit held",
         "DEPOSIT_CAPTURE": "Deposit captured",
         "REFUND": "Refund",
-        "MANUAL": "Manual payment"
+        "MANUAL": "Manual payment",
+        "DEPOSIT_RETURN": "Deposit returned"
       },
       "paymentStatus": {
         "PENDING": "Pending",
@@ -615,7 +618,11 @@
           "PICKUP": "Handover",
           "RETURN": "Return"
         },
-        "summary": "{km, number} km · fuel {level}/8 · {photos, plural, one {# photo} other {# photos}} · {damages, plural, one {# damage} other {# damages}}"
+        "summary": "{km, number} km · fuel {level}/8 · {photos, plural, one {# photo} other {# photos}} · {damages, plural, one {# damage} other {# damages}}",
+        "deposit": "Take deposit",
+        "settle": "Settle",
+        "settled": "Settled {date}.",
+        "showSettlement": "View settlement"
       }
     },
     "customers": {
@@ -999,7 +1006,10 @@
         "unpaidTitle": "The booking is not paid",
         "unpaid": "Record the payment on the booking before handover. Outstanding:",
         "damagesHint": "Walk around the car with the customer. New findings are recorded as damage on the next page, with photos.",
-        "submit": "Hand over the car"
+        "submit": "Hand over the car",
+        "depositTitle": "Deposit missing",
+        "deposit": "Take the deposit before handing over the car:",
+        "takeDeposit": "Take deposit"
       },
       "return": {
         "title": "Receive car",
@@ -1021,7 +1031,8 @@
         "conflict": "The booking has changed in the meantime. Reload the page.",
         "forbidden": "Your role does not have access to that action.",
         "notFound": "The booking does not exist.",
-        "failed": "Something went wrong. Try again."
+        "failed": "Something went wrong. Try again.",
+        "depositMissing": "The deposit is missing. Take the deposit first."
       }
     },
     "damage": {
@@ -1096,19 +1107,90 @@
       "addDamagePhotos": "Photos of the damage",
       "markRepaired": "Mark as repaired",
       "addDamage": "Record damage",
-      "addDamageReturn": "New damage is linked to the booking. Charging the customer comes with the deposit (next step).",
+      "addDamageReturn": "New damage is linked to the booking. A manager approves liability and amount at settlement.",
       "addDamagePickup": "Damage found at handover belongs to the car and is not charged to the customer.",
       "area": "Area",
       "severity": "Severity",
       "liability": "Liability",
-      "liabilityHint": "A manager can change it later.",
+      "liabilityHint": "A manager approves this at settlement.",
       "estimatedCostLabel": "Estimated cost (optional)",
       "amountHint": "In kroner, e.g. 1,500.",
       "description": "Description",
       "descriptionHint": "E.g. \"10 cm scratch below the door handle\".",
-      "saveDamage": "Record damage"
+      "saveDamage": "Record damage",
+      "settleTitle": "Next: settlement",
+      "settleHint": "Take photos and record new damage first. Then settle fees and the deposit.",
+      "settle": "Go to settlement"
     },
-    "tableLabel": "Table: {name}"
+    "tableLabel": "Table: {name}",
+    "deposit": {
+      "title": "Deposit",
+      "back": "Back to {reference}",
+      "notices": {
+        "held": "The deposit has been recorded.",
+        "card": "The card has been sent for approval.",
+        "invalid": "Check the fields and try again.",
+        "conflict": "The deposit cannot be taken now. Reload the page.",
+        "forbidden": "Your role does not have access to that action.",
+        "failed": "Something went wrong. Try again."
+      },
+      "declined": "The card was declined. Try another card, or take the deposit in cash.",
+      "held": "The deposit is in place. The car can be handed over.",
+      "toPickup": "Hand over car",
+      "notDue": "The booking does not need a deposit now.",
+      "waiting": "Waiting for the card provider. Reload the page in a moment.",
+      "cardTitle": "By card",
+      "cardHold": "The customer enters the card here. The amount is reserved and only charged if there are fees at return.",
+      "cardCharge": "The rental is longer than a card reservation lasts, so the amount is charged now and paid back at return.",
+      "unavailable": "Card payment is not set up. Take the deposit in cash or on the terminal.",
+      "cardSubmit": "Reserve {price}",
+      "testBody": "Test environment: no real money is charged.",
+      "manualTitle": "At the counter",
+      "manualHint": "Cash or on the payment terminal. The money is paid back at settlement.",
+      "method": "Payment method",
+      "terminal": "Card (terminal)",
+      "manualSubmit": "Record {price} received"
+    },
+    "settlement": {
+      "title": "Settlement",
+      "back": "Back to {reference}",
+      "notices": {
+        "settled": "The booking has been settled.",
+        "invalid": "Check the amounts and choose liability for all damage.",
+        "conflict": "The booking cannot be settled now. Reload the page.",
+        "forbidden": "Your role does not have access to that action.",
+        "provider": "The card provider rejected the deposit. Try again shortly.",
+        "failed": "Something went wrong. Try again."
+      },
+      "settledAt": "Settled {date}.",
+      "captured": "Taken from deposit",
+      "returned": "Deposit returned to customer",
+      "balance": "Customer owes",
+      "cashBack": "Give the customer {amount} back in cash.",
+      "owed": "Record the payment on the booking once the customer has paid.",
+      "notReturned": "The booking is settled once the car has been returned.",
+      "feesTitle": "Fees",
+      "feesHint": "The suggestion is based on pickup and return. Change the amount if you agree something else with the customer; enter 0 for no fee.",
+      "extraKm": "Extra km (DKK)",
+      "extraKmHint": "Driven {driven, number} km, of which {included, number} km included: {extra, number} km at {rate} DKK.",
+      "fuel": "Fuel (DKK)",
+      "fuelHint": "Handed over at {pickup}/{max}, returned at {returned}/{max}. {rate} DKK per eighth.",
+      "late": "Late return (DKK)",
+      "lateHint": "{minutes, plural, =0 {Returned on time.} other {# minutes late.}} After {grace} minutes: {hours, plural, one {# hour} other {# hours}} at {rate} DKK.",
+      "damagesTitle": "New damage",
+      "noDamages": "No new damage from the rental.",
+      "damagesHint": "Choose liability. The amount is only charged when the customer is liable.",
+      "needsManager": "A manager must approve liability and amounts for the damage. The deposit is held until then.",
+      "liability": "Liability",
+      "chooseLiability": "Choose liability",
+      "damageAmount": "Amount (DKK)",
+      "damageAmountHint": "The approved amount the customer pays.",
+      "depositTitle": "Deposit",
+      "depositHeld": "{amount} is held as deposit. Fees are taken from it, and the rest goes back to the customer.",
+      "noDeposit": "There is no deposit. The customer must pay the fees.",
+      "credit": "The customer has paid {amount} too much; it is offset against the fees.",
+      "submit": "Settle booking"
+    }
   },
   "email": {
     "greeting": "Hi {name}",
@@ -1231,7 +1313,11 @@
       "ONE_WAY_FEE": "Return at another location",
       "DISCOUNT": "Discount",
       "EXTRA": "Extras",
-      "FEE": "Fee"
+      "FEE": "Fee",
+      "EXTRA_KM": "Extra kilometres",
+      "FUEL": "Fuel or charge",
+      "LATE_FEE": "Late return",
+      "DAMAGE": "Damage"
     },
     "totalLabel": "Total",
     "vatIncluded": "Including VAT {price}",
@@ -1240,7 +1326,9 @@
     "whatsappPrefill": "Hi, I am interested in the {name}.",
     "whatsappPrefillPeriod": "Hi, I am interested in the {name} from {from} to {to}.",
     "locationsTitle": "Available at",
-    "rentalPeriod": "Rental period"
+    "rentalPeriod": "Rental period",
+    "fuelFee": "Missing fuel or charge: {price} per eighth of a tank",
+    "lateFee": "Late return: {price} per started hour after {minutes} minutes"
   },
   "pricing": {
     "title": "Pricing",

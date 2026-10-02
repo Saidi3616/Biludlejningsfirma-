@@ -96,6 +96,8 @@ Tekniske ruter: `/sitemap.xml`, `/robots.txt`, `/manifest.webmanifest`, `/offlin
 | Dashboard, kalender, bookinger, kunder (læs) | | ✓ | ✓ | ✓ |
 | Opret/ændr booking, inspektioner, skader, beskeder | | ✓ | ✓ | ✓ |
 | Annullér + refundér | | – (kan anmode) | ✓ | ✓ |
+| Depositum og afregning efter aflevering | | ✓ | ✓ | ✓ |
+| Godkend ansvar og beløb for skader | | | ✓ | ✓ |
 | Flåde, service | | læs + status | ✓ | ✓ |
 | Priser, ekstraudstyr, rabatter, lokationer | | | ✓ | ✓ |
 | Statistik / omsætning | | | ✓ | ✓ |

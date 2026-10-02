@@ -33,8 +33,8 @@ Markeret med **🔴 blokerer** (skal afklares før den relevante milestone), **�
 | 15 | Sæsonpriser / weekendpriser? | 🟡 |
 | 16 | Depositum pr. kategori, og accept af løsningen i [K6](13-konflikter.md#k6-depositum) | 🔴 |
 | 17 | Inkluderede km pr. dag og pris pr. ekstra km pr. kategori | 🔴 |
-| 18 | Brændstofpolitik (fuld-til-fuld?) og pris for manglende brændstof/opladning | 🔴 |
-| 19 | Gebyr for for sen aflevering | 🔴 |
+| 18 | Brændstofpolitik (fuld-til-fuld?) og pris for manglende brændstof/opladning. Forslag i `feeRates`: 100 kr. pr. ottendedel tank | 🔴 |
+| 19 | Gebyr for for sen aflevering. Forslag i `feeRates`: 150 kr. pr. påbegyndt time efter 59 min, højst 8 timer pr. døgn | 🔴 |
 | 20 | Annulleringspolitik (fx gratis indtil 48 t før, derefter X %) og no-show. *Forslag i `src/config/rental.ts`: gratis indtil 48 t før, derefter 50 % refusion indtil afhentning* | 🔴 |
 | 21 | Ekstraudstyr: liste, priser (pr. dag/pr. booking, loft), antal på lager | 🔴 |
 | 22 | Leveringsgebyr: zoner/afstand, maks. afstand, tidsvinduer, lufthavnsgebyr | 🔴 |

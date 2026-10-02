@@ -46,7 +46,9 @@ export function PaymentList({
               <span className="font-medium text-ink-900">
                 {refund
                   ? t(payment.status === "PENDING" ? "refundPending" : "refund")
-                  : t("charge")}
+                  : payment.kind === "DEPOSIT_CAPTURE"
+                    ? t("depositCapture")
+                    : t("charge")}
               </span>
               <span className="text-sm text-muted">
                 {formatDate(payment.createdAt, locale, TIME_ZONE)}

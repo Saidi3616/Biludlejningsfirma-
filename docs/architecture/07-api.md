@@ -80,7 +80,7 @@ Auth-endpoints (`/api/auth/*`: login, logout, register, verify, reset) leveres a
 | Dashboard | `GET /admin/dashboard?location=&date=` |
 | Kalender | `GET /admin/calendar?from=&to=&location=` |
 | Bookinger | `GET /admin/bookings`, `POST /admin/bookings`, `GET/PATCH /admin/bookings/:ref`, `POST /admin/bookings/:ref/{confirm,cancel,refund,reschedule,reassign,start,complete,send-message,payment-link}` |
-| Betalinger | `POST /admin/bookings/:ref/payments` (manuel registrering), `POST /admin/bookings/:ref/deposit/{hold,capture,release}` |
+| Betalinger | `POST /admin/bookings/:ref/payments` (manuel registrering), `POST /admin/bookings/:ref/deposit/{hold,capture,release}` (MVP: server actions på `/admin/bookings/[ref]/deposit` og `/settle`; capture og frigivelse sker samlet ved afregningen) |
 | Inspektioner | `POST /admin/bookings/:ref/inspections`, `GET /admin/inspections/:id`, `POST /admin/inspections/:id/photos` |
 | Skader | `GET /admin/damages`, `POST/PATCH /admin/damages/:id` |
 | Kontrakter | `POST /admin/bookings/:ref/contract`, `POST /admin/contracts/:id/sign` |
