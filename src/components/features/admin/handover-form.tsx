@@ -20,6 +20,7 @@ export const HANDOVER_NOTICES = [
   "unpaid",
   "tooEarly",
   "depositMissing",
+  "contractMissing",
   "conflict",
   "forbidden",
   "notFound",
@@ -87,6 +88,19 @@ export async function HandoverForm({
                 <Button asChild variant="secondary" size="sm">
                   <Link href={`/admin/bookings/${booking.reference}/deposit`}>
                     {t("pickup.takeDeposit")}
+                  </Link>
+                </Button>
+              </span>
+            </Alert>
+          ) : null}
+
+          {type === "pickup" && !booking.contract?.signedAt ? (
+            <Alert tone="warning" title={t("pickup.contractTitle")}>
+              <span className="flex flex-col items-start gap-3">
+                <span>{t("pickup.contract")}</span>
+                <Button asChild variant="secondary" size="sm">
+                  <Link href={`/admin/bookings/${booking.reference}/contract`}>
+                    {t("pickup.signContract")}
                   </Link>
                 </Button>
               </span>

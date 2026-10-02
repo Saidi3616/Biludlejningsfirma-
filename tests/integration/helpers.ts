@@ -124,3 +124,10 @@ export async function addPrices(fleet: Fleet) {
     })),
   });
 }
+
+/** Underskrevet kontrakt uden PDF, så udlevering kan testes uden at lave en PDF hver gang. */
+export async function signedContract(bookingId: string) {
+  await db.contract.create({
+    data: { bookingId, termsSnapshot: {}, signerName: "Test Kunde", signedAt: new Date() },
+  });
+}

@@ -57,6 +57,7 @@
 │   │   ├── fleet/                    # biler, status, vedligehold
 │   │   ├── inspections/              # inspektioner, skader, sammenligning
 │   │   ├── documents/                # storage, kontrakter (PDF), signerede URL'er
+│   │   ├── contracts/                # M12: snapshot, PDF-skabelon og underskrift (samlet her i stedet for documents/ og pdf/)
 │   │   ├── customers/
 │   │   ├── reviews/
 │   │   ├── messages/                 # kontakt, indbakke

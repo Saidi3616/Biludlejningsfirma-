@@ -229,7 +229,8 @@
       "label": "My account",
       "bookings": "Bookings",
       "payments": "Payments",
-      "profile": "Profile"
+      "profile": "Profile",
+      "documents": "Documents"
     },
     "bookings": {
       "title": "Your bookings",
@@ -277,6 +278,15 @@
       "saved": "Your details have been saved.",
       "error": "Something went wrong. Please try again.",
       "required": "Required."
+    },
+    "documents": {
+      "title": "Documents",
+      "contract": "Rental agreement {reference}",
+      "meta": "{car} · signed {date}",
+      "booking": "View booking",
+      "download": "Download PDF",
+      "emptyTitle": "No documents yet",
+      "emptyBody": "Your rental agreement appears here once you have signed it at pick-up."
     }
   },
   "admin": {
@@ -622,7 +632,9 @@
         "deposit": "Take deposit",
         "settle": "Settle",
         "settled": "Settled {date}.",
-        "showSettlement": "View settlement"
+        "showSettlement": "View settlement",
+        "contract": "Rental agreement",
+        "contractSigned": "Agreement (PDF)"
       }
     },
     "customers": {
@@ -1009,7 +1021,10 @@
         "submit": "Hand over the car",
         "depositTitle": "Deposit missing",
         "deposit": "Take the deposit before handing over the car:",
-        "takeDeposit": "Take deposit"
+        "takeDeposit": "Take deposit",
+        "contractTitle": "The agreement is not signed",
+        "contract": "The customer must sign the rental agreement before the car is handed over.",
+        "signContract": "Sign agreement"
       },
       "return": {
         "title": "Receive car",
@@ -1032,7 +1047,8 @@
         "forbidden": "Your role does not have access to that action.",
         "notFound": "The booking does not exist.",
         "failed": "Something went wrong. Try again.",
-        "depositMissing": "The deposit is missing. Take the deposit first."
+        "depositMissing": "The deposit is missing. Take the deposit first.",
+        "contractMissing": "The agreement is not signed. Have the customer sign it first."
       }
     },
     "damage": {
@@ -1190,6 +1206,31 @@
       "noDeposit": "There is no deposit. The customer must pay the fees.",
       "credit": "The customer has paid {amount} too much; it is offset against the fees.",
       "submit": "Settle booking"
+    },
+    "contract": {
+      "title": "Rental agreement",
+      "back": "Back to {reference}",
+      "intro": "Go through the agreement with the customer. The customer types their name and signs with their finger.",
+      "preview": "View the agreement (PDF)",
+      "signerName": "Customer's full name",
+      "signerHint": "As shown on the driving licence.",
+      "signature": "Signature",
+      "signatureHint": "Draw with your finger or the mouse in the box.",
+      "clear": "Clear signature",
+      "accept": "The customer has read and accepts the rental terms and the prices in the agreement.",
+      "submit": "Sign the agreement",
+      "signed": "Signed by {name} {date}.",
+      "download": "Download the agreement (PDF)",
+      "toPickup": "Hand over car",
+      "notDue": "The agreement can only be signed on a confirmed booking before the car is handed over.",
+      "notices": {
+        "signed": "The agreement has been signed.",
+        "invalid": "Check the fields and try again.",
+        "signatureMissing": "The customer must sign in the box.",
+        "conflict": "The agreement cannot be signed now. Reload the page.",
+        "forbidden": "Your role does not have access to that action.",
+        "failed": "Something went wrong. Please try again."
+      }
     }
   },
   "email": {
@@ -1457,7 +1498,7 @@
       },
       {
         "title": "Return",
-        "body": "Return the car at the agreed place and time. If you are later than the grace period, an extra day is charged."
+        "body": "Return the car at the agreed place and time. If you are later than the grace period, a fee is charged for each started hour, as stated in the agreement."
       }
     ]
   },
@@ -1770,7 +1811,8 @@
       "title": "This link does not work",
       "body": "The link to your booking is invalid or has expired. Message us on WhatsApp with your booking number and we will help you.",
       "whatsapp": "Message us on WhatsApp"
-    }
+    },
+    "contract": "Rental agreement (PDF)"
   },
   "receipt": {
     "title": "Receipt {reference}",
@@ -1781,5 +1823,28 @@
     "lines": "Details",
     "vat": "Including VAT ({percent}%)",
     "payments": "Payments"
+  },
+  "contract": {
+    "title": "Rental agreement",
+    "reference": "Booking {reference}",
+    "termsVersion": "Terms version {version}",
+    "landlord": "Rental company",
+    "renter": "Renter",
+    "car": "Car",
+    "registration": "Reg. no. {number}",
+    "period": "Rental period",
+    "pickup": "Pick-up",
+    "return": "Return",
+    "price": "Price",
+    "total": "Total",
+    "included": "Included",
+    "fees": "Extra charges",
+    "terms": "Rental terms",
+    "signature": "Signature",
+    "signedBy": "Signed by {name} {date}",
+    "signedNote": "Signed electronically on screen at pick-up.",
+    "unsigned": "Not signed yet.",
+    "page": "Page {page} of {total}",
+    "download": "Rental agreement (PDF)"
   }
 }

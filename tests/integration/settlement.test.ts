@@ -11,7 +11,7 @@ import { settleBooking, settlementContext } from "@/server/payments/settlement";
 import { fakeProvider } from "@/server/payments/providers/fake";
 import { handlePaymentWebhook } from "@/server/payments/service";
 import { simulateDeposit } from "@/server/payments/simulate";
-import { bookingData, createFleet, resetDb } from "./helpers";
+import { bookingData, createFleet, resetDb, signedContract } from "./helpers";
 
 type Fleet = Awaited<ReturnType<typeof createFleet>>;
 let fleet: Fleet;
@@ -61,6 +61,7 @@ async function bookingWithDeposit(days = 3) {
       provider: "manual",
     },
   });
+  await signedContract(booking.id);
   return booking;
 }
 

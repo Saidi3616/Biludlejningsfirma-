@@ -30,6 +30,7 @@ export async function bookingSummary(bookingId: string) {
         },
       },
       statusEvents: { where: { toStatus: "CONFIRMED" }, select: { id: true }, take: 1 },
+      contract: { select: { signedAt: true } },
     },
   });
 
@@ -65,6 +66,8 @@ export async function bookingSummary(bookingId: string) {
     payments: booking.payments.filter((payment) => isReceived(payment) || isRefund(payment)),
     /** Bookingen har været bekræftet (fx en annulleret booking, der var betalt). */
     wasConfirmed: booking.statusEvents.length > 0,
+    /** Lejekontrakten er underskrevet ved udleveringen og kan hentes som PDF. */
+    contractSigned: Boolean(booking.contract?.signedAt),
     createdAt: booking.createdAt,
     subtotalMinor: booking.subtotalMinor,
   };

@@ -102,6 +102,7 @@ export async function adminBooking(ctx: PolicyContext, reference: string) {
       pickupLocation: { select: { name: true, timezone: true, address: true, city: true } },
       returnLocation: { select: { name: true, timezone: true } },
       discount: { select: { code: true } },
+      contract: { select: { signedAt: true } },
       items: { orderBy: { createdAt: "asc" } },
       payments: { orderBy: { createdAt: "desc" } },
       statusEvents: {

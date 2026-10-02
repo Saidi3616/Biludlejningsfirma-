@@ -34,6 +34,7 @@ export async function handoverContext(ctx: PolicyContext, bookingId: string) {
       depositStatus: true,
       depositMinor: true,
       settledAt: true,
+      contract: { select: { signedAt: true } },
       pickupLocation: { select: { timezone: true } },
       customer: { select: { firstName: true, lastName: true } },
       carModel: { select: { brand: true, model: true } },
@@ -59,9 +60,9 @@ export async function handoverContext(ctx: PolicyContext, bookingId: string) {
 export type HandoverContext = Awaited<ReturnType<typeof handoverContext>>;
 
 /**
- * Udlevering (F1): bekræftet og betalt booking med depositum, tidligst på afhentningsdagen. Km
- * kan ikke være lavere end bilens. Opretter pickup-inspektionen, opdaterer bilens km og sætter
- * bookingen til ACTIVE i én transaktion. Kørekort og kontrakt kommer i M12.
+ * Udlevering (F1): bekræftet og betalt booking med depositum og underskrevet kontrakt, tidligst
+ * på afhentningsdagen. Km kan ikke være lavere end bilens. Opretter pickup-inspektionen,
+ * opdaterer bilens km og sætter bookingen til ACTIVE i én transaktion.
  */
 export async function pickUp(
   ctx: PolicyContext,
@@ -80,6 +81,11 @@ export async function pickUp(
   }
   if (booking.depositStatus === "PENDING") {
     throw new AppError("CONFLICT", "Depositum mangler", { reason: "DEPOSIT_MISSING" });
+  }
+  if (!booking.contract?.signedAt) {
+    throw new AppError("CONFLICT", "Kontrakten er ikke underskrevet", {
+      reason: "CONTRACT_MISSING",
+    });
   }
   const zone = booking.pickupLocation.timezone;
   if (localDateKey(now, zone) < localDateKey(booking.pickupAt, zone)) {
@@ -417,8 +423,8 @@ export async function carHistory(ctx: PolicyContext, carId: string) {
 }
 
 /**
- * Et privat dokument til visning i admin. Kun fotos fra inspektioner og skader indtil
- * videre; kørekort og kontrakter får egne regler (M12, M15).
+ * Et privat dokument til visning i admin: fotos fra inspektioner og skader og underskrevne
+ * kontrakter. Kørekort får egne regler (M15).
  */
 export async function privateDocument(ctx: PolicyContext, documentId: string) {
   assertId(documentId, "Filen findes ikke");
@@ -429,6 +435,7 @@ export async function privateDocument(ctx: PolicyContext, documentId: string) {
   if (!document) throw new AppError("NOT_FOUND", "Filen findes ikke");
   if (document.ownerType === "INSPECTION") assertCan(ctx, "inspection:write");
   else if (document.ownerType === "DAMAGE") assertCan(ctx, "damage:write");
+  else if (document.ownerType === "CONTRACT") assertCan(ctx, "booking:read");
   else throw new AppError("NOT_FOUND", "Filen findes ikke");
   return document;
 }

@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { FileText } from "lucide-react";
+import { FileSignature, FileText } from "lucide-react";
 import NextLink from "next/link";
 import { localizedPath } from "@/i18n/paths";
 import type { Locale } from "@/i18n/routing";
@@ -96,6 +96,14 @@ export async function BookingDetail({
                 <FileText aria-hidden />
                 {t("receipt")}
               </NextLink>
+            </Button>
+          ) : null}
+          {booking.contractSigned ? (
+            <Button asChild variant="secondary">
+              <a href={localizedPath(locale, `/booking/${reference}/contract`)} target="_blank">
+                <FileSignature aria-hidden />
+                {t("contract")}
+              </a>
             </Button>
           ) : null}
         </div>
