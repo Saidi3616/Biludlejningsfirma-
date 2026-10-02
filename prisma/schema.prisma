@@ -26,7 +26,7 @@ enum Role {
   CUSTOMER
 }
 
-/// Login-identitet. Felterne følger auth-bibliotekets skema (M3 tilføjer sessions/konti).
+/// Login-identitet. Felterne følger Better Auths skema (se src/server/auth/auth.ts).
 model User {
   id               String    @id @default(uuid(7)) @db.Uuid
   email            String    @unique
@@ -35,17 +35,98 @@ model User {
   image            String?
   role             Role      @default(CUSTOMER)
   twoFactorEnabled Boolean   @default(false)
+  /// Sprog til e-mails (da, en, ar, fr).
+  locale           String    @default("da") @db.VarChar(5)
   lastLoginAt      DateTime? @db.Timestamptz
   disabledAt       DateTime? @db.Timestamptz
   createdAt        DateTime  @default(now()) @db.Timestamptz
   updatedAt        DateTime  @updatedAt @db.Timestamptz
 
   customer         Customer?
+  sessions         Session[]
+  accounts         Account[]
+  twoFactors       TwoFactor[]
   auditLogs        AuditLog[]
   statusEvents     BookingStatusEvent[]
   recordedPayments Payment[]
   inspections      Inspection[]
   assignedMessages Message[]
+}
+
+/// Login-session (database-session, cookie indeholder kun et signeret token).
+model Session {
+  id        String   @id @default(uuid(7)) @db.Uuid
+  userId    String   @db.Uuid
+  token     String   @unique
+  expiresAt DateTime @db.Timestamptz
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now()) @db.Timestamptz
+  updatedAt DateTime @updatedAt @db.Timestamptz
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+/// Loginmetode. For e-mail/password er `providerId` "credential", og `password` er en scrypt-hash.
+model Account {
+  id                    String    @id @default(uuid(7)) @db.Uuid
+  userId                String    @db.Uuid
+  accountId             String
+  providerId            String
+  password              String?
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime? @db.Timestamptz
+  refreshTokenExpiresAt DateTime? @db.Timestamptz
+  scope                 String?
+  createdAt             DateTime  @default(now()) @db.Timestamptz
+  updatedAt             DateTime  @updatedAt @db.Timestamptz
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+/// Engangstokens til e-mailverifikation og nulstilling af password.
+model Verification {
+  id         String   @id @default(uuid(7)) @db.Uuid
+  identifier String
+  value      String
+  expiresAt  DateTime @db.Timestamptz
+  createdAt  DateTime @default(now()) @db.Timestamptz
+  updatedAt  DateTime @updatedAt @db.Timestamptz
+
+  @@index([identifier])
+}
+
+/// TOTP-hemmelighed og backupkoder (krypteret af auth-biblioteket).
+model TwoFactor {
+  id                      String    @id @default(uuid(7)) @db.Uuid
+  userId                  String    @db.Uuid
+  secret                  String
+  backupCodes             String
+  verified                Boolean   @default(true)
+  failedVerificationCount Int       @default(0)
+  lockedUntil             DateTime? @db.Timestamptz
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([secret])
+}
+
+/// Tællere til rate limiting af auth-endpoints (delt mellem alle serverinstanser).
+model RateLimit {
+  id          String @id @default(uuid(7)) @db.Uuid
+  key         String @unique
+  count       Int
+  lastRequest BigInt
+
+  @@index([lastRequest])
 }
 
 /// Lejer. Kan eksistere uden User (gæstebooking, K7).

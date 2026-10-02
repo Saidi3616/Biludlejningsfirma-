@@ -1,6 +1,6 @@
 /**
  * Demo-data til udvikling og staging: lokationer, kategorier, bilmodeller,
- * fysiske biler, priser, ekstraudstyr og en rabatkode.
+ * fysiske biler, priser, ekstraudstyr, en rabatkode og én demo-bruger pr. rolle.
  *
  * Alle navne, adresser, registreringsnumre og stelnumre er fiktive. Scriptet
  * kan køres igen og igen (upsert) og nægter at køre i produktion.
@@ -9,6 +9,7 @@
  */
 import "dotenv/config";
 import { PrismaPg } from "@prisma/adapter-pg";
+import { hashPassword } from "better-auth/crypto";
 import { PrismaClient, type Fuel, type Transmission } from "../src/generated/prisma/client";
 
 if (process.env.APP_ENV === "production") {
@@ -586,17 +587,35 @@ async function main() {
     update: {},
   });
 
-  // Administrator (password sættes, når login bygges i M3)
-  await db.user.upsert({
-    where: { email: "admin@example.com" },
-    create: {
-      email: "admin@example.com",
-      name: "Demo Admin",
-      role: "SUPER_ADMIN",
-      emailVerified: true,
-    },
-    update: { role: "SUPER_ADMIN" },
-  });
+  // Demo-brugere, én pr. rolle. Login kun hvis SEED_ADMIN_PASSWORD er sat (aldrig i production).
+  const password = process.env.SEED_ADMIN_PASSWORD;
+  const passwordHash = password ? await hashPassword(password) : null;
+  const demoUsers = [
+    { email: "admin@example.com", name: "Demo Admin", role: "SUPER_ADMIN" },
+    { email: "manager@example.com", name: "Demo Leder", role: "MANAGER" },
+    { email: "staff@example.com", name: "Demo Medarbejder", role: "STAFF" },
+    { email: "kunde@example.com", name: "Demo Kunde", role: "CUSTOMER" },
+  ] as const;
+  for (const demo of demoUsers) {
+    const user = await db.user.upsert({
+      where: { email: demo.email },
+      create: { ...demo, emailVerified: true },
+      update: { role: demo.role },
+    });
+    if (passwordHash) {
+      await db.account.deleteMany({ where: { userId: user.id, providerId: "credential" } });
+      await db.account.create({
+        data: {
+          userId: user.id,
+          accountId: user.id,
+          providerId: "credential",
+          password: passwordHash,
+        },
+      });
+    }
+  }
+  if (!passwordHash)
+    console.log("SEED_ADMIN_PASSWORD er ikke sat: demo-brugerne kan ikke logge ind.");
 
   const counts = {
     locations: await db.location.count(),

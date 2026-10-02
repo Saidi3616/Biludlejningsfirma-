@@ -14,6 +14,8 @@ const serverSchema = z.object({
   SENTRY_DSN: z.url().optional(),
 
   AUTH_SECRET: z.string().min(32).optional(),
+  // Offentlig adresse, som links i e-mails og CSRF-tjek bygger på. Fx https://www.example.dk
+  AUTH_URL: z.url().optional(),
   FIELD_ENCRYPTION_KEY: z.string().optional(),
   CRON_SECRET: z.string().min(16).optional(),
 
@@ -22,6 +24,8 @@ const serverSchema = z.object({
 
   EMAIL_API_KEY: z.string().optional(),
   EMAIL_FROM: z.string().optional(),
+  // Kun lokalt: send e-mails til Mailpit (docker compose) i stedet for e-mailudbyderen.
+  SMTP_URL: z.url({ protocol: /^smtps?$/ }).optional(),
 
   WHATSAPP_TOKEN: z.string().optional(),
   WHATSAPP_PHONE_NUMBER_ID: z.string().optional(),

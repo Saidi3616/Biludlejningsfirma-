@@ -18,7 +18,8 @@
     "faq": "FAQ",
     "login": "Log in",
     "menu": "Menu",
-    "openMenu": "Open menu"
+    "openMenu": "Open menu",
+    "account": "My account"
   },
   "language": {
     "label": "Language",
@@ -94,5 +95,170 @@
     "title": "Page not found",
     "body": "The page has moved or does not exist yet.",
     "home": "Go to the homepage"
+  },
+  "auth": {
+    "fields": {
+      "name": "Full name",
+      "email": "Email",
+      "password": "Password",
+      "newPassword": "New password",
+      "code": "Code",
+      "backupCode": "Backup code"
+    },
+    "passwordHint": "At least {min} characters.",
+    "login": {
+      "title": "Log in",
+      "intro": "Log in to see your bookings.",
+      "submit": "Log in",
+      "forgot": "Forgot password?",
+      "noAccount": "Don't have an account?",
+      "register": "Create account",
+      "twoFactorTitle": "Confirm with a code",
+      "twoFactorIntro": "Enter the 6-digit code from your authenticator app.",
+      "backupIntro": "Enter one of your backup codes.",
+      "verify": "Confirm",
+      "useBackupCode": "Use a backup code instead",
+      "useAuthenticator": "Use a code from the app instead"
+    },
+    "register": {
+      "title": "Create account",
+      "intro": "With an account you can see and manage your bookings. You can also book without one.",
+      "submit": "Create account",
+      "haveAccount": "Already have an account?",
+      "login": "Log in",
+      "sentTitle": "Check your email",
+      "sentBody": "We have sent a link to {email}. Click the link to confirm your email and activate your account."
+    },
+    "forgot": {
+      "title": "Forgot password",
+      "intro": "Enter your email and we will send you a link to choose a new password.",
+      "submit": "Send link",
+      "sentTitle": "Check your email",
+      "sentBody": "If there is an account for {email}, we have sent a link to reset your password. The link works for 1 hour.",
+      "backToLogin": "Back to log in"
+    },
+    "reset": {
+      "title": "Choose a new password",
+      "intro": "Choose a new password for your account. You will be logged out everywhere else.",
+      "submit": "Save password",
+      "doneTitle": "Your password has been changed",
+      "doneBody": "You can now log in with your new password.",
+      "login": "Log in",
+      "requestNew": "Request a new link"
+    },
+    "verify": {
+      "successTitle": "Your email is confirmed",
+      "successBody": "Your account is active and you are logged in.",
+      "continue": "Go to my account",
+      "errorTitle": "This link does not work",
+      "errorBody": "The link has expired or was already used. Log in and we will send a new link to your email.",
+      "login": "Log in"
+    },
+    "logout": "Log out",
+    "errors": {
+      "invalidCredentials": "Wrong email or password.",
+      "emailNotVerified": "Your email is not confirmed yet. We have sent a new link to your email.",
+      "rateLimited": "Too many attempts. Please wait a moment and try again.",
+      "accountDisabled": "This account is disabled. Contact us if this is a mistake.",
+      "invalidCode": "The code is wrong or has expired.",
+      "invalidToken": "The link has expired or was already used.",
+      "passwordTooShort": "Password must be at least {min} characters.",
+      "nameRequired": "Enter your name.",
+      "emailInvalid": "Enter a valid email.",
+      "required": "Fill in this field.",
+      "generic": "Something went wrong. Please try again."
+    }
+  },
+  "account": {
+    "title": "My account",
+    "signedInAs": "Logged in as {name} ({email})",
+    "comingSoon": "Soon you will see your bookings, payments and documents here."
+  },
+  "admin": {
+    "title": "Administration",
+    "skipToContent": "Skip to content",
+    "signedInAs": "Logged in as {email}",
+    "nav": {
+      "label": "Admin menu",
+      "dashboard": "Overview",
+      "security": "Security"
+    },
+    "toSite": "Go to website",
+    "roles": {
+      "CUSTOMER": "Customer",
+      "STAFF": "Staff",
+      "MANAGER": "Manager",
+      "SUPER_ADMIN": "Super administrator"
+    },
+    "dashboard": {
+      "title": "Overview",
+      "intro": "The admin panel is built in the next milestones. Here you can see what your role gives access to.",
+      "role": "Your role: {role}",
+      "permissionsTitle": "Access for your role",
+      "permission": "Action",
+      "allowed": "Access",
+      "yes": "Yes",
+      "no": "No",
+      "permissions": {
+        "admin:access": "Open the admin panel",
+        "booking:read": "See bookings and calendar",
+        "customer:read": "See customers",
+        "booking:write": "Create and change bookings",
+        "inspection:write": "Carry out inspections",
+        "damage:write": "Record damage",
+        "message:send": "Send messages to customers",
+        "booking:requestCancel": "Request a cancellation",
+        "booking:cancel": "Cancel bookings",
+        "payment:refund": "Refund payments",
+        "fleet:read": "See the fleet",
+        "fleet:setStatus": "Change a car's status",
+        "fleet:write": "Manage cars and models",
+        "car:readPurchasePrice": "See car purchase prices",
+        "catalog:write": "Prices, extras, discounts and locations",
+        "stats:read": "See statistics and revenue",
+        "audit:read": "See the audit log",
+        "gdpr:export": "Export customer data",
+        "gdpr:anonymize": "Anonymise customers",
+        "users:manage": "Manage staff and roles",
+        "settings:write": "Change settings"
+      }
+    },
+    "security": {
+      "title": "Security",
+      "required": "Your role requires two-factor authentication (2FA). Turn it on to access the admin panel.",
+      "enabled": "Two-factor authentication is on.",
+      "disabledInfo": "Two-factor authentication is off. We recommend it for all staff.",
+      "step1": "Confirm your password to start.",
+      "start": "Turn on 2FA",
+      "step2": "Scan the QR code with an authenticator app (for example Google Authenticator or 1Password) and enter the 6-digit code.",
+      "manualKey": "Can't scan? Use this key:",
+      "qrAlt": "QR code for authenticator app",
+      "confirm": "Confirm and turn on",
+      "backupTitle": "Save your backup codes",
+      "backupBody": "Each code works once if you lose your phone. Keep them somewhere safe. They are only shown now.",
+      "done": "I have saved the codes"
+    }
+  },
+  "email": {
+    "greeting": "Hi {name}",
+    "signature": "Kind regards, {company}",
+    "verify": {
+      "subject": "Confirm your email",
+      "body": "Thank you for signing up. Confirm your email to activate your account.",
+      "button": "Confirm email",
+      "note": "The link works for 24 hours. If you did not create an account, you can ignore this email."
+    },
+    "reset": {
+      "subject": "Reset your password",
+      "body": "We received a request to reset your password.",
+      "button": "Choose a new password",
+      "note": "The link works for 1 hour. If you did not ask for this, you can ignore this email. Your password has not changed."
+    },
+    "existing": {
+      "subject": "You already have an account",
+      "body": "Someone tried to create an account with your email. You already have an account, so you can just log in. If you forgot your password, you can reset it on the login page.",
+      "button": "Log in",
+      "note": "If this was not you, you can ignore this email. Your account has not changed."
+    }
   }
 }

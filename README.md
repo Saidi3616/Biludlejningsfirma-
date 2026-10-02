@@ -34,7 +34,7 @@ Rigtige nøgler må aldrig committes. `.env*` er ignoreret af Git, undtagen `.en
 | ------------------ | ---------------------------------------------------------- |
 | `pnpm db:migrate`  | Opret og kør en ny migration under udvikling               |
 | `pnpm db:deploy`   | Kør eksisterende migrationer (CI, staging, prod)           |
-| `pnpm db:seed`     | Indlæs demo-data (lokationer, biler, priser, ekstraudstyr) |
+| `pnpm db:seed`     | Indlæs demo-data (lokationer, biler, priser, demo-brugere) |
 | `pnpm db:reset`    | Slet databasen lokalt, kør alle migrationer og seed igen   |
 | `pnpm db:generate` | Generér Prisma-klienten                                    |
 | `pnpm db:studio`   | Åbn Prisma Studio og se data i browseren                   |
@@ -54,6 +54,14 @@ Demo-data er fiktive (adresser, registreringsnumre, stelnumre) og kan ikke køre
 | `pnpm format:check` | Prettier (tjek)  |
 
 Forretningslogik hører til i `src/server`, aldrig i komponenter. Se [09-mappestruktur.md](docs/architecture/09-mappestruktur.md).
+
+### Login og roller
+
+- Login, oprettelse, e-mailbekræftelse, nulstilling af password og 2FA håndteres af [Better Auth](https://www.better-auth.com) via `/api/auth/*`. Opsætningen ligger i `src/server/auth/auth.ts`.
+- Hvem der må hvad, står ét sted: `src/server/auth/policies.ts` (adgangsmatricen fra [04-sitemap.md](docs/architecture/04-sitemap.md)). Sider bruger `requireCustomer()`, `requireStaff()` og `requirePermission()` fra `src/server/auth/session.ts`.
+- Nye brugere er altid kunder. Medarbejdere får rolle af en SUPER_ADMIN (brugeradministration kommer i M13). MANAGER og SUPER_ADMIN skal slå 2FA til, før de får adgang til admin.
+- Lokalt: sæt `SEED_ADMIN_PASSWORD` i `.env` og kør `pnpm db:seed`. Så kan du logge ind som `admin@example.com`, `manager@example.com`, `staff@example.com` og `kunde@example.com` med det password.
+- E-mails (bekræftelse, nulstilling) sendes lokalt til Mailpit, når `SMTP_URL` er sat: se dem på http://localhost:8025. Uden `SMTP_URL` sendes intet lokalt. Uden for `local` kræves `EMAIL_API_KEY` (Resend) og `AUTH_SECRET`.
 
 ### Designsystem og sprog
 
@@ -82,5 +90,7 @@ E2E-tests kræver Chromium (`pnpm exec playwright install chromium`). Har du all
 ## Deployment
 
 Planen er Vercel (region `fra1`) med Postgres hos Neon i EU. Production deployes fra `main`, staging fra `development`, og hver PR får et preview-miljø. Migrationer køres med `pnpm db:deploy` før en ny version går live. Appen bygges som `standalone`, så den også kan køre i en Docker-container.
+
+Hvert miljø skal have sit eget `AUTH_SECRET` og et `AUTH_URL`, der er præcis den adresse, siden åbnes på. Ellers afviser login-API'et kaldene (CSRF-beskyttelse), og links i e-mails peger forkert. Rate limiting af login læser klientens IP fra `x-forwarded-for`, som Vercel sætter; kører appen bag en anden proxy, skal den sætte headeren.
 
 Se [02-tech-stack.md](docs/architecture/02-tech-stack.md#hosting--deployment) for backup og miljøer.
