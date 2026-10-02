@@ -288,7 +288,8 @@
       "security": "Sécurité",
       "calendar": "Calendrier",
       "bookings": "Réservations",
-      "customers": "Clients"
+      "customers": "Clients",
+      "fleet": "Flotte"
     },
     "toSite": "Aller au site",
     "roles": {
@@ -707,6 +708,237 @@
         "discount": "Le code promo ne fonctionne pas.",
         "price": "Il n'y a pas de prix pour cette période.",
         "failed": "Un problème est survenu. Réessayez."
+      }
+    },
+    "fleet": {
+      "title": "Flotte",
+      "back": "Toutes les voitures",
+      "km": "{km, number} km",
+      "previous": "Précédent",
+      "next": "Suivant",
+      "page": "Page {page} sur {pages}",
+      "amountHint": "En couronnes, par ex. 450 ou 1.250,50.",
+      "tabs": {
+        "label": "Flotte",
+        "cars": "Voitures",
+        "models": "Modèles"
+      },
+      "opStatus": {
+        "ACTIVE": "En service",
+        "INSPECTION": "En contrôle",
+        "MAINTENANCE": "Au garage",
+        "OUT_OF_SERVICE": "Hors service",
+        "RETIRED": "Retirée"
+      },
+      "warnings": {
+        "inspection": "Contrôle technique proche",
+        "service": "Entretien proche",
+        "insurance": "Assurance expire"
+      },
+      "cars": {
+        "new": "Nouvelle voiture",
+        "search": "Rechercher",
+        "searchHint": "Immatriculation ou numéro VIN.",
+        "status": "Statut",
+        "allStatuses": "Toutes (sauf retirées)",
+        "model": "Modèle",
+        "allModels": "Tous les modèles",
+        "location": "Agence",
+        "allLocations": "Toutes les agences",
+        "submit": "Rechercher",
+        "count": "{count, plural, one {# voiture} other {# voitures}}",
+        "empty": "Aucune voiture ne correspond à la recherche.",
+        "columns": {
+          "registration": "Immatriculation",
+          "model": "Modèle",
+          "location": "Agence d'attache",
+          "odometer": "Km",
+          "status": "Statut",
+          "warnings": "Échéances"
+        }
+      },
+      "car": {
+        "bookings": "Réservations à venir",
+        "noBookings": "La voiture n'a aucune réservation à venir.",
+        "bookingsHint": "Si la voiture doit être mise hors service, ouvrez chaque réservation et changez de voiture, modifiez la période ou annulez.",
+        "columns": {
+          "reference": "Réservation",
+          "customer": "Client",
+          "period": "Période",
+          "status": "Statut"
+        },
+        "statusTitle": "Statut d'exploitation",
+        "statusIntro": "Seules les voitures en service peuvent être réservées. Les réservations existantes gardent la voiture jusqu'à ce que vous les déplaciez.",
+        "newStatus": "Nouveau statut",
+        "confirm": "J'ai vu {count, plural, one {la réservation à venir} other {les # réservations à venir}}",
+        "confirmHint": "Elles gardent la voiture jusqu'à ce que vous les déplaciez vers une autre voiture.",
+        "setStatus": "Changer le statut",
+        "odometerTitle": "Kilométrage",
+        "odometer": "Km",
+        "odometerHint": "Ne peut qu'augmenter.",
+        "saveOdometer": "Enregistrer les km",
+        "details": "Informations"
+      },
+      "notices": {
+        "created": "La voiture est créée.",
+        "saved": "Les modifications sont enregistrées.",
+        "statusChanged": "Le statut est modifié.",
+        "odometerSaved": "Le kilométrage est enregistré.",
+        "maintenanceAdded": "Le passage au garage est planifié. La voiture ne peut pas être réservée sur la période.",
+        "maintenanceUpdated": "Le passage au garage est mis à jour.",
+        "invalid": "Vérifiez les champs et réessayez.",
+        "odometerDown": "Le kilométrage ne peut pas être inférieur à l'ancien.",
+        "endBeforeStart": "La fin doit être après le début.",
+        "rented": "La voiture est louée en ce moment. Changez le statut à son retour.",
+        "hasBookings": "La voiture a des réservations à venir. Cochez la case pour confirmer, ou déplacez-les d'abord :",
+        "bookingsInPeriod": "La voiture est réservée sur la période. Déplacez d'abord ces réservations :",
+        "maintenanceOverlap": "La voiture a déjà un passage au garage sur la période.",
+        "conflict": "Impossible de modifier maintenant, ou une modification a eu lieu en même temps. Rechargez la page.",
+        "forbidden": "Votre rôle n'a pas accès à cette action.",
+        "notFound": "Cet élément n'existe plus.",
+        "failed": "Une erreur s'est produite. Réessayez."
+      },
+      "maintenance": {
+        "title": "Garage",
+        "empty": "Aucun passage au garage pour l'instant.",
+        "columns": {
+          "type": "Type",
+          "period": "Période",
+          "vendor": "Garage",
+          "cost": "Coût",
+          "status": "Statut",
+          "action": "Action"
+        },
+        "types": {
+          "SERVICE": "Entretien",
+          "INSPECTION_SYN": "Contrôle technique",
+          "TYRES": "Changement de pneus",
+          "REPAIR": "Réparation",
+          "CLEANING": "Nettoyage"
+        },
+        "statuses": {
+          "PLANNED": "Planifié",
+          "IN_PROGRESS": "En cours",
+          "DONE": "Terminé",
+          "CANCELLED": "Annulé"
+        },
+        "to": {
+          "IN_PROGRESS": "Démarrer",
+          "DONE": "Terminé",
+          "CANCELLED": "Annuler"
+        },
+        "add": "Planifier un passage au garage",
+        "addIntro": "La voiture ne peut pas être réservée sur la période. Si elle a des réservations sur la période, déplacez-les d'abord.",
+        "type": "Type",
+        "vendor": "Garage (facultatif)",
+        "startDate": "Date de début",
+        "startTime": "Heure de début",
+        "endDate": "Date de fin",
+        "endTime": "Heure de fin",
+        "cost": "Coût (facultatif)",
+        "notes": "Note (facultative)",
+        "submit": "Planifier"
+      },
+      "form": {
+        "identity": "Voiture",
+        "carModelId": "Modèle",
+        "homeLocationId": "Agence d'attache",
+        "registrationNumber": "Immatriculation",
+        "registrationHint": "Par ex. AB 12 345.",
+        "vin": "Numéro VIN",
+        "vinHint": "11 à 17 caractères, sans I, O ni Q.",
+        "color": "Couleur (facultative)",
+        "odometerKm": "Km",
+        "tyreType": "Pneus (facultatif)",
+        "tyreHint": "Par ex. été, hiver ou toutes saisons.",
+        "deadlines": "Échéances",
+        "nextInspectionDue": "Prochain contrôle technique",
+        "nextServiceDue": "Prochain entretien (date)",
+        "nextServiceKm": "Prochain entretien (km)",
+        "insurancePolicy": "Police d'assurance (facultative)",
+        "insuranceExpiresAt": "Fin de l'assurance",
+        "purchase": "Achat",
+        "purchaseDate": "Date d'achat",
+        "purchasePrice": "Prix d'achat",
+        "amountHint": "En couronnes, par ex. 189.000.",
+        "choose": "Choisir",
+        "save": "Enregistrer",
+        "create": "Créer la voiture",
+        "duplicate": "Déjà utilisé par une autre voiture.",
+        "odometerDown": "Ne peut pas être inférieur à l'ancien.",
+        "invalid": "Vérifiez le champ.",
+        "errors": {
+          "invalid": "Vérifiez les champs signalés.",
+          "duplicate": "L'immatriculation ou le numéro VIN existe déjà.",
+          "odometerDown": "Le kilométrage ne peut pas être inférieur à l'ancien.",
+          "hasBookings": "Le modèle et l'agence ne peuvent pas changer tant que la voiture a des réservations à venir :",
+          "forbidden": "Votre rôle n'a pas accès à cette action.",
+          "failed": "Une erreur s'est produite. Réessayez."
+        }
+      },
+      "models": {
+        "title": "Modèles",
+        "new": "Nouveau modèle",
+        "edit": "Modifier le modèle",
+        "back": "Tous les modèles",
+        "empty": "Aucun modèle pour l'instant.",
+        "columns": {
+          "model": "Modèle",
+          "category": "Catégorie",
+          "cars": "Voitures",
+          "visibility": "Visibilité"
+        },
+        "active": "Affiché",
+        "inactive": "Masqué",
+        "featured": "Mis en avant",
+        "notices": {
+          "created": "Le modèle est créé.",
+          "saved": "Les modifications sont enregistrées."
+        }
+      },
+      "modelForm": {
+        "basics": "Modèle",
+        "brand": "Marque",
+        "model": "Modèle",
+        "year": "Année",
+        "categoryId": "Catégorie",
+        "choose": "Choisir",
+        "slug": "Adresse",
+        "slugHint": "Utilisée dans le lien, par ex. toyota-yaris-hybrid. Minuscules, chiffres et tirets.",
+        "specs": "Caractéristiques",
+        "transmission": "Boîte de vitesses",
+        "fuel": "Carburant",
+        "seats": "Places",
+        "doors": "Portes",
+        "bags": "Bagages",
+        "airConditioning": "Climatisation",
+        "terms": "Km et caution",
+        "termsHint": "S'applique aux nouvelles réservations. Le prix par jour est fixé par catégorie.",
+        "includedKmPerDay": "Km inclus par jour",
+        "extraKmFee": "Prix par km supplémentaire",
+        "deposit": "Caution",
+        "amountHint": "En couronnes, par ex. 2,50 ou 3.000.",
+        "descriptions": "Description",
+        "descriptionsHint": "Le danois est obligatoire. Si une langue manque, le texte danois s'affiche.",
+        "descriptionDa": "Danois",
+        "descriptionEn": "Anglais",
+        "descriptionFr": "Français",
+        "descriptionAr": "Arabe",
+        "visibility": "Visibilité",
+        "isActive": "Afficher dans le catalogue",
+        "isActiveHint": "Les clients peuvent voir et réserver le modèle.",
+        "isFeatured": "Mettre en avant sur l'accueil",
+        "isFeaturedHint": "Affiché parmi les voitures populaires.",
+        "save": "Enregistrer",
+        "create": "Créer le modèle",
+        "invalid": "Vérifiez le champ.",
+        "duplicate": "L'adresse est déjà utilisée par un autre modèle.",
+        "errors": {
+          "invalid": "Vérifiez les champs signalés.",
+          "duplicate": "L'adresse est déjà utilisée par un autre modèle.",
+          "forbidden": "Votre rôle n'a pas accès à cette action.",
+          "failed": "Une erreur s'est produite. Réessayez."
+        }
       }
     }
   },

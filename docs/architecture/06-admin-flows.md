@@ -87,6 +87,7 @@ MVP (M10): kunden oprettes som gæst (knyttes til en konto ved login). Betalings
 → AuditLog registrerer handlingen
 ```
 Systemet forhindrer, at en bil sættes i MAINTENANCE i en periode med aktive bookinger uden at håndtere dem først.
+MVP (M11): bilsiden viser bilens kommende bookinger med link til hver. Status kan kun skiftes, når personalet har bekræftet listen; bookingerne beholder bilen, indtil de flyttes med "Skift bil", "Ændr periode" eller "Annullér" på bookingen. En udlejet bil kan ikke skifte status, og et værkstedsbesøg kan ikke lægges oven i en booking (databasen håndhæver det). Automatisk besked til alle berørte kunder og "Opgradér til anden model" i ét trin er PHASE 2.
 
 ## F5. Ændring af dato (efter kundens anmodning)
 

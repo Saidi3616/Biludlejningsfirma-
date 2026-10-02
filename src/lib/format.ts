@@ -57,3 +57,8 @@ export function weekdayName(weekday: number, locale: string): string {
     timeZone: "UTC",
   }).format(new Date(Date.UTC(2026, 0, 4 + weekday)));
 }
+
+/** Øre som kroner til et inputfelt, fx 45000 → "450,00". Læses igen af `parseKroner`. */
+export function minorToInput(amountMinor: number): string {
+  return (amountMinor / 100).toFixed(2).replace(".", ",");
+}
