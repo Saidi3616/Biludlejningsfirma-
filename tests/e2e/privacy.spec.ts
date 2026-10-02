@@ -65,11 +65,11 @@ test("kunden styrer samtykker, henter sine data og sletter kontoen", async ({ pa
   await expect(page).toHaveTitle(/Privatliv og data/);
   await expectNoSeriousA11yIssues(page);
 
-  await page.getByRole("checkbox", { name: /Nyheder og tilbud/ }).check();
+  await page.getByRole("checkbox", { name: /Nyheder og tilbud på e-mail/ }).check();
   await page.getByRole("button", { name: "Gem valg" }).click();
   await expect(page.getByText("Dine valg er gemt.")).toBeVisible();
   await page.reload();
-  await expect(page.getByRole("checkbox", { name: /Nyheder og tilbud/ })).toBeChecked();
+  await expect(page.getByRole("checkbox", { name: /Nyheder og tilbud på e-mail/ })).toBeChecked();
 
   const download = page.waitForEvent("download");
   await page.getByRole("link", { name: "Download mine data" }).click();
