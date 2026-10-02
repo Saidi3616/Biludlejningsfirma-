@@ -301,7 +301,8 @@
       "bookings": "Bookings",
       "customers": "Customers",
       "fleet": "Fleet",
-      "pricing": "Prices"
+      "pricing": "Prices",
+      "users": "Users"
     },
     "toSite": "Go to website",
     "roles": {
@@ -1638,6 +1639,83 @@
         "upTo": "Up to {km} km",
         "deliveryOff": "Delivery is turned off. The zones are only used once delivery is turned on above."
       }
+    },
+    "users": {
+      "title": "Users",
+      "intro": "Staff with access to the admin. Managers and administrators must turn on two-step login (2FA) the first time they log in.",
+      "invite": "Invite staff",
+      "back": "All users",
+      "empty": "There are no staff yet.",
+      "roles": {
+        "STAFF": "Staff",
+        "MANAGER": "Manager",
+        "SUPER_ADMIN": "Administrator"
+      },
+      "roleHints": {
+        "STAFF": "Bookings, customers, pickup and return.",
+        "MANAGER": "Also prices, refunds, fleet and statistics. Requires 2FA.",
+        "SUPER_ADMIN": "Everything, including users and settings. Requires 2FA."
+      },
+      "status": {
+        "active": "Active",
+        "invited": "Invited",
+        "disabled": "Disabled"
+      },
+      "columns": {
+        "name": "Name",
+        "role": "Role",
+        "twoFactor": "2FA",
+        "lastLogin": "Last login",
+        "status": "Status"
+      },
+      "on": "On",
+      "off": "Off",
+      "never": "Never",
+      "you": "you",
+      "notices": {
+        "invited": "The invitation has been sent. The link works for 72 hours.",
+        "inviteNotSent": "The user has been created, but the email could not be sent. Try \"Send invitation again\".",
+        "reinvited": "The invitation has been sent again. The old link no longer works.",
+        "roleSaved": "The role has been saved.",
+        "disabled": "The user has been disabled and all sessions closed.",
+        "enabled": "The user is active again.",
+        "self": "You cannot change your own access.",
+        "lastSuperAdmin": "There must be at least one active administrator.",
+        "forbidden": "Your role does not have access to that action.",
+        "failed": "Something went wrong. Please try again."
+      },
+      "form": {
+        "name": "Name",
+        "email": "Email",
+        "role": "Role",
+        "submit": "Send invitation",
+        "duplicate": "This email already has an account.",
+        "errors": {
+          "name": "Enter the name (2–80 characters).",
+          "email": "Check the email address.",
+          "role": "Choose a role."
+        },
+        "notices": {
+          "invalid": "Check the highlighted fields.",
+          "duplicate": "This email already has an account.",
+          "forbidden": "Your role does not have access to that action.",
+          "failed": "Something went wrong. Please try again."
+        }
+      },
+      "detail": {
+        "role": "Role",
+        "saveRole": "Save role",
+        "access": "Access",
+        "disable": "Disable user",
+        "disableHint": "The user is logged out everywhere immediately and cannot log in again.",
+        "enable": "Enable user again",
+        "resend": "Send invitation again",
+        "invitedHint": "The user has not chosen a password yet.",
+        "selfNote": "This is you. Your own role and access can only be changed by another administrator.",
+        "twoFactor": "2FA",
+        "lastLogin": "Last login",
+        "created": "Created"
+      }
     }
   },
   "email": {
@@ -1660,6 +1738,12 @@
       "body": "Someone tried to create an account with your email. You already have an account, so you can just log in. If you forgot your password, you can reset it on the login page.",
       "button": "Log in",
       "note": "If this was not you, you can ignore this email. Your account has not changed."
+    },
+    "invite": {
+      "subject": "You are invited to the admin",
+      "body": "You have been added as staff at {company}. Choose a password to get started.",
+      "button": "Choose password",
+      "note": "The link works for 72 hours. Managers and administrators must also turn on two-step login the first time they log in."
     }
   },
   "search": {

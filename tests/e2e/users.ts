@@ -21,4 +21,10 @@ export const e2eUsers = {
     name: "E2E Leder",
     role: "MANAGER",
   },
+  "admin-mobile": { email: "e2e-admin-mobile@example.com", name: "E2E Admin", role: "SUPER_ADMIN" },
+  "admin-desktop": {
+    email: "e2e-admin-desktop@example.com",
+    name: "E2E Admin",
+    role: "SUPER_ADMIN",
+  },
 } as const;

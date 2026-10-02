@@ -10,7 +10,7 @@ import { E2E_PASSWORD, e2eUsers } from "./users";
 export async function logInAsManager(
   page: Page,
   info: TestInfo,
-  who: "manager" | "catalog" = "manager",
+  who: "manager" | "catalog" | "admin" = "manager",
   next = "/admin",
 ) {
   const user = e2eUsers[`${who}-${info.project.name === "mobile" ? "mobile" : "desktop"}`];
