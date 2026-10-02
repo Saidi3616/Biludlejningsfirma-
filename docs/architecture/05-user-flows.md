@@ -96,6 +96,8 @@ E-mail/WhatsApp-link (signeret token) → /reviews/new?token=...
 ```
 Kun kunder med en gennemført booking kan anmelde (verificerede anmeldelser).
 
+Implementeret (M14): tokenet er `reference.HMAC` og gemmes ikke i databasen. Én anmeldelse pr. booking. Lederen (`review:moderate`, MANAGER+) publicerer eller skjuler på `/admin/reviews`; teksten kan ikke redigeres.
+
 ## E9. Cookie-samtykke (første besøg)
 
 Banner med ligeværdige knapper "Accepter alle" / "Kun nødvendige" / "Indstillinger". Med cookiefri analytics (Plausible) er der i MVP kun nødvendige cookies + evt. Google Maps-embed, som først indlæses efter samtykke (ellers vises "Klik for at vise kort").

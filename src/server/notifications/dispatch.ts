@@ -6,7 +6,7 @@ import { routing } from "@/i18n/routing";
 import { serverEnv } from "@/lib/env";
 import { logger } from "@/lib/logger";
 import { receivedMinor, refundedMinor } from "@/lib/payments";
-import { manageTokenFor } from "@/server/booking/tokens";
+import { manageTokenFor, reviewTokenFor } from "@/server/booking/tokens";
 import { db } from "@/server/db";
 import { sendEmail } from "@/server/email/send";
 import { sendWhatsApp, whatsappEnabled } from "./channels/whatsapp";
@@ -89,6 +89,7 @@ async function deliver(id: string, now: Date): Promise<keyof DispatchResult> {
       : `/account/bookings/${booking.reference}`;
   const context: NotificationContext = {
     managePath,
+    reviewToken: reviewTokenFor(booking.reference),
     reference: booking.reference,
     firstName: booking.customer.firstName,
     email: booking.customer.email,

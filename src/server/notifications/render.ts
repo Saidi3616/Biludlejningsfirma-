@@ -36,6 +36,8 @@ export type NotificationContext = {
   expiresAt: Date | null;
   /** Uden sprog-præfiks: gæstens "administrér booking"-link eller kontosiden. */
   managePath: `/${string}`;
+  /** Signeret token til anmeldelsessiden (E8). */
+  reviewToken: string;
   currency: string;
 };
 
@@ -85,7 +87,8 @@ export function renderNotification(
     label: t("common.whatsappButton"),
     url: whatsappLink(t("common.whatsappPrefill", { reference: ctx.reference })),
   };
-  const reviewUrl = new URL(localizedPath(locale, "/reviews"), baseUrl).toString();
+  const reviewUrl = new URL(localizedPath(locale, "/reviews/new"), baseUrl);
+  reviewUrl.searchParams.set("token", ctx.reviewToken);
   const manageLink = {
     label: t("common.manage"),
     url: new URL(localizedPath(locale, ctx.managePath), baseUrl).toString(),
@@ -142,8 +145,8 @@ export function renderNotification(
       paragraphs: [t("REVIEW_REQUEST.intro")],
       details: [],
       closing: [],
-      button: { label: t("REVIEW_REQUEST.button"), url: reviewUrl },
-      whatsapp: [ctx.firstName, reviewUrl],
+      button: { label: t("REVIEW_REQUEST.button"), url: reviewUrl.toString() },
+      whatsapp: [ctx.firstName, reviewUrl.toString()],
     },
     BOOKING_CANCELLED: {
       paragraphs: [
