@@ -149,6 +149,13 @@ Forretningslogik hører til i `src/server`, aldrig i komponenter. Se [09-mappest
 - Genbrugelige komponenter ligger i `src/components/ui`, sidelayout (header, footer, WhatsApp, cookie-banner) i `src/components/features/layout`.
 - Al tekst ligger i `messages/{da,en,ar,fr}.json`. Dansk er standard uden præfiks (`/`), øvrige sprog har præfiks (`/en`, `/ar`, `/fr`). Arabisk vises højre-til-venstre; brug derfor logiske klasser (`ms-`, `pe-`, `start-`, `text-start`) i stedet for `ml-`, `pr-`, `left-`, `text-left`.
 
+### Sikkerhed og GDPR
+
+- Tjeklisten står i [docs/sikkerhed.md](docs/sikkerhed.md).
+- `pnpm check:secrets` leder efter nøgler i filerne, og `pnpm audit --prod` leder efter sårbare pakker. Begge kører i CI.
+- Følsomme kundefelter krypteres med `FIELD_ENCRYPTION_KEY` (32 bytes, `openssl rand -base64 32`). Nøglen er påkrævet uden for local og må aldrig skiftes uden at genkryptere data.
+- Ledere ser audit-loggen på `/admin/audit-log`.
+
 ## Test
 
 ```bash

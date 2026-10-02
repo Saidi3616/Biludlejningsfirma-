@@ -4,6 +4,7 @@ import { AppError } from "@/lib/errors";
 import { logger } from "@/lib/logger";
 import { assertCan, type PolicyContext } from "@/server/auth/policies";
 import { audit } from "@/server/audit";
+import { decryptField } from "@/server/crypto/fields";
 import { db } from "@/server/db";
 import { storage } from "@/server/storage";
 
@@ -31,6 +32,8 @@ async function collectCustomerData(customerId: string) {
       postalCode: true,
       city: true,
       country: true,
+      dateOfBirthEnc: true,
+      licenseNumberEnc: true,
       licenseCountry: true,
       licenseIssuedAt: true,
       licenseExpiresAt: true,
@@ -107,7 +110,13 @@ async function collectCustomerData(customerId: string) {
     where: { ownerType: "CUSTOMER", ownerId: customerId },
     select: { kind: true, mimeType: true, sizeBytes: true, createdAt: true },
   });
-  const { bookings, ...profile } = customer;
+  const { bookings, dateOfBirthEnc, licenseNumberEnc, ...rest } = customer;
+  // Krypterede felter udleveres i klartekst til kunden selv (artikel 15).
+  const profile = {
+    ...rest,
+    dateOfBirth: dateOfBirthEnc ? decryptField(dateOfBirthEnc) : null,
+    licenseNumber: licenseNumberEnc ? decryptField(licenseNumberEnc) : null,
+  };
   return {
     exportedAt: new Date().toISOString(),
     note: "Beløb er i mindste enhed (øre) med valutakode. Dokumenter udleveres på anmodning.",

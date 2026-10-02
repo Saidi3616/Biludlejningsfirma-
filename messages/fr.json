@@ -337,7 +337,8 @@
       "pricing": "Tarifs",
       "users": "Utilisateurs",
       "reviews": "Avis",
-      "statistics": "Statistiques"
+      "statistics": "Statistiques",
+      "auditLog": "Journal d'audit"
     },
     "toSite": "Aller au site",
     "roles": {
@@ -1835,6 +1836,29 @@
       },
       "empty": "Aucune réservation sur la période.",
       "footnote": "Le chiffre d'affaires correspond aux paiements moins les remboursements de la période. Le taux d'occupation correspond aux heures louées divisées par les heures des voitures. Un client fidèle a déjà loué chez nous avant la période."
+    },
+    "auditLog": {
+      "title": "Journal d'audit",
+      "intro": "Toutes les modifications faites dans l'administration et par les clients pour le RGPD. Aucune donnée personnelle n'est stockée dans le journal.",
+      "entity": "Type",
+      "allEntities": "Tous les types",
+      "action": "Action",
+      "actionHint": "Par ex. booking. ou customer.anonymize",
+      "submit": "Filtrer",
+      "count": "{count, plural, one {# événement} other {# événements}}",
+      "empty": "Aucun événement.",
+      "system": "Système",
+      "show": "Voir les détails",
+      "previous": "Précédent",
+      "next": "Suivant",
+      "page": "Page {page} sur {pages}",
+      "columns": {
+        "time": "Heure",
+        "who": "Qui",
+        "action": "Action",
+        "entity": "Quoi",
+        "details": "Détails"
+      }
     }
   },
   "email": {

@@ -47,6 +47,14 @@ jobs:
       - name: Install
         run: pnpm install --frozen-lockfile
 
+      # Kendte sårbarheder i produktionsafhængigheder (M15). Rettes med en opdatering eller
+      # en override i pnpm-workspace.yaml.
+      - name: Secret-scan
+        run: pnpm check:secrets
+
+      - name: Dependency-scan
+        run: pnpm audit --prod --audit-level=high
+
       - name: Format
         run: pnpm format:check
 

@@ -2,6 +2,7 @@ import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { Role } from "@/generated/prisma/enums";
 import { AppError } from "@/lib/errors";
 import type { PolicyContext } from "@/server/auth/policies";
+import { encryptField } from "@/server/crypto/fields";
 import { db } from "@/server/db";
 import { accountConsents, logCookieConsent, setAccountConsents } from "@/server/gdpr/consent";
 import { runRetention } from "@/server/gdpr/retention";
@@ -67,7 +68,12 @@ async function customerWithHistory() {
   });
   await db.customer.update({
     where: { id: fleet.customer.id },
-    data: { userId: user.id, phoneE164: "+4512345678", addressLine: "Testvej 1" },
+    data: {
+      userId: user.id,
+      phoneE164: "+4512345678",
+      addressLine: "Testvej 1",
+      licenseNumberEnc: encryptField("DK-12345678"),
+    },
   });
   const booking = await db.booking.create({
     data: {
@@ -165,6 +171,8 @@ describe("GDPR (F10)", () => {
     expect(data.profile).toMatchObject({
       email: "anna@example.com",
       phoneE164: "+4512345678",
+      licenseNumber: "DK-12345678",
+      dateOfBirth: null,
       user: { email: "anna@example.com" },
     });
     expect(data.bookings).toHaveLength(1);
@@ -199,6 +207,7 @@ describe("GDPR (F10)", () => {
       lastName: "",
       phoneE164: null,
       addressLine: null,
+      licenseNumberEnc: null,
       userId: null,
     });
     expect(customer.email).toMatch(/@anonymized\.invalid$/);

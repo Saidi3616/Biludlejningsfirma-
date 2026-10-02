@@ -45,6 +45,9 @@ export default async function AdminLayout({ children }: LayoutProps<"/admin">) {
     ...(can({ actor: user }, "stats:read")
       ? [{ href: "/admin/statistics", label: t("nav.statistics") }]
       : []),
+    ...(can({ actor: user }, "audit:read")
+      ? [{ href: "/admin/audit-log", label: t("nav.auditLog") }]
+      : []),
     ...(can({ actor: user }, "users:manage")
       ? [{ href: "/admin/users", label: t("nav.users") }]
       : []),
