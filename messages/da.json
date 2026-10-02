@@ -230,7 +230,8 @@
       "bookings": "Bookinger",
       "payments": "Betalinger",
       "profile": "Profil",
-      "documents": "Dokumenter"
+      "documents": "Dokumenter",
+      "privacy": "Privatliv"
     },
     "bookings": {
       "title": "Dine bookinger",
@@ -287,6 +288,38 @@
       "download": "Hent PDF",
       "emptyTitle": "Ingen dokumenter endnu",
       "emptyBody": "Din lejekontrakt vises her, når du har underskrevet den ved afhentningen."
+    },
+    "privacy": {
+      "title": "Privatliv og data",
+      "intro": "Her bestemmer du, hvad vi må sende dig, henter dine data og kan slette din konto.",
+      "error": "Noget gik galt. Prøv igen.",
+      "consents": {
+        "title": "Beskeder fra os",
+        "marketing": "Nyheder og tilbud på e-mail",
+        "marketingHint": "Højst et par gange om måneden. Beskeder om dine bookinger får du altid.",
+        "whatsapp": "Nyheder og tilbud på WhatsApp",
+        "whatsappHint": "Beskeder om dine bookinger kan stadig komme på WhatsApp, hvis du har oplyst et mobilnummer.",
+        "save": "Gem valg",
+        "saved": "Dine valg er gemt."
+      },
+      "export": {
+        "title": "Hent dine data",
+        "body": "Få en fil med alt, vi har gemt om dig: profil, bookinger, betalinger, beskeder og samtykker.",
+        "download": "Download mine data"
+      },
+      "delete": {
+        "title": "Slet konto",
+        "body": "Vi sletter dit navn, dine kontaktoplysninger, beskeder, anmeldelser og dokumenter, og du kan ikke længere logge ind. Bookinger og betalinger gemmes uden dit navn, fordi bogføringsloven kræver det.",
+        "confirm": "Jeg forstår, at sletningen ikke kan fortrydes.",
+        "confirmRequired": "Sæt flueben for at bekræfte.",
+        "submit": "Slet min konto",
+        "done": "Din konto er slettet.",
+        "home": "Til forsiden",
+        "blocked": {
+          "ACTIVE_BOOKING": "Du har en booking, der ikke er afsluttet. Du kan slette kontoen, når lejen er slut, eller annullere bookingen først.",
+          "OPEN_CLAIM": "Din seneste leje er ikke afregnet endnu (depositum eller skade). Kontakt os, så hjælper vi."
+        }
+      }
     }
   },
   "admin": {
@@ -681,7 +714,25 @@
       "profileTitle": "Oplysninger",
       "lastLogin": "Sidst logget ind {date}",
       "created": "Oprettet",
-      "whatsappPrefill": "Hej {name}, det er udlejningen."
+      "whatsappPrefill": "Hej {name}, det er udlejningen.",
+      "gdpr": {
+        "title": "GDPR",
+        "export": "Eksportér data (JSON)",
+        "anonymize": "Anonymisér kunden",
+        "anonymizeHint": "Navn, kontakt, beskeder, anmeldelser og dokumenter slettes. Bookinger og betalinger bevares under et pseudonym. Kan ikke fortrydes.",
+        "confirm": "Kunden har bedt om sletning, og jeg har tjekket identiteten.",
+        "blocked": {
+          "ACTIVE_BOOKING": "Kan ikke anonymiseres: kunden har en booking, der ikke er afsluttet.",
+          "OPEN_CLAIM": "Kan ikke anonymiseres: depositum eller skade er ikke afgjort."
+        },
+        "notices": {
+          "anonymized": "Anonymiseringen er gennemført.",
+          "blocked": "Kunden kan ikke anonymiseres endnu.",
+          "confirm": "Sæt flueben for at bekræfte anonymiseringen.",
+          "forbidden": "Din rolle har ikke adgang til den handling.",
+          "failed": "Noget gik galt. Prøv igen."
+        }
+      }
     },
     "calendar": {
       "title": "Kalender",

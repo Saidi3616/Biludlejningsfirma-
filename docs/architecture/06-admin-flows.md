@@ -144,6 +144,8 @@ MVP (M13 del 2): `/admin/discounts` opretter, retter, stopper og sletter rabatko
 → AuditLog
 ```
 
+Implementeret (M15, `src/server/gdpr/`): eksport som JSON-fil (dokumenter listes uden indhold) og anonymisering med bekræftelse, begge MANAGER+ og i audit-loggen. Anonymisering fjerner navn, kontakt, kørekortfelter, leveringsadresse, beskedtekster, anmeldelser, kundens dokumenter og kontraktens underskrift, og lukker login-kontoen. Kontraktens PDF bevares i 5 år efter lejens afslutning (`CONTRACT_RETENTION_YEARS`; afventer advokat) og slettes derefter af det daglige retention-job (`/api/cron/retention`), som også rydder udløbne sessioner, login-links og rate-limit-rækker. Blokeres ved en booking, der ikke er afsluttet, et reserveret depositum eller en skade uden afgjort ansvar.
+
 ## F11. Brugere og roller (SUPER_ADMIN)
 
 Invitér medarbejder via e-mail → vælg rolle → medarbejder sætter password + 2FA (påkrævet for MANAGER og SUPER_ADMIN). Deaktivering lukker alle sessions straks.

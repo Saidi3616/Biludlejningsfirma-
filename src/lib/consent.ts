@@ -1,13 +1,15 @@
 /**
- * Cookie-samtykke. Gemmes i en førsteparts-cookie, så serveren også kan læse
- * den. Logning i Consent-tabellen tilføjes i M15.
+ * Cookie-samtykke. Gemmes i en førsteparts-cookie, så serveren også kan læse den, og logges i
+ * Consent-tabellen under et tilfældigt id (`id`), så valget kan dokumenteres (M15).
  */
 export const CONSENT_COOKIE = "consent";
 export const CONSENT_VERSION = 1;
 const MAX_AGE_SECONDS = 60 * 60 * 24 * 180; // 6 måneder, derefter spørges igen
 
 export type ConsentChoice = { analytics: boolean; marketing: boolean };
-export type StoredConsent = ConsentChoice & { v: number; at: string };
+export type StoredConsent = ConsentChoice & { v: number; at: string; id?: string };
+
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 export function parseConsent(raw: string | undefined): StoredConsent | null {
   if (!raw) return null;
@@ -19,14 +21,20 @@ export function parseConsent(raw: string | undefined): StoredConsent | null {
       at: String(value.at ?? ""),
       analytics: value.analytics === true,
       marketing: value.marketing === true,
+      ...(typeof value.id === "string" && UUID.test(value.id) ? { id: value.id } : {}),
     };
   } catch {
     return null;
   }
 }
 
-export function serializeConsent(choice: ConsentChoice, now = new Date()): string {
-  const value: StoredConsent = { v: CONSENT_VERSION, at: now.toISOString(), ...choice };
+export function serializeConsent(choice: ConsentChoice, now = new Date(), id?: string): string {
+  const value: StoredConsent = {
+    v: CONSENT_VERSION,
+    at: now.toISOString(),
+    ...choice,
+    ...(id ? { id } : {}),
+  };
   return `${CONSENT_COOKIE}=${encodeURIComponent(JSON.stringify(value))}; Path=/; Max-Age=${MAX_AGE_SECONDS}; SameSite=Lax`;
 }
 

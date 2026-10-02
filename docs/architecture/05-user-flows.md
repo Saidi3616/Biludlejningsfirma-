@@ -80,6 +80,8 @@ PHASE 2: selvbetjent ændring i /account.
 /account/privacy → download mine data (JSON/ZIP) · slet konto (anonymisering; bookinger bevares pga. bogføringsloven)
 ```
 
+Implementeret (M15): `/account/privacy` har samtykker (nyheder på e-mail og WhatsApp; loggen er kun-tilføj), download af data som JSON (dokumenter listes, men udleveres på anmodning) og slet konto med bekræftelse. Sletning blokeres som i F10. Cookie-valget logges i `Consent` under et tilfældigt id fra cookien, uden IP eller konto.
+
 ## E7. Kontakt og WhatsApp
 
 - **Mobil:** flydende WhatsApp-knap nederst til højre (skjules i betalingstrinnet, så den ikke dækker "Betal").

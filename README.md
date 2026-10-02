@@ -97,6 +97,7 @@ Forretningslogik hører til i `src/server`, aldrig i komponenter. Se [09-mappest
 ### Notifikationer
 
 - Beskeder skrives som `Notification`-rækker i samme transaktion som bookingens statusskift (`src/server/notifications/queue.ts`). Påmindelser får et `scheduledAt`, så der ikke er brug for et separat planlægnings-job.
+- `/api/cron/retention` sletter dokumenter efter deres retention-frist og rydder udløbne sessioner og login-links (GDPR). Den kræver `Authorization: Bearer $CRON_SECRET` og skal kaldes én gang i døgnet.
 - `/api/cron/notifications` sender beskeder, hvis tid er kommet. Den kræver `Authorization: Bearer $CRON_SECRET` og skal kaldes hvert minut. Fejl prøves igen efter 1, 5, 15 og 60 minutter; efter 5 forsøg markeres beskeden `FAILED`.
 - Tidspunkter for påmindelser og retry står i `src/config/notifications.ts`, teksterne i `messages/*.json` under `notifications`.
 - E-mail sendes altid. WhatsApp sendes kun, når `WHATSAPP_TOKEN` og `WHATSAPP_PHONE_NUMBER_ID` er sat, og kunden har et telefonnummer.
