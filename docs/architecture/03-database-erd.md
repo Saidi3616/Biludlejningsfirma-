@@ -210,6 +210,7 @@ erDiagram
     string currency
     string locale
     string manage_token_hash "gæsteadgang"
+    timestamptz settled_at "afregnet efter aflevering"
     timestamptz expires_at
     uuid discount_id FK
   }
@@ -249,13 +250,14 @@ erDiagram
     uuid id PK
     uuid booking_id FK
     uuid parent_payment_id FK "ved refund"
-    enum kind "CHARGE|DEPOSIT_HOLD|DEPOSIT_CAPTURE|REFUND|MANUAL"
+    enum kind "CHARGE|DEPOSIT_HOLD|DEPOSIT_CAPTURE|DEPOSIT_RETURN|REFUND|MANUAL"
     enum status "PENDING|REQUIRES_ACTION|SUCCEEDED|FAILED|CANCELLED"
     enum method "CARD|MOBILEPAY|APPLE_PAY|GOOGLE_PAY|CASH|BANK_TRANSFER"
     int amount_minor
     string currency
     string provider "stripe"
     string provider_ref UK "pi_..., re_..."
+    bool is_authorization "depositum som kort-reservation"
     string failure_code
     uuid recorded_by_user_id FK "manuel"
   }

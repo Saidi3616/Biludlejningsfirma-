@@ -10,7 +10,7 @@ import type { PaymentProvider, ProviderEvent } from "../types";
  */
 const secret = randomBytes(32).toString("hex");
 
-export type FakeOutcome = "succeeded" | "failed";
+export type FakeOutcome = "succeeded" | "authorized" | "failed";
 
 export const fakeProvider: PaymentProvider & {
   signedEvent(
@@ -30,6 +30,14 @@ export const fakeProvider: PaymentProvider & {
     const providerRef = `fake_pi_${createHmac("sha256", "fake").update(input.idempotencyKey).digest("hex").slice(0, 24)}`;
     return { providerRef, clientSecret: `${providerRef}_secret` };
   },
+
+  async createDeposit(input) {
+    return fakeProvider.createPayment(input);
+  },
+
+  async captureDeposit() {},
+
+  async releaseDeposit() {},
 
   async clientSecret(providerRef) {
     return `${providerRef}_secret`;
@@ -56,18 +64,18 @@ export const fakeProvider: PaymentProvider & {
   signedEvent(providerRef, outcome, amountMinor, currency) {
     const id = `fake_evt_${randomBytes(8).toString("hex")}`;
     const event: ProviderEvent =
-      outcome === "succeeded"
-        ? {
+      outcome === "failed"
+        ? { id, type: "payment.failed", providerRef, failureCode: "card_declined" }
+        : {
             id,
-            type: "payment.succeeded",
+            type: outcome === "authorized" ? "payment.authorized" : "payment.succeeded",
             providerRef,
             amountMinor,
             currency,
             method: "CARD",
             cardBrand: "visa",
             cardLast4: "4242",
-          }
-        : { id, type: "payment.failed", providerRef, failureCode: "card_declined" };
+          };
     const body = JSON.stringify(event);
     return { body, signature: sign(body) };
   },

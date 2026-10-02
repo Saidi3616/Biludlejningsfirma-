@@ -19,6 +19,7 @@ export const HANDOVER_NOTICES = [
   "odometerDown",
   "unpaid",
   "tooEarly",
+  "depositMissing",
   "conflict",
   "forbidden",
   "notFound",
@@ -76,6 +77,22 @@ export async function HandoverForm({
         <Alert tone="warning">{t(`${type}.notAllowed`)}</Alert>
       ) : (
         <>
+          {type === "pickup" && booking.depositStatus === "PENDING" ? (
+            <Alert tone="warning" title={t("pickup.depositTitle")}>
+              <span className="flex flex-col items-start gap-3">
+                <span>
+                  {t("pickup.deposit")}{" "}
+                  <Price amountMinor={booking.depositMinor} currency={booking.currency} />
+                </span>
+                <Button asChild variant="secondary" size="sm">
+                  <Link href={`/admin/bookings/${booking.reference}/deposit`}>
+                    {t("pickup.takeDeposit")}
+                  </Link>
+                </Button>
+              </span>
+            </Alert>
+          ) : null}
+
           {type === "pickup" && booking.balanceMinor > 0 ? (
             <Alert tone="warning" title={t("pickup.unpaidTitle")}>
               {t("pickup.unpaid")}{" "}

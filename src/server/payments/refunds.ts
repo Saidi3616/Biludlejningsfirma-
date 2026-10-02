@@ -47,8 +47,14 @@ export async function planRefunds(
     payments
       .filter((payment) => isRefund(payment) && payment.parentPaymentId === paymentId)
       .reduce((sum, payment) => sum + payment.amountMinor, 0);
-  const online = (payment: (typeof payments)[number]) =>
-    payment.kind === "CHARGE" && Boolean(payment.providerRef);
+  // Online betalinger refunderes hos udbyderen: en kortbetaling, eller en del af et depositum,
+  // der er trukket på kort (refunderes via depositummets betaling).
+  const chargeRef = (payment: (typeof payments)[number]) => {
+    if (payment.kind === "CHARGE") return payment.providerRef;
+    if (payment.kind !== "DEPOSIT_CAPTURE") return null;
+    return payments.find((hold) => hold.id === payment.parentPaymentId)?.providerRef ?? null;
+  };
+  const online = (payment: (typeof payments)[number]) => Boolean(chargeRef(payment));
   const sources = payments.filter(isReceived).sort((a, b) => Number(online(b)) - Number(online(a)));
 
   let remaining = amountMinor;
@@ -74,7 +80,7 @@ export async function planRefunds(
       select: { id: true },
     });
     if (viaProvider)
-      planned.push({ id: refund.id, chargeRef: source.providerRef!, amountMinor: amount });
+      planned.push({ id: refund.id, chargeRef: chargeRef(source)!, amountMinor: amount });
     remaining -= amount;
     if (remaining === 0) break;
   }

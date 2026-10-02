@@ -2,9 +2,18 @@ import type { PaymentKind, PaymentRecordStatus } from "@/generated/prisma/enums"
 
 type PaymentRow = { kind: PaymentKind; status: PaymentRecordStatus; amountMinor: number };
 
-/** Penge, kunden har betalt: kort/MobilePay online (CHARGE) eller ved skranken (MANUAL). */
+/**
+ * Penge, kunden har betalt: kort/MobilePay online (CHARGE), ved skranken (MANUAL) eller den del
+ * af depositummet, der er trukket til tillæg (DEPOSIT_CAPTURE). Et depositum, der kun er
+ * reserveret, er ikke betalt.
+ */
 export function isReceived(payment: Pick<PaymentRow, "kind" | "status">): boolean {
-  return (payment.kind === "CHARGE" || payment.kind === "MANUAL") && payment.status === "SUCCEEDED";
+  return (
+    (payment.kind === "CHARGE" ||
+      payment.kind === "MANUAL" ||
+      payment.kind === "DEPOSIT_CAPTURE") &&
+    payment.status === "SUCCEEDED"
+  );
 }
 
 /** Refusioner, der er gennemført eller sat i gang. */

@@ -28,6 +28,7 @@ function errorNotice(error: unknown): string {
     if (reason === "ODOMETER_DOWN") return "odometerDown";
     if (reason === "UNPAID") return "unpaid";
     if (reason === "TOO_EARLY") return "tooEarly";
+    if (reason === "DEPOSIT_MISSING") return "depositMissing";
     if (error.code === "VALIDATION_FAILED") return "invalid";
     if (error.code === "CONFLICT") return "conflict";
     if (error.code === "FORBIDDEN" || error.code === "UNAUTHENTICATED") return "forbidden";

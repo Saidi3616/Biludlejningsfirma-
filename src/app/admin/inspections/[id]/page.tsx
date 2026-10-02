@@ -109,6 +109,20 @@ export default async function InspectionPage({
         <Alert tone={SUCCESS.has(notice) ? "success" : "danger"}>{t(`notices.${notice}`)}</Alert>
       ) : null}
 
+      {isReturn && inspection.booking && inspection.booking.settledAt === null ? (
+        <Card>
+          <CardBody className="flex flex-col items-start gap-3">
+            <h2 className="font-semibold text-ink-900">{t("settleTitle")}</h2>
+            <p className="text-sm text-muted">{t("settleHint")}</p>
+            <Button asChild>
+              <Link href={`/admin/bookings/${inspection.booking.reference}/settle`}>
+                {t("settle")}
+              </Link>
+            </Button>
+          </CardBody>
+        </Card>
+      ) : null}
+
       <Card>
         <CardBody>
           <dl className="grid gap-x-6 gap-y-3 text-sm sm:grid-cols-2 lg:grid-cols-4">

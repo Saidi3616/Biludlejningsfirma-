@@ -32,6 +32,33 @@ export function stripeProvider(
       return { providerRef: intent.id, clientSecret: intent.client_secret! };
     },
 
+    async createDeposit(input) {
+      const intent = await stripe.paymentIntents.create(
+        {
+          amount: input.amountMinor,
+          currency: input.currency.toLowerCase(),
+          allowed_payment_method_types: ["card"],
+          capture_method: input.captureManually ? "manual" : "automatic",
+          description: input.description,
+          metadata: { bookingId: input.bookingId, reference: input.reference, deposit: "true" },
+        },
+        { idempotencyKey: input.idempotencyKey },
+      );
+      return { providerRef: intent.id, clientSecret: intent.client_secret! };
+    },
+
+    async captureDeposit(providerRef, amountMinor, idempotencyKey) {
+      await stripe.paymentIntents.capture(
+        providerRef,
+        { amount_to_capture: amountMinor },
+        { idempotencyKey },
+      );
+    },
+
+    async releaseDeposit(providerRef, idempotencyKey) {
+      await stripe.paymentIntents.cancel(providerRef, {}, { idempotencyKey });
+    },
+
     async clientSecret(providerRef) {
       const intent = await stripe.paymentIntents.retrieve(providerRef);
       const payable = ["requires_payment_method", "requires_confirmation", "requires_action"];
@@ -63,19 +90,26 @@ export function stripeProvider(
 async function toProviderEvent(stripe: Stripe, event: Stripe.Event): Promise<ProviderEvent> {
   if (event.type === "payment_intent.succeeded") {
     const intent = event.data.object;
-    const chargeId =
-      typeof intent.latest_charge === "string" ? intent.latest_charge : intent.latest_charge?.id;
-    const charge = chargeId ? await stripe.charges.retrieve(chargeId) : null;
-    const details = charge?.payment_method_details;
     return {
       id: event.id,
       type: "payment.succeeded",
       providerRef: intent.id,
       amountMinor: intent.amount_received,
       currency: intent.currency.toUpperCase(),
-      method: paymentMethod(details),
-      cardBrand: details?.card?.brand ?? null,
-      cardLast4: details?.card?.last4 ?? null,
+      ...(await chargeDetails(stripe, intent)),
+    };
+  }
+  // Et depositum er reserveret på kortet og venter på capture eller frigivelse.
+  if (event.type === "payment_intent.amount_capturable_updated") {
+    const intent = event.data.object;
+    if (intent.status !== "requires_capture") return { id: event.id, type: "ignored" };
+    return {
+      id: event.id,
+      type: "payment.authorized",
+      providerRef: intent.id,
+      amountMinor: intent.amount_capturable,
+      currency: intent.currency.toUpperCase(),
+      ...(await chargeDetails(stripe, intent)),
     };
   }
   if (event.type === "payment_intent.payment_failed") {
@@ -89,6 +123,19 @@ async function toProviderEvent(stripe: Stripe, event: Stripe.Event): Promise<Pro
     };
   }
   return { id: event.id, type: "ignored" };
+}
+
+/** Metode og kortets brand/sidste 4 cifre. Aldrig mere end det. */
+async function chargeDetails(stripe: Stripe, intent: Stripe.PaymentIntent) {
+  const chargeId =
+    typeof intent.latest_charge === "string" ? intent.latest_charge : intent.latest_charge?.id;
+  const charge = chargeId ? await stripe.charges.retrieve(chargeId) : null;
+  const details = charge?.payment_method_details;
+  return {
+    method: paymentMethod(details),
+    cardBrand: details?.card?.brand ?? null,
+    cardLast4: details?.card?.last4 ?? null,
+  };
 }
 
 function paymentMethod(

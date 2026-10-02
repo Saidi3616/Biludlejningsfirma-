@@ -6,7 +6,7 @@ import { ArrowLeft, Check, X } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { localizedPath } from "@/i18n/paths";
 import type { Locale } from "@/i18n/routing";
-import { rentalRules } from "@/config/rental";
+import { feeRates, rentalRules } from "@/config/rental";
 import { whatsappLink } from "@/config/site";
 import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
@@ -199,6 +199,19 @@ export default async function CarPage({
                 <li className="flex gap-2">
                   <X className="mt-0.5 size-5 shrink-0 text-ink-500" aria-hidden />
                   {t("car.fuel")}
+                </li>
+                <li className="flex gap-2">
+                  <X className="mt-0.5 size-5 shrink-0 text-ink-500" aria-hidden />
+                  {t("car.fuelFee", {
+                    price: formatMoney(feeRates.fuelPerEighthMinor, car.currency, locale),
+                  })}
+                </li>
+                <li className="flex gap-2">
+                  <X className="mt-0.5 size-5 shrink-0 text-ink-500" aria-hidden />
+                  {t("car.lateFee", {
+                    price: formatMoney(feeRates.latePerHourMinor, car.currency, locale),
+                    minutes: rentalRules.graceMinutes,
+                  })}
                 </li>
               </ul>
             </section>

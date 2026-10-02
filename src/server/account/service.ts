@@ -96,7 +96,7 @@ export async function customerPayments(userId: string) {
     where: {
       booking: { customer: { userId } },
       OR: [
-        { kind: { in: ["CHARGE", "MANUAL"] }, status: "SUCCEEDED" },
+        { kind: { in: ["CHARGE", "MANUAL", "DEPOSIT_CAPTURE"] }, status: "SUCCEEDED" },
         { kind: "REFUND", status: { in: ["PENDING", "SUCCEEDED"] } },
       ],
     },

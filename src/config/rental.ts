@@ -20,6 +20,20 @@ export const rentalRules = {
 } as const;
 
 /**
+ * Tillæg efter lejen (06-admin-flows.md F2, K14). Satserne vises før betaling under "Ikke
+ * inkluderet". Mangler fra virksomheden (14-manglende-info.md, punkt 18 og 41); værdierne er et
+ * forslag. Pris pr. ekstra km står på bilmodellen.
+ */
+export const feeRates = {
+  /** Pr. manglende ottendedel tank eller batteri i forhold til udleveringen. */
+  fuelPerEighthMinor: 10000,
+  /** Pr. påbegyndt time efter afleveringstiden plus `rentalRules.graceMinutes`. */
+  latePerHourMinor: 15000,
+  /** Højst så mange timers tillæg pr. døgn for sent; resten aftales med kunden. */
+  lateMaxHoursPerDay: 8,
+} as const;
+
+/**
  * Annulleringspolitik (05-user-flows.md, E4). Mangler fra virksomheden (14-manglende-info.md,
  * punkt 20); værdierne er et forslag. Kunden ser altid refusionsbeløbet, før annulleringen bekræftes.
  */

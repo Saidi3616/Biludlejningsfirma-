@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ArrowLeft, KeyRound, RotateCcw } from "lucide-react";
+import { ArrowLeft, KeyRound, Receipt, RotateCcw, Wallet } from "lucide-react";
 import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -53,6 +53,17 @@ async function load(reference: string) {
     throw error;
   }
 }
+
+const FEE_LABELS = [
+  "DELIVERY_FEE",
+  "ONE_WAY_FEE",
+  "DISCOUNT",
+  "FEE",
+  "EXTRA_KM",
+  "FUEL",
+  "LATE_FEE",
+  "DAMAGE",
+] as const;
 
 const NOTICES = [
   "cancelled",
@@ -186,8 +197,8 @@ export default async function AdminBookingPage({
     if (item.type === "RENTAL") return tRental("rental");
     if (item.type === "EXTRA")
       return item.quantity > 1 ? `${item.labelSnapshot} × ${item.quantity}` : item.labelSnapshot;
-    if (["DELIVERY_FEE", "ONE_WAY_FEE", "DISCOUNT", "FEE"].includes(item.type)) {
-      return tLines(item.type as "DELIVERY_FEE");
+    if (FEE_LABELS.includes(item.type as (typeof FEE_LABELS)[number])) {
+      return tLines(item.type as (typeof FEE_LABELS)[number]);
     }
     return item.labelSnapshot;
   };
@@ -227,12 +238,42 @@ export default async function AdminBookingPage({
             {t("handover.title")}
           </h2>
           {canInspect && handover ? (
-            <Button asChild className="self-start">
-              <Link href={`/admin/bookings/${booking.reference}/${handover}`}>
-                <KeyRound aria-hidden />
-                {t(`handover.${handover}`)}
-              </Link>
-            </Button>
+            <div className="flex flex-wrap gap-3">
+              {handover === "pickup" && canWrite && booking.depositStatus === "PENDING" ? (
+                <Button asChild variant="secondary">
+                  <Link href={`/admin/bookings/${booking.reference}/deposit`}>
+                    <Wallet aria-hidden />
+                    {t("handover.deposit")}
+                  </Link>
+                </Button>
+              ) : null}
+              <Button asChild>
+                <Link href={`/admin/bookings/${booking.reference}/${handover}`}>
+                  <KeyRound aria-hidden />
+                  {t(`handover.${handover}`)}
+                </Link>
+              </Button>
+            </div>
+          ) : null}
+          {booking.status === "COMPLETED" && canWrite ? (
+            booking.settledAt ? (
+              <p className="text-sm text-ink-900">
+                {t("handover.settled", { date: when(booking.settledAt) })}{" "}
+                <Link
+                  href={`/admin/bookings/${booking.reference}/settle`}
+                  className="font-medium text-brand-700 underline"
+                >
+                  {t("handover.showSettlement")}
+                </Link>
+              </p>
+            ) : (
+              <Button asChild className="self-start">
+                <Link href={`/admin/bookings/${booking.reference}/settle`}>
+                  <Receipt aria-hidden />
+                  {t("handover.settle")}
+                </Link>
+              </Button>
+            )
           ) : null}
           {inspections.length > 0 ? (
             <ul className="grid gap-3 sm:grid-cols-2">

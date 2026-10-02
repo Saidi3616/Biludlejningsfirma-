@@ -258,7 +258,8 @@
       "booking": "Réservation {reference}",
       "receipt": "Reçu",
       "emptyTitle": "Aucun paiement pour l'instant",
-      "emptyBody": "Vos paiements et reçus apparaîtront ici."
+      "emptyBody": "Vos paiements et reçus apparaîtront ici.",
+      "depositCapture": "Prélevé sur la caution"
     },
     "profile": {
       "title": "Profil",
@@ -327,7 +328,8 @@
         "gdpr:export": "Exporter les données client",
         "gdpr:anonymize": "Anonymiser des clients",
         "users:manage": "Gérer les employés et les rôles",
-        "settings:write": "Modifier les paramètres"
+        "settings:write": "Modifier les paramètres",
+        "damage:approveCost": "Approuver la responsabilité et les montants des dommages"
       },
       "location": "Agence",
       "allLocations": "Toutes les agences",
@@ -442,7 +444,8 @@
         "DEPOSIT_HOLD": "Caution bloquée",
         "DEPOSIT_CAPTURE": "Caution encaissée",
         "REFUND": "Remboursement",
-        "MANUAL": "Paiement manuel"
+        "MANUAL": "Paiement manuel",
+        "DEPOSIT_RETURN": "Caution restituée"
       },
       "paymentStatus": {
         "PENDING": "En attente",
@@ -615,7 +618,11 @@
           "PICKUP": "Remise",
           "RETURN": "Restitution"
         },
-        "summary": "{km, number} km · carburant {level}/8 · {photos, plural, one {# photo} other {# photos}} · {damages, plural, one {# dommage} other {# dommages}}"
+        "summary": "{km, number} km · carburant {level}/8 · {photos, plural, one {# photo} other {# photos}} · {damages, plural, one {# dommage} other {# dommages}}",
+        "deposit": "Prendre la caution",
+        "settle": "Clôturer",
+        "settled": "Clôturée le {date}.",
+        "showSettlement": "Voir la clôture"
       }
     },
     "customers": {
@@ -999,7 +1006,10 @@
         "unpaidTitle": "La réservation n'est pas payée",
         "unpaid": "Enregistrez le paiement sur la réservation avant la remise. Reste à payer :",
         "damagesHint": "Faites le tour de la voiture avec le client. Les nouveaux constats sont enregistrés comme dommages à la page suivante, avec photos.",
-        "submit": "Remettre la voiture"
+        "submit": "Remettre la voiture",
+        "depositTitle": "Caution manquante",
+        "deposit": "Prenez la caution avant de remettre la voiture :",
+        "takeDeposit": "Prendre la caution"
       },
       "return": {
         "title": "Réceptionner la voiture",
@@ -1021,7 +1031,8 @@
         "conflict": "La réservation a été modifiée entre-temps. Rechargez la page.",
         "forbidden": "Votre rôle n'a pas accès à cette action.",
         "notFound": "La réservation n'existe pas.",
-        "failed": "Une erreur s'est produite. Réessayez."
+        "failed": "Une erreur s'est produite. Réessayez.",
+        "depositMissing": "La caution manque. Prenez d'abord la caution."
       }
     },
     "damage": {
@@ -1096,19 +1107,90 @@
       "addDamagePhotos": "Photos du dommage",
       "markRepaired": "Marquer comme réparé",
       "addDamage": "Enregistrer un dommage",
-      "addDamageReturn": "Un nouveau dommage est lié à la réservation. La facturation au client viendra avec la caution (étape suivante).",
+      "addDamageReturn": "Un nouveau dommage est lié à la réservation. Un responsable approuve la responsabilité et le montant à la clôture.",
       "addDamagePickup": "Un dommage constaté à la remise appartient à la voiture et n'est pas facturé au client.",
       "area": "Zone",
       "severity": "Gravité",
       "liability": "Responsabilité",
-      "liabilityHint": "Un responsable peut la modifier plus tard.",
+      "liabilityHint": "Un responsable l'approuve à la clôture.",
       "estimatedCostLabel": "Coût estimé (facultatif)",
       "amountHint": "En couronnes, par ex. 1.500.",
       "description": "Description",
       "descriptionHint": "Par ex. « rayure de 10 cm sous la poignée de porte ».",
-      "saveDamage": "Enregistrer le dommage"
+      "saveDamage": "Enregistrer le dommage",
+      "settleTitle": "Étape suivante : clôture",
+      "settleHint": "Prenez d'abord les photos et enregistrez les nouveaux dommages. Clôturez ensuite les frais et la caution.",
+      "settle": "Aller à la clôture"
     },
-    "tableLabel": "Tableau : {name}"
+    "tableLabel": "Tableau : {name}",
+    "deposit": {
+      "title": "Caution",
+      "back": "Retour à {reference}",
+      "notices": {
+        "held": "La caution est enregistrée.",
+        "card": "La carte a été envoyée pour validation.",
+        "invalid": "Vérifiez les champs et réessayez.",
+        "conflict": "La caution ne peut pas être prise maintenant. Rechargez la page.",
+        "forbidden": "Votre rôle n'a pas accès à cette action.",
+        "failed": "Une erreur s'est produite. Réessayez."
+      },
+      "declined": "La carte a été refusée. Essayez une autre carte ou prenez la caution en espèces.",
+      "held": "La caution est en place. La voiture peut être remise.",
+      "toPickup": "Remettre la voiture",
+      "notDue": "La réservation n'a pas besoin de caution maintenant.",
+      "waiting": "En attente de l'émetteur de la carte. Rechargez la page dans un instant.",
+      "cardTitle": "Par carte",
+      "cardHold": "Le client saisit sa carte ici. Le montant est bloqué et n'est prélevé qu'en cas de frais au retour.",
+      "cardCharge": "La location dure plus longtemps qu'un blocage sur carte, donc le montant est prélevé maintenant et remboursé au retour.",
+      "unavailable": "Le paiement par carte n'est pas configuré. Prenez la caution en espèces ou sur le terminal.",
+      "cardSubmit": "Bloquer {price}",
+      "testBody": "Environnement de test : aucun argent réel n'est prélevé.",
+      "manualTitle": "Au comptoir",
+      "manualHint": "En espèces ou sur le terminal de paiement. L'argent est rendu à la clôture.",
+      "method": "Moyen de paiement",
+      "terminal": "Carte (terminal)",
+      "manualSubmit": "Enregistrer {price} reçus"
+    },
+    "settlement": {
+      "title": "Clôture",
+      "back": "Retour à {reference}",
+      "notices": {
+        "settled": "La réservation est clôturée.",
+        "invalid": "Vérifiez les montants et choisissez la responsabilité pour chaque dommage.",
+        "conflict": "La réservation ne peut pas être clôturée maintenant. Rechargez la page.",
+        "forbidden": "Votre rôle n'a pas accès à cette action.",
+        "provider": "L'émetteur de la carte a refusé la caution. Réessayez dans un instant.",
+        "failed": "Une erreur s'est produite. Réessayez."
+      },
+      "settledAt": "Clôturée le {date}.",
+      "captured": "Prélevé sur la caution",
+      "returned": "Caution rendue au client",
+      "balance": "Le client doit payer",
+      "cashBack": "Rendez {amount} en espèces au client.",
+      "owed": "Enregistrez le paiement sur la réservation une fois que le client a payé.",
+      "notReturned": "La réservation est clôturée après le retour de la voiture.",
+      "feesTitle": "Frais",
+      "feesHint": "La proposition est calculée à partir de la remise et du retour. Modifiez le montant si vous convenez d'autre chose avec le client ; saisissez 0 pour aucun frais.",
+      "extraKm": "Km supplémentaires (DKK)",
+      "extraKmHint": "{driven, number} km parcourus, dont {included, number} km inclus : {extra, number} km à {rate} DKK.",
+      "fuel": "Carburant (DKK)",
+      "fuelHint": "Remise à {pickup}/{max}, retour à {returned}/{max}. {rate} DKK par huitième.",
+      "late": "Retour tardif (DKK)",
+      "lateHint": "{minutes, plural, =0 {Retour à l'heure.} other {# minutes de retard.}} Après {grace} minutes : {hours, plural, one {# heure} other {# heures}} à {rate} DKK.",
+      "damagesTitle": "Nouveaux dommages",
+      "noDamages": "Aucun nouveau dommage pendant la location.",
+      "damagesHint": "Choisissez la responsabilité. Le montant n'est facturé que si le client est responsable.",
+      "needsManager": "Un responsable doit approuver la responsabilité et les montants des dommages. La caution est conservée jusque-là.",
+      "liability": "Responsabilité",
+      "chooseLiability": "Choisir la responsabilité",
+      "damageAmount": "Montant (DKK)",
+      "damageAmountHint": "Le montant approuvé que le client paie.",
+      "depositTitle": "Caution",
+      "depositHeld": "{amount} sont en caution. Les frais y sont prélevés et le reste est rendu au client.",
+      "noDeposit": "Il n'y a pas de caution. Le client doit payer les frais.",
+      "credit": "Le client a payé {amount} de trop ; c'est déduit des frais.",
+      "submit": "Clôturer la réservation"
+    }
   },
   "email": {
     "greeting": "Bonjour {name}",
@@ -1231,7 +1313,11 @@
       "ONE_WAY_FEE": "Retour dans un autre lieu",
       "DISCOUNT": "Remise",
       "EXTRA": "Options",
-      "FEE": "Frais"
+      "FEE": "Frais",
+      "EXTRA_KM": "Kilomètres supplémentaires",
+      "FUEL": "Carburant ou recharge",
+      "LATE_FEE": "Retour tardif",
+      "DAMAGE": "Dommage"
     },
     "totalLabel": "Total",
     "vatIncluded": "Dont TVA {price}",
@@ -1240,7 +1326,9 @@
     "whatsappPrefill": "Bonjour, je suis intéressé(e) par la {name}.",
     "whatsappPrefillPeriod": "Bonjour, je suis intéressé(e) par la {name} du {from} au {to}.",
     "locationsTitle": "Disponible à",
-    "rentalPeriod": "Durée"
+    "rentalPeriod": "Durée",
+    "fuelFee": "Carburant ou charge manquant : {price} par huitième de réservoir",
+    "lateFee": "Retour tardif : {price} par heure entamée après {minutes} minutes"
   },
   "pricing": {
     "title": "Tarifs",

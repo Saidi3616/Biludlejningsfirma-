@@ -3,7 +3,16 @@ import { Price } from "@/components/ui/price";
 import { formatDateTime, formatMoney } from "@/lib/format";
 import type { BookingSummary } from "@/server/booking/summary";
 
-const plainLabels = ["DELIVERY_FEE", "ONE_WAY_FEE", "DISCOUNT", "FEE"] as const;
+const plainLabels = [
+  "DELIVERY_FEE",
+  "ONE_WAY_FEE",
+  "DISCOUNT",
+  "FEE",
+  "EXTRA_KM",
+  "FUEL",
+  "LATE_FEE",
+  "DAMAGE",
+] as const;
 
 /** En oprettet bookings bil, periode og prislinjer, som de blev gemt ved bookingen. */
 export function BookingItems({ booking, locale }: { booking: BookingSummary; locale: string }) {

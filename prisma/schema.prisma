@@ -509,6 +509,8 @@ model Booking {
   discountId       String?       @db.Uuid
   /// Klientens Idempotency-Key: samme nøgle to gange giver den samme booking (07-api.md).
   idempotencyKey   String?       @unique @db.VarChar(100)
+  /// Afregnet efter aflevering: tillæg lagt på, depositum trukket eller frigivet.
+  settledAt        DateTime?     @db.Timestamptz
   createdAt        DateTime      @default(now()) @db.Timestamptz
   updatedAt        DateTime      @updatedAt @db.Timestamptz
 
@@ -589,6 +591,8 @@ enum PaymentKind {
   CHARGE
   DEPOSIT_HOLD
   DEPOSIT_CAPTURE
+  /// Den del af depositummet, kunden får tilbage (frigivet hold, refunderet eller kontant).
+  DEPOSIT_RETURN
   REFUND
   MANUAL
 }
@@ -624,6 +628,8 @@ model Payment {
   providerRef      String?             @unique
   cardBrand        String?
   cardLast4        String?             @db.Char(4)
+  /// Depositum som kort-reservation (manuel capture). false = beløbet er trukket (lange lejer, K6).
+  isAuthorization  Boolean             @default(false)
   failureCode      String?
   recordedByUserId String?             @db.Uuid
   createdAt        DateTime            @default(now()) @db.Timestamptz

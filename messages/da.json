@@ -258,7 +258,8 @@
       "booking": "Booking {reference}",
       "receipt": "Kvittering",
       "emptyTitle": "Ingen betalinger endnu",
-      "emptyBody": "Dine betalinger og kvitteringer vises her."
+      "emptyBody": "Dine betalinger og kvitteringer vises her.",
+      "depositCapture": "Trukket fra depositum"
     },
     "profile": {
       "title": "Profil",
@@ -327,7 +328,8 @@
         "gdpr:export": "Eksportere kundedata",
         "gdpr:anonymize": "Anonymisere kunder",
         "users:manage": "Administrere medarbejdere og roller",
-        "settings:write": "Ændre indstillinger"
+        "settings:write": "Ændre indstillinger",
+        "damage:approveCost": "Godkende ansvar og beløb for skader"
       },
       "location": "Lokation",
       "allLocations": "Alle lokationer",
@@ -442,7 +444,8 @@
         "DEPOSIT_HOLD": "Depositum reserveret",
         "DEPOSIT_CAPTURE": "Depositum trukket",
         "REFUND": "Refusion",
-        "MANUAL": "Manuel betaling"
+        "MANUAL": "Manuel betaling",
+        "DEPOSIT_RETURN": "Depositum tilbage"
       },
       "paymentStatus": {
         "PENDING": "Afventer",
@@ -615,7 +618,11 @@
           "PICKUP": "Udlevering",
           "RETURN": "Aflevering"
         },
-        "summary": "{km, number} km · brændstof {level}/8 · {photos, plural, one {# foto} other {# fotos}} · {damages, plural, one {# skade} other {# skader}}"
+        "summary": "{km, number} km · brændstof {level}/8 · {photos, plural, one {# foto} other {# fotos}} · {damages, plural, one {# skade} other {# skader}}",
+        "deposit": "Tag depositum",
+        "settle": "Afregn",
+        "settled": "Afregnet {date}.",
+        "showSettlement": "Se afregning"
       }
     },
     "customers": {
@@ -999,7 +1006,10 @@
         "unpaidTitle": "Bookingen er ikke betalt",
         "unpaid": "Registrér betalingen på bookingen før udlevering. Mangler:",
         "damagesHint": "Gå bilen rundt med kunden. Nye fund registreres som skader på næste side, sammen med fotos.",
-        "submit": "Udlevér bilen"
+        "submit": "Udlevér bilen",
+        "depositTitle": "Depositum mangler",
+        "deposit": "Tag depositum, før bilen udleveres:",
+        "takeDeposit": "Tag depositum"
       },
       "return": {
         "title": "Modtag bil",
@@ -1021,7 +1031,8 @@
         "conflict": "Bookingen er ændret i mellemtiden. Genindlæs siden.",
         "forbidden": "Din rolle har ikke adgang til den handling.",
         "notFound": "Bookingen findes ikke.",
-        "failed": "Noget gik galt. Prøv igen."
+        "failed": "Noget gik galt. Prøv igen.",
+        "depositMissing": "Depositum mangler. Tag depositum først."
       }
     },
     "damage": {
@@ -1096,19 +1107,90 @@
       "addDamagePhotos": "Fotos af skaden",
       "markRepaired": "Markér som udbedret",
       "addDamage": "Registrér skade",
-      "addDamageReturn": "En ny skade knyttes til bookingen. Opkrævning hos kunden kommer med depositum (næste trin).",
+      "addDamageReturn": "En ny skade knyttes til bookingen. En leder godkender ansvar og beløb ved afregningen.",
       "addDamagePickup": "En skade fundet ved udlevering er bilens egen og opkræves ikke hos kunden.",
       "area": "Område",
       "severity": "Omfang",
       "liability": "Ansvar",
-      "liabilityHint": "Kan ændres senere af en leder.",
+      "liabilityHint": "En leder godkender det ved afregningen.",
       "estimatedCostLabel": "Anslået pris (valgfri)",
       "amountHint": "I kroner, fx 1.500.",
       "description": "Beskrivelse",
       "descriptionHint": "Fx \"ridse på 10 cm under dørhåndtaget\".",
-      "saveDamage": "Registrér skade"
+      "saveDamage": "Registrér skade",
+      "settleTitle": "Næste: afregning",
+      "settleHint": "Tag fotos og registrér nye skader først. Afregn derefter tillæg og depositum.",
+      "settle": "Gå til afregning"
     },
-    "tableLabel": "Tabel: {name}"
+    "tableLabel": "Tabel: {name}",
+    "deposit": {
+      "title": "Depositum",
+      "back": "Tilbage til {reference}",
+      "notices": {
+        "held": "Depositummet er registreret.",
+        "card": "Kortet er sendt til godkendelse.",
+        "invalid": "Tjek felterne og prøv igen.",
+        "conflict": "Depositum kan ikke tages nu. Genindlæs siden.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "failed": "Noget gik galt. Prøv igen."
+      },
+      "declined": "Kortet blev afvist. Prøv et andet kort, eller tag depositum kontant.",
+      "held": "Depositummet er på plads. Bilen kan udleveres.",
+      "toPickup": "Udlevér bil",
+      "notDue": "Bookingen skal ikke have depositum nu.",
+      "waiting": "Venter på svar fra kortudbyderen. Genindlæs siden om lidt.",
+      "cardTitle": "Med kort",
+      "cardHold": "Kunden indtaster kortet her. Beløbet reserveres og trækkes ikke, medmindre der er tillæg ved afleveringen.",
+      "cardCharge": "Lejen er længere end en kort-reservation holder, så beløbet trækkes nu og betales tilbage ved afleveringen.",
+      "unavailable": "Kortbetaling er ikke sat op. Tag depositum kontant eller på terminalen.",
+      "cardSubmit": "Reservér {price}",
+      "testBody": "Testmiljø: der trækkes ingen rigtige penge.",
+      "manualTitle": "Ved skranken",
+      "manualHint": "Kontant eller på betalingsterminalen. Pengene betales tilbage ved afregningen.",
+      "method": "Betalingsmåde",
+      "terminal": "Kort (terminal)",
+      "manualSubmit": "Registrér {price} modtaget"
+    },
+    "settlement": {
+      "title": "Afregning",
+      "back": "Tilbage til {reference}",
+      "notices": {
+        "settled": "Bookingen er afregnet.",
+        "invalid": "Tjek beløbene, og vælg ansvar for alle skader.",
+        "conflict": "Bookingen kan ikke afregnes nu. Genindlæs siden.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "provider": "Kortudbyderen afviste depositummet. Prøv igen om lidt.",
+        "failed": "Noget gik galt. Prøv igen."
+      },
+      "settledAt": "Afregnet {date}.",
+      "captured": "Trukket fra depositum",
+      "returned": "Depositum tilbage til kunden",
+      "balance": "Kunden skal betale",
+      "cashBack": "Giv kunden {amount} tilbage kontant.",
+      "owed": "Registrér betalingen på bookingen, når kunden har betalt.",
+      "notReturned": "Bookingen afregnes, når bilen er afleveret.",
+      "feesTitle": "Tillæg",
+      "feesHint": "Forslaget er beregnet ud fra udlevering og aflevering. Ret beløbet, hvis I aftaler noget andet med kunden; skriv 0 for intet tillæg.",
+      "extraKm": "Ekstra km (kr.)",
+      "extraKmHint": "Kørt {driven, number} km, heraf {included, number} km inkluderet: {extra, number} km à {rate} kr.",
+      "fuel": "Brændstof (kr.)",
+      "fuelHint": "Udleveret med {pickup}/{max}, afleveret med {returned}/{max}. {rate} kr. pr. ottendedel.",
+      "late": "For sen aflevering (kr.)",
+      "lateHint": "{minutes, plural, =0 {Afleveret til tiden.} other {# minutter for sent.}} Efter {grace} minutter: {hours, plural, one {# time} other {# timer}} à {rate} kr.",
+      "damagesTitle": "Nye skader",
+      "noDamages": "Ingen nye skader fra lejen.",
+      "damagesHint": "Vælg ansvar. Beløbet opkræves kun, når kunden er ansvarlig.",
+      "needsManager": "En leder skal godkende ansvar og beløb for skaderne. Depositummet holdes indtil da.",
+      "liability": "Ansvar",
+      "chooseLiability": "Vælg ansvar",
+      "damageAmount": "Beløb (kr.)",
+      "damageAmountHint": "Det godkendte beløb, kunden betaler.",
+      "depositTitle": "Depositum",
+      "depositHeld": "{amount} er i depositum. Tillæggene trækkes herfra, og resten går tilbage til kunden.",
+      "noDeposit": "Der er intet depositum. Tillæg skal betales af kunden.",
+      "credit": "Kunden har betalt {amount} for meget; det modregnes i tillæggene.",
+      "submit": "Afregn booking"
+    }
   },
   "email": {
     "greeting": "Hej {name}",
@@ -1231,7 +1313,11 @@
       "ONE_WAY_FEE": "Aflevering et andet sted",
       "DISCOUNT": "Rabat",
       "EXTRA": "Ekstraudstyr",
-      "FEE": "Gebyr"
+      "FEE": "Gebyr",
+      "EXTRA_KM": "Ekstra kilometer",
+      "FUEL": "Brændstof eller strøm",
+      "LATE_FEE": "For sen aflevering",
+      "DAMAGE": "Skade"
     },
     "totalLabel": "I alt",
     "vatIncluded": "Heraf moms {price}",
@@ -1240,7 +1326,9 @@
     "whatsappPrefill": "Hej, jeg er interesseret i {name}.",
     "whatsappPrefillPeriod": "Hej, jeg er interesseret i {name} fra {from} til {to}.",
     "locationsTitle": "Kan hentes i",
-    "rentalPeriod": "Lejeperiode"
+    "rentalPeriod": "Lejeperiode",
+    "fuelFee": "Manglende brændstof eller strøm: {price} pr. ottendedel tank",
+    "lateFee": "For sen aflevering: {price} pr. påbegyndt time efter {minutes} minutter"
   },
   "pricing": {
     "title": "Priser",

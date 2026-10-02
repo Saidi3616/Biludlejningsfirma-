@@ -5,10 +5,12 @@ import { logger } from "@/lib/logger";
 import { applyTransition } from "@/server/booking/state";
 import { db } from "@/server/db";
 import { isCarUnavailableError, violatedConstraint } from "@/server/db-errors";
+import { applyDepositReceived } from "./deposits";
 import { paymentProvider } from "./provider";
 import type { ProviderEvent } from "./types";
 
 type SucceededEvent = Extract<ProviderEvent, { type: "payment.succeeded" }>;
+type AuthorizedEvent = Extract<ProviderEvent, { type: "payment.authorized" }>;
 type FailedEvent = Extract<ProviderEvent, { type: "payment.failed" }>;
 
 /** Bookingen kan ikke bekræftes (fx annulleret), så betalingen skal refunderes. */
@@ -112,6 +114,7 @@ export async function handlePaymentWebhook(
     return await db.$transaction(async (tx) => {
       if (!(await markProcessed(tx, event.id, provider.name))) return "duplicate";
       if (event.type === "payment.succeeded") return applySucceeded(tx, event);
+      if (event.type === "payment.authorized") return applyAuthorized(tx, event);
       if (event.type === "payment.failed") return applyFailed(tx, event);
       return "ignored";
     });
@@ -151,6 +154,8 @@ async function applySucceeded(
 ): Promise<WebhookResult> {
   const payment = await findPayment(tx, event.providerRef);
   if (!payment || payment.status === "SUCCEEDED") return "ignored";
+  // Et depositum, der trækkes (lange lejer): bookingen er allerede bekræftet og betalt.
+  if (payment.kind === "DEPOSIT_HOLD") return applyDepositReceived(tx, payment, event);
   const { booking } = payment;
   if (event.amountMinor !== payment.amountMinor) {
     logger.error(
@@ -199,6 +204,18 @@ async function applySucceeded(
   return "processed";
 }
 
+/** Kun depositum reserveres; en reservation på en anden betaling ignoreres. */
+async function applyAuthorized(
+  tx: Prisma.TransactionClient,
+  event: AuthorizedEvent,
+): Promise<WebhookResult> {
+  const payment = await findPayment(tx, event.providerRef);
+  if (!payment || payment.status === "SUCCEEDED" || payment.kind !== "DEPOSIT_HOLD") {
+    return "ignored";
+  }
+  return applyDepositReceived(tx, payment, event);
+}
+
 async function applyFailed(
   tx: Prisma.TransactionClient,
   event: FailedEvent,
@@ -209,8 +226,9 @@ async function applyFailed(
     where: { id: payment.id },
     data: { status: "FAILED", failureCode: event.failureCode },
   });
-  // Reservationen holdes til udløb, så kunden kan prøve igen.
-  if (payment.booking.paymentStatus === "UNPAID") {
+  // Reservationen holdes til udløb, så kunden kan prøve igen. Et afvist depositum ændrer ikke
+  // betalingen af lejen; kunden kan prøve et andet kort ved skranken.
+  if (payment.kind === "CHARGE" && payment.booking.paymentStatus === "UNPAID") {
     await tx.booking.update({
       where: { id: payment.bookingId },
       data: { paymentStatus: "FAILED" },
