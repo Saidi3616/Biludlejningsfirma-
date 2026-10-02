@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Menu } from "lucide-react";
+import { Menu, UserRound } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
@@ -39,6 +39,12 @@ export function MobileMenu() {
           </ul>
         </nav>
         <div className="flex flex-col gap-3">
+          <Button asChild variant="secondary" size="lg" fullWidth>
+            <Link href="/account" onClick={() => setOpen(false)}>
+              <UserRound className="size-5" aria-hidden />
+              {t("nav.account")}
+            </Link>
+          </Button>
           <Button asChild variant="whatsapp" size="lg" fullWidth>
             <a href={whatsappLink(t("whatsapp.prefill"))} target="_blank" rel="noopener noreferrer">
               <WhatsAppIcon />

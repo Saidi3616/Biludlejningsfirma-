@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Geist, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -8,14 +7,8 @@ import { SiteHeader } from "@/components/features/layout/site-header";
 import { SiteFooter } from "@/components/features/layout/site-footer";
 import { WhatsAppFloatingButton } from "@/components/features/layout/whatsapp-floating-button";
 import { CookieBanner } from "@/components/features/layout/cookie-banner";
+import { geistSans, plexArabic } from "../fonts";
 import "../globals.css";
-
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const plexArabic = IBM_Plex_Sans_Arabic({
-  variable: "--font-arabic",
-  subsets: ["arabic"],
-  weight: ["400", "500", "600", "700"],
-});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

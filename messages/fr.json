@@ -18,7 +18,8 @@
     "faq": "FAQ",
     "login": "Se connecter",
     "menu": "Menu",
-    "openMenu": "Ouvrir le menu"
+    "openMenu": "Ouvrir le menu",
+    "account": "Mon compte"
   },
   "language": {
     "label": "Langue",
@@ -94,5 +95,170 @@
     "title": "Page introuvable",
     "body": "La page a été déplacée ou n'existe pas encore.",
     "home": "Retour à l'accueil"
+  },
+  "auth": {
+    "fields": {
+      "name": "Nom complet",
+      "email": "E-mail",
+      "password": "Mot de passe",
+      "newPassword": "Nouveau mot de passe",
+      "code": "Code",
+      "backupCode": "Code de secours"
+    },
+    "passwordHint": "Au moins {min} caractères.",
+    "login": {
+      "title": "Se connecter",
+      "intro": "Connectez-vous pour voir vos réservations.",
+      "submit": "Se connecter",
+      "forgot": "Mot de passe oublié ?",
+      "noAccount": "Vous n'avez pas de compte ?",
+      "register": "Créer un compte",
+      "twoFactorTitle": "Confirmer avec un code",
+      "twoFactorIntro": "Saisissez le code à 6 chiffres de votre application d'authentification.",
+      "backupIntro": "Saisissez l'un de vos codes de secours.",
+      "verify": "Confirmer",
+      "useBackupCode": "Utiliser plutôt un code de secours",
+      "useAuthenticator": "Utiliser plutôt le code de l'application"
+    },
+    "register": {
+      "title": "Créer un compte",
+      "intro": "Avec un compte, vous pouvez voir et gérer vos réservations. Vous pouvez aussi réserver sans compte.",
+      "submit": "Créer un compte",
+      "haveAccount": "Vous avez déjà un compte ?",
+      "login": "Se connecter",
+      "sentTitle": "Vérifiez vos e-mails",
+      "sentBody": "Nous avons envoyé un lien à {email}. Cliquez sur le lien pour confirmer votre e-mail et activer votre compte."
+    },
+    "forgot": {
+      "title": "Mot de passe oublié",
+      "intro": "Saisissez votre e-mail et nous vous enverrons un lien pour choisir un nouveau mot de passe.",
+      "submit": "Envoyer le lien",
+      "sentTitle": "Vérifiez vos e-mails",
+      "sentBody": "S'il existe un compte pour {email}, nous avons envoyé un lien pour réinitialiser votre mot de passe. Le lien est valable 1 heure.",
+      "backToLogin": "Retour à la connexion"
+    },
+    "reset": {
+      "title": "Choisir un nouveau mot de passe",
+      "intro": "Choisissez un nouveau mot de passe. Vous serez déconnecté partout ailleurs.",
+      "submit": "Enregistrer",
+      "doneTitle": "Votre mot de passe a été modifié",
+      "doneBody": "Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.",
+      "login": "Se connecter",
+      "requestNew": "Demander un nouveau lien"
+    },
+    "verify": {
+      "successTitle": "Votre e-mail est confirmé",
+      "successBody": "Votre compte est actif et vous êtes connecté.",
+      "continue": "Aller à mon compte",
+      "errorTitle": "Ce lien ne fonctionne pas",
+      "errorBody": "Le lien a expiré ou a déjà été utilisé. Connectez-vous et nous enverrons un nouveau lien à votre e-mail.",
+      "login": "Se connecter"
+    },
+    "logout": "Se déconnecter",
+    "errors": {
+      "invalidCredentials": "E-mail ou mot de passe incorrect.",
+      "emailNotVerified": "Votre e-mail n'est pas encore confirmé. Nous avons envoyé un nouveau lien à votre e-mail.",
+      "rateLimited": "Trop de tentatives. Patientez un instant et réessayez.",
+      "accountDisabled": "Ce compte est désactivé. Contactez-nous s'il s'agit d'une erreur.",
+      "invalidCode": "Le code est incorrect ou a expiré.",
+      "invalidToken": "Le lien a expiré ou a déjà été utilisé.",
+      "passwordTooShort": "Le mot de passe doit contenir au moins {min} caractères.",
+      "nameRequired": "Saisissez votre nom.",
+      "emailInvalid": "Saisissez un e-mail valide.",
+      "required": "Remplissez ce champ.",
+      "generic": "Une erreur s'est produite. Réessayez."
+    }
+  },
+  "account": {
+    "title": "Mon compte",
+    "signedInAs": "Connecté en tant que {name} ({email})",
+    "comingSoon": "Vous verrez bientôt ici vos réservations, paiements et documents."
+  },
+  "admin": {
+    "title": "Administration",
+    "skipToContent": "Aller au contenu",
+    "signedInAs": "Connecté en tant que {email}",
+    "nav": {
+      "label": "Menu admin",
+      "dashboard": "Vue d'ensemble",
+      "security": "Sécurité"
+    },
+    "toSite": "Aller au site",
+    "roles": {
+      "CUSTOMER": "Client",
+      "STAFF": "Employé",
+      "MANAGER": "Responsable",
+      "SUPER_ADMIN": "Super administrateur"
+    },
+    "dashboard": {
+      "title": "Vue d'ensemble",
+      "intro": "Le panneau d'administration sera construit dans les prochaines étapes. Voici ce que votre rôle permet.",
+      "role": "Votre rôle : {role}",
+      "permissionsTitle": "Accès de votre rôle",
+      "permission": "Action",
+      "allowed": "Accès",
+      "yes": "Oui",
+      "no": "Non",
+      "permissions": {
+        "admin:access": "Ouvrir le panneau d'administration",
+        "booking:read": "Voir les réservations et le calendrier",
+        "customer:read": "Voir les clients",
+        "booking:write": "Créer et modifier des réservations",
+        "inspection:write": "Effectuer des inspections",
+        "damage:write": "Enregistrer des dommages",
+        "message:send": "Envoyer des messages aux clients",
+        "booking:requestCancel": "Demander une annulation",
+        "booking:cancel": "Annuler des réservations",
+        "payment:refund": "Rembourser des paiements",
+        "fleet:read": "Voir la flotte",
+        "fleet:setStatus": "Changer le statut d'une voiture",
+        "fleet:write": "Gérer les voitures et modèles",
+        "car:readPurchasePrice": "Voir le prix d'achat des voitures",
+        "catalog:write": "Prix, options, remises et agences",
+        "stats:read": "Voir les statistiques et le chiffre d'affaires",
+        "audit:read": "Voir le journal d'audit",
+        "gdpr:export": "Exporter les données client",
+        "gdpr:anonymize": "Anonymiser des clients",
+        "users:manage": "Gérer les employés et les rôles",
+        "settings:write": "Modifier les paramètres"
+      }
+    },
+    "security": {
+      "title": "Sécurité",
+      "required": "Votre rôle exige l'authentification à deux facteurs (2FA). Activez-la pour accéder au panneau d'administration.",
+      "enabled": "L'authentification à deux facteurs est activée.",
+      "disabledInfo": "L'authentification à deux facteurs n'est pas activée. Nous la recommandons à tous les employés.",
+      "step1": "Confirmez votre mot de passe pour commencer.",
+      "start": "Activer la 2FA",
+      "step2": "Scannez le QR code avec une application d'authentification (par exemple Google Authenticator ou 1Password) et saisissez le code à 6 chiffres.",
+      "manualKey": "Impossible de scanner ? Utilisez cette clé :",
+      "qrAlt": "QR code pour l'application d'authentification",
+      "confirm": "Confirmer et activer",
+      "backupTitle": "Enregistrez vos codes de secours",
+      "backupBody": "Chaque code fonctionne une fois si vous perdez votre téléphone. Conservez-les en lieu sûr. Ils ne sont affichés que maintenant.",
+      "done": "J'ai enregistré les codes"
+    }
+  },
+  "email": {
+    "greeting": "Bonjour {name}",
+    "signature": "Cordialement, {company}",
+    "verify": {
+      "subject": "Confirmez votre e-mail",
+      "body": "Merci pour votre inscription. Confirmez votre e-mail pour activer votre compte.",
+      "button": "Confirmer l'e-mail",
+      "note": "Le lien est valable 24 heures. Si vous n'avez pas créé de compte, ignorez cet e-mail."
+    },
+    "reset": {
+      "subject": "Réinitialisez votre mot de passe",
+      "body": "Nous avons reçu une demande de réinitialisation de votre mot de passe.",
+      "button": "Choisir un nouveau mot de passe",
+      "note": "Le lien est valable 1 heure. Si vous n'avez rien demandé, ignorez cet e-mail. Votre mot de passe n'a pas changé."
+    },
+    "existing": {
+      "subject": "Vous avez déjà un compte",
+      "body": "Quelqu'un a essayé de créer un compte avec votre e-mail. Vous avez déjà un compte, vous pouvez donc simplement vous connecter. Si vous avez oublié votre mot de passe, vous pouvez le réinitialiser sur la page de connexion.",
+      "button": "Se connecter",
+      "note": "Si ce n'était pas vous, ignorez cet e-mail. Votre compte n'a pas changé."
+    }
   }
 }

@@ -5,6 +5,7 @@ const port = 3100;
 // Kræver et produktionsbuild (`pnpm build`) før kørsel.
 export default defineConfig({
   testDir: "tests/e2e",
+  globalSetup: "./tests/e2e/global-setup.ts",
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
@@ -30,5 +31,7 @@ export default defineConfig({
     command: `pnpm start -p ${port}`,
     port,
     reuseExistingServer: !process.env.CI,
+    // Login-links og CSRF-tjek skal pege på testserverens adresse.
+    env: { ...(process.env as Record<string, string>), AUTH_URL: `http://localhost:${port}` },
   },
 });

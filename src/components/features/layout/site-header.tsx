@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { Car } from "lucide-react";
+import { Car, UserRound } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/layout";
@@ -39,6 +39,12 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
           <LanguageSwitcher className="hidden lg:inline-flex" />
+          <Button asChild variant="ghost" size="sm" className="hidden lg:inline-flex">
+            <Link href="/account">
+              <UserRound className="size-4" aria-hidden />
+              {t("nav.account")}
+            </Link>
+          </Button>
           <Button asChild variant="whatsapp" size="sm" className="hidden lg:inline-flex">
             <a href={whatsappLink(t("whatsapp.prefill"))} target="_blank" rel="noopener noreferrer">
               <WhatsAppIcon />

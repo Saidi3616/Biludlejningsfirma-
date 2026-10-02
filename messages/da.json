@@ -18,7 +18,8 @@
     "faq": "FAQ",
     "login": "Log ind",
     "menu": "Menu",
-    "openMenu": "Åbn menu"
+    "openMenu": "Åbn menu",
+    "account": "Min konto"
   },
   "language": {
     "label": "Sprog",
@@ -94,5 +95,170 @@
     "title": "Siden findes ikke",
     "body": "Siden er flyttet eller findes ikke endnu.",
     "home": "Til forsiden"
+  },
+  "auth": {
+    "fields": {
+      "name": "Fulde navn",
+      "email": "E-mail",
+      "password": "Password",
+      "newPassword": "Nyt password",
+      "code": "Kode",
+      "backupCode": "Backupkode"
+    },
+    "passwordHint": "Mindst {min} tegn.",
+    "login": {
+      "title": "Log ind",
+      "intro": "Log ind for at se dine bookinger.",
+      "submit": "Log ind",
+      "forgot": "Glemt password?",
+      "noAccount": "Har du ikke en konto?",
+      "register": "Opret konto",
+      "twoFactorTitle": "Bekræft med kode",
+      "twoFactorIntro": "Skriv den 6-cifrede kode fra din godkendelses-app.",
+      "backupIntro": "Skriv en af dine backupkoder.",
+      "verify": "Bekræft",
+      "useBackupCode": "Brug en backupkode i stedet",
+      "useAuthenticator": "Brug kode fra app i stedet"
+    },
+    "register": {
+      "title": "Opret konto",
+      "intro": "Med en konto kan du se og administrere dine bookinger. Du kan også booke uden konto.",
+      "submit": "Opret konto",
+      "haveAccount": "Har du allerede en konto?",
+      "login": "Log ind",
+      "sentTitle": "Tjek din e-mail",
+      "sentBody": "Vi har sendt et link til {email}. Klik på linket for at bekræfte din e-mail og aktivere kontoen."
+    },
+    "forgot": {
+      "title": "Glemt password",
+      "intro": "Skriv din e-mail, så sender vi et link til at vælge et nyt password.",
+      "submit": "Send link",
+      "sentTitle": "Tjek din e-mail",
+      "sentBody": "Hvis der findes en konto med {email}, har vi sendt et link til at nulstille dit password. Linket virker i 1 time.",
+      "backToLogin": "Tilbage til log ind"
+    },
+    "reset": {
+      "title": "Vælg nyt password",
+      "intro": "Vælg et nyt password til din konto. Du bliver logget ud alle andre steder.",
+      "submit": "Gem password",
+      "doneTitle": "Dit password er ændret",
+      "doneBody": "Du kan nu logge ind med dit nye password.",
+      "login": "Log ind",
+      "requestNew": "Bed om et nyt link"
+    },
+    "verify": {
+      "successTitle": "Din e-mail er bekræftet",
+      "successBody": "Din konto er aktiv, og du er logget ind.",
+      "continue": "Gå til min konto",
+      "errorTitle": "Linket virker ikke",
+      "errorBody": "Linket er udløbet eller allerede brugt. Log ind, så sender vi et nyt link til din e-mail.",
+      "login": "Log ind"
+    },
+    "logout": "Log ud",
+    "errors": {
+      "invalidCredentials": "Forkert e-mail eller password.",
+      "emailNotVerified": "Din e-mail er ikke bekræftet endnu. Vi har sendt et nyt link til din e-mail.",
+      "rateLimited": "For mange forsøg. Vent et øjeblik, og prøv igen.",
+      "accountDisabled": "Kontoen er deaktiveret. Kontakt os, hvis det er en fejl.",
+      "invalidCode": "Koden er forkert eller udløbet.",
+      "invalidToken": "Linket er udløbet eller allerede brugt.",
+      "passwordTooShort": "Password skal være mindst {min} tegn.",
+      "nameRequired": "Skriv dit navn.",
+      "emailInvalid": "Skriv en gyldig e-mail.",
+      "required": "Udfyld feltet.",
+      "generic": "Noget gik galt. Prøv igen."
+    }
+  },
+  "account": {
+    "title": "Min konto",
+    "signedInAs": "Logget ind som {name} ({email})",
+    "comingSoon": "Her kan du snart se dine bookinger, betalinger og dokumenter."
+  },
+  "admin": {
+    "title": "Administration",
+    "skipToContent": "Gå til indhold",
+    "signedInAs": "Logget ind som {email}",
+    "nav": {
+      "label": "Adminmenu",
+      "dashboard": "Overblik",
+      "security": "Sikkerhed"
+    },
+    "toSite": "Til hjemmesiden",
+    "roles": {
+      "CUSTOMER": "Kunde",
+      "STAFF": "Medarbejder",
+      "MANAGER": "Leder",
+      "SUPER_ADMIN": "Superadministrator"
+    },
+    "dashboard": {
+      "title": "Overblik",
+      "intro": "Adminpanelet bygges i de næste milestones. Her kan du se, hvad din rolle giver adgang til.",
+      "role": "Din rolle: {role}",
+      "permissionsTitle": "Adgang for din rolle",
+      "permission": "Handling",
+      "allowed": "Adgang",
+      "yes": "Ja",
+      "no": "Nej",
+      "permissions": {
+        "admin:access": "Åbne adminpanelet",
+        "booking:read": "Se bookinger og kalender",
+        "customer:read": "Se kunder",
+        "booking:write": "Oprette og ændre bookinger",
+        "inspection:write": "Udføre inspektioner",
+        "damage:write": "Registrere skader",
+        "message:send": "Sende beskeder til kunder",
+        "booking:requestCancel": "Anmode om annullering",
+        "booking:cancel": "Annullere bookinger",
+        "payment:refund": "Refundere betalinger",
+        "fleet:read": "Se flåden",
+        "fleet:setStatus": "Ændre en bils status",
+        "fleet:write": "Administrere biler og modeller",
+        "car:readPurchasePrice": "Se købspris på biler",
+        "catalog:write": "Priser, ekstraudstyr, rabatter og lokationer",
+        "stats:read": "Se statistik og omsætning",
+        "audit:read": "Se audit-log",
+        "gdpr:export": "Eksportere kundedata",
+        "gdpr:anonymize": "Anonymisere kunder",
+        "users:manage": "Administrere medarbejdere og roller",
+        "settings:write": "Ændre indstillinger"
+      }
+    },
+    "security": {
+      "title": "Sikkerhed",
+      "required": "Din rolle kræver totrinsbekræftelse (2FA). Slå det til for at få adgang til adminpanelet.",
+      "enabled": "Totrinsbekræftelse er slået til.",
+      "disabledInfo": "Totrinsbekræftelse er ikke slået til. Vi anbefaler det til alle medarbejdere.",
+      "step1": "Bekræft dit password for at starte.",
+      "start": "Slå 2FA til",
+      "step2": "Scan QR-koden med en godkendelses-app (fx Google Authenticator eller 1Password), og skriv den 6-cifrede kode.",
+      "manualKey": "Kan du ikke scanne? Brug denne nøgle:",
+      "qrAlt": "QR-kode til godkendelses-app",
+      "confirm": "Bekræft og slå til",
+      "backupTitle": "Gem dine backupkoder",
+      "backupBody": "Hver kode kan bruges én gang, hvis du mister din telefon. Gem dem et sikkert sted. De vises kun nu.",
+      "done": "Jeg har gemt koderne"
+    }
+  },
+  "email": {
+    "greeting": "Hej {name}",
+    "signature": "Venlig hilsen {company}",
+    "verify": {
+      "subject": "Bekræft din e-mail",
+      "body": "Tak for din tilmelding. Bekræft din e-mail for at aktivere din konto.",
+      "button": "Bekræft e-mail",
+      "note": "Linket virker i 24 timer. Har du ikke oprettet en konto, kan du se bort fra denne e-mail."
+    },
+    "reset": {
+      "subject": "Nulstil dit password",
+      "body": "Vi har modtaget en anmodning om at nulstille dit password.",
+      "button": "Vælg nyt password",
+      "note": "Linket virker i 1 time. Har du ikke bedt om det, kan du se bort fra denne e-mail. Dit password er uændret."
+    },
+    "existing": {
+      "subject": "Du har allerede en konto",
+      "body": "Nogen forsøgte at oprette en konto med din e-mail. Du har allerede en konto, så du kan bare logge ind. Har du glemt dit password, kan du nulstille det på login-siden.",
+      "button": "Log ind",
+      "note": "Var det ikke dig, kan du se bort fra denne e-mail. Din konto er uændret."
+    }
   }
 }

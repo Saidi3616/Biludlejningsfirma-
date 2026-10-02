@@ -13,6 +13,8 @@ export const REDACTED_KEYS = [
   "authorization",
   "cookie",
   "secret",
+  "backupCodes",
+  "totpURI",
   "cardNumber",
   "cvc",
   "licenseNumber",
