@@ -4,6 +4,8 @@ test("cookie-banner: valg gemmes og kan ændres igen", async ({ page, context })
   await page.goto("/");
   const banner = page.getByRole("dialog", { name: "Vi bruger cookies" });
   await expect(banner).toBeVisible();
+  // Banneret ligger i server-HTML'en; knapperne virker, når siden er hydreret.
+  await expect(banner).not.toHaveAttribute("data-consent-pending");
 
   await banner.getByRole("button", { name: "Kun nødvendige" }).click();
   await expect(banner).toBeHidden();
@@ -29,4 +31,18 @@ test("cookie-banner: valg gemmes og kan ændres igen", async ({ page, context })
     analytics: true,
     marketing: false,
   });
+});
+
+test("cookie-banner blinker ikke for besøgende, der allerede har valgt", async ({
+  page,
+  context,
+  baseURL,
+}) => {
+  const consent = { v: 1, at: new Date().toISOString(), analytics: false, marketing: false };
+  await context.addCookies([
+    { name: "consent", value: encodeURIComponent(JSON.stringify(consent)), url: baseURL! },
+  ]);
+  await page.goto("/", { waitUntil: "commit" });
+  await expect(page.locator("html")).toHaveClass(/has-consent/);
+  await expect(page.getByRole("dialog", { name: "Vi bruger cookies" })).toBeHidden();
 });

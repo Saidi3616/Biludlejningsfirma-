@@ -62,7 +62,60 @@
   },
   "home": {
     "title": "Find your car. Book in minutes.",
-    "subtitle": "The platform is under development."
+    "subtitle": "Choose a place and time, see the full price straight away, and pick up a car that is ready to go.",
+    "searchTitle": "Search for available cars",
+    "popular": {
+      "title": "Popular cars",
+      "description": "Our customers' favourites right now.",
+      "all": "See all cars"
+    },
+    "why": {
+      "title": "Why customers rent with us",
+      "items": [
+        {
+          "title": "No hidden fees",
+          "body": "You see the full price before you book. VAT and mandatory insurance are always included."
+        },
+        {
+          "title": "Newer cars",
+          "body": "Well-kept cars, checked and cleaned before every rental."
+        },
+        {
+          "title": "Quick pickup",
+          "body": "The car is ready when you arrive. Picking it up takes just a few minutes."
+        },
+        {
+          "title": "Help when you need it",
+          "body": "Message us on WhatsApp or call if anything comes up."
+        }
+      ]
+    },
+    "how": {
+      "title": "How to rent a car",
+      "steps": [
+        {
+          "title": "Choose car and dates",
+          "body": "Search by place and dates and see available cars with the total price."
+        },
+        {
+          "title": "Book and pay online",
+          "body": "Add extras and pay by card, MobilePay, Apple Pay or Google Pay."
+        },
+        {
+          "title": "Pick up the car",
+          "body": "Show your driving licence at pickup and you are ready to drive."
+        }
+      ]
+    },
+    "reviews": {
+      "title": "What customers say",
+      "average": "{average} out of 5 · {count, plural, one {# review} other {# reviews}}"
+    },
+    "whatsappCta": {
+      "title": "Any questions?",
+      "body": "Message us on WhatsApp. We usually reply within opening hours.",
+      "button": "Message on WhatsApp"
+    }
   },
   "status": {
     "booking": {
@@ -260,5 +313,340 @@
       "button": "Log in",
       "note": "If this was not you, you can ignore this email. Your account has not changed."
     }
+  },
+  "search": {
+    "pickupLocation": "Pickup",
+    "returnLocation": "Return",
+    "sameAsPickup": "Same as pickup",
+    "chooseLocation": "Choose location",
+    "pickupDate": "Pickup date",
+    "pickupTime": "Time",
+    "returnDate": "Return date",
+    "returnTime": "Time",
+    "submit": "Find cars",
+    "update": "Update search"
+  },
+  "cars": {
+    "title": "Cars",
+    "description": "See all our cars. Choose a place and dates to see what is available and what it costs.",
+    "searchTitle": "Available cars",
+    "filters": "Filters",
+    "category": "Category",
+    "transmission": "Transmission",
+    "fuel": "Fuel",
+    "seats": "Seats",
+    "seatsMin": "At least {count}",
+    "any": "Any",
+    "apply": "Show cars",
+    "reset": "Reset filters",
+    "sort": "Sort",
+    "sortOptions": {
+      "recommended": "Recommended",
+      "price_asc": "Price, lowest first",
+      "price_desc": "Price, highest first",
+      "popular": "Most popular",
+      "newest": "Newest"
+    },
+    "results": "{count, plural, one {# car} other {# cars}}",
+    "period": "{from} – {to} · {days, plural, one {# day} other {# days}}",
+    "fromPerDay": "from {price}",
+    "perDay": "per day",
+    "total": "{price} total",
+    "details": "View car",
+    "searchHint": "Choose a place and dates to see available cars and the total price.",
+    "empty": {
+      "title": "No cars match",
+      "body": "Try other dates, another location or fewer filters."
+    },
+    "errors": {
+      "OUTSIDE_OPENING_HOURS": "The location is closed at the selected time. Choose a time within opening hours.",
+      "TOO_SOON": "Pickup is too soon. Book at least {hours, plural, one {# hour} other {# hours}} ahead.",
+      "VALIDATION_FAILED": "Check the dates. Return must be after pickup, and a rental can last at most {days} days.",
+      "generic": "We could not search right now. Please try again shortly."
+    },
+    "specs": {
+      "seats": "{count} seats",
+      "bags": "{count, plural, one {# suitcase} other {# suitcases}}",
+      "doors": "{count} doors",
+      "airConditioning": "Air conditioning",
+      "year": "Model year {year}"
+    },
+    "transmissionNames": {
+      "MANUAL": "Manual",
+      "AUTOMATIC": "Automatic"
+    },
+    "fuelNames": {
+      "PETROL": "Petrol",
+      "DIESEL": "Diesel",
+      "HYBRID": "Hybrid",
+      "ELECTRIC": "Electric"
+    },
+    "imagePlaceholder": "{name}, side view, light background"
+  },
+  "car": {
+    "back": "All cars",
+    "specsTitle": "Specifications",
+    "pricesTitle": "Prices",
+    "pricesIntro": "The longer you rent, the lower the daily price. The price never exceeds the next package.",
+    "days": "{count, plural, one {# day} other {# days}}",
+    "package": "Package price",
+    "perDay": "Per day",
+    "includedTitle": "Included",
+    "includedKm": "{km} km per day",
+    "insurance": "Mandatory third-party and collision insurance",
+    "vat": "VAT",
+    "notIncludedTitle": "Not included",
+    "extraKm": "Extra kilometres: {price} per km",
+    "fuel": "Fuel or charging. Return the car with the same level as at pickup.",
+    "deposit": "Deposit: {price}",
+    "depositNote": "The deposit is reserved on your card at pickup and released when the car is returned undamaged. For rentals over {days} days the amount is charged and refunded.",
+    "availabilityTitle": "Check availability and price",
+    "availabilityHint": "Choose a place and dates to see if the car is available and what it costs in total.",
+    "available": "Available for these dates",
+    "unavailable": "The car is not available for the selected dates.",
+    "nextAvailable": "Available from:",
+    "alternatives": "Other cars available for these dates",
+    "priceSummary": "Price summary",
+    "lines": {
+      "RENTAL": "Rental, {days, plural, one {# day} other {# days}}",
+      "DELIVERY_FEE": "Delivery",
+      "ONE_WAY_FEE": "Return at another location",
+      "DISCOUNT": "Discount",
+      "EXTRA": "Extras",
+      "FEE": "Fee"
+    },
+    "totalLabel": "Total",
+    "vatIncluded": "Including VAT {price}",
+    "book": "Book this car",
+    "askWhatsapp": "Ask about this car on WhatsApp",
+    "whatsappPrefill": "Hi, I am interested in the {name}.",
+    "whatsappPrefillPeriod": "Hi, I am interested in the {name} from {from} to {to}.",
+    "locationsTitle": "Available at",
+    "rentalPeriod": "Rental period"
+  },
+  "pricing": {
+    "title": "Pricing",
+    "description": "All prices are in Danish kroner including VAT and mandatory insurance.",
+    "ladderTitle": "Prices by category",
+    "ladderNote": "If you rent for a number of days between two packages, you pay the daily price of the smaller package, but never more than the larger package.",
+    "days": "{count, plural, one {# day} other {# days}}",
+    "package": "Package price",
+    "perDay": "Per day",
+    "extrasTitle": "Extras",
+    "extraPerDay": "{price} per day",
+    "extraPerBooking": "{price} per rental",
+    "extraMax": "max. {price}",
+    "feesTitle": "Delivery and one-way rentals",
+    "oneWay": "Return at {location}: {price}",
+    "delivery": "Delivery from {location}, up to {km} km: {price}",
+    "noFees": "There are no fees for delivery or one-way rentals.",
+    "cta": "Find an available car"
+  },
+  "locations": {
+    "title": "Locations",
+    "description": "Where you can pick up and return our cars.",
+    "openingHours": "Opening hours",
+    "closed": "Closed",
+    "address": "Address",
+    "showMap": "Show on map",
+    "delivery": "We can deliver the car to your address.",
+    "types": {
+      "OFFICE": "Office",
+      "AIRPORT": "Airport",
+      "PARTNER": "Partner"
+    },
+    "findCars": "Find cars in {name}",
+    "contact": "Contact"
+  },
+  "about": {
+    "title": "About us",
+    "description": "We make renting a car easy and safe.",
+    "sections": [
+      {
+        "title": "Who we are",
+        "body": "We are a local car rental company focused on well-kept cars, clear prices and personal service."
+      },
+      {
+        "title": "Our promise",
+        "body": "You always see the full price before you book. No surprises at the counter."
+      },
+      {
+        "title": "Get in touch",
+        "body": "If you have questions, message us on WhatsApp, send an email or call."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "description": "Answers to what customers ask most often.",
+    "items": [
+      {
+        "q": "What do I need to bring when I pick up the car?",
+        "a": "A valid driving licence, a payment card in the renter's name for the deposit and your booking confirmation."
+      },
+      {
+        "q": "How does the deposit work?",
+        "a": "The amount is reserved on your card at pickup and released when the car is returned undamaged. For long rentals the amount is charged and refunded after return."
+      },
+      {
+        "q": "Is insurance included?",
+        "a": "Yes. Mandatory third-party and collision insurance are always included. The excess is stated in the rental terms."
+      },
+      {
+        "q": "How many kilometres can I drive?",
+        "a": "Each car includes a number of kilometres per day. The price for extra kilometres is shown on the car's page."
+      },
+      {
+        "q": "What about fuel?",
+        "a": "The car is handed over with a certain level of fuel or charge and must be returned with the same level."
+      },
+      {
+        "q": "Can I cancel?",
+        "a": "Yes. The cancellation rules are in the rental terms and your booking confirmation."
+      },
+      {
+        "q": "Can the car be delivered to my address?",
+        "a": "From some locations we can deliver the car. The price depends on the distance and is shown before you pay."
+      },
+      {
+        "q": "Can I return the car at another location?",
+        "a": "Yes, between our locations. The fee is shown in the price summary before you book."
+      }
+    ]
+  },
+  "legal": {
+    "draftNotice": "Draft: this text must be reviewed and approved by the company before the site goes live."
+  },
+  "terms": {
+    "title": "Rental terms",
+    "description": "The terms for renting a car from us.",
+    "sections": [
+      {
+        "title": "Renter and driving licence",
+        "body": "The renter must hold a valid driving licence. Requirements for age and how long you have held a licence are shown when booking."
+      },
+      {
+        "title": "Booking and payment",
+        "body": "The booking is binding once payment is completed. The price covers rental, chosen extras and fees as shown when booking."
+      },
+      {
+        "title": "Deposit",
+        "body": "A deposit is reserved on the renter's payment card at pickup. It is released when the car is returned in the same condition."
+      },
+      {
+        "title": "Kilometres and fuel",
+        "body": "The included kilometres are shown on the car's page. Extra kilometres are charged at the stated rate. Return the car with the same fuel or charge level as at pickup."
+      },
+      {
+        "title": "Insurance and excess",
+        "body": "The car is covered by mandatory third-party and collision insurance. In case of damage, the renter pays the excess."
+      },
+      {
+        "title": "Cancellation",
+        "body": "Cancel via the link in your booking confirmation or in your account. Refund rules are shown when booking."
+      },
+      {
+        "title": "Damage and accidents",
+        "body": "Report damage and accidents to us immediately. The car is inspected at pickup and return."
+      },
+      {
+        "title": "Return",
+        "body": "Return the car at the agreed place and time. If you are later than the grace period, an extra day is charged."
+      }
+    ]
+  },
+  "privacy": {
+    "title": "Privacy policy",
+    "description": "How we process your personal data.",
+    "sections": [
+      {
+        "title": "Data controller",
+        "body": "The car rental company is the data controller for the information you give us. You can contact us via the contact page."
+      },
+      {
+        "title": "What we process",
+        "body": "Name, contact details, driving licence details, bookings, payments and messages to us."
+      },
+      {
+        "title": "Purpose",
+        "body": "We use the data to carry out the rental agreement, meet legal requirements (such as bookkeeping) and answer your enquiries."
+      },
+      {
+        "title": "Payment",
+        "body": "Payments are handled by our payment provider. We never store your card details."
+      },
+      {
+        "title": "Retention",
+        "body": "We keep the data as long as needed for the purpose or required by law, and delete it afterwards."
+      },
+      {
+        "title": "Your rights",
+        "body": "You have the right of access, rectification, erasure, restriction and data portability. You can also object to the processing."
+      },
+      {
+        "title": "Complaints",
+        "body": "You can complain to the Danish Data Protection Agency if you are unhappy with how we process your data."
+      }
+    ]
+  },
+  "cookiePolicy": {
+    "title": "Cookie policy",
+    "description": "Which cookies we use and how to change your consent.",
+    "sections": [
+      {
+        "title": "Necessary cookies",
+        "body": "Used for login, language, security and remembering your cookie choice. They cannot be turned off."
+      },
+      {
+        "title": "Statistics",
+        "body": "Helps us understand how the site is used. Only set if you say yes."
+      },
+      {
+        "title": "Marketing",
+        "body": "Used to measure ads. Only set if you say yes."
+      }
+    ],
+    "change": "You can change your choice at any time:"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Write, call or drop by. We are happy to help.",
+    "phone": "Phone",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "formTitle": "Send us a message",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "subject": "Subject (optional)",
+      "message": "Message",
+      "website": "Leave this field empty",
+      "privacy": "We only use your details to reply to you.",
+      "submit": "Send message",
+      "success": "Thank you for your message. We will get back to you as soon as possible.",
+      "errors": {
+        "fields": "Check the highlighted fields.",
+        "rateLimited": "You have sent many messages. Please try again later.",
+        "generic": "The message could not be sent. Try again or message us on WhatsApp."
+      },
+      "fieldErrors": {
+        "name": "Enter your name.",
+        "email": "Enter a valid email address.",
+        "phone": "Enter a valid phone number.",
+        "message": "Write at least 10 characters."
+      }
+    }
+  },
+  "reviews": {
+    "title": "Reviews",
+    "description": "Reviews from customers who rented a car from us.",
+    "empty": "There are no reviews yet.",
+    "rating": "{rating} out of 5 stars"
+  },
+  "booking": {
+    "title": "Booking",
+    "comingSoon": "Online booking and payment open soon. Until then, we are happy to help you on WhatsApp.",
+    "whatsapp": "Book via WhatsApp"
   }
 }

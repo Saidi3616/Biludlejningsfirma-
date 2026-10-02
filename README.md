@@ -76,6 +76,14 @@ Forretningslogik hører til i `src/server`, aldrig i komponenter. Se [09-mappest
 - Statusskift går altid gennem `transitionBooking()` i `src/server/booking/state.ts`, som også logger skiftet.
 - `/api/cron/expire-reservations` frigiver ubetalte reservationer. Den kræver `Authorization: Bearer $CRON_SECRET` og skal kaldes hvert minut. Udløbne reservationer frigives også, lige før en ny booking oprettes.
 
+### Offentlige sider
+
+- Forside, `/cars` (katalog med søgning og filtre), `/cars/[slug]`, `/pricing`, `/locations`, `/about`, `/faq`, `/reviews`, `/contact` samt `/terms`, `/privacy` og `/cookies`.
+- Søgning og filtre ligger i URL'en (`/cars?location=koebenhavn&pickupDate=…`), så links kan deles, og formularerne virker uden JavaScript. Ugyldige værdier ignoreres (`src/lib/validation/search.ts`).
+- Data hentes via `src/server/catalog/service.ts`. Modeller uden pris vises ikke. Med sted og periode vises kun ledige modeller med totalpris; ellers "fra"-pris pr. dag.
+- Kontaktformularen gemmer en besked (`src/server/contact/service.ts`) med højst 5 beskeder pr. IP i timen og et skjult felt mod robotter.
+- Vilkår og privatlivspolitik er udkast og skal godkendes af virksomheden/en jurist før lancering.
+
 ### Designsystem og sprog
 
 - Alle komponenter kan ses på `/styleguide` (ikke tilgængelig i produktion).
@@ -89,8 +97,10 @@ Forretningslogik hører til i `src/server`, aldrig i komponenter. Se [09-mappest
 pnpm test               # alle tests
 pnpm test:unit          # kun unit-tests
 pnpm test:integration   # kræver Postgres; bruger TEST_DATABASE_URL, som tømmes
-pnpm build && pnpm test:e2e   # Playwright: mobil + desktop, RTL, tilgængelighed (axe)
+pnpm build && pnpm db:seed && pnpm test:e2e   # Playwright: mobil + desktop, RTL, tilgængelighed (axe)
 ```
+
+E2E-testene for de offentlige sider bruger demo-data fra `pnpm db:seed`.
 
 E2E-tests kræver Chromium (`pnpm exec playwright install chromium`). Har du allerede en Chromium, kan du pege på den med `PLAYWRIGHT_CHROMIUM_PATH`.
 

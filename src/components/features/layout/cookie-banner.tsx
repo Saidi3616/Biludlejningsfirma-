@@ -14,7 +14,8 @@ import {
 
 const OPEN_EVENT = "consent:open";
 const CHANGE_EVENT = "consent:change";
-// Cookien findes ikke på serveren; banneret vises derfor først efter hydrering.
+// Serveren kender ikke cookien og renderer derfor banneret. Har besøgende allerede valgt,
+// skjuler consentPrecheckScript det før første visning, og efter hydrering forsvinder det helt.
 const SERVER_SNAPSHOT = "server";
 
 function subscribe(onChange: () => void) {
@@ -38,7 +39,8 @@ export function CookieSettingsButton({ label }: { label: string }) {
 export function CookieBanner() {
   const t = useTranslations("cookies");
   const raw = useSyncExternalStore(subscribe, readConsentCookie, () => SERVER_SNAPSHOT);
-  const stored = raw === SERVER_SNAPSHOT ? undefined : parseConsent(raw);
+  const pending = raw === SERVER_SNAPSHOT;
+  const stored = pending ? null : parseConsent(raw);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [choice, setChoice] = useState<ConsentChoice>({ analytics: false, marketing: false });
 
@@ -68,6 +70,7 @@ export function CookieBanner() {
       role="dialog"
       aria-labelledby="cookie-title"
       aria-describedby="cookie-body"
+      data-consent-pending={pending ? "" : undefined}
       className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-white p-4 shadow-(--shadow-raised) sm:inset-x-auto sm:end-4 sm:bottom-4 sm:max-w-md sm:rounded-xl sm:border"
     >
       <h2 id="cookie-title" className="text-lg font-semibold text-ink-900">

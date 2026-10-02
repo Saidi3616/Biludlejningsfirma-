@@ -21,3 +21,19 @@ describe("formatMoney", () => {
     expect(() => formatMoney(399.5, "DKK", "da")).toThrow();
   });
 });
+
+describe("ugedage og tidspunkter", () => {
+  it("ugedag 1 er mandag og 7 er søndag på alle sprog", async () => {
+    const { weekdayName } = await import("@/lib/format");
+    expect(weekdayName(1, "da")).toBe("mandag");
+    expect(weekdayName(7, "en")).toBe("Sunday");
+    expect(weekdayName(5, "fr")).toBe("vendredi");
+  });
+
+  it("tidspunkt vises i lokationens tidszone", async () => {
+    const { formatDateTime } = await import("@/lib/format");
+    const text = formatDateTime(new Date("2026-06-01T08:00:00Z"), "en", "Europe/Copenhagen");
+    expect(text).toContain("10:00");
+    expect(text).toContain("Jun");
+  });
+});
