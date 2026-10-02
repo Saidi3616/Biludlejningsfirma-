@@ -93,6 +93,21 @@ Forretningslogik hører til i `src/server`, aldrig i komponenter. Se [09-mappest
 - Lokalt og i CI uden Stripe: sæt `FAKE_PAYMENTS=true` (kun med `APP_ENV=local`). Betalingssiden viser så knapper til at gennemføre eller afvise en testbetaling.
 - Stripe lokalt: `stripe listen --forward-to localhost:3000/api/webhooks/stripe` og sæt `STRIPE_WEBHOOK_SECRET` til den viste `whsec_…`.
 
+### Notifikationer
+
+- Beskeder skrives som `Notification`-rækker i samme transaktion som bookingens statusskift (`src/server/notifications/queue.ts`). Påmindelser får et `scheduledAt`, så der ikke er brug for et separat planlægnings-job.
+- `/api/cron/notifications` sender beskeder, hvis tid er kommet. Den kræver `Authorization: Bearer $CRON_SECRET` og skal kaldes hvert minut. Fejl prøves igen efter 1, 5, 15 og 60 minutter; efter 5 forsøg markeres beskeden `FAILED`.
+- Tidspunkter for påmindelser og retry står i `src/config/notifications.ts`, teksterne i `messages/*.json` under `notifications`.
+- E-mail sendes altid. WhatsApp sendes kun, når `WHATSAPP_TOKEN` og `WHATSAPP_PHONE_NUMBER_ID` er sat, og kunden har et telefonnummer.
+- WhatsApp-skabeloner skal godkendes i Meta Business Manager med disse navne og parametre (i rækkefølge, på da/en/fr/ar):
+  - `booking_confirmed`: fornavn, bookingnummer, bil, afhentningstid, afhentningssted
+  - `payment_received`: fornavn, beløb, bookingnummer
+  - `car_ready`: fornavn, bil, afhentningssted
+  - `pickup_reminder`: fornavn, bil, afhentningstid, adresse
+  - `return_reminder`: fornavn, afleveringstid, afleveringssted
+  - `thank_you`: fornavn
+  - `review_request`: fornavn, link til anmeldelse
+
 ### Designsystem og sprog
 
 - Alle komponenter kan ses på `/styleguide` (ikke tilgængelig i produktion).

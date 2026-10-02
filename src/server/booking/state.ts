@@ -3,6 +3,7 @@ import type { BookingStatus, Prisma } from "@/generated/prisma/client";
 import { AppError } from "@/lib/errors";
 import { db } from "@/server/db";
 import { isCarUnavailableError } from "@/server/db-errors";
+import { queueForTransition } from "@/server/notifications/queue";
 
 /**
  * Bookingens livscyklus (01-systemarkitektur.md). Betalingsstatus er et separat felt.
@@ -22,7 +23,7 @@ export function canTransition(from: BookingStatus, to: BookingStatus): boolean {
   return transitions[from].includes(to);
 }
 
-type TransitionOptions = { actorUserId?: string | null; reason?: string };
+type TransitionOptions = { actorUserId?: string | null; reason?: string; now?: Date };
 
 /**
  * Skifter status og skriver en BOOKING_STATUS_EVENT i samme transaktion.
@@ -81,5 +82,8 @@ export async function applyTransition(
       reason: options.reason ?? null,
     },
   });
-  return tx.booking.findUniqueOrThrow({ where: { id: bookingId } });
+  const result = await tx.booking.findUniqueOrThrow({ where: { id: bookingId } });
+  // Beskeder til kunden skrives i samme transaktion (outbox) og sendes af cron.
+  await queueForTransition(tx, result, to, options.now);
+  return result;
 }

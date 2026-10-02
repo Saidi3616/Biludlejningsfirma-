@@ -765,5 +765,53 @@
       "failedBody": "The car is still reserved for you for a short while. Try paying again.",
       "retry": "Try paying again"
     }
+  },
+  "notifications": {
+    "common": {
+      "greeting": "Hi {name}",
+      "signature": "Kind regards, {company}",
+      "footer": "You are receiving this message because you booked a car with {company}.",
+      "reference": "Booking number",
+      "car": "Car",
+      "pickup": "Pick-up",
+      "return": "Return",
+      "paid": "Paid",
+      "bring": "Remember your driving licence when you pick up the car.",
+      "bringWithDeposit": "Remember your driving licence and a payment card for the deposit of {deposit} when you pick up the car.",
+      "questions": "If you have any questions, message us on WhatsApp or reply to this email.",
+      "whatsappButton": "Message us on WhatsApp",
+      "whatsappPrefill": "Hi, I have a question about my booking {reference}."
+    },
+    "BOOKING_CONFIRMED": {
+      "subject": "Your booking {reference} is confirmed",
+      "intro": "Thank you for your booking. We have received your payment of {amount}, and the car is reserved for you."
+    },
+    "PAYMENT_RECEIVED": {
+      "subject": "We have received your payment",
+      "intro": "We have received {amount} for booking {reference}. Thank you!"
+    },
+    "CAR_READY": {
+      "subject": "Your car is ready",
+      "intro": "Your {car} has been prepared and is waiting for you."
+    },
+    "PICKUP_REMINDER": {
+      "subject": "Reminder: you pick up your car soon",
+      "intro": "In less than a day you pick up your car. Here are the key details."
+    },
+    "RETURN_REMINDER": {
+      "subject": "Your rental period ends soon",
+      "intro": "Remember to return the car {time} at {location}.",
+      "fuel": "Return the car with the same fuel or charge level as when you picked it up."
+    },
+    "THANK_YOU": {
+      "subject": "Thank you for renting with us",
+      "intro": "The car has been returned and your rental is complete. Thank you!",
+      "deposit": "Any deposit will be released within a few days."
+    },
+    "REVIEW_REQUEST": {
+      "subject": "How was your experience?",
+      "intro": "We would love to hear how your rental went. It takes less than a minute.",
+      "button": "Leave a review"
+    }
   }
 }
