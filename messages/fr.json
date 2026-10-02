@@ -301,7 +301,8 @@
       "bookings": "Réservations",
       "customers": "Clients",
       "fleet": "Flotte",
-      "pricing": "Tarifs"
+      "pricing": "Tarifs",
+      "users": "Utilisateurs"
     },
     "toSite": "Aller au site",
     "roles": {
@@ -1638,6 +1639,83 @@
         "upTo": "Jusqu'à {km} km",
         "deliveryOff": "La livraison est désactivée. Les zones ne sont utilisées qu'une fois la livraison activée ci-dessus."
       }
+    },
+    "users": {
+      "title": "Utilisateurs",
+      "intro": "Employés ayant accès à l'administration. Les responsables et administrateurs doivent activer la connexion en deux étapes (2FA) lors de leur première connexion.",
+      "invite": "Inviter un employé",
+      "back": "Tous les utilisateurs",
+      "empty": "Aucun employé pour l'instant.",
+      "roles": {
+        "STAFF": "Employé",
+        "MANAGER": "Responsable",
+        "SUPER_ADMIN": "Administrateur"
+      },
+      "roleHints": {
+        "STAFF": "Réservations, clients, remise et retour.",
+        "MANAGER": "Aussi tarifs, remboursements, flotte et statistiques. Nécessite la 2FA.",
+        "SUPER_ADMIN": "Tout, y compris utilisateurs et paramètres. Nécessite la 2FA."
+      },
+      "status": {
+        "active": "Actif",
+        "invited": "Invité",
+        "disabled": "Désactivé"
+      },
+      "columns": {
+        "name": "Nom",
+        "role": "Rôle",
+        "twoFactor": "2FA",
+        "lastLogin": "Dernière connexion",
+        "status": "Statut"
+      },
+      "on": "Activée",
+      "off": "Désactivée",
+      "never": "Jamais",
+      "you": "vous",
+      "notices": {
+        "invited": "L'invitation a été envoyée. Le lien est valable 72 heures.",
+        "inviteNotSent": "L'utilisateur a été créé, mais l'e-mail n'a pas pu être envoyé. Essayez « Renvoyer l'invitation ».",
+        "reinvited": "L'invitation a été renvoyée. L'ancien lien ne fonctionne plus.",
+        "roleSaved": "Le rôle a été enregistré.",
+        "disabled": "L'utilisateur a été désactivé et toutes ses sessions fermées.",
+        "enabled": "L'utilisateur est de nouveau actif.",
+        "self": "Vous ne pouvez pas modifier votre propre accès.",
+        "lastSuperAdmin": "Il doit rester au moins un administrateur actif.",
+        "forbidden": "Votre rôle n'a pas accès à cette action.",
+        "failed": "Une erreur s'est produite. Veuillez réessayer."
+      },
+      "form": {
+        "name": "Nom",
+        "email": "E-mail",
+        "role": "Rôle",
+        "submit": "Envoyer l'invitation",
+        "duplicate": "Cet e-mail a déjà un compte.",
+        "errors": {
+          "name": "Saisissez le nom (2 à 80 caractères).",
+          "email": "Vérifiez l'adresse e-mail.",
+          "role": "Choisissez un rôle."
+        },
+        "notices": {
+          "invalid": "Vérifiez les champs indiqués.",
+          "duplicate": "Cet e-mail a déjà un compte.",
+          "forbidden": "Votre rôle n'a pas accès à cette action.",
+          "failed": "Une erreur s'est produite. Veuillez réessayer."
+        }
+      },
+      "detail": {
+        "role": "Rôle",
+        "saveRole": "Enregistrer le rôle",
+        "access": "Accès",
+        "disable": "Désactiver l'utilisateur",
+        "disableHint": "L'utilisateur est déconnecté partout immédiatement et ne peut plus se connecter.",
+        "enable": "Réactiver l'utilisateur",
+        "resend": "Renvoyer l'invitation",
+        "invitedHint": "L'utilisateur n'a pas encore choisi de mot de passe.",
+        "selfNote": "C'est vous. Votre propre rôle et accès ne peuvent être modifiés que par un autre administrateur.",
+        "twoFactor": "2FA",
+        "lastLogin": "Dernière connexion",
+        "created": "Créé le"
+      }
     }
   },
   "email": {
@@ -1660,6 +1738,12 @@
       "body": "Quelqu'un a essayé de créer un compte avec votre e-mail. Vous avez déjà un compte, vous pouvez donc simplement vous connecter. Si vous avez oublié votre mot de passe, vous pouvez le réinitialiser sur la page de connexion.",
       "button": "Se connecter",
       "note": "Si ce n'était pas vous, ignorez cet e-mail. Votre compte n'a pas changé."
+    },
+    "invite": {
+      "subject": "Vous êtes invité à l'administration",
+      "body": "Vous avez été ajouté comme employé chez {company}. Choisissez un mot de passe pour commencer.",
+      "button": "Choisir un mot de passe",
+      "note": "Le lien est valable 72 heures. Les responsables et administrateurs doivent aussi activer la connexion en deux étapes lors de leur première connexion."
     }
   },
   "search": {

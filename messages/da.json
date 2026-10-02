@@ -301,7 +301,8 @@
       "bookings": "Bookinger",
       "customers": "Kunder",
       "fleet": "Flåde",
-      "pricing": "Priser"
+      "pricing": "Priser",
+      "users": "Brugere"
     },
     "toSite": "Til hjemmesiden",
     "roles": {
@@ -1638,6 +1639,83 @@
         "upTo": "Op til {km} km",
         "deliveryOff": "Levering er slået fra. Zonerne bruges først, når levering slås til ovenfor."
       }
+    },
+    "users": {
+      "title": "Brugere",
+      "intro": "Medarbejdere med adgang til administrationen. Ledere og administratorer skal slå to-trins-login (2FA) til, første gang de logger ind.",
+      "invite": "Invitér medarbejder",
+      "back": "Alle brugere",
+      "empty": "Der er ingen medarbejdere endnu.",
+      "roles": {
+        "STAFF": "Medarbejder",
+        "MANAGER": "Leder",
+        "SUPER_ADMIN": "Administrator"
+      },
+      "roleHints": {
+        "STAFF": "Bookinger, kunder, udlevering og retur.",
+        "MANAGER": "Også priser, refusioner, flåde og statistik. Kræver 2FA.",
+        "SUPER_ADMIN": "Alt, også brugere og indstillinger. Kræver 2FA."
+      },
+      "status": {
+        "active": "Aktiv",
+        "invited": "Inviteret",
+        "disabled": "Deaktiveret"
+      },
+      "columns": {
+        "name": "Navn",
+        "role": "Rolle",
+        "twoFactor": "2FA",
+        "lastLogin": "Seneste login",
+        "status": "Status"
+      },
+      "on": "Til",
+      "off": "Fra",
+      "never": "Aldrig",
+      "you": "dig",
+      "notices": {
+        "invited": "Invitationen er sendt. Linket virker i 72 timer.",
+        "inviteNotSent": "Brugeren er oprettet, men e-mailen kunne ikke sendes. Prøv \"Send invitation igen\".",
+        "reinvited": "Invitationen er sendt igen. Det gamle link virker ikke længere.",
+        "roleSaved": "Rollen er gemt.",
+        "disabled": "Brugeren er deaktiveret, og alle sessioner er lukket.",
+        "enabled": "Brugeren er aktiv igen.",
+        "self": "Du kan ikke ændre din egen adgang.",
+        "lastSuperAdmin": "Der skal være mindst én aktiv administrator.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "failed": "Noget gik galt. Prøv igen."
+      },
+      "form": {
+        "name": "Navn",
+        "email": "E-mail",
+        "role": "Rolle",
+        "submit": "Send invitation",
+        "duplicate": "E-mailen har allerede en konto.",
+        "errors": {
+          "name": "Skriv navnet (2–80 tegn).",
+          "email": "Tjek e-mailadressen.",
+          "role": "Vælg en rolle."
+        },
+        "notices": {
+          "invalid": "Tjek de markerede felter.",
+          "duplicate": "E-mailen har allerede en konto.",
+          "forbidden": "Din rolle har ikke adgang til den handling.",
+          "failed": "Noget gik galt. Prøv igen."
+        }
+      },
+      "detail": {
+        "role": "Rolle",
+        "saveRole": "Gem rolle",
+        "access": "Adgang",
+        "disable": "Deaktivér brugeren",
+        "disableHint": "Brugeren logges ud overalt med det samme og kan ikke logge ind igen.",
+        "enable": "Aktivér brugeren igen",
+        "resend": "Send invitation igen",
+        "invitedHint": "Brugeren har ikke valgt password endnu.",
+        "selfNote": "Det er dig. Din egen rolle og adgang kan kun ændres af en anden administrator.",
+        "twoFactor": "2FA",
+        "lastLogin": "Seneste login",
+        "created": "Oprettet"
+      }
     }
   },
   "email": {
@@ -1660,6 +1738,12 @@
       "body": "Nogen forsøgte at oprette en konto med din e-mail. Du har allerede en konto, så du kan bare logge ind. Har du glemt dit password, kan du nulstille det på login-siden.",
       "button": "Log ind",
       "note": "Var det ikke dig, kan du se bort fra denne e-mail. Din konto er uændret."
+    },
+    "invite": {
+      "subject": "Du er inviteret til administrationen",
+      "body": "Du er oprettet som medarbejder hos {company}. Vælg et password for at komme i gang.",
+      "button": "Vælg password",
+      "note": "Linket virker i 72 timer. Ledere og administratorer skal også slå to-trins-login til, første gang de logger ind."
     }
   },
   "search": {

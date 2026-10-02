@@ -11,7 +11,7 @@ import type { Email } from "./send";
 
 const messages = { da, en, ar, fr } satisfies Record<Locale, typeof da>;
 
-export type AuthEmailKind = "verify" | "reset" | "existing";
+export type AuthEmailKind = "verify" | "reset" | "existing" | "invite";
 
 function escapeHtml(value: string) {
   return value
@@ -38,7 +38,7 @@ export function authEmail(
   const lines = {
     subject: t(`${kind}.subject`),
     greeting: t("greeting", { name: input.name }),
-    body: t(`${kind}.body`),
+    body: t(`${kind}.body`, { company: site.name }),
     button: t(`${kind}.button`),
     note: t(`${kind}.note`),
     signature: t("signature", { company: site.name }),

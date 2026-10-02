@@ -147,3 +147,5 @@ MVP (M13 del 2): `/admin/discounts` opretter, retter, stopper og sletter rabatko
 ## F11. Brugere og roller (SUPER_ADMIN)
 
 Invitér medarbejder via e-mail → vælg rolle → medarbejder sætter password + 2FA (påkrævet for MANAGER og SUPER_ADMIN). Deaktivering lukker alle sessions straks.
+
+MVP (M13 del 3): `/admin/users` (kun SUPER_ADMIN, `users:manage`) viser medarbejdere med rolle, 2FA, seneste login og status (aktiv, inviteret, deaktiveret). Invitationen opretter brugeren med rollen og sender et engangslink (72 timer), hvor medarbejderen vælger password; linket bruger Better Auths nulstillingsflow, og e-mailen regnes som bekræftet, fordi linket kun findes i den. "Send invitation igen" laver et nyt link og gør det gamle ugyldigt. Deaktivering lukker alle sessioner og ubrugte links. Man kan ikke ændre sin egen rolle eller adgang, og den sidste aktive SUPER_ADMIN kan ikke fjernes. Alt logges i audit-loggen.
