@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "title": "Biludlejning",
+    "description": "Find din bil. Book på få minutter."
+  },
+  "common": {
+    "close": "Luk",
+    "loading": "Indlæser"
+  },
+  "nav": {
+    "skipToContent": "Gå til indhold",
+    "main": "Hovedmenu",
+    "cars": "Biler",
+    "pricing": "Priser",
+    "locations": "Lokationer",
+    "about": "Om os",
+    "contact": "Kontakt",
+    "faq": "FAQ",
+    "login": "Log ind",
+    "menu": "Menu",
+    "openMenu": "Åbn menu"
+  },
+  "language": {
+    "label": "Sprog",
+    "da": "Dansk",
+    "en": "English",
+    "ar": "العربية",
+    "fr": "Français"
+  },
+  "whatsapp": {
+    "cta": "WhatsApp",
+    "floating": "Skriv til os på WhatsApp",
+    "prefill": "Hej, jeg har et spørgsmål om billeje."
+  },
+  "footer": {
+    "tagline": "Professionel biludlejning uden skjulte gebyrer.",
+    "company": "Virksomhed",
+    "help": "Hjælp",
+    "legal": "Juridisk",
+    "reviews": "Anmeldelser",
+    "terms": "Lejebetingelser",
+    "privacy": "Privatlivspolitik",
+    "cookies": "Cookiepolitik",
+    "cookieSettings": "Cookieindstillinger",
+    "rights": "© {year} {name}. Alle rettigheder forbeholdes."
+  },
+  "cookies": {
+    "title": "Vi bruger cookies",
+    "body": "Nødvendige cookies får siden til at virke. Med dit samtykke bruger vi også cookies til statistik og markedsføring. Du kan altid ændre dit valg.",
+    "acceptAll": "Accepter alle",
+    "necessaryOnly": "Kun nødvendige",
+    "settings": "Indstillinger",
+    "save": "Gem valg",
+    "necessary": "Nødvendige",
+    "necessaryDescription": "Kræves for login, booking og sikkerhed. Kan ikke slås fra.",
+    "analytics": "Statistik",
+    "analyticsDescription": "Hjælper os med at forstå, hvordan siden bruges.",
+    "marketing": "Markedsføring",
+    "marketingDescription": "Bruges til at vise relevante tilbud.",
+    "policy": "Læs cookiepolitikken"
+  },
+  "home": {
+    "title": "Find din bil. Book på få minutter.",
+    "subtitle": "Platformen er under udvikling."
+  },
+  "status": {
+    "booking": {
+      "PENDING_PAYMENT": "Afventer betaling",
+      "CONFIRMED": "Bekræftet",
+      "ACTIVE": "Aktiv",
+      "COMPLETED": "Afsluttet",
+      "CANCELLED": "Annulleret",
+      "EXPIRED": "Udløbet",
+      "NO_SHOW": "Ikke mødt op"
+    },
+    "payment": {
+      "UNPAID": "Ikke betalt",
+      "PAID": "Betalt",
+      "PARTIALLY_REFUNDED": "Delvist refunderet",
+      "REFUNDED": "Refunderet",
+      "FAILED": "Betaling fejlede"
+    },
+    "car": {
+      "AVAILABLE": "Ledig",
+      "RESERVED": "Reserveret",
+      "RENTED": "Udlejet",
+      "RETURNED": "Returneret",
+      "INSPECTION": "Til inspektion",
+      "MAINTENANCE": "På værksted",
+      "OUT_OF_SERVICE": "Ude af drift"
+    }
+  },
+  "notFound": {
+    "title": "Siden findes ikke",
+    "body": "Siden er flyttet eller findes ikke endnu.",
+    "home": "Til forsiden"
+  }
+}

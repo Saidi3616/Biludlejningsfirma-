@@ -51,13 +51,23 @@ Skemaet ligger i `prisma/schema.prisma`. Datamodellen tilføjes i M2.
 
 Forretningslogik hører til i `src/server`, aldrig i komponenter. Se [09-mappestruktur.md](docs/architecture/09-mappestruktur.md).
 
+### Designsystem og sprog
+
+- Alle komponenter kan ses på `/styleguide` (ikke tilgængelig i produktion).
+- Design-tokens (farver, typografi, radius, skygger) ligger i `src/app/globals.css`. Brug token-klasser som `bg-brand-700`, aldrig rå farvekoder.
+- Genbrugelige komponenter ligger i `src/components/ui`, sidelayout (header, footer, WhatsApp, cookie-banner) i `src/components/features/layout`.
+- Al tekst ligger i `messages/{da,en,ar,fr}.json`. Dansk er standard uden præfiks (`/`), øvrige sprog har præfiks (`/en`, `/ar`, `/fr`). Arabisk vises højre-til-venstre; brug derfor logiske klasser (`ms-`, `pe-`, `start-`, `text-start`) i stedet for `ml-`, `pr-`, `left-`, `text-left`.
+
 ## Test
 
 ```bash
 pnpm test               # alle tests
 pnpm test:unit          # kun unit-tests
 pnpm test:integration   # kræver en kørende database
+pnpm build && pnpm test:e2e   # Playwright: mobil + desktop, RTL, tilgængelighed (axe)
 ```
+
+E2E-tests kræver Chromium (`pnpm exec playwright install chromium`). Har du allerede en Chromium, kan du pege på den med `PLAYWRIGHT_CHROMIUM_PATH`.
 
 ## Branches
 

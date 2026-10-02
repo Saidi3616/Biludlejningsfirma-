@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "title": "Car rental",
+    "description": "Find your car. Book in minutes."
+  },
+  "common": {
+    "close": "Close",
+    "loading": "Loading"
+  },
+  "nav": {
+    "skipToContent": "Skip to content",
+    "main": "Main menu",
+    "cars": "Cars",
+    "pricing": "Pricing",
+    "locations": "Locations",
+    "about": "About us",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "login": "Log in",
+    "menu": "Menu",
+    "openMenu": "Open menu"
+  },
+  "language": {
+    "label": "Language",
+    "da": "Dansk",
+    "en": "English",
+    "ar": "العربية",
+    "fr": "Français"
+  },
+  "whatsapp": {
+    "cta": "WhatsApp",
+    "floating": "Message us on WhatsApp",
+    "prefill": "Hi, I have a question about renting a car."
+  },
+  "footer": {
+    "tagline": "Professional car rental with no hidden fees.",
+    "company": "Company",
+    "help": "Help",
+    "legal": "Legal",
+    "reviews": "Reviews",
+    "terms": "Rental terms",
+    "privacy": "Privacy policy",
+    "cookies": "Cookie policy",
+    "cookieSettings": "Cookie settings",
+    "rights": "© {year} {name}. All rights reserved."
+  },
+  "cookies": {
+    "title": "We use cookies",
+    "body": "Necessary cookies make the site work. With your consent we also use cookies for statistics and marketing. You can change your choice at any time.",
+    "acceptAll": "Accept all",
+    "necessaryOnly": "Necessary only",
+    "settings": "Settings",
+    "save": "Save choices",
+    "necessary": "Necessary",
+    "necessaryDescription": "Required for login, booking and security. Cannot be turned off.",
+    "analytics": "Statistics",
+    "analyticsDescription": "Helps us understand how the site is used.",
+    "marketing": "Marketing",
+    "marketingDescription": "Used to show relevant offers.",
+    "policy": "Read the cookie policy"
+  },
+  "home": {
+    "title": "Find your car. Book in minutes.",
+    "subtitle": "The platform is under development."
+  },
+  "status": {
+    "booking": {
+      "PENDING_PAYMENT": "Awaiting payment",
+      "CONFIRMED": "Confirmed",
+      "ACTIVE": "Active",
+      "COMPLETED": "Completed",
+      "CANCELLED": "Cancelled",
+      "EXPIRED": "Expired",
+      "NO_SHOW": "No-show"
+    },
+    "payment": {
+      "UNPAID": "Unpaid",
+      "PAID": "Paid",
+      "PARTIALLY_REFUNDED": "Partially refunded",
+      "REFUNDED": "Refunded",
+      "FAILED": "Payment failed"
+    },
+    "car": {
+      "AVAILABLE": "Available",
+      "RESERVED": "Reserved",
+      "RENTED": "Rented",
+      "RETURNED": "Returned",
+      "INSPECTION": "In inspection",
+      "MAINTENANCE": "In maintenance",
+      "OUT_OF_SERVICE": "Out of service"
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page has moved or does not exist yet.",
+    "home": "Go to the homepage"
+  }
+}
