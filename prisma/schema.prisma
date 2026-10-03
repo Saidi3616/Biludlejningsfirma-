@@ -982,3 +982,14 @@ model ExchangeRate {
 
   @@index([base, quote, fetchedAt])
 }
+
+/// Firmaoplysninger, som SUPER_ADMIN retter under /admin/settings. Altid højst én række (id = 1).
+/// Tomme felter falder tilbage til pladsholderne i src/config/site.ts.
+model SiteSettings {
+  id             Int      @id @default(1)
+  phone          String?
+  email          String?
+  whatsappNumber String?
+  address        String?
+  updatedAt      DateTime @updatedAt @db.Timestamptz
+}

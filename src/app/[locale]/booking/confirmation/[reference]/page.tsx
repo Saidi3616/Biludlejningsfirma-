@@ -7,6 +7,7 @@ import type { Locale } from "@/i18n/routing";
 import NextLink from "next/link";
 import { Link } from "@/i18n/navigation";
 import { whatsappLink } from "@/config/site";
+import { getSiteContact } from "@/server/settings";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card, CardBody } from "@/components/ui/card";
@@ -41,10 +42,11 @@ export default async function ConfirmationPage({
   const bookingId = await findAccessibleBooking(reference);
   if (!bookingId) notFound();
 
-  const [t, booking, user] = await Promise.all([
+  const [t, booking, user, contact] = await Promise.all([
     getTranslations("booking"),
     bookingSummary(bookingId),
     getCurrentUser(),
+    getSiteContact(),
   ]);
   // Annulleret efter bekræftelse: bookingsiden viser status og refusion.
   if (booking.status === "CANCELLED" && booking.wasConfirmed) {
@@ -54,7 +56,10 @@ export default async function ConfirmationPage({
   const whatsapp = (
     <Button asChild variant="whatsapp">
       <a
-        href={whatsappLink(t("confirmation.whatsappPrefill", { reference }))}
+        href={whatsappLink(
+          contact.whatsappNumber,
+          t("confirmation.whatsappPrefill", { reference }),
+        )}
         target="_blank"
         rel="noopener noreferrer"
       >

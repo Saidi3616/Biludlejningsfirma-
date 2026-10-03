@@ -3,13 +3,13 @@ import { whatsappLink } from "@/config/site";
 import { WhatsAppIcon } from "./whatsapp-icon";
 
 /** Fast WhatsApp-knap på mobil (§15). På desktop ligger WhatsApp i navigationen. */
-export function WhatsAppFloatingButton() {
+export function WhatsAppFloatingButton({ whatsappNumber }: { whatsappNumber: string }) {
   const t = useTranslations("whatsapp");
   // I et landmark, så skærmlæsere kan finde den (axe: region).
   return (
     <aside aria-label="WhatsApp" data-whatsapp-floating className="lg:hidden print:hidden">
       <a
-        href={whatsappLink(t("prefill"))}
+        href={whatsappLink(whatsappNumber, t("prefill"))}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t("floating")}

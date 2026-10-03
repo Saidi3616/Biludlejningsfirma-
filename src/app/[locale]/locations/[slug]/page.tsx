@@ -4,7 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { MapPin, Phone, Truck } from "lucide-react";
 import type { Locale } from "@/i18n/routing";
 import { localizedPath } from "@/i18n/paths";
-import { site } from "@/config/site";
+import { getSiteContact } from "@/server/settings";
 import { absoluteUrl, pageMetadata } from "@/lib/seo";
 import { locationJsonLd } from "@/lib/structured-data";
 import { JsonLd } from "@/components/features/seo/json-ld";
@@ -40,14 +40,22 @@ export default async function LocationPage({ params }: PageProps<"/[locale]/loca
   setRequestLocale(locale);
   const location = await getLocation(slug);
   if (!location) notFound();
-  const [t, locations] = await Promise.all([getTranslations(), searchLocations()]);
-  const phone = location.phone ?? site.phone;
+  const [t, locations, contact] = await Promise.all([
+    getTranslations(),
+    searchLocations(),
+    getSiteContact(),
+  ]);
+  const phone = location.phone ?? contact.phone;
   const mapUrl = `https://www.openstreetmap.org/?mlat=${location.lat}&mlon=${location.lng}#map=16/${location.lat}/${location.lng}`;
 
   return (
     <Container className="grid grid-cols-1 gap-10 py-12 lg:grid-cols-[minmax(0,1fr)_26rem] lg:items-start">
       <JsonLd
-        data={locationJsonLd(location, absoluteUrl(localizedPath(locale, `/locations/${slug}`)))}
+        data={locationJsonLd(
+          location,
+          absoluteUrl(localizedPath(locale, `/locations/${slug}`)),
+          contact,
+        )}
       />
       <div className="flex flex-col gap-6">
         <header className="flex flex-col gap-3">

@@ -9,7 +9,7 @@ import { MobileMenu } from "./mobile-menu";
 import { WhatsAppIcon } from "./whatsapp-icon";
 import { mainNav } from "./nav-links";
 
-export function SiteHeader() {
+export function SiteHeader({ whatsappNumber }: { whatsappNumber: string }) {
   const t = useTranslations();
 
   return (
@@ -46,12 +46,16 @@ export function SiteHeader() {
             </Link>
           </Button>
           <Button asChild variant="whatsapp" size="sm" className="hidden lg:inline-flex">
-            <a href={whatsappLink(t("whatsapp.prefill"))} target="_blank" rel="noopener noreferrer">
+            <a
+              href={whatsappLink(whatsappNumber, t("whatsapp.prefill"))}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <WhatsAppIcon />
               {t("whatsapp.cta")}
             </a>
           </Button>
-          <MobileMenu />
+          <MobileMenu whatsappNumber={whatsappNumber} />
         </div>
       </Container>
     </header>

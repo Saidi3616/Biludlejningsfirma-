@@ -9,6 +9,7 @@ import { WhatsAppFloatingButton } from "@/components/features/layout/whatsapp-fl
 import { CookieBanner } from "@/components/features/layout/cookie-banner";
 import { consentPrecheckScript } from "@/lib/consent";
 import { siteUrl } from "@/lib/seo";
+import { getSiteContact } from "@/server/settings";
 import { ServiceWorkerRegistration } from "@/components/features/layout/service-worker-registration";
 import { geistSans, plexArabic } from "../fonts";
 import "../globals.css";
@@ -57,9 +58,10 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
-  const [t, messages] = await Promise.all([
+  const [t, messages, contact] = await Promise.all([
     getTranslations({ locale, namespace: "nav" }),
     getMessages({ locale }),
+    getSiteContact(),
   ]);
 
   return (
@@ -81,12 +83,12 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
           >
             {t("skipToContent")}
           </a>
-          <SiteHeader />
+          <SiteHeader whatsappNumber={contact.whatsappNumber} />
           <main id="content" tabIndex={-1} className="flex flex-1 flex-col focus:outline-none">
             {children}
           </main>
-          <SiteFooter />
-          <WhatsAppFloatingButton />
+          <SiteFooter contact={contact} />
+          <WhatsAppFloatingButton whatsappNumber={contact.whatsappNumber} />
           <CookieBanner />
           <ServiceWorkerRegistration />
         </NextIntlClientProvider>

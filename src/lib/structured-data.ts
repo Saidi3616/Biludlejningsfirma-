@@ -6,18 +6,21 @@ import { absoluteUrl, schemaPrice, siteUrl } from "@/lib/seo";
  * henter data via services og sender dem hertil. Test: tests/unit/structured-data.test.ts.
  */
 
+/** Firmaets telefon og e-mail fra getSiteContact (src/server/settings.ts). */
+type Contact = { phone: string; email: string };
+
 const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 /** Virksomheden som helhed (forsiden). */
-export function organizationJsonLd() {
+export function organizationJsonLd(contact: Contact) {
   return {
     "@type": "AutoRental",
     "@id": `${siteUrl()}/#organization`,
     name: site.name,
     url: absoluteUrl("/"),
     logo: absoluteUrl("/icons/icon-512.png"),
-    telephone: site.phone,
-    email: site.email,
+    telephone: contact.phone,
+    email: contact.email,
   };
 }
 
@@ -96,7 +99,7 @@ type LocationForSchema = {
 };
 
 /** Lokationssiden: en lokal forretning med adresse, kort og åbningstider. */
-export function locationJsonLd(location: LocationForSchema, pageUrl: string) {
+export function locationJsonLd(location: LocationForSchema, pageUrl: string, contact: Contact) {
   const weekly = location.openingHours.filter(
     (row) => row.specialDate === null && row.weekday !== null && !row.closed,
   );
@@ -115,8 +118,8 @@ export function locationJsonLd(location: LocationForSchema, pageUrl: string) {
     name: `${site.name} – ${location.name}`,
     url: pageUrl,
     image: absoluteUrl("/icons/icon-512.png"),
-    telephone: location.phone ?? site.phone,
-    email: location.email ?? site.email,
+    telephone: location.phone ?? contact.phone,
+    email: location.email ?? contact.email,
     address: {
       "@type": "PostalAddress",
       streetAddress: location.address,

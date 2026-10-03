@@ -340,7 +340,8 @@
       "users": "Brugere",
       "reviews": "Anmeldelser",
       "statistics": "Statistik",
-      "auditLog": "Audit-log"
+      "auditLog": "Audit-log",
+      "settings": "Indstillinger"
     },
     "toSite": "Til hjemmesiden",
     "roles": {
@@ -1861,6 +1862,31 @@
         "entity": "Hvad",
         "details": "Detaljer"
       }
+    },
+    "settings": {
+      "title": "Indstillinger",
+      "intro": "Firmaets kontaktoplysninger. De vises på hjemmesiden, på kvitteringer, i lejekontrakter og i beskeder til kunderne. Ændringer slår igennem med det samme.",
+      "contact": "Kontaktoplysninger",
+      "phone": "Telefon",
+      "phoneHint": "Med landekode, fx +45 12 34 56 78.",
+      "email": "E-mail",
+      "whatsappNumber": "WhatsApp-nummer",
+      "whatsappHint": "Med landekode, fx +45 12 34 56 78. Kunderne skriver til dette nummer.",
+      "address": "Adresse",
+      "addressHint": "Valgfri. Vises på kontaktsiden, i bunden af siden og på kvitteringer.",
+      "save": "Gem indstillinger",
+      "notices": {
+        "saved": "Indstillingerne er gemt.",
+        "invalid": "Tjek de markerede felter.",
+        "forbidden": "Du har ikke adgang til at ændre indstillinger.",
+        "failed": "Noget gik galt. Prøv igen."
+      },
+      "errors": {
+        "phone": "Skriv et telefonnummer, fx +45 12 34 56 78.",
+        "email": "Skriv en gyldig e-mailadresse.",
+        "whatsappNumber": "Skriv nummeret med landekode, fx +45 12 34 56 78.",
+        "address": "Højst 200 tegn."
+      }
     }
   },
   "email": {
@@ -2197,6 +2223,7 @@
     "description": "Skriv, ring eller kom forbi. Vi hjælper gerne.",
     "phone": "Telefon",
     "email": "E-mail",
+    "address": "Adresse",
     "whatsapp": "WhatsApp",
     "formTitle": "Send os en besked",
     "form": {
