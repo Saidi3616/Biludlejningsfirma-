@@ -22,9 +22,15 @@ if (process.env.APP_ENV !== "production") {
   const client = new pg.Client({ connectionString: process.env.DATABASE_URL });
   await client.connect();
   const { rows } = await client.query('SELECT COUNT(*)::int AS count FROM "Location"');
+  // Demo-admin uden adgangskode: SEED_ADMIN_PASSWORD blev sat efter første seed.
+  const { rows: missingLogin } = await client.query(
+    `SELECT 1 FROM "User" u WHERE u.email = 'admin@example.com' AND NOT EXISTS
+       (SELECT 1 FROM "Account" a WHERE a."userId" = u.id AND a."providerId" = 'credential')`,
+  );
   await client.end();
-  // Kun første gang: seed overskriver ellers ændringer, der er lavet i admin.
-  if (rows[0].count === 0) run("pnpm exec prisma db seed");
+  // Kun når det er nødvendigt: seed overskriver ellers ændringer, der er lavet i admin.
+  const needsLogin = missingLogin.length > 0 && Boolean(process.env.SEED_ADMIN_PASSWORD);
+  if (rows[0].count === 0 || needsLogin) run("pnpm exec prisma db seed");
 }
 
 run("pnpm exec next build");
