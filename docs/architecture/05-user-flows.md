@@ -27,7 +27,9 @@ Noter:
 - Gæsten skal **ikke** oprette konto. Efter betaling tilbydes "Gem dine oplysninger — opret konto med ét klik" (password sættes via e-mail-link).
 - Mobil: hvert trin er én skærm med én primær knap i bunden. Ingen trin har mere end ~5 felter synlige ad gangen.
 - Kundeoplysninger i MVP: navn, e-mail, telefon, fødselsdato (aldersgrænse), kørekortnummer + udløb. Adresse kun ved levering eller hvis virksomheden kræver det (se [14 — Manglende info](14-manglende-info.md)).
-- Rabatkode-felt i trin 3 (lukket som standard: "Har du en rabatkode?").
+- Rabatkode-felt i trin 1 sammen med ekstraudstyr, så prisen opdateres, før kunden skriver sine oplysninger.
+- **Implementeret (M7):** "Gennemse" er slået sammen med trin 2: prisoversigten står ved siden af formularen (sammenfoldet øverst på mobil), og vilkår accepteres i samme trin. Flowet er dermed: 1 Ekstraudstyr → 2 Dine oplysninger → 3 Betaling. Kørekort og fødselsdato indsamles ved afhentning indtil M11/M15.
+- Uden Stripe-nøgler (lokalt og i CI, `FAKE_PAYMENTS=true`) viser betalingstrinnet en simuleret betaling, der går gennem samme webhook-behandling som Stripe.
 
 ## E2. Fra bil-side
 
@@ -78,6 +80,8 @@ PHASE 2: selvbetjent ændring i /account.
 /account/privacy → download mine data (JSON/ZIP) · slet konto (anonymisering; bookinger bevares pga. bogføringsloven)
 ```
 
+Implementeret (M15): `/account/privacy` har samtykker (nyheder på e-mail og WhatsApp; loggen er kun-tilføj), download af data som JSON (dokumenter listes, men udleveres på anmodning) og slet konto med bekræftelse. Sletning blokeres som i F10. Cookie-valget logges i `Consent` under et tilfældigt id fra cookien, uden IP eller konto.
+
 ## E7. Kontakt og WhatsApp
 
 - **Mobil:** flydende WhatsApp-knap nederst til højre (skjules i betalingstrinnet, så den ikke dækker "Betal").
@@ -93,6 +97,8 @@ E-mail/WhatsApp-link (signeret token) → /reviews/new?token=...
 → Gemmes som PENDING → admin publicerer
 ```
 Kun kunder med en gennemført booking kan anmelde (verificerede anmeldelser).
+
+Implementeret (M14): tokenet er `reference.HMAC` og gemmes ikke i databasen. Én anmeldelse pr. booking. Lederen (`review:moderate`, MANAGER+) publicerer eller skjuler på `/admin/reviews`; teksten kan ikke redigeres.
 
 ## E9. Cookie-samtykke (første besøg)
 

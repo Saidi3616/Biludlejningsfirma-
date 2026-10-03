@@ -23,14 +23,14 @@ Princip: **moden, udbredt og kedelig teknologi**. Alt herunder har stor communit
 | i18n | **next-intl** | Locale i URL (godt for SEO), ICU-pluralisering, dato/valuta-formatering, RTL via `dir`. |
 | Kort | **Google Maps** (embed + Places Autocomplete til leveringsadresse) | Kendt for brugere; Places giver korrekte adresser til leveringsgebyr. |
 | Baggrundsjobs | **Outbox-tabel + Vercel Cron** (hvert minut) | Ingen ekstra infrastruktur. Rækker i DB = holdbart og synligt i admin. *Skalerer vi ud over det, skiftes til Inngest eller pg-boss uden at ændre services.* |
-| Rate limiting | **Upstash Redis** (`@upstash/ratelimit`) | Virker i serverless; beskytter login, kontakt, booking, availability. |
+| Rate limiting | **Upstash Redis** (`@upstash/ratelimit`) | Virker i serverless; beskytter kontakt, booking, availability. Login, tilmelding, nulstilling og 2FA bruger Better Auths indbyggede rate limiting med tællere i Postgres (tabellen `RateLimit`), så det virker uden ekstra tjeneste. *Implementeret i M3.* |
 | Logging | **pino** (JSON) med redaction | Struktureret, hurtig, filtrerer følsomme felter. |
 | Fejlmonitorering | **Sentry** (EU-region) | Fejl i frontend, backend og cron med kontekst — uden persondata (PII scrubbing slået til). |
 | Analytics | **Plausible** (cookiefri) | Kræver ikke cookie-samtykke; respekterer GDPR. |
 | Test | **Vitest** (unit/integration mod rigtig Postgres i Docker) + **Playwright** (E2E, mobile viewports) | Bookingmotor og prisberegning testes mod rigtig database, så exclusion-constraint og samtidighed faktisk bliver testet. |
 | Kodekvalitet | ESLint, Prettier, TypeScript strict, Husky + lint-staged | |
 | CI/CD | **GitHub Actions** | Lint, typecheck, tests, Prisma migrate check, Playwright på hver PR. |
-| PWA | Web App Manifest + service worker (Serwist) | Installérbar, offline-side, cache af statiske assets. Ingen offline-booking (kræver live tilgængelighed). |
+| PWA | Web App Manifest + egen lille service worker (`public/sw.js`) | Installérbar, offline-side, cache af statiske assets. Ingen offline-booking (kræver live tilgængelighed). *Ændret i M16: Serwist var planen, men vi cacher kun statiske filer og én offline-side, så ~100 linjer egen kode er enklere end en afhængighed, der kræver særlig opsætning af bundleren.* |
 
 ## Hosting / deployment
 

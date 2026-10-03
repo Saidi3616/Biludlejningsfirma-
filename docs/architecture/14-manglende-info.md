@@ -29,13 +29,13 @@ Markeret med **🔴 blokerer** (skal afklares før den relevante milestone), **�
 | # | Spørgsmål | Prioritet |
 |---|---|---|
 | 13 | Prisliste pr. kategori (1/3/7/30 dage) og godkendelse af trappe-reglen i [K3](13-konflikter.md#k3-prisberegning-dage--dagspris-vs-pakkepriser) | 🔴 |
-| 14 | **Definition af en lejedag:** 24-timers blokke? Tolerance før ekstra dag (fx 59 min)? | 🔴 |
+| 14 | **Definition af en lejedag:** 24-timers blokke? Tolerance før ekstra dag (fx 59 min)? Mindste varsel for online-booking (foreløbig 2 timer, `src/config/rental.ts`)? | 🔴 |
 | 15 | Sæsonpriser / weekendpriser? | 🟡 |
 | 16 | Depositum pr. kategori, og accept af løsningen i [K6](13-konflikter.md#k6-depositum) | 🔴 |
 | 17 | Inkluderede km pr. dag og pris pr. ekstra km pr. kategori | 🔴 |
-| 18 | Brændstofpolitik (fuld-til-fuld?) og pris for manglende brændstof/opladning | 🔴 |
-| 19 | Gebyr for for sen aflevering | 🔴 |
-| 20 | Annulleringspolitik (fx gratis indtil 48 t før, derefter X %) og no-show | 🔴 |
+| 18 | Brændstofpolitik (fuld-til-fuld?) og pris for manglende brændstof/opladning. Forslag i `feeRates`: 100 kr. pr. ottendedel tank | 🔴 |
+| 19 | Gebyr for for sen aflevering. Forslag i `feeRates`: 150 kr. pr. påbegyndt time efter 59 min, højst 8 timer pr. døgn | 🔴 |
+| 20 | Annulleringspolitik (fx gratis indtil 48 t før, derefter X %) og no-show. *Forslag i `src/config/rental.ts`: gratis indtil 48 t før, derefter 50 % refusion indtil afhentning* | 🔴 |
 | 21 | Ekstraudstyr: liste, priser (pr. dag/pr. booking, loft), antal på lager | 🔴 |
 | 22 | Leveringsgebyr: zoner/afstand, maks. afstand, tidsvinduer, lufthavnsgebyr | 🔴 |
 | 23 | Er priser inkl. moms? Skal der udstedes fakturaer med moms (B2B med CVR)? | 🔴 |
@@ -64,3 +64,5 @@ Markeret med **🔴 blokerer** (skal afklares før den relevante milestone), **�
 | 36 | Google Cloud-konto til Maps | 🟡 |
 | 37 | Privatlivspolitik, cookiepolitik og databehandleraftaler — juridisk gennemgang | 🔴 før launch |
 | 38 | Budget for drift (hosting, Stripe-gebyrer, WhatsApp pr. besked, Maps) — estimat leveres separat | 🟡 |
+| 39 | Opret Cloudflare R2 (EU) eller AWS S3 med en privat og en offentlig bucket til fotos og dokumenter; nøgler sættes hos hostingen | 🔴 før launch |
+| 40 | Hvor mange fotos skal tages ved udlevering/aflevering, og hvor længe gemmes de? | 🟡 (GDPR) |

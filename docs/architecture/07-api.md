@@ -50,10 +50,10 @@ Fejlkoder er stabile strenge (fx `VALIDATION_FAILED`, `UNAUTHENTICATED`, `FORBID
 |---|---|---|
 | POST | `/api/v1/bookings` | Opret reservation (`PENDING_PAYMENT`, 15 min). Body: quote-input + kundeoplysninger + accepteret vilkår-version. Prisen **genberegnes** på serveren — klientens beløb ignoreres |
 | GET | `/api/v1/bookings/:reference` | Kræver ejer-session **eller** `?token=` (gæst) **eller** STAFF+ |
-| POST | `/api/v1/bookings/:reference/cancel` | Kunde annullerer efter politik |
+| POST | `/api/v1/bookings/:reference/cancel` | Kunde annullerer efter politik. *M9: server action på bookingsiden (`cancelBooking()` i `src/server/booking/cancel.ts`); REST-endpointet kommer, når en app skal bruge det* |
 | POST | `/api/v1/bookings/:reference/payment-intent` | Opret/hent Stripe PaymentIntent → `clientSecret` |
-| GET | `/api/v1/bookings/:reference/contract.pdf` | Signeret URL til kontrakt |
-| GET | `/api/v1/bookings/:reference/receipt.pdf` | Kvittering |
+| GET | `/api/v1/bookings/:reference/contract.pdf` | Signeret URL til kontrakt. *M12: `/booking/[reference]/contract` sender den underskrevne PDF direkte efter samme adgangstjek som bookingsiden (ejer eller gæste-cookie)* |
+| GET | `/api/v1/bookings/:reference/receipt.pdf` | Kvittering. *M9: printvenlig side `/booking/[reference]/receipt` (gem som PDF fra browseren)* |
 | POST | `/api/v1/reviews` | Opret anmeldelse (signeret token fra e-mail) |
 
 (Master promptens `POST /api/payments` svarer til `POST /bookings/:reference/payment-intent`; selve bekræftelsen kommer via webhook — klienten kan aldrig selv markere en booking som betalt.)
@@ -80,10 +80,10 @@ Auth-endpoints (`/api/auth/*`: login, logout, register, verify, reset) leveres a
 | Dashboard | `GET /admin/dashboard?location=&date=` |
 | Kalender | `GET /admin/calendar?from=&to=&location=` |
 | Bookinger | `GET /admin/bookings`, `POST /admin/bookings`, `GET/PATCH /admin/bookings/:ref`, `POST /admin/bookings/:ref/{confirm,cancel,refund,reschedule,reassign,start,complete,send-message,payment-link}` |
-| Betalinger | `POST /admin/bookings/:ref/payments` (manuel registrering), `POST /admin/bookings/:ref/deposit/{hold,capture,release}` |
+| Betalinger | `POST /admin/bookings/:ref/payments` (manuel registrering), `POST /admin/bookings/:ref/deposit/{hold,capture,release}` (MVP: server actions på `/admin/bookings/[ref]/deposit` og `/settle`; capture og frigivelse sker samlet ved afregningen) |
 | Inspektioner | `POST /admin/bookings/:ref/inspections`, `GET /admin/inspections/:id`, `POST /admin/inspections/:id/photos` |
 | Skader | `GET /admin/damages`, `POST/PATCH /admin/damages/:id` |
-| Kontrakter | `POST /admin/bookings/:ref/contract`, `POST /admin/contracts/:id/sign` |
+| Kontrakter | `POST /admin/bookings/:ref/contract`, `POST /admin/contracts/:id/sign` (MVP: server action på `/admin/bookings/[ref]/contract`; PDF på `/admin/bookings/[ref]/contract/pdf`, udkast før underskrift) |
 | Kunder | `GET /admin/customers`, `GET/PATCH /admin/customers/:id`, `POST /admin/customers/:id/{export,anonymize}` |
 | Flåde | `CRUD /admin/car-models`, `CRUD /admin/cars`, `POST /admin/cars/:id/{status,odometer}`, `POST /admin/car-models/:id/images` |
 | Vedligehold | `CRUD /admin/maintenance` |
@@ -114,9 +114,8 @@ Alle webhooks: verificér signatur → gem event-id i `PROCESSED_WEBHOOK` (idemp
 
 | Path | Interval | Opgave |
 |---|---|---|
-| `/api/cron/notifications` | hvert minut | Send pending notifikationer (retry med backoff, maks. 5 forsøg, derefter FAILED + admin-alarm) |
+| `/api/cron/notifications` | hvert minut | Send pending notifikationer, hvis `scheduled_at` er nået (retry med backoff, maks. 5 forsøg, derefter FAILED + admin-alarm) |
 | `/api/cron/expire-reservations` | hvert minut | `PENDING_PAYMENT` med `expires_at < now()` → `EXPIRED`, bil frigives |
-| `/api/cron/schedule-reminders` | hvert 15. min | Opret påmindelser (24 t før afhentning, før aflevering, anmeldelsesanmodning) med `dedupe_key` |
 | `/api/cron/exchange-rates` | dagligt | Hent valutakurser |
 | `/api/cron/retention` | dagligt | Slet dokumenter efter `delete_after`, rydning af gamle sessions |
 | `/api/cron/fleet-alerts` | dagligt | Syn, forsikring, service forfalder → admin-notifikation |
@@ -124,15 +123,12 @@ Alle webhooks: verificér signatur → gem event-id i `PROCESSED_WEBHOOK` (idemp
 ## Interne service-interfaces (eksempler)
 
 ```ts
-// src/server/notifications/notification-service.ts
-NotificationService.sendBookingConfirmation(bookingId)
-NotificationService.sendPaymentConfirmation(bookingId)
-NotificationService.sendCarReady(bookingId)
-NotificationService.sendPickupReminder(bookingId)
-NotificationService.sendReturnReminder(bookingId)
-NotificationService.sendThankYou(bookingId)
-NotificationService.sendReviewRequest(bookingId)
-// Hver metode skriver NOTIFICATION-rækker (én pr. kanal kunden har) — selve afsendelsen sker i cron.
+// src/server/notifications/queue.ts
+queueBookingNotification(tx, bookingId, template, { scheduledAt })
+// Skriver NOTIFICATION-rækker (én pr. kanal kunden har, unik dedupe_key) i samme transaktion som statusskiftet.
+// Bekræftelse: BOOKING_CONFIRMED nu + PICKUP_REMINDER (24 t før) + RETURN_REMINDER (3 t før) med scheduled_at.
+// Afsluttet: THANK_YOU nu + REVIEW_REQUEST (24 t efter). Er bookingen ændret, når tiden kommer,
+// springes beskeden over (tilladte statusser pr. skabelon i templates.ts). Afsendelsen sker i cron.
 
 interface MessageChannel {
   readonly channel: 'EMAIL' | 'WHATSAPP' | 'SMS';

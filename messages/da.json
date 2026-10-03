@@ -1,0 +1,2518 @@
+{
+  "meta": {
+    "title": "Biludlejning",
+    "description": "Find din bil. Book på få minutter.",
+    "shortName": "Biludlejning",
+    "tagline": "Lej en bil på få minutter"
+  },
+  "common": {
+    "close": "Luk",
+    "loading": "Indlæser"
+  },
+  "nav": {
+    "skipToContent": "Gå til indhold",
+    "main": "Hovedmenu",
+    "cars": "Biler",
+    "pricing": "Priser",
+    "locations": "Lokationer",
+    "about": "Om os",
+    "contact": "Kontakt",
+    "faq": "FAQ",
+    "login": "Log ind",
+    "menu": "Menu",
+    "openMenu": "Åbn menu",
+    "account": "Min konto"
+  },
+  "language": {
+    "label": "Sprog",
+    "da": "Dansk",
+    "en": "English",
+    "ar": "العربية",
+    "fr": "Français"
+  },
+  "whatsapp": {
+    "cta": "WhatsApp",
+    "floating": "Skriv til os på WhatsApp",
+    "prefill": "Hej, jeg har et spørgsmål om billeje."
+  },
+  "footer": {
+    "tagline": "Professionel biludlejning uden skjulte gebyrer.",
+    "company": "Virksomhed",
+    "help": "Hjælp",
+    "legal": "Juridisk",
+    "reviews": "Anmeldelser",
+    "terms": "Lejebetingelser",
+    "privacy": "Privatlivspolitik",
+    "cookies": "Cookiepolitik",
+    "cookieSettings": "Cookieindstillinger",
+    "rights": "© {year} {name}. Alle rettigheder forbeholdes."
+  },
+  "cookies": {
+    "title": "Vi bruger cookies",
+    "body": "Nødvendige cookies får siden til at virke. Med dit samtykke bruger vi også cookies til statistik og markedsføring. Du kan altid ændre dit valg.",
+    "acceptAll": "Accepter alle",
+    "necessaryOnly": "Kun nødvendige",
+    "settings": "Indstillinger",
+    "save": "Gem valg",
+    "necessary": "Nødvendige",
+    "necessaryDescription": "Kræves for login, booking og sikkerhed. Kan ikke slås fra.",
+    "analytics": "Statistik",
+    "analyticsDescription": "Hjælper os med at forstå, hvordan siden bruges.",
+    "marketing": "Markedsføring",
+    "marketingDescription": "Bruges til at vise relevante tilbud.",
+    "policy": "Læs cookiepolitikken"
+  },
+  "home": {
+    "title": "Find din bil. Book på få minutter.",
+    "subtitle": "Vælg sted og tid, se den samlede pris med det samme, og hent bilen klar til at køre.",
+    "searchTitle": "Søg efter ledige biler",
+    "popular": {
+      "title": "Populære biler",
+      "description": "Kundernes favoritter lige nu.",
+      "all": "Se alle biler"
+    },
+    "why": {
+      "title": "Derfor lejer kunderne hos os",
+      "items": [
+        {
+          "title": "Ingen skjulte gebyrer",
+          "body": "Du ser den samlede pris, før du booker. Moms og lovpligtig forsikring er altid med."
+        },
+        {
+          "title": "Nyere biler",
+          "body": "Velholdte biler, som tjekkes og rengøres før hver udlejning."
+        },
+        {
+          "title": "Hurtig afhentning",
+          "body": "Bilen står klar, når du kommer. Det tager kun få minutter at hente den."
+        },
+        {
+          "title": "Hjælp, når du har brug for det",
+          "body": "Skriv til os på WhatsApp eller ring, hvis noget driller."
+        }
+      ]
+    },
+    "how": {
+      "title": "Sådan lejer du en bil",
+      "steps": [
+        {
+          "title": "Vælg bil og periode",
+          "body": "Søg på sted og datoer, og se de ledige biler med totalpris."
+        },
+        {
+          "title": "Book og betal online",
+          "body": "Vælg ekstraudstyr og betal med kort, MobilePay, Apple Pay eller Google Pay."
+        },
+        {
+          "title": "Hent bilen",
+          "body": "Vis dit kørekort ved afhentning, så er du klar til at køre."
+        }
+      ]
+    },
+    "reviews": {
+      "title": "Det siger kunderne",
+      "average": "{average} ud af 5 · {count, plural, one {# anmeldelse} other {# anmeldelser}}"
+    },
+    "whatsappCta": {
+      "title": "Har du spørgsmål?",
+      "body": "Skriv til os på WhatsApp. Vi svarer typisk inden for åbningstiden.",
+      "button": "Skriv på WhatsApp"
+    }
+  },
+  "status": {
+    "booking": {
+      "PENDING_PAYMENT": "Afventer betaling",
+      "CONFIRMED": "Bekræftet",
+      "ACTIVE": "Aktiv",
+      "COMPLETED": "Afsluttet",
+      "CANCELLED": "Annulleret",
+      "EXPIRED": "Udløbet",
+      "NO_SHOW": "Ikke mødt op"
+    },
+    "payment": {
+      "UNPAID": "Ikke betalt",
+      "PAID": "Betalt",
+      "PARTIALLY_REFUNDED": "Delvist refunderet",
+      "REFUNDED": "Refunderet",
+      "FAILED": "Betaling fejlede"
+    },
+    "car": {
+      "AVAILABLE": "Ledig",
+      "RESERVED": "Reserveret",
+      "RENTED": "Udlejet",
+      "RETURNED": "Returneret",
+      "INSPECTION": "Til inspektion",
+      "MAINTENANCE": "På værksted",
+      "OUT_OF_SERVICE": "Ude af drift"
+    }
+  },
+  "notFound": {
+    "title": "Siden findes ikke",
+    "body": "Siden er flyttet eller findes ikke endnu.",
+    "home": "Til forsiden"
+  },
+  "auth": {
+    "fields": {
+      "name": "Fulde navn",
+      "email": "E-mail",
+      "password": "Password",
+      "newPassword": "Nyt password",
+      "code": "Kode",
+      "backupCode": "Backupkode"
+    },
+    "passwordHint": "Mindst {min} tegn.",
+    "login": {
+      "title": "Log ind",
+      "intro": "Log ind for at se dine bookinger.",
+      "submit": "Log ind",
+      "forgot": "Glemt password?",
+      "noAccount": "Har du ikke en konto?",
+      "register": "Opret konto",
+      "twoFactorTitle": "Bekræft med kode",
+      "twoFactorIntro": "Skriv den 6-cifrede kode fra din godkendelses-app.",
+      "backupIntro": "Skriv en af dine backupkoder.",
+      "verify": "Bekræft",
+      "useBackupCode": "Brug en backupkode i stedet",
+      "useAuthenticator": "Brug kode fra app i stedet"
+    },
+    "register": {
+      "title": "Opret konto",
+      "intro": "Med en konto kan du se og administrere dine bookinger. Du kan også booke uden konto.",
+      "submit": "Opret konto",
+      "haveAccount": "Har du allerede en konto?",
+      "login": "Log ind",
+      "sentTitle": "Tjek din e-mail",
+      "sentBody": "Vi har sendt et link til {email}. Klik på linket for at bekræfte din e-mail og aktivere kontoen."
+    },
+    "forgot": {
+      "title": "Glemt password",
+      "intro": "Skriv din e-mail, så sender vi et link til at vælge et nyt password.",
+      "submit": "Send link",
+      "sentTitle": "Tjek din e-mail",
+      "sentBody": "Hvis der findes en konto med {email}, har vi sendt et link til at nulstille dit password. Linket virker i 1 time.",
+      "backToLogin": "Tilbage til log ind"
+    },
+    "reset": {
+      "title": "Vælg nyt password",
+      "intro": "Vælg et nyt password til din konto. Du bliver logget ud alle andre steder.",
+      "submit": "Gem password",
+      "doneTitle": "Dit password er ændret",
+      "doneBody": "Du kan nu logge ind med dit nye password.",
+      "login": "Log ind",
+      "requestNew": "Bed om et nyt link"
+    },
+    "verify": {
+      "successTitle": "Din e-mail er bekræftet",
+      "successBody": "Din konto er aktiv, og du er logget ind.",
+      "continue": "Gå til min konto",
+      "errorTitle": "Linket virker ikke",
+      "errorBody": "Linket er udløbet eller allerede brugt. Log ind, så sender vi et nyt link til din e-mail.",
+      "login": "Log ind"
+    },
+    "logout": "Log ud",
+    "errors": {
+      "invalidCredentials": "Forkert e-mail eller password.",
+      "emailNotVerified": "Din e-mail er ikke bekræftet endnu. Vi har sendt et nyt link til din e-mail.",
+      "rateLimited": "For mange forsøg. Vent et øjeblik, og prøv igen.",
+      "accountDisabled": "Kontoen er deaktiveret. Kontakt os, hvis det er en fejl.",
+      "invalidCode": "Koden er forkert eller udløbet.",
+      "invalidToken": "Linket er udløbet eller allerede brugt.",
+      "passwordTooShort": "Password skal være mindst {min} tegn.",
+      "nameRequired": "Skriv dit navn.",
+      "emailInvalid": "Skriv en gyldig e-mail.",
+      "required": "Udfyld feltet.",
+      "generic": "Noget gik galt. Prøv igen."
+    }
+  },
+  "account": {
+    "title": "Min konto",
+    "signedInAs": "Logget ind som {name} ({email})",
+    "nav": {
+      "label": "Min konto",
+      "bookings": "Bookinger",
+      "payments": "Betalinger",
+      "profile": "Profil",
+      "documents": "Dokumenter",
+      "privacy": "Privatliv"
+    },
+    "bookings": {
+      "title": "Dine bookinger",
+      "upcoming": "Kommende",
+      "past": "Tidligere",
+      "emptyTitle": "Ingen kommende bookinger",
+      "emptyBody": "Når du booker en bil, kan du se og ændre den her.",
+      "findCar": "Find en bil",
+      "meta": "{reference} · {location}",
+      "back": "Alle bookinger"
+    },
+    "payments": {
+      "title": "Betalinger og kvitteringer",
+      "charge": "Betaling",
+      "refund": "Refusion",
+      "refundPending": "Refusion (under behandling)",
+      "card": "{brand} •••• {last4}",
+      "methods": {
+        "CARD": "Kort",
+        "MOBILEPAY": "MobilePay",
+        "APPLE_PAY": "Apple Pay",
+        "GOOGLE_PAY": "Google Pay",
+        "CASH": "Kontant",
+        "BANK_TRANSFER": "Bankoverførsel"
+      },
+      "booking": "Booking {reference}",
+      "receipt": "Kvittering",
+      "emptyTitle": "Ingen betalinger endnu",
+      "emptyBody": "Dine betalinger og kvitteringer vises her.",
+      "depositCapture": "Trukket fra depositum"
+    },
+    "profile": {
+      "title": "Profil",
+      "intro": "Oplysningerne bruges på dine kommende bookinger og i vores beskeder til dig.",
+      "firstName": "Fornavn",
+      "lastName": "Efternavn",
+      "email": "E-mail",
+      "emailHint": "Skriv til os, hvis du vil ændre din e-mail.",
+      "phone": "Mobilnummer",
+      "phoneHint": "Fx 12 34 56 78. Bruges til beskeder om dine bookinger.",
+      "phoneError": "Skriv et gyldigt mobilnummer, fx 12 34 56 78 eller +46 70 123 45 67.",
+      "locale": "Sprog",
+      "localeHint": "Vi skriver til dig på dette sprog.",
+      "submit": "Gem",
+      "saved": "Dine oplysninger er gemt.",
+      "error": "Noget gik galt. Prøv igen.",
+      "required": "Skal udfyldes."
+    },
+    "documents": {
+      "title": "Dokumenter",
+      "contract": "Lejekontrakt {reference}",
+      "meta": "{car} · underskrevet {date}",
+      "booking": "Se booking",
+      "download": "Hent PDF",
+      "emptyTitle": "Ingen dokumenter endnu",
+      "emptyBody": "Din lejekontrakt vises her, når du har underskrevet den ved afhentningen."
+    },
+    "privacy": {
+      "title": "Privatliv og data",
+      "intro": "Her bestemmer du, hvad vi må sende dig, henter dine data og kan slette din konto.",
+      "error": "Noget gik galt. Prøv igen.",
+      "consents": {
+        "title": "Beskeder fra os",
+        "marketing": "Nyheder og tilbud på e-mail",
+        "marketingHint": "Højst et par gange om måneden. Beskeder om dine bookinger får du altid.",
+        "whatsapp": "Nyheder og tilbud på WhatsApp",
+        "whatsappHint": "Beskeder om dine bookinger kan stadig komme på WhatsApp, hvis du har oplyst et mobilnummer.",
+        "save": "Gem valg",
+        "saved": "Dine valg er gemt."
+      },
+      "export": {
+        "title": "Hent dine data",
+        "body": "Få en fil med alt, vi har gemt om dig: profil, bookinger, betalinger, beskeder og samtykker.",
+        "download": "Download mine data"
+      },
+      "delete": {
+        "title": "Slet konto",
+        "body": "Vi sletter dit navn, dine kontaktoplysninger, beskeder, anmeldelser og dokumenter, og du kan ikke længere logge ind. Bookinger og betalinger gemmes uden dit navn, fordi bogføringsloven kræver det.",
+        "confirm": "Jeg forstår, at sletningen ikke kan fortrydes.",
+        "confirmRequired": "Sæt flueben for at bekræfte.",
+        "submit": "Slet min konto",
+        "done": "Din konto er slettet.",
+        "home": "Til forsiden",
+        "blocked": {
+          "ACTIVE_BOOKING": "Du har en booking, der ikke er afsluttet. Du kan slette kontoen, når lejen er slut, eller annullere bookingen først.",
+          "OPEN_CLAIM": "Din seneste leje er ikke afregnet endnu (depositum eller skade). Kontakt os, så hjælper vi."
+        }
+      }
+    }
+  },
+  "admin": {
+    "title": "Administration",
+    "skipToContent": "Gå til indhold",
+    "signedInAs": "Logget ind som {email}",
+    "nav": {
+      "label": "Adminmenu",
+      "dashboard": "Overblik",
+      "security": "Sikkerhed",
+      "calendar": "Kalender",
+      "bookings": "Bookinger",
+      "customers": "Kunder",
+      "fleet": "Flåde",
+      "pricing": "Priser",
+      "users": "Brugere",
+      "reviews": "Anmeldelser",
+      "statistics": "Statistik",
+      "auditLog": "Audit-log"
+    },
+    "toSite": "Til hjemmesiden",
+    "roles": {
+      "CUSTOMER": "Kunde",
+      "STAFF": "Medarbejder",
+      "MANAGER": "Leder",
+      "SUPER_ADMIN": "Superadministrator"
+    },
+    "dashboard": {
+      "title": "Overblik",
+      "role": "Din rolle: {role}",
+      "permissionsTitle": "Adgang for din rolle",
+      "permission": "Handling",
+      "allowed": "Adgang",
+      "yes": "Ja",
+      "no": "Nej",
+      "permissions": {
+        "admin:access": "Åbne adminpanelet",
+        "booking:read": "Se bookinger og kalender",
+        "customer:read": "Se kunder",
+        "booking:write": "Oprette og ændre bookinger",
+        "inspection:write": "Udføre inspektioner",
+        "damage:write": "Registrere skader",
+        "message:send": "Sende beskeder til kunder",
+        "booking:requestCancel": "Anmode om annullering",
+        "booking:cancel": "Annullere bookinger",
+        "payment:refund": "Refundere betalinger",
+        "fleet:read": "Se flåden",
+        "fleet:setStatus": "Ændre en bils status",
+        "fleet:write": "Administrere biler og modeller",
+        "car:readPurchasePrice": "Se købspris på biler",
+        "catalog:write": "Priser, ekstraudstyr, rabatter og lokationer",
+        "stats:read": "Se statistik og omsætning",
+        "audit:read": "Se audit-log",
+        "gdpr:export": "Eksportere kundedata",
+        "gdpr:anonymize": "Anonymisere kunder",
+        "users:manage": "Administrere medarbejdere og roller",
+        "settings:write": "Ændre indstillinger",
+        "damage:approveCost": "Godkende ansvar og beløb for skader",
+        "review:moderate": "Publicere og skjule anmeldelser"
+      },
+      "location": "Lokation",
+      "allLocations": "Alle lokationer",
+      "show": "Vis",
+      "counts": {
+        "pickups": "Afhentninger i dag",
+        "returns": "Afleveringer i dag",
+        "active": "Udlejet nu",
+        "available": "Ledige biler",
+        "inService": "På værksted"
+      },
+      "attentionTitle": "Kræver handling",
+      "attention": {
+        "unpaid": "{count} ubetalte bookinger",
+        "pendingRefunds": "{count} refusioner venter",
+        "failedNotifications": "{count} beskeder kunne ikke sendes",
+        "newMessages": "{count} nye henvendelser"
+      },
+      "todayTitle": "I dag",
+      "todayEmpty": "Ingen afhentninger eller afleveringer i dag.",
+      "columns": {
+        "time": "Tid",
+        "what": "Hvad",
+        "booking": "Booking",
+        "customer": "Kunde",
+        "car": "Bil",
+        "status": "Status"
+      },
+      "kind": {
+        "pickup": "Afhentning",
+        "return": "Aflevering"
+      },
+      "kpiTitle": "Denne måned",
+      "kpi": {
+        "revenue": "Omsætning",
+        "outstanding": "Udestående",
+        "newCustomers": "Nye kunder"
+      }
+    },
+    "security": {
+      "title": "Sikkerhed",
+      "required": "Din rolle kræver totrinsbekræftelse (2FA). Slå det til for at få adgang til adminpanelet.",
+      "enabled": "Totrinsbekræftelse er slået til.",
+      "disabledInfo": "Totrinsbekræftelse er ikke slået til. Vi anbefaler det til alle medarbejdere.",
+      "step1": "Bekræft dit password for at starte.",
+      "start": "Slå 2FA til",
+      "step2": "Scan QR-koden med en godkendelses-app (fx Google Authenticator eller 1Password), og skriv den 6-cifrede kode.",
+      "manualKey": "Kan du ikke scanne? Brug denne nøgle:",
+      "qrAlt": "QR-kode til godkendelses-app",
+      "confirm": "Bekræft og slå til",
+      "backupTitle": "Gem dine backupkoder",
+      "backupBody": "Hver kode kan bruges én gang, hvis du mister din telefon. Gem dem et sikkert sted. De vises kun nu.",
+      "done": "Jeg har gemt koderne"
+    },
+    "bookings": {
+      "title": "Bookinger",
+      "search": "Søg",
+      "searchHint": "Bookingnummer, navn, e-mail, telefon eller nummerplade.",
+      "status": "Status",
+      "allStatuses": "Alle (undtagen udløbne)",
+      "location": "Lokation",
+      "allLocations": "Alle lokationer",
+      "submit": "Søg",
+      "count": "{count, plural, one {# booking} other {# bookinger}}",
+      "empty": "Ingen bookinger matcher søgningen.",
+      "columns": {
+        "reference": "Booking",
+        "customer": "Kunde",
+        "car": "Bil",
+        "period": "Periode",
+        "status": "Status",
+        "total": "Beløb"
+      },
+      "previous": "Forrige",
+      "next": "Næste",
+      "page": "Side {page} af {pages}",
+      "new": "Ny booking"
+    },
+    "booking": {
+      "back": "Alle bookinger",
+      "title": "Booking {reference}",
+      "created": "Oprettet {date}",
+      "rentalTitle": "Leje",
+      "car": "Bil",
+      "fulfilment": "Udlevering",
+      "delivery": "Levering til {address}",
+      "pickupAtOffice": "Afhentning på kontoret",
+      "pickup": "Afhentning",
+      "return": "Aflevering",
+      "discount": "Rabatkode",
+      "deposit": "Depositum",
+      "depositStatus": {
+        "NOT_REQUIRED": "Ikke krævet",
+        "PENDING": "Afventer",
+        "HELD": "Reserveret",
+        "CAPTURED": "Trukket",
+        "RELEASED": "Frigivet"
+      },
+      "total": "I alt",
+      "paymentsTitle": "Betalinger",
+      "noPayments": "Ingen betalinger endnu.",
+      "columns": {
+        "date": "Dato",
+        "kind": "Type",
+        "status": "Status",
+        "method": "Metode",
+        "amount": "Beløb",
+        "action": "Handling"
+      },
+      "paymentKinds": {
+        "CHARGE": "Betaling",
+        "DEPOSIT_HOLD": "Depositum reserveret",
+        "DEPOSIT_CAPTURE": "Depositum trukket",
+        "REFUND": "Refusion",
+        "MANUAL": "Manuel betaling",
+        "DEPOSIT_RETURN": "Depositum tilbage"
+      },
+      "paymentStatus": {
+        "PENDING": "Afventer",
+        "REQUIRES_ACTION": "Kræver handling",
+        "SUCCEEDED": "Gennemført",
+        "FAILED": "Fejlet",
+        "CANCELLED": "Annulleret"
+      },
+      "methods": {
+        "CARD": "Kort",
+        "MOBILEPAY": "MobilePay",
+        "APPLE_PAY": "Apple Pay",
+        "GOOGLE_PAY": "Google Pay",
+        "CASH": "Kontant",
+        "BANK_TRANSFER": "Bankoverførsel"
+      },
+      "historyTitle": "Historik",
+      "system": "System",
+      "messagesTitle": "Beskeder og notifikationer",
+      "noMessages": "Ingen beskeder endnu.",
+      "channels": {
+        "CONTACT_FORM": "Kontaktformular",
+        "EMAIL": "E-mail",
+        "WHATSAPP": "WhatsApp",
+        "SMS": "SMS",
+        "PHONE_NOTE": "Telefonnotat"
+      },
+      "direction": {
+        "INBOUND": "Fra kunden",
+        "OUTBOUND": "Til kunden"
+      },
+      "templates": {
+        "BOOKING_CONFIRMED": "Bekræftelse",
+        "PAYMENT_RECEIVED": "Betaling modtaget",
+        "CAR_READY": "Bilen er klar",
+        "PICKUP_REMINDER": "Påmindelse om afhentning",
+        "RETURN_REMINDER": "Påmindelse om aflevering",
+        "THANK_YOU": "Tak for lejen",
+        "REVIEW_REQUEST": "Anmeldelse",
+        "BOOKING_CANCELLED": "Annullering",
+        "PAYMENT_REQUEST": "Betalingslink",
+        "BOOKING_CHANGED": "Ændret booking"
+      },
+      "notificationStatus": {
+        "PENDING": "Planlagt",
+        "SENDING": "Sendes",
+        "SENT": "Sendt",
+        "FAILED": "Fejlet",
+        "SKIPPED": "Sprunget over"
+      },
+      "message": {
+        "title": "Send e-mail til kunden",
+        "subject": "Emne",
+        "body": "Besked",
+        "bodyHint": "Sendes på kundens sprog-skabelon med din tekst. Skriv ikke kortoplysninger eller passwords.",
+        "submit": "Send e-mail",
+        "sent": "E-mailen er sendt.",
+        "error": "E-mailen kunne ikke sendes. Prøv igen.",
+        "required": "Skal udfyldes."
+      },
+      "customerTitle": "Kunde",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "language": "Sprog",
+      "account": "Konto",
+      "hasAccount": "Har konto",
+      "guest": "Gæst",
+      "whatsappPrefill": "Hej {name}, det er udlejningen angående din booking {reference}.",
+      "call": "Ring op",
+      "whatsapp": "WhatsApp",
+      "sendEmail": "Skriv e-mail",
+      "reasons": {
+        "customer_free": "Kunden annullerede inden for fristen",
+        "customer_late": "Kunden annullerede efter fristen",
+        "manual_payment": "Betaling registreret",
+        "pay_at_counter": "Telefonbooking, betales ved skranken",
+        "rescheduled": "Ny periode",
+        "reservation_expired": "Betalingsfristen udløb",
+        "picked_up": "Bilen er udleveret",
+        "returned": "Bilen er afleveret"
+      },
+      "actions": {
+        "title": "Handlinger",
+        "amountHint": "I kroner, fx 450 eller 1.250,50.",
+        "reason": "Årsag",
+        "reasonHint": "Vises i bookingens historik. Skriv ikke kortoplysninger.",
+        "retryRefund": "Prøv igen",
+        "pay": {
+          "title": "Registrér betaling",
+          "status": "Betalt:",
+          "balance": "Mangler:",
+          "amount": "Beløb",
+          "method": "Betalingsmåde",
+          "methods": {
+            "CASH": "Kontant",
+            "CARD": "Kort (terminal)",
+            "MOBILEPAY": "MobilePay",
+            "BANK_TRANSFER": "Bankoverførsel"
+          },
+          "submit": "Registrér betaling"
+        },
+        "reschedule": {
+          "title": "Ændr periode",
+          "intro": "Vælg den nye periode. Du ser bil og pris, før du bekræfter.",
+          "pickupDate": "Afhentningsdato",
+          "pickupTime": "Afhentningstid",
+          "returnDate": "Afleveringsdato",
+          "returnTime": "Afleveringstid",
+          "price": "Pris",
+          "keep": "Behold prisen",
+          "new": "Beregn ny pris for perioden",
+          "preview": "Se ændringen",
+          "summary": "Sådan bliver bookingen",
+          "newPeriod": "Ny periode",
+          "car": "Bil",
+          "sameCar": "(samme bil)",
+          "otherCar": "(anden bil af samme model)",
+          "total": "Pris i alt",
+          "confirm": "Bekræft ændringen"
+        },
+        "reassign": {
+          "title": "Skift bil",
+          "none": "Ingen andre biler af modellen er ledige i perioden.",
+          "car": "Ny bil",
+          "submit": "Skift bil"
+        },
+        "refund": {
+          "title": "Refundér",
+          "intro": "Betalt i alt:",
+          "amount": "Beløb",
+          "submit": "Refundér"
+        },
+        "cancel": {
+          "title": "Annullér booking",
+          "free": "Kunden er inden for fristen for gratis annullering.",
+          "late": "Fristen for gratis annullering er overskredet.",
+          "noPolicy": "Bookingen er ikke bekræftet, eller afhentningstiden er passeret.",
+          "suggested": "Forslag til refusion:",
+          "refund": "Refusion",
+          "refundHint": "I kroner. Du kan ændre forslaget; skriv hvorfor i årsagen.",
+          "confirm": "Ja, annullér bookingen og frigiv bilen",
+          "submit": "Annullér booking"
+        },
+        "notices": {
+          "cancelled": "Bookingen er annulleret, og kunden får besked.",
+          "cancelledRefundPending": "Bookingen er annulleret, men refusionen fejlede hos betalingsudbyderen. Prøv igen under Betalinger.",
+          "refunded": "Refusionen er gennemført.",
+          "refundPending": "Refusionen fejlede hos betalingsudbyderen. Prøv igen under Betalinger.",
+          "paid": "Betalingen er registreret.",
+          "rescheduled": "Bookingen er flyttet, og kunden får besked.",
+          "reassigned": "Bookingen har fået en anden bil.",
+          "created": "Bookingen er oprettet og bekræftet. Kunden betaler ved skranken.",
+          "linkSent": "Bookingen er oprettet, og kunden får et betalingslink på e-mail. Linket virker i 24 timer.",
+          "invalid": "Tjek felterne og prøv igen.",
+          "tooSoon": "Afhentningen ligger for tæt på.",
+          "carTaken": "Ingen bil af modellen er ledig i perioden.",
+          "closed": "Stedet har lukket på det tidspunkt.",
+          "forbidden": "Din rolle har ikke adgang til den handling.",
+          "conflict": "Bookingen kan ikke ændres i sin nuværende status, eller den blev ændret samtidig. Genindlæs siden.",
+          "providerFailed": "Betalingsudbyderen afviste refusionen. Prøv igen senere.",
+          "failed": "Noget gik galt. Prøv igen."
+        },
+        "markRefunded": "Markér som betalt tilbage"
+      },
+      "handover": {
+        "title": "Udlevering og aflevering",
+        "pickup": "Udlevér bil",
+        "return": "Modtag bil",
+        "types": {
+          "PICKUP": "Udlevering",
+          "RETURN": "Aflevering"
+        },
+        "summary": "{km, number} km · brændstof {level}/8 · {photos, plural, one {# foto} other {# fotos}} · {damages, plural, one {# skade} other {# skader}}",
+        "deposit": "Tag depositum",
+        "settle": "Afregn",
+        "settled": "Afregnet {date}.",
+        "showSettlement": "Se afregning",
+        "contract": "Lejekontrakt",
+        "contractSigned": "Kontrakt (PDF)"
+      }
+    },
+    "customers": {
+      "title": "Kunder",
+      "search": "Søg",
+      "searchHint": "Navn, e-mail eller telefon.",
+      "submit": "Søg",
+      "count": "{count, plural, one {# kunde} other {# kunder}}",
+      "empty": "Ingen kunder matcher søgningen.",
+      "columns": {
+        "name": "Navn",
+        "contact": "Kontakt",
+        "bookings": "Bookinger",
+        "account": "Konto",
+        "created": "Oprettet"
+      },
+      "anonymized": "Anonymiseret",
+      "hasAccount": "Har konto",
+      "guest": "Gæst",
+      "previous": "Forrige",
+      "next": "Næste",
+      "page": "Side {page} af {pages}"
+    },
+    "customer": {
+      "metaTitle": "Kunde",
+      "back": "Alle kunder",
+      "anonymized": "Kunden er anonymiseret.",
+      "bookingsTitle": "Bookinger ({count})",
+      "noBookings": "Ingen bookinger.",
+      "columns": {
+        "reference": "Booking",
+        "car": "Bil",
+        "pickup": "Afhentning",
+        "status": "Status",
+        "total": "Beløb"
+      },
+      "messagesTitle": "Seneste beskeder",
+      "noMessages": "Ingen beskeder.",
+      "profileTitle": "Oplysninger",
+      "lastLogin": "Sidst logget ind {date}",
+      "created": "Oprettet",
+      "whatsappPrefill": "Hej {name}, det er udlejningen.",
+      "gdpr": {
+        "title": "GDPR",
+        "export": "Eksportér data (JSON)",
+        "anonymize": "Anonymisér kunden",
+        "anonymizeHint": "Navn, kontakt, beskeder, anmeldelser og dokumenter slettes. Bookinger og betalinger bevares under et pseudonym. Kan ikke fortrydes.",
+        "confirm": "Kunden har bedt om sletning, og jeg har tjekket identiteten.",
+        "blocked": {
+          "ACTIVE_BOOKING": "Kan ikke anonymiseres: kunden har en booking, der ikke er afsluttet.",
+          "OPEN_CLAIM": "Kan ikke anonymiseres: depositum eller skade er ikke afgjort."
+        },
+        "notices": {
+          "anonymized": "Anonymiseringen er gennemført.",
+          "blocked": "Kunden kan ikke anonymiseres endnu.",
+          "confirm": "Sæt flueben for at bekræfte anonymiseringen.",
+          "forbidden": "Din rolle har ikke adgang til den handling.",
+          "failed": "Noget gik galt. Prøv igen."
+        }
+      }
+    },
+    "calendar": {
+      "title": "Kalender",
+      "location": "Lokation",
+      "allLocations": "Alle lokationer",
+      "range": "Periode",
+      "week": "1 uge",
+      "twoWeeks": "2 uger",
+      "show": "Vis",
+      "previous": "Forrige",
+      "next": "Næste",
+      "period": "{from} til {to}",
+      "car": "Bil",
+      "empty": "Ingen biler på denne lokation.",
+      "legend": "Hver række er en bil. Bookinger og værkstedsbesøg vises over de dage, bilen er optaget.",
+      "maintenance": {
+        "SERVICE": "Service",
+        "INSPECTION_SYN": "Syn",
+        "TYRES": "Dækskift",
+        "REPAIR": "Reparation",
+        "CLEANING": "Rengøring"
+      }
+    },
+    "newBooking": {
+      "back": "Alle bookinger",
+      "title": "Ny booking",
+      "intro": "Til bookinger over telefonen eller ved skranken. Samme regler og priser som på hjemmesiden.",
+      "customerTitle": "Kunde",
+      "firstName": "Fornavn",
+      "lastName": "Efternavn",
+      "email": "E-mail",
+      "phone": "Mobilnummer",
+      "phoneHint": "Fx 12 34 56 78.",
+      "phoneError": "Skriv et gyldigt mobilnummer, fx 12 34 56 78.",
+      "locale": "Sprog",
+      "localeHint": "Kunden får beskeder på dette sprog.",
+      "rentalTitle": "Leje",
+      "car": "Bilmodel",
+      "choose": "Vælg",
+      "pickupLocation": "Afhentningssted",
+      "pickupDate": "Afhentningsdato",
+      "pickupTime": "Afhentningstid",
+      "returnLocation": "Afleveringssted",
+      "returnDate": "Afleveringsdato",
+      "returnTime": "Afleveringstid",
+      "discountCode": "Rabatkode (valgfri)",
+      "extras": "Ekstraudstyr",
+      "paymentTitle": "Betaling",
+      "paymentLink": "Send betalingslink",
+      "paymentLinkHint": "Kunden får en e-mail med et link og har 24 timer til at betale. Bilen holdes imens.",
+      "paymentCounter": "Betales ved skranken",
+      "paymentCounterHint": "Bookingen bekræftes nu. Registrér betalingen, når kunden betaler.",
+      "submit": "Opret booking",
+      "required": "Skal udfyldes.",
+      "errors": {
+        "invalid": "Tjek de markerede felter.",
+        "tooSoon": "Afhentningen ligger for tæt på.",
+        "closed": "Stedet har lukket på det tidspunkt.",
+        "carTaken": "Ingen bil af modellen er ledig i perioden.",
+        "discount": "Rabatkoden virker ikke.",
+        "price": "Der er ingen pris for perioden.",
+        "failed": "Noget gik galt. Prøv igen."
+      }
+    },
+    "fleet": {
+      "title": "Flåde",
+      "back": "Alle biler",
+      "km": "{km, number} km",
+      "previous": "Forrige",
+      "next": "Næste",
+      "page": "Side {page} af {pages}",
+      "amountHint": "I kroner, fx 450 eller 1.250,50.",
+      "tabs": {
+        "label": "Flåde",
+        "cars": "Biler",
+        "models": "Modeller"
+      },
+      "opStatus": {
+        "ACTIVE": "I drift",
+        "INSPECTION": "Til eftersyn",
+        "MAINTENANCE": "På værksted",
+        "OUT_OF_SERVICE": "Ude af drift",
+        "RETIRED": "Udfaset"
+      },
+      "warnings": {
+        "inspection": "Syn snart",
+        "service": "Service snart",
+        "insurance": "Forsikring udløber"
+      },
+      "cars": {
+        "new": "Ny bil",
+        "search": "Søg",
+        "searchHint": "Nummerplade eller stelnummer.",
+        "status": "Status",
+        "allStatuses": "Alle (undtagen udfasede)",
+        "model": "Model",
+        "allModels": "Alle modeller",
+        "location": "Lokation",
+        "allLocations": "Alle lokationer",
+        "submit": "Søg",
+        "count": "{count, plural, one {# bil} other {# biler}}",
+        "empty": "Ingen biler matcher søgningen.",
+        "columns": {
+          "registration": "Nummerplade",
+          "model": "Model",
+          "location": "Hjemsted",
+          "odometer": "Km",
+          "status": "Status",
+          "warnings": "Frister"
+        }
+      },
+      "car": {
+        "bookings": "Kommende bookinger",
+        "noBookings": "Bilen har ingen kommende bookinger.",
+        "bookingsHint": "Skal bilen ud af drift, så åbn hver booking og skift bil, ændr perioden eller annullér.",
+        "columns": {
+          "reference": "Booking",
+          "customer": "Kunde",
+          "period": "Periode",
+          "status": "Status"
+        },
+        "statusTitle": "Driftsstatus",
+        "statusIntro": "Kun biler i drift kan bookes. Bookinger, bilen allerede har, beholder den, indtil du flytter dem.",
+        "newStatus": "Ny status",
+        "confirm": "Jeg har set {count, plural, one {den kommende booking} other {de # kommende bookinger}}",
+        "confirmHint": "De beholder bilen, indtil du flytter dem til en anden bil.",
+        "setStatus": "Skift status",
+        "odometerTitle": "Kilometerstand",
+        "odometer": "Km",
+        "odometerHint": "Kan kun gå op.",
+        "saveOdometer": "Gem km",
+        "details": "Stamdata",
+        "damages": "Skader",
+        "noDamages": "Ingen registrerede skader.",
+        "repairedOn": "udbedret {date}",
+        "markRepaired": "Markér som udbedret",
+        "inspections": "Udleveringer og afleveringer"
+      },
+      "notices": {
+        "created": "Bilen er oprettet.",
+        "saved": "Ændringerne er gemt.",
+        "statusChanged": "Status er ændret.",
+        "odometerSaved": "Kilometerstanden er gemt.",
+        "maintenanceAdded": "Værkstedsbesøget er planlagt. Bilen kan ikke bookes i perioden.",
+        "maintenanceUpdated": "Værkstedsbesøget er opdateret.",
+        "invalid": "Tjek felterne og prøv igen.",
+        "odometerDown": "Kilometerstanden kan ikke være lavere end før.",
+        "endBeforeStart": "Slut skal ligge efter start.",
+        "rented": "Bilen er udlejet lige nu. Skift status, når den er afleveret.",
+        "hasBookings": "Bilen har kommende bookinger. Sæt flueben for at bekræfte, eller flyt dem først:",
+        "bookingsInPeriod": "Bilen er booket i perioden. Flyt disse bookinger først:",
+        "maintenanceOverlap": "Bilen har allerede et værkstedsbesøg i perioden.",
+        "conflict": "Det kan ikke ændres nu, eller det blev ændret samtidig. Genindlæs siden.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "notFound": "Det findes ikke længere.",
+        "failed": "Noget gik galt. Prøv igen.",
+        "damageRepaired": "Skaden er markeret som udbedret."
+      },
+      "maintenance": {
+        "title": "Værksted",
+        "empty": "Ingen værkstedsbesøg endnu.",
+        "columns": {
+          "type": "Type",
+          "period": "Periode",
+          "vendor": "Værksted",
+          "cost": "Pris",
+          "status": "Status",
+          "action": "Handling"
+        },
+        "types": {
+          "SERVICE": "Service",
+          "INSPECTION_SYN": "Syn",
+          "TYRES": "Dækskift",
+          "REPAIR": "Reparation",
+          "CLEANING": "Rengøring"
+        },
+        "statuses": {
+          "PLANNED": "Planlagt",
+          "IN_PROGRESS": "I gang",
+          "DONE": "Færdig",
+          "CANCELLED": "Aflyst"
+        },
+        "to": {
+          "IN_PROGRESS": "Start",
+          "DONE": "Færdig",
+          "CANCELLED": "Aflys"
+        },
+        "add": "Planlæg værkstedsbesøg",
+        "addIntro": "Bilen kan ikke bookes i perioden. Har den bookinger i perioden, skal de flyttes først.",
+        "type": "Type",
+        "vendor": "Værksted (valgfrit)",
+        "startDate": "Startdato",
+        "startTime": "Starttid",
+        "endDate": "Slutdato",
+        "endTime": "Sluttid",
+        "cost": "Pris (valgfri)",
+        "notes": "Note (valgfri)",
+        "submit": "Planlæg"
+      },
+      "form": {
+        "identity": "Bil",
+        "carModelId": "Model",
+        "homeLocationId": "Hjemsted",
+        "registrationNumber": "Nummerplade",
+        "registrationHint": "Fx AB 12 345.",
+        "vin": "Stelnummer (VIN)",
+        "vinHint": "11–17 tegn, uden I, O og Q.",
+        "color": "Farve (valgfri)",
+        "odometerKm": "Km",
+        "tyreType": "Dæk (valgfrit)",
+        "tyreHint": "Fx sommer, vinter eller helår.",
+        "deadlines": "Frister",
+        "nextInspectionDue": "Næste syn",
+        "nextServiceDue": "Næste service (dato)",
+        "nextServiceKm": "Næste service (km)",
+        "insurancePolicy": "Forsikringspolice (valgfri)",
+        "insuranceExpiresAt": "Forsikring udløber",
+        "purchase": "Køb",
+        "purchaseDate": "Købsdato",
+        "purchasePrice": "Købspris",
+        "amountHint": "I kroner, fx 189.000.",
+        "choose": "Vælg",
+        "save": "Gem ændringer",
+        "create": "Opret bil",
+        "duplicate": "Findes allerede på en anden bil.",
+        "odometerDown": "Kan ikke være lavere end før.",
+        "invalid": "Tjek feltet.",
+        "errors": {
+          "invalid": "Tjek de markerede felter.",
+          "duplicate": "Nummerpladen eller stelnummeret findes allerede.",
+          "odometerDown": "Kilometerstanden kan ikke være lavere end før.",
+          "hasBookings": "Model og hjemsted kan ikke skiftes, mens bilen har kommende bookinger:",
+          "forbidden": "Din rolle har ikke adgang til den handling.",
+          "failed": "Noget gik galt. Prøv igen."
+        }
+      },
+      "models": {
+        "title": "Modeller",
+        "new": "Ny model",
+        "edit": "Ret model",
+        "back": "Alle modeller",
+        "empty": "Ingen modeller endnu.",
+        "columns": {
+          "model": "Model",
+          "category": "Kategori",
+          "cars": "Biler",
+          "visibility": "Synlighed"
+        },
+        "active": "Vises",
+        "inactive": "Skjult",
+        "featured": "Fremhævet",
+        "notices": {
+          "created": "Modellen er oprettet.",
+          "saved": "Ændringerne er gemt.",
+          "imageDeleted": "Billedet er slettet.",
+          "imageFirst": "Forsidebilledet er skiftet.",
+          "forbidden": "Din rolle har ikke adgang til den handling.",
+          "failed": "Noget gik galt. Prøv igen."
+        },
+        "images": "Billeder",
+        "imagesHint": "Vises i kataloget; det første er forsidebilledet. Højst {max} billeder. Brug liggende billeder, gerne 16:10.",
+        "noImages": "Ingen billeder endnu. Kataloget viser en pladsholder.",
+        "imageAlt": "{name}, billede {n}",
+        "firstImage": "Forsidebillede",
+        "makeFirst": "Brug som forsidebillede",
+        "deleteImage": "Slet",
+        "addImages": "Tilføj billeder"
+      },
+      "modelForm": {
+        "basics": "Model",
+        "brand": "Mærke",
+        "model": "Model",
+        "year": "Årgang",
+        "categoryId": "Kategori",
+        "choose": "Vælg",
+        "slug": "Adresse",
+        "slugHint": "Bruges i linket, fx toyota-yaris-hybrid. Små bogstaver, tal og bindestreg.",
+        "specs": "Specifikationer",
+        "transmission": "Gear",
+        "fuel": "Brændstof",
+        "seats": "Sæder",
+        "doors": "Døre",
+        "bags": "Kufferter",
+        "airConditioning": "Aircondition",
+        "terms": "Km og depositum",
+        "termsHint": "Gælder for nye bookinger. Prisen pr. dag sættes pr. kategori.",
+        "includedKmPerDay": "Inkluderede km pr. dag",
+        "extraKmFee": "Pris pr. ekstra km",
+        "deposit": "Depositum",
+        "amountHint": "I kroner, fx 2,50 eller 3.000.",
+        "descriptions": "Beskrivelse",
+        "descriptionsHint": "Dansk skal udfyldes. Mangler et sprog, vises den danske tekst.",
+        "descriptionDa": "Dansk",
+        "descriptionEn": "Engelsk",
+        "descriptionFr": "Fransk",
+        "descriptionAr": "Arabisk",
+        "visibility": "Synlighed",
+        "isActive": "Vis i kataloget",
+        "isActiveHint": "Kunder kan se og booke modellen.",
+        "isFeatured": "Fremhæv på forsiden",
+        "isFeaturedHint": "Vises blandt de populære biler.",
+        "save": "Gem ændringer",
+        "create": "Opret model",
+        "invalid": "Tjek feltet.",
+        "duplicate": "Adressen bruges allerede af en anden model.",
+        "errors": {
+          "invalid": "Tjek de markerede felter.",
+          "duplicate": "Adressen bruges allerede af en anden model.",
+          "forbidden": "Din rolle har ikke adgang til den handling.",
+          "failed": "Noget gik galt. Prøv igen."
+        }
+      }
+    },
+    "photos": {
+      "hint": "Tag billeder med telefonen eller vælg fra galleriet. De gemmes uden placering og andre metadata.",
+      "uploading": "Uploader {done} af {total} …",
+      "errors": {
+        "notImage": "En af filerne er ikke et billede.",
+        "tooLarge": "En af filerne er for stor.",
+        "tooMany": "Der er ikke plads til flere billeder.",
+        "forbidden": "Din rolle har ikke adgang til at uploade.",
+        "failed": "Et billede kunne ikke gemmes. Prøv igen."
+      }
+    },
+    "handover": {
+      "back": "Tilbage til {reference}",
+      "odometer": "Km-stand",
+      "odometerHint": "Mindst {km, number} km.",
+      "fuel": "Brændstof eller batteri",
+      "fuelHint": "Aflæs måleren i ottendedele.",
+      "fuelLevel": "{level, plural, =0 {Tom (0/{max})} =8 {Fuld ({max}/{max})} other {#/{max}}}",
+      "notes": "Bemærkninger (valgfri)",
+      "notesHint": "Fx ridser, rengøring eller ekstra nøgle. Skriv ikke kortoplysninger.",
+      "knownDamages": "Kendte skader",
+      "noKnownDamages": "Bilen har ingen kendte skader.",
+      "pickup": {
+        "title": "Udlevér bil",
+        "notAllowed": "Kun bekræftede bookinger kan udleveres.",
+        "unpaidTitle": "Bookingen er ikke betalt",
+        "unpaid": "Registrér betalingen på bookingen før udlevering. Mangler:",
+        "damagesHint": "Gå bilen rundt med kunden. Nye fund registreres som skader på næste side, sammen med fotos.",
+        "submit": "Udlevér bilen",
+        "depositTitle": "Depositum mangler",
+        "deposit": "Tag depositum, før bilen udleveres:",
+        "takeDeposit": "Tag depositum",
+        "contractTitle": "Kontrakten er ikke underskrevet",
+        "contract": "Kunden skal underskrive lejekontrakten, før bilen udleveres.",
+        "signContract": "Underskriv kontrakt"
+      },
+      "return": {
+        "title": "Modtag bil",
+        "notAllowed": "Kun udleverede bookinger kan afleveres.",
+        "damagesHint": "Sammenlign med udleveringen. Nye skader registreres på næste side, sammen med fotos.",
+        "submit": "Modtag bilen",
+        "carStatus": "Bilen bagefter",
+        "statuses": {
+          "ACTIVE": "Klar til næste kunde",
+          "INSPECTION": "Skal tjekkes eller rengøres først",
+          "MAINTENANCE": "Skal på værksted"
+        }
+      },
+      "notices": {
+        "invalid": "Tjek felterne og prøv igen.",
+        "odometerDown": "Km-standen kan ikke være lavere end før.",
+        "unpaid": "Bookingen er ikke betalt. Registrér betalingen først.",
+        "tooEarly": "Bilen kan tidligst udleveres på afhentningsdagen.",
+        "conflict": "Bookingen er ændret i mellemtiden. Genindlæs siden.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "notFound": "Bookingen findes ikke.",
+        "failed": "Noget gik galt. Prøv igen.",
+        "depositMissing": "Depositum mangler. Tag depositum først.",
+        "contractMissing": "Kontrakten er ikke underskrevet. Få kunden til at underskrive først."
+      }
+    },
+    "damage": {
+      "areas": {
+        "front": "Front",
+        "front-left": "Front venstre",
+        "front-right": "Front højre",
+        "left": "Venstre side",
+        "right": "Højre side",
+        "rear": "Bagende",
+        "rear-left": "Bag venstre",
+        "rear-right": "Bag højre",
+        "roof": "Tag",
+        "windscreen": "Forrude",
+        "wheels": "Hjul og fælge",
+        "interior": "Kabine",
+        "other": "Andet"
+      },
+      "severities": {
+        "MINOR": "Lille",
+        "MODERATE": "Mellem",
+        "MAJOR": "Stor"
+      },
+      "liabilities": {
+        "CUSTOMER": "Kunden",
+        "INTERNAL": "Os selv",
+        "THIRD_PARTY": "Tredjepart",
+        "UNDECIDED": "Ikke afklaret"
+      }
+    },
+    "inspection": {
+      "metaTitle": "Inspektion",
+      "types": {
+        "PICKUP": "Udlevering",
+        "RETURN": "Aflevering"
+      },
+      "backToBooking": "Tilbage til {reference}",
+      "notices": {
+        "pickedUp": "Bilen er udleveret. Tag fotos af bilen fra alle sider.",
+        "returned": "Bilen er modtaget, og bookingen er afsluttet. Tag fotos og registrér eventuelle nye skader.",
+        "damageAdded": "Skaden er registreret. Tilføj gerne fotos.",
+        "damageRepaired": "Skaden er markeret som udbedret.",
+        "invalid": "Tjek felterne og prøv igen.",
+        "conflict": "Det kan ikke ændres nu. Genindlæs siden.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "notFound": "Det findes ikke længere.",
+        "failed": "Noget gik galt. Prøv igen."
+      },
+      "odometer": "Km-stand",
+      "km": "{km, number} km",
+      "driven": "Kørt {km, number} km",
+      "fuel": "Brændstof",
+      "fuelLevel": "{level, plural, =0 {Tom (0/{max})} =8 {Fuld ({max}/{max})} other {#/{max}}}",
+      "fuelAtPickup": "Ved udlevering: {fuel}",
+      "performed": "Udført",
+      "notes": "Bemærkninger",
+      "photos": "Fotos",
+      "photosHint": "Tag mindst ét foto fra hver side, fronten, bagenden og kabinen.",
+      "noPhotos": "Ingen fotos endnu.",
+      "addPhotos": "Tag eller vælg fotos",
+      "photoAlt": "Foto {n} af bilen",
+      "compare": "Til sammenligning: {type}",
+      "open": "Åbn",
+      "otherPhotoAlt": "{type}, foto {n}",
+      "damages": "Skader",
+      "noDamages": "Ingen skader registreret.",
+      "newDamage": "Ny skade",
+      "existingDamage": "Kendt skade",
+      "repaired": "Udbedret",
+      "estimatedCost": "Anslået pris:",
+      "damagePhotoAlt": "Skade, {area}, foto {n}",
+      "addDamagePhotos": "Fotos af skaden",
+      "markRepaired": "Markér som udbedret",
+      "addDamage": "Registrér skade",
+      "addDamageReturn": "En ny skade knyttes til bookingen. En leder godkender ansvar og beløb ved afregningen.",
+      "addDamagePickup": "En skade fundet ved udlevering er bilens egen og opkræves ikke hos kunden.",
+      "area": "Område",
+      "severity": "Omfang",
+      "liability": "Ansvar",
+      "liabilityHint": "En leder godkender det ved afregningen.",
+      "estimatedCostLabel": "Anslået pris (valgfri)",
+      "amountHint": "I kroner, fx 1.500.",
+      "description": "Beskrivelse",
+      "descriptionHint": "Fx \"ridse på 10 cm under dørhåndtaget\".",
+      "saveDamage": "Registrér skade",
+      "settleTitle": "Næste: afregning",
+      "settleHint": "Tag fotos og registrér nye skader først. Afregn derefter tillæg og depositum.",
+      "settle": "Gå til afregning"
+    },
+    "tableLabel": "Tabel: {name}",
+    "deposit": {
+      "title": "Depositum",
+      "back": "Tilbage til {reference}",
+      "notices": {
+        "held": "Depositummet er registreret.",
+        "card": "Kortet er sendt til godkendelse.",
+        "invalid": "Tjek felterne og prøv igen.",
+        "conflict": "Depositum kan ikke tages nu. Genindlæs siden.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "failed": "Noget gik galt. Prøv igen."
+      },
+      "declined": "Kortet blev afvist. Prøv et andet kort, eller tag depositum kontant.",
+      "held": "Depositummet er på plads. Bilen kan udleveres.",
+      "toPickup": "Udlevér bil",
+      "notDue": "Bookingen skal ikke have depositum nu.",
+      "waiting": "Venter på svar fra kortudbyderen. Genindlæs siden om lidt.",
+      "cardTitle": "Med kort",
+      "cardHold": "Kunden indtaster kortet her. Beløbet reserveres og trækkes ikke, medmindre der er tillæg ved afleveringen.",
+      "cardCharge": "Lejen er længere end en kort-reservation holder, så beløbet trækkes nu og betales tilbage ved afleveringen.",
+      "unavailable": "Kortbetaling er ikke sat op. Tag depositum kontant eller på terminalen.",
+      "cardSubmit": "Reservér {price}",
+      "testBody": "Testmiljø: der trækkes ingen rigtige penge.",
+      "manualTitle": "Ved skranken",
+      "manualHint": "Kontant eller på betalingsterminalen. Pengene betales tilbage ved afregningen.",
+      "method": "Betalingsmåde",
+      "terminal": "Kort (terminal)",
+      "manualSubmit": "Registrér {price} modtaget"
+    },
+    "settlement": {
+      "title": "Afregning",
+      "back": "Tilbage til {reference}",
+      "notices": {
+        "settled": "Bookingen er afregnet.",
+        "invalid": "Tjek beløbene, og vælg ansvar for alle skader.",
+        "conflict": "Bookingen kan ikke afregnes nu. Genindlæs siden.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "provider": "Kortudbyderen afviste depositummet. Prøv igen om lidt.",
+        "failed": "Noget gik galt. Prøv igen."
+      },
+      "settledAt": "Afregnet {date}.",
+      "captured": "Trukket fra depositum",
+      "returned": "Depositum tilbage til kunden",
+      "balance": "Kunden skal betale",
+      "cashBack": "Giv kunden {amount} tilbage kontant.",
+      "owed": "Registrér betalingen på bookingen, når kunden har betalt.",
+      "notReturned": "Bookingen afregnes, når bilen er afleveret.",
+      "feesTitle": "Tillæg",
+      "feesHint": "Forslaget er beregnet ud fra udlevering og aflevering. Ret beløbet, hvis I aftaler noget andet med kunden; skriv 0 for intet tillæg.",
+      "extraKm": "Ekstra km (kr.)",
+      "extraKmHint": "Kørt {driven, number} km, heraf {included, number} km inkluderet: {extra, number} km à {rate} kr.",
+      "fuel": "Brændstof (kr.)",
+      "fuelHint": "Udleveret med {pickup}/{max}, afleveret med {returned}/{max}. {rate} kr. pr. ottendedel.",
+      "late": "For sen aflevering (kr.)",
+      "lateHint": "{minutes, plural, =0 {Afleveret til tiden.} other {# minutter for sent.}} Efter {grace} minutter: {hours, plural, one {# time} other {# timer}} à {rate} kr.",
+      "damagesTitle": "Nye skader",
+      "noDamages": "Ingen nye skader fra lejen.",
+      "damagesHint": "Vælg ansvar. Beløbet opkræves kun, når kunden er ansvarlig.",
+      "needsManager": "En leder skal godkende ansvar og beløb for skaderne. Depositummet holdes indtil da.",
+      "liability": "Ansvar",
+      "chooseLiability": "Vælg ansvar",
+      "damageAmount": "Beløb (kr.)",
+      "damageAmountHint": "Det godkendte beløb, kunden betaler.",
+      "depositTitle": "Depositum",
+      "depositHeld": "{amount} er i depositum. Tillæggene trækkes herfra, og resten går tilbage til kunden.",
+      "noDeposit": "Der er intet depositum. Tillæg skal betales af kunden.",
+      "credit": "Kunden har betalt {amount} for meget; det modregnes i tillæggene.",
+      "submit": "Afregn booking"
+    },
+    "contract": {
+      "title": "Lejekontrakt",
+      "back": "Tilbage til {reference}",
+      "intro": "Gennemgå kontrakten med kunden. Kunden skriver sit navn og underskriver med fingeren.",
+      "preview": "Se kontrakten (PDF)",
+      "signerName": "Kundens fulde navn",
+      "signerHint": "Som det står på kørekortet.",
+      "signature": "Underskrift",
+      "signatureHint": "Tegn med fingeren eller musen i feltet.",
+      "clear": "Ryd underskrift",
+      "accept": "Kunden har læst og accepterer lejebetingelserne og priserne i kontrakten.",
+      "submit": "Underskriv kontrakten",
+      "signed": "Underskrevet af {name} {date}.",
+      "download": "Hent kontrakten (PDF)",
+      "toPickup": "Udlevér bil",
+      "notDue": "Kontrakten kan kun underskrives på en bekræftet booking, før bilen udleveres.",
+      "notices": {
+        "signed": "Kontrakten er underskrevet.",
+        "invalid": "Tjek felterne og prøv igen.",
+        "signatureMissing": "Kunden skal underskrive i feltet.",
+        "conflict": "Kontrakten kan ikke underskrives nu. Genindlæs siden.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "failed": "Noget gik galt. Prøv igen."
+      }
+    },
+    "catalog": {
+      "tabs": {
+        "label": "Katalog",
+        "pricing": "Priser",
+        "extras": "Ekstraudstyr",
+        "discounts": "Rabatkoder",
+        "locations": "Lokationer"
+      }
+    },
+    "pricing": {
+      "title": "Priser",
+      "intro": "Priserne er inkl. moms. Ændringer gælder kun nye bookinger; eksisterende bookinger beholder deres pris.",
+      "categories": "Kategorier",
+      "noCategories": "Der er ingen kategorier endnu.",
+      "rulesTitle": "Pristrappe for {category}",
+      "empty": "Kategorien har ingen priser endnu.",
+      "wholeCategory": "Hele kategorien",
+      "always": "Hele året",
+      "season": "{from} – {to}",
+      "days": "{days, plural, one {# dag} other {# dage}}",
+      "edit": "Ret",
+      "editLabel": "Ret prisen for {days, plural, one {# dag} other {# dage}}, {scope}",
+      "columns": {
+        "scope": "Gælder for",
+        "season": "Periode",
+        "minDays": "Fra",
+        "package": "Pakkepris",
+        "perDay": "Dagspris",
+        "priority": "Prioritet",
+        "actions": "Handlinger"
+      },
+      "warnings": {
+        "noBase": "Kategorien har ingen standardpris. Kunder kan ikke booke biler i den, før der er en pris uden model og periode.",
+        "noOneDay": "Kategorien har ingen standardpris for 1 dag. Kunder kan ikke booke korte lejer, før den er oprettet."
+      },
+      "preview": {
+        "title": "Prøv en pris",
+        "model": "Model",
+        "days": "Antal dage",
+        "date": "Afhentningsdato",
+        "submit": "Beregn",
+        "result": "En kunde, der lejer i {days, plural, one {# dag} other {# dage}}, betaler:",
+        "package": "Det er pakkeprisen for {days, plural, one {# dag} other {# dage}}.",
+        "perDay": "Dagsprisen fra trinnet på {days, plural, one {# dag} other {# dage}}.",
+        "capped": "Prisen er sat ned til en større pakke, fordi den er billigere.",
+        "none": "Der er ingen pris for {days, plural, one {# dag} other {# dage}}. Opret en standardpris for 1 dag.",
+        "invalid": "Vælg en model, et antal dage (1–365) og en dato."
+      },
+      "newTitle": "Ny pris",
+      "editTitle": "Ret pris",
+      "editIntro": "Ændringen gælder kun nye bookinger.",
+      "back": "Tilbage til {category}",
+      "delete": "Slet prisen",
+      "notices": {
+        "created": "Prisen er oprettet.",
+        "saved": "Prisen er gemt.",
+        "deleted": "Prisen er slettet.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "failed": "Noget gik galt. Prøv igen."
+      },
+      "form": {
+        "categoryId": "Kategori",
+        "carModelId": "Gælder for",
+        "carModelIdHint": "Vælg en model for at give den sin egen pris.",
+        "wholeCategory": "Hele kategorien",
+        "inactiveModel": "{name} (skjult)",
+        "minDays": "Fra antal dage",
+        "minDaysHint": "Fx 1, 3, 7 eller 30.",
+        "packagePrice": "Pakkepris",
+        "packagePriceHint": "Prisen for præcis det antal dage.",
+        "perDayPrice": "Dagspris",
+        "perDayPriceHint": "Pr. dag, indtil næste trin.",
+        "validFrom": "Fra dato",
+        "validTo": "Til dato",
+        "seasonHint": "Tom = hele året. Brug datoer til sæsonpriser.",
+        "priority": "Prioritet",
+        "priorityHint": "Højeste vinder, hvis to priser gælder samme dag.",
+        "create": "Opret pris",
+        "save": "Gem ændringer",
+        "errors": {
+          "categoryId": "Tjek feltet.",
+          "carModelId": "Modellen hører ikke til kategorien.",
+          "minDays": "Tjek feltet.",
+          "packagePrice": "Tjek feltet.",
+          "perDayPrice": "Tjek feltet.",
+          "validFrom": "Tjek feltet.",
+          "validTo": "Datoen skal være efter fra-datoen.",
+          "priority": "Tjek feltet."
+        },
+        "notices": {
+          "invalid": "Tjek de markerede felter.",
+          "forbidden": "Din rolle har ikke adgang til den handling.",
+          "failed": "Noget gik galt. Prøv igen."
+        }
+      }
+    },
+    "extras": {
+      "title": "Ekstraudstyr",
+      "intro": "Udstyr, kunden kan vælge til i bookingen. Nye priser gælder kun nye bookinger. Udstyr, der har været booket, kan ikke slettes, men kan skjules.",
+      "new": "Nyt udstyr",
+      "back": "Alt ekstraudstyr",
+      "editTitle": "Ret udstyr",
+      "empty": "Der er intet ekstraudstyr endnu.",
+      "active": "Kan vælges",
+      "inactive": "Skjult",
+      "max": "højst",
+      "per": {
+        "PER_DAY": "pr. dag",
+        "PER_BOOKING": "pr. leje"
+      },
+      "delete": "Slet udstyret",
+      "usedNote": "Udstyret er brugt i {count, plural, one {# booking} other {# bookinger}} og kan ikke slettes. Fjern fluebenet ved \"Kan vælges\" for at skjule det.",
+      "columns": {
+        "name": "Udstyr",
+        "price": "Pris",
+        "maxQuantity": "Højst antal",
+        "used": "Booket",
+        "status": "Status"
+      },
+      "notices": {
+        "created": "Udstyret er oprettet.",
+        "saved": "Udstyret er gemt.",
+        "deleted": "Udstyret er slettet.",
+        "inUse": "Udstyret er brugt i bookinger og kan ikke slettes. Skjul det i stedet.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "failed": "Noget gik galt. Prøv igen."
+      },
+      "form": {
+        "names": "Navn",
+        "namesHint": "Dansk skal udfyldes. Mangler et sprog, vises den danske tekst.",
+        "nameDa": "Dansk",
+        "nameEn": "Engelsk",
+        "nameFr": "Fransk",
+        "nameAr": "Arabisk",
+        "code": "Kode",
+        "codeHint": "Intern kode, fx child_seat. Små bogstaver, tal og understreg.",
+        "price": "Pris",
+        "pricing": "Pris pr.",
+        "pricingOptions": {
+          "PER_DAY": "Dag",
+          "PER_BOOKING": "Leje"
+        },
+        "amountHint": "I kroner, fx 75 eller 2,50.",
+        "maxPrice": "Loft",
+        "maxPriceHint": "Kun ved pris pr. dag: højeste pris for hele lejen.",
+        "maxQuantity": "Højst antal pr. booking",
+        "maxQuantityHint": "1 = kunden sætter flueben.",
+        "stock": "Antal på lager",
+        "stockHint": "Kun til jeres overblik. Tom = ubegrænset.",
+        "sortOrder": "Rækkefølge",
+        "sortOrderHint": "Lavest vises først.",
+        "descriptions": "Beskrivelse (valgfri)",
+        "descriptionsHint": "Vises under navnet i bookingen.",
+        "descriptionDa": "Dansk",
+        "descriptionEn": "Engelsk",
+        "descriptionFr": "Fransk",
+        "descriptionAr": "Arabisk",
+        "isActive": "Kan vælges",
+        "isActiveHint": "Kunder kan vælge udstyret i bookingen.",
+        "create": "Opret udstyr",
+        "save": "Gem ændringer",
+        "duplicate": "Koden bruges allerede af andet udstyr.",
+        "errors": {
+          "code": "Brug små bogstaver, tal og understreg (2–40 tegn).",
+          "nameDa": "Tjek feltet.",
+          "nameEn": "Tjek feltet.",
+          "nameAr": "Tjek feltet.",
+          "nameFr": "Tjek feltet.",
+          "descriptionDa": "Tjek feltet.",
+          "descriptionEn": "Tjek feltet.",
+          "descriptionAr": "Tjek feltet.",
+          "descriptionFr": "Tjek feltet.",
+          "pricing": "Tjek feltet.",
+          "price": "Tjek feltet.",
+          "maxPrice": "Loftet skal være mindst prisen og kun ved pris pr. dag.",
+          "maxQuantity": "Tjek feltet.",
+          "stock": "Tjek feltet.",
+          "sortOrder": "Tjek feltet.",
+          "isActive": "Tjek feltet."
+        },
+        "notices": {
+          "invalid": "Tjek de markerede felter.",
+          "duplicate": "Koden bruges allerede af andet udstyr.",
+          "forbidden": "Din rolle har ikke adgang til den handling.",
+          "failed": "Noget gik galt. Prøv igen."
+        }
+      }
+    },
+    "discounts": {
+      "title": "Rabatkoder",
+      "intro": "Koder, kunden kan skrive i bookingen. Ændringer gælder kun nye bookinger. En brugt kode kan ikke slettes, men kan stoppes.",
+      "new": "Ny rabatkode",
+      "back": "Alle rabatkoder",
+      "editTitle": "Ret rabatkode",
+      "empty": "Der er ingen rabatkoder endnu.",
+      "active": "Aktiv",
+      "inactive": "Stoppet",
+      "percent": "{value} %",
+      "always": "Altid",
+      "from": "Fra {date}",
+      "until": "Til og med {date}",
+      "usedOf": "{used} af {max}",
+      "restricted": "Kun udvalgte biler",
+      "given": "Givet i rabat i alt: ",
+      "delete": "Slet rabatkoden",
+      "usedNote": "Koden er brugt i {count, plural, one {# booking} other {# bookinger}} og kan ikke slettes. Fjern fluebenet ved \"Aktiv\" for at stoppe den.",
+      "columns": {
+        "code": "Kode",
+        "value": "Rabat",
+        "period": "Periode",
+        "used": "Brugt",
+        "status": "Status"
+      },
+      "notices": {
+        "created": "Rabatkoden er oprettet.",
+        "saved": "Rabatkoden er gemt.",
+        "deleted": "Rabatkoden er slettet.",
+        "inUse": "Koden er brugt og kan ikke slettes. Stop den i stedet.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "failed": "Noget gik galt. Prøv igen."
+      },
+      "form": {
+        "basics": "Rabat",
+        "code": "Kode",
+        "codeHint": "Det kunden skriver, fx SOMMER25. Bogstaver, tal, - og _ (3–30 tegn).",
+        "codeLocked": "Koden er brugt og kan ikke ændres.",
+        "type": "Type",
+        "typeOptions": {
+          "PERCENT": "Procent",
+          "FIXED": "Fast beløb"
+        },
+        "value": "Rabat",
+        "valueHint": "Procent: 1–100. Fast beløb: i kroner.",
+        "period": "Periode (valgfri)",
+        "periodHint": "Hele dage i dansk tid. Tom = ingen grænse.",
+        "validFrom": "Første dag",
+        "validTo": "Sidste dag",
+        "limits": "Betingelser (valgfri)",
+        "limitHint": "Tom = ingen grænse.",
+        "minBooking": "Mindste lejebeløb",
+        "minBookingHint": "I kroner, før ekstraudstyr.",
+        "minDays": "Mindste antal dage",
+        "maxUses": "Højst antal brug i alt",
+        "maxUsesPerCustomer": "Højst pr. kunde",
+        "cars": "Gælder for",
+        "carsHint": "Intet valgt = alle biler. En kategori gælder alle dens modeller.",
+        "category": "Hele kategorien",
+        "isActive": "Aktiv",
+        "isActiveHint": "Kunder kan bruge koden.",
+        "create": "Opret rabatkode",
+        "save": "Gem ændringer",
+        "duplicate": "Koden findes allerede.",
+        "errors": {
+          "code": "Brug bogstaver, tal, - og _ (3–30 tegn).",
+          "type": "Tjek feltet.",
+          "value": "Procent skal være 1–100; et fast beløb mindst 1 kr.",
+          "validFrom": "Tjek feltet.",
+          "validTo": "Sidste dag skal være efter første dag.",
+          "minBooking": "Tjek feltet.",
+          "minDays": "Tjek feltet.",
+          "maxUses": "Tjek feltet.",
+          "maxUsesPerCustomer": "Tjek feltet.",
+          "categoryIds": "Vælg kun biler fra listen.",
+          "carModelIds": "Tjek feltet.",
+          "isActive": "Tjek feltet."
+        },
+        "notices": {
+          "invalid": "Tjek de markerede felter.",
+          "duplicate": "Koden findes allerede.",
+          "inUse": "Koden er brugt og kan ikke ændres.",
+          "forbidden": "Din rolle har ikke adgang til den handling.",
+          "failed": "Noget gik galt. Prøv igen."
+        }
+      }
+    },
+    "locations": {
+      "title": "Lokationer",
+      "intro": "Steder hvor kunder henter og afleverer biler. En lokation kan lukkes for nye bookinger, men ikke slettes.",
+      "new": "Ny lokation",
+      "back": "Alle lokationer",
+      "editTitle": "Ret lokation",
+      "empty": "Der er ingen lokationer endnu.",
+      "active": "Åben for booking",
+      "inactive": "Lukket for booking",
+      "delivery": "Levering",
+      "types": {
+        "OFFICE": "Kontor",
+        "AIRPORT": "Lufthavn",
+        "PARTNER": "Partner"
+      },
+      "columns": {
+        "name": "Lokation",
+        "type": "Type",
+        "cars": "Biler",
+        "upcoming": "Kommende afhentninger",
+        "status": "Status"
+      },
+      "notices": {
+        "created": "Lokationen er oprettet. Sæt åbningstiderne nedenfor.",
+        "saved": "Lokationen er gemt.",
+        "hoursSaved": "Åbningstiderne er gemt.",
+        "hoursInvalid": "Tjek åbningstiderne: hver åben dag skal have en åbnings- og en senere lukketid.",
+        "daySaved": "Den særlige dag er gemt.",
+        "dayInvalid": "Tjek datoen og tiderne.",
+        "dayRemoved": "Den særlige dag er fjernet.",
+        "zoneSaved": "Zonen er gemt.",
+        "zoneInvalid": "Tjek afstanden (1–500 km) og prisen.",
+        "zoneRemoved": "Zonen er fjernet.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "failed": "Noget gik galt. Prøv igen."
+      },
+      "form": {
+        "details": "Stamdata",
+        "name": "Navn",
+        "slug": "Adresse på siden",
+        "slugHint": "Små bogstaver, tal og bindestreg, fx kastrup-lufthavn.",
+        "type": "Type",
+        "address": "Adresse",
+        "postalCode": "Postnummer",
+        "city": "By",
+        "country": "Land",
+        "countryHint": "To bogstaver, fx DK.",
+        "lat": "Breddegrad",
+        "lng": "Længdegrad",
+        "coordsHint": "Fra Google Maps: højreklik på stedet og kopiér tallene.",
+        "timezone": "Tidszone",
+        "timezoneHint": "Fx Europe/Copenhagen.",
+        "contact": "Kontakt (valgfri)",
+        "phone": "Telefon",
+        "whatsapp": "WhatsApp",
+        "email": "E-mail",
+        "operations": "Drift",
+        "bufferBeforeMinutes": "Klargøring før leje (minutter)",
+        "bufferAfterMinutes": "Klargøring efter leje (minutter)",
+        "bufferHint": "Bilen er optaget så længe før og efter hver leje.",
+        "oneWayFee": "Gebyr for envejsleje",
+        "oneWayFeeHint": "I kroner. Betales, når bilen afleveres her men er hentet et andet sted. Tom = intet gebyr.",
+        "deliveryEnabled": "Levering",
+        "deliveryEnabledHint": "Kunder kan få bilen leveret. Sæt priser under leveringszoner.",
+        "isActive": "Åben for booking",
+        "isActiveHint": "Kan vælges i nye bookinger. Kommende bookinger påvirkes ikke.",
+        "create": "Opret lokation",
+        "save": "Gem ændringer",
+        "duplicate": "Adressen bruges allerede af en anden lokation.",
+        "errors": {
+          "name": "Tjek feltet.",
+          "slug": "Brug små bogstaver, tal og bindestreg.",
+          "type": "Tjek feltet.",
+          "address": "Tjek feltet.",
+          "postalCode": "Tjek feltet.",
+          "city": "Tjek feltet.",
+          "country": "Skriv landekoden med to bogstaver, fx DK.",
+          "lat": "Skriv et tal mellem -90 og 90.",
+          "lng": "Skriv et tal mellem -180 og 180.",
+          "timezone": "Ukendt tidszone. Fx Europe/Copenhagen.",
+          "phone": "Tjek feltet.",
+          "whatsapp": "Tjek feltet.",
+          "email": "Tjek e-mailadressen.",
+          "bufferBeforeMinutes": "0–1440 minutter.",
+          "bufferAfterMinutes": "0–1440 minutter.",
+          "oneWayFee": "Tjek feltet.",
+          "deliveryEnabled": "Tjek feltet.",
+          "isActive": "Tjek feltet."
+        },
+        "notices": {
+          "invalid": "Tjek de markerede felter.",
+          "duplicate": "Adressen bruges allerede af en anden lokation.",
+          "forbidden": "Din rolle har ikke adgang til den handling.",
+          "failed": "Noget gik galt. Prøv igen."
+        }
+      },
+      "hours": {
+        "title": "Åbningstider",
+        "hint": "Kunder kan kun hente og aflevere, mens der er åbent. Lukker 00:00 betyder midnat.",
+        "open24h": "Døgnåbent alle dage",
+        "open24hHint": "Fx selvbetjening med nøgleboks.",
+        "opensAt": "Åbner",
+        "closesAt": "Lukker",
+        "closed": "Lukket",
+        "save": "Gem åbningstider"
+      },
+      "special": {
+        "title": "Særlige dage",
+        "hint": "Helligdage og dage med andre tider. Erstatter ugedagens tider den dag.",
+        "empty": "Ingen kommende særlige dage.",
+        "date": "Dato",
+        "closed": "Lukket hele dagen",
+        "opensAt": "Åbner",
+        "closesAt": "Lukker",
+        "add": "Gem dag",
+        "remove": "Fjern",
+        "closedLabel": "Lukket"
+      },
+      "zones": {
+        "title": "Leveringszoner",
+        "hint": "Pris for levering op til en afstand fra lokationen. Samme afstand igen erstatter prisen.",
+        "empty": "Ingen zoner endnu.",
+        "maxDistanceKm": "Op til (km)",
+        "fee": "Pris",
+        "feeHint": "I kroner.",
+        "add": "Gem zone",
+        "remove": "Fjern",
+        "upTo": "Op til {km} km",
+        "deliveryOff": "Levering er slået fra. Zonerne bruges først, når levering slås til ovenfor."
+      }
+    },
+    "users": {
+      "title": "Brugere",
+      "intro": "Medarbejdere med adgang til administrationen. Ledere og administratorer skal slå to-trins-login (2FA) til, første gang de logger ind.",
+      "invite": "Invitér medarbejder",
+      "back": "Alle brugere",
+      "empty": "Der er ingen medarbejdere endnu.",
+      "roles": {
+        "STAFF": "Medarbejder",
+        "MANAGER": "Leder",
+        "SUPER_ADMIN": "Administrator"
+      },
+      "roleHints": {
+        "STAFF": "Bookinger, kunder, udlevering og retur.",
+        "MANAGER": "Også priser, refusioner, flåde og statistik. Kræver 2FA.",
+        "SUPER_ADMIN": "Alt, også brugere og indstillinger. Kræver 2FA."
+      },
+      "status": {
+        "active": "Aktiv",
+        "invited": "Inviteret",
+        "disabled": "Deaktiveret"
+      },
+      "columns": {
+        "name": "Navn",
+        "role": "Rolle",
+        "twoFactor": "2FA",
+        "lastLogin": "Seneste login",
+        "status": "Status"
+      },
+      "on": "Til",
+      "off": "Fra",
+      "never": "Aldrig",
+      "you": "dig",
+      "notices": {
+        "invited": "Invitationen er sendt. Linket virker i 72 timer.",
+        "inviteNotSent": "Brugeren er oprettet, men e-mailen kunne ikke sendes. Prøv \"Send invitation igen\".",
+        "reinvited": "Invitationen er sendt igen. Det gamle link virker ikke længere.",
+        "roleSaved": "Rollen er gemt.",
+        "disabled": "Brugeren er deaktiveret, og alle sessioner er lukket.",
+        "enabled": "Brugeren er aktiv igen.",
+        "self": "Du kan ikke ændre din egen adgang.",
+        "lastSuperAdmin": "Der skal være mindst én aktiv administrator.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "failed": "Noget gik galt. Prøv igen."
+      },
+      "form": {
+        "name": "Navn",
+        "email": "E-mail",
+        "role": "Rolle",
+        "submit": "Send invitation",
+        "duplicate": "E-mailen har allerede en konto.",
+        "errors": {
+          "name": "Skriv navnet (2–80 tegn).",
+          "email": "Tjek e-mailadressen.",
+          "role": "Vælg en rolle."
+        },
+        "notices": {
+          "invalid": "Tjek de markerede felter.",
+          "duplicate": "E-mailen har allerede en konto.",
+          "forbidden": "Din rolle har ikke adgang til den handling.",
+          "failed": "Noget gik galt. Prøv igen."
+        }
+      },
+      "detail": {
+        "role": "Rolle",
+        "saveRole": "Gem rolle",
+        "access": "Adgang",
+        "disable": "Deaktivér brugeren",
+        "disableHint": "Brugeren logges ud overalt med det samme og kan ikke logge ind igen.",
+        "enable": "Aktivér brugeren igen",
+        "resend": "Send invitation igen",
+        "invitedHint": "Brugeren har ikke valgt password endnu.",
+        "selfNote": "Det er dig. Din egen rolle og adgang kan kun ændres af en anden administrator.",
+        "twoFactor": "2FA",
+        "lastLogin": "Seneste login",
+        "created": "Oprettet"
+      }
+    },
+    "reviews": {
+      "title": "Anmeldelser",
+      "intro": "Kun kunder med en afsluttet leje kan anmelde. Nye anmeldelser vises først på siden, når de er publiceret. Teksten kan ikke ændres.",
+      "tabs": {
+        "label": "Status",
+        "PENDING": "Afventer",
+        "PUBLISHED": "Publiceret",
+        "HIDDEN": "Skjult"
+      },
+      "empty": "Ingen anmeldelser her.",
+      "noComment": "Ingen kommentar.",
+      "booking": "Booking {reference}",
+      "publish": "Publicér",
+      "hide": "Skjul",
+      "notices": {
+        "published": "Anmeldelsen er publiceret.",
+        "hidden": "Anmeldelsen er skjult.",
+        "forbidden": "Din rolle har ikke adgang til den handling.",
+        "failed": "Noget gik galt. Prøv igen."
+      }
+    },
+    "statistics": {
+      "title": "Statistik",
+      "intro": "Nøgletal for den valgte periode. Bookinger tælles efter den dag, de blev oprettet.",
+      "from": "Fra",
+      "to": "Til",
+      "location": "Lokation",
+      "allLocations": "Alle lokationer",
+      "show": "Vis",
+      "invalidPeriod": "Perioden er ugyldig (højst 366 dage, og til-datoen skal være efter fra-datoen). Viser de sidste 30 dage.",
+      "presets": {
+        "label": "Periode",
+        "last30": "Sidste 30 dage",
+        "month": "Denne måned",
+        "year": "I år"
+      },
+      "cards": {
+        "revenue": "Omsætning",
+        "bookings": "Bookinger",
+        "averageValue": "Gns. bookingværdi",
+        "occupancy": "Belægning",
+        "cancellations": "Annulleringer",
+        "repeatCustomers": "Gentagne kunder"
+      },
+      "hints": {
+        "refunds": "Efter {amount} i refusioner",
+        "cars": "{count, plural, one {# bil} other {# biler}} i flåden",
+        "cancellations": "{rate} af bookingerne · {noShows} udeblevet",
+        "repeatCustomers": "af {count} kunder i perioden"
+      },
+      "popularModels": {
+        "title": "Populære biler",
+        "name": "Bil"
+      },
+      "popularCategories": {
+        "title": "Populære kategorier",
+        "name": "Kategori"
+      },
+      "columns": {
+        "bookings": "Bookinger",
+        "value": "Værdi"
+      },
+      "empty": "Ingen bookinger i perioden.",
+      "footnote": "Omsætning er betalinger minus refusioner i perioden. Belægning er udlejede timer delt med bilernes timer. En gentagen kunde har lejet hos os før perioden."
+    },
+    "auditLog": {
+      "title": "Audit-log",
+      "intro": "Alle ændringer foretaget i administrationen og af kunder i GDPR-sager. Persondata gemmes ikke i loggen.",
+      "entity": "Type",
+      "allEntities": "Alle typer",
+      "action": "Handling",
+      "actionHint": "Fx booking. eller customer.anonymize",
+      "submit": "Filtrér",
+      "count": "{count, plural, one {# hændelse} other {# hændelser}}",
+      "empty": "Ingen hændelser.",
+      "system": "Systemet",
+      "show": "Vis detaljer",
+      "previous": "Forrige",
+      "next": "Næste",
+      "page": "Side {page} af {pages}",
+      "columns": {
+        "time": "Tidspunkt",
+        "who": "Hvem",
+        "action": "Handling",
+        "entity": "Hvad",
+        "details": "Detaljer"
+      }
+    }
+  },
+  "email": {
+    "greeting": "Hej {name}",
+    "signature": "Venlig hilsen {company}",
+    "verify": {
+      "subject": "Bekræft din e-mail",
+      "body": "Tak for din tilmelding. Bekræft din e-mail for at aktivere din konto.",
+      "button": "Bekræft e-mail",
+      "note": "Linket virker i 24 timer. Har du ikke oprettet en konto, kan du se bort fra denne e-mail."
+    },
+    "reset": {
+      "subject": "Nulstil dit password",
+      "body": "Vi har modtaget en anmodning om at nulstille dit password.",
+      "button": "Vælg nyt password",
+      "note": "Linket virker i 1 time. Har du ikke bedt om det, kan du se bort fra denne e-mail. Dit password er uændret."
+    },
+    "existing": {
+      "subject": "Du har allerede en konto",
+      "body": "Nogen forsøgte at oprette en konto med din e-mail. Du har allerede en konto, så du kan bare logge ind. Har du glemt dit password, kan du nulstille det på login-siden.",
+      "button": "Log ind",
+      "note": "Var det ikke dig, kan du se bort fra denne e-mail. Din konto er uændret."
+    },
+    "invite": {
+      "subject": "Du er inviteret til administrationen",
+      "body": "Du er oprettet som medarbejder hos {company}. Vælg et password for at komme i gang.",
+      "button": "Vælg password",
+      "note": "Linket virker i 72 timer. Ledere og administratorer skal også slå to-trins-login til, første gang de logger ind."
+    }
+  },
+  "search": {
+    "pickupLocation": "Afhentning",
+    "returnLocation": "Aflevering",
+    "sameAsPickup": "Samme sted som afhentning",
+    "chooseLocation": "Vælg sted",
+    "pickupDate": "Afhentningsdato",
+    "pickupTime": "Tidspunkt",
+    "returnDate": "Afleveringsdato",
+    "returnTime": "Tidspunkt",
+    "submit": "Find biler",
+    "update": "Opdater søgning"
+  },
+  "cars": {
+    "title": "Biler",
+    "description": "Se alle vores biler. Vælg sted og datoer for at se, hvad der er ledigt, og hvad det koster.",
+    "searchTitle": "Ledige biler",
+    "filters": "Filtre",
+    "category": "Kategori",
+    "transmission": "Gear",
+    "fuel": "Brændstof",
+    "seats": "Sæder",
+    "seatsMin": "Mindst {count}",
+    "any": "Alle",
+    "apply": "Vis biler",
+    "reset": "Nulstil filtre",
+    "sort": "Sortér",
+    "sortOptions": {
+      "recommended": "Anbefalet",
+      "price_asc": "Pris, lavest først",
+      "price_desc": "Pris, højest først",
+      "popular": "Mest populære",
+      "newest": "Nyeste"
+    },
+    "results": "{count, plural, one {# bil} other {# biler}}",
+    "period": "{from} – {to} · {days, plural, one {# dag} other {# dage}}",
+    "fromPerDay": "fra {price}",
+    "perDay": "pr. dag",
+    "total": "{price} i alt",
+    "details": "Se bilen",
+    "searchHint": "Vælg sted og datoer for at se ledige biler og den samlede pris.",
+    "empty": {
+      "title": "Ingen biler matcher",
+      "body": "Prøv andre datoer, et andet sted eller færre filtre."
+    },
+    "errors": {
+      "OUTSIDE_OPENING_HOURS": "Stedet har lukket på det valgte tidspunkt. Vælg et tidspunkt inden for åbningstiden.",
+      "TOO_SOON": "Afhentningen ligger for tæt på. Book mindst {hours, plural, one {# time} other {# timer}} før.",
+      "VALIDATION_FAILED": "Tjek datoerne. Afleveringen skal ligge efter afhentningen, og lejen må højst vare {days} dage.",
+      "generic": "Vi kunne ikke søge lige nu. Prøv igen om lidt."
+    },
+    "specs": {
+      "seats": "{count} sæder",
+      "bags": "{count, plural, one {# kuffert} other {# kufferter}}",
+      "doors": "{count} døre",
+      "airConditioning": "Aircondition",
+      "year": "Årgang {year}"
+    },
+    "transmissionNames": {
+      "MANUAL": "Manuelt gear",
+      "AUTOMATIC": "Automatgear"
+    },
+    "fuelNames": {
+      "PETROL": "Benzin",
+      "DIESEL": "Diesel",
+      "HYBRID": "Hybrid",
+      "ELECTRIC": "El"
+    },
+    "imagePlaceholder": "{name}, set fra siden, lys baggrund"
+  },
+  "car": {
+    "back": "Alle biler",
+    "specsTitle": "Specifikationer",
+    "pricesTitle": "Priser",
+    "pricesIntro": "Jo længere du lejer, jo lavere dagspris. Prisen bliver aldrig højere end næste pakke.",
+    "days": "{count, plural, one {# dag} other {# dage}}",
+    "package": "Pakkepris",
+    "perDay": "Pr. dag",
+    "includedTitle": "Inkluderet",
+    "includedKm": "{km} km pr. dag",
+    "insurance": "Lovpligtig ansvarsforsikring og kaskoforsikring",
+    "vat": "Moms",
+    "notIncludedTitle": "Ikke inkluderet",
+    "extraKm": "Ekstra kilometer: {price} pr. km",
+    "fuel": "Brændstof eller strøm. Bilen afleveres med samme niveau, som den blev hentet med.",
+    "deposit": "Depositum: {price}",
+    "depositNote": "Depositummet reserveres på dit kort ved afhentning og frigives, når bilen er afleveret uden skader. Ved lejer over {days} dage trækkes beløbet og refunderes.",
+    "availabilityTitle": "Tjek ledighed og pris",
+    "availabilityHint": "Vælg sted og datoer for at se, om bilen er ledig, og hvad den koster i alt.",
+    "available": "Ledig i perioden",
+    "unavailable": "Bilen er ikke ledig i den valgte periode.",
+    "nextAvailable": "Ledig fra:",
+    "alternatives": "Andre ledige biler i perioden",
+    "priceSummary": "Prisoversigt",
+    "lines": {
+      "RENTAL": "Leje, {days, plural, one {# dag} other {# dage}}",
+      "DELIVERY_FEE": "Levering",
+      "ONE_WAY_FEE": "Aflevering et andet sted",
+      "DISCOUNT": "Rabat",
+      "EXTRA": "Ekstraudstyr",
+      "FEE": "Gebyr",
+      "EXTRA_KM": "Ekstra kilometer",
+      "FUEL": "Brændstof eller strøm",
+      "LATE_FEE": "For sen aflevering",
+      "DAMAGE": "Skade"
+    },
+    "totalLabel": "I alt",
+    "vatIncluded": "Heraf moms {price}",
+    "book": "Book denne bil",
+    "askWhatsapp": "Spørg om bilen på WhatsApp",
+    "whatsappPrefill": "Hej, jeg er interesseret i {name}.",
+    "whatsappPrefillPeriod": "Hej, jeg er interesseret i {name} fra {from} til {to}.",
+    "locationsTitle": "Kan hentes i",
+    "rentalPeriod": "Lejeperiode",
+    "fuelFee": "Manglende brændstof eller strøm: {price} pr. ottendedel tank",
+    "lateFee": "For sen aflevering: {price} pr. påbegyndt time efter {minutes} minutter"
+  },
+  "pricing": {
+    "title": "Priser",
+    "description": "Alle priser er i danske kroner inklusive moms og lovpligtig forsikring.",
+    "ladderTitle": "Priser pr. kategori",
+    "ladderNote": "Lejer du i et antal dage mellem to pakker, betaler du dagsprisen for den mindre pakke, men aldrig mere end den større pakke.",
+    "days": "{count, plural, one {# dag} other {# dage}}",
+    "package": "Pakkepris",
+    "perDay": "Pr. dag",
+    "extrasTitle": "Ekstraudstyr",
+    "extraPerDay": "{price} pr. dag",
+    "extraPerBooking": "{price} pr. leje",
+    "extraMax": "maks. {price}",
+    "feesTitle": "Levering og aflevering et andet sted",
+    "oneWay": "Aflevering i {location}: {price}",
+    "delivery": "Levering fra {location}, op til {km} km: {price}",
+    "noFees": "Der er ingen gebyrer for levering eller aflevering et andet sted.",
+    "cta": "Find en ledig bil"
+  },
+  "locations": {
+    "title": "Lokationer",
+    "description": "Her kan du hente og aflevere bilerne.",
+    "openingHours": "Åbningstider",
+    "closed": "Lukket",
+    "address": "Adresse",
+    "showMap": "Vis på kort",
+    "delivery": "Vi kan levere bilen til din adresse.",
+    "types": {
+      "OFFICE": "Kontor",
+      "AIRPORT": "Lufthavn",
+      "PARTNER": "Partner"
+    },
+    "findCars": "Find biler i {name}",
+    "contact": "Kontakt",
+    "pageDescription": "Biludlejning på {name}, {address}. Se åbningstider, og book en bil til afhentning her."
+  },
+  "about": {
+    "title": "Om os",
+    "description": "Vi gør det nemt og trygt at leje en bil.",
+    "sections": [
+      {
+        "title": "Hvem vi er",
+        "body": "Vi er et lokalt biludlejningsfirma med fokus på velholdte biler, klare priser og personlig service."
+      },
+      {
+        "title": "Vores løfte",
+        "body": "Du ser altid den samlede pris, før du booker. Ingen overraskelser ved skranken."
+      },
+      {
+        "title": "Kontakt os",
+        "body": "Har du spørgsmål, kan du altid skrive til os på WhatsApp, sende en e-mail eller ringe."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Ofte stillede spørgsmål",
+    "description": "Svar på det, kunderne oftest spørger om.",
+    "items": [
+      {
+        "q": "Hvad skal jeg have med, når jeg henter bilen?",
+        "a": "Et gyldigt kørekort, et betalingskort i lejerens navn til depositummet og din bookingbekræftelse."
+      },
+      {
+        "q": "Hvordan fungerer depositummet?",
+        "a": "Beløbet reserveres på dit kort ved afhentning og frigives, når bilen er afleveret uden skader. Ved lange lejer trækkes beløbet og refunderes efter afleveringen."
+      },
+      {
+        "q": "Er forsikring inkluderet?",
+        "a": "Ja. Lovpligtig ansvarsforsikring og kaskoforsikring er altid med i prisen. Selvrisikoen fremgår af lejebetingelserne."
+      },
+      {
+        "q": "Hvor mange kilometer må jeg køre?",
+        "a": "Hver bil har et antal kilometer pr. dag inkluderet. Prisen for ekstra kilometer står på bilens side."
+      },
+      {
+        "q": "Hvad med brændstof?",
+        "a": "Bilen udleveres med en bestemt mængde brændstof eller strøm og skal afleveres med samme niveau."
+      },
+      {
+        "q": "Kan jeg afbestille?",
+        "a": "Ja. Reglerne for afbestilling står i lejebetingelserne og i din bookingbekræftelse."
+      },
+      {
+        "q": "Kan bilen leveres til min adresse?",
+        "a": "Fra nogle af vores lokationer kan vi levere bilen. Prisen afhænger af afstanden og vises, før du betaler."
+      },
+      {
+        "q": "Kan jeg aflevere bilen et andet sted?",
+        "a": "Ja, mellem vores lokationer. Gebyret vises i prisoversigten, før du booker."
+      }
+    ]
+  },
+  "legal": {
+    "draftNotice": "Udkast: teksten skal gennemgås og godkendes af virksomheden, før siden går live."
+  },
+  "terms": {
+    "title": "Lejebetingelser",
+    "description": "Betingelserne for at leje en bil hos os.",
+    "sections": [
+      {
+        "title": "Lejer og kørekort",
+        "body": "Lejeren skal have et gyldigt kørekort. Krav til alder og hvor længe man har haft kørekort, fremgår af bookingen."
+      },
+      {
+        "title": "Booking og betaling",
+        "body": "Bookingen er bindende, når betalingen er gennemført. Prisen omfatter leje, valgt ekstraudstyr og gebyrer som vist ved booking."
+      },
+      {
+        "title": "Depositum",
+        "body": "Der reserveres et depositum på lejerens betalingskort ved afhentning. Beløbet frigives, når bilen er afleveret i samme stand."
+      },
+      {
+        "title": "Kilometer og brændstof",
+        "body": "Det inkluderede antal kilometer står på bilens side. Ekstra kilometer afregnes efter takst. Bilen afleveres med samme brændstof- eller ladeniveau som ved afhentning."
+      },
+      {
+        "title": "Forsikring og selvrisiko",
+        "body": "Bilen er dækket af lovpligtig ansvarsforsikring og kaskoforsikring. Ved skade betaler lejeren selvrisikoen."
+      },
+      {
+        "title": "Afbestilling",
+        "body": "Afbestilling sker via linket i bookingbekræftelsen eller på din konto. Reglerne for refusion vises ved booking."
+      },
+      {
+        "title": "Skader og uheld",
+        "body": "Skader og uheld skal straks meldes til os. Bilen gennemgås ved afhentning og aflevering."
+      },
+      {
+        "title": "Aflevering",
+        "body": "Bilen afleveres på det aftalte sted og tidspunkt. Ved forsinkelse ud over tolerancen betales et tillæg for hver påbegyndt time, som står i kontrakten."
+      }
+    ]
+  },
+  "privacy": {
+    "title": "Privatlivspolitik",
+    "description": "Sådan behandler vi dine personoplysninger.",
+    "sections": [
+      {
+        "title": "Dataansvarlig",
+        "body": "Biludlejningsfirmaet er dataansvarlig for de oplysninger, du giver os. Du kan kontakte os via kontaktsiden."
+      },
+      {
+        "title": "Hvilke oplysninger vi behandler",
+        "body": "Navn, kontaktoplysninger, kørekortoplysninger, bookinger, betalinger og henvendelser til os."
+      },
+      {
+        "title": "Formål",
+        "body": "Vi bruger oplysningerne til at gennemføre lejeaftalen, opfylde lovkrav (fx bogføring) og besvare dine henvendelser."
+      },
+      {
+        "title": "Betaling",
+        "body": "Betaling håndteres af vores betalingsudbyder. Vi gemmer aldrig dine kortoplysninger."
+      },
+      {
+        "title": "Opbevaring",
+        "body": "Vi opbevarer oplysningerne, så længe det er nødvendigt for formålet eller påkrævet efter loven, og sletter dem derefter."
+      },
+      {
+        "title": "Dine rettigheder",
+        "body": "Du har ret til indsigt, berigtigelse, sletning, begrænsning og dataportabilitet. Du kan også gøre indsigelse mod behandlingen."
+      },
+      {
+        "title": "Klage",
+        "body": "Du kan klage til Datatilsynet, hvis du er utilfreds med vores behandling af dine oplysninger."
+      }
+    ]
+  },
+  "cookiePolicy": {
+    "title": "Cookiepolitik",
+    "description": "Hvilke cookies vi bruger, og hvordan du ændrer dit samtykke.",
+    "sections": [
+      {
+        "title": "Nødvendige cookies",
+        "body": "Bruges til login, sprogvalg, sikkerhed og til at huske dit cookievalg. De kan ikke fravælges."
+      },
+      {
+        "title": "Statistik",
+        "body": "Hjælper os med at forstå, hvordan siden bruges. Sættes kun, hvis du siger ja."
+      },
+      {
+        "title": "Markedsføring",
+        "body": "Bruges til at måle annoncer. Sættes kun, hvis du siger ja."
+      }
+    ],
+    "change": "Du kan til enhver tid ændre dit valg:"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "description": "Skriv, ring eller kom forbi. Vi hjælper gerne.",
+    "phone": "Telefon",
+    "email": "E-mail",
+    "whatsapp": "WhatsApp",
+    "formTitle": "Send os en besked",
+    "form": {
+      "name": "Navn",
+      "email": "E-mail",
+      "phone": "Telefon (valgfri)",
+      "subject": "Emne (valgfrit)",
+      "message": "Besked",
+      "website": "Lad dette felt være tomt",
+      "privacy": "Vi bruger kun dine oplysninger til at svare dig.",
+      "submit": "Send besked",
+      "success": "Tak for din besked. Vi vender tilbage hurtigst muligt.",
+      "errors": {
+        "fields": "Tjek de markerede felter.",
+        "rateLimited": "Du har sendt mange beskeder. Prøv igen senere.",
+        "generic": "Beskeden kunne ikke sendes. Prøv igen, eller skriv til os på WhatsApp."
+      },
+      "fieldErrors": {
+        "name": "Skriv dit navn.",
+        "email": "Skriv en gyldig e-mailadresse.",
+        "phone": "Skriv et gyldigt telefonnummer.",
+        "message": "Skriv mindst 10 tegn."
+      }
+    }
+  },
+  "reviews": {
+    "title": "Anmeldelser",
+    "description": "Anmeldelser fra kunder, der har lejet en bil hos os.",
+    "empty": "Der er ingen anmeldelser endnu.",
+    "rating": "{rating} ud af 5 stjerner",
+    "new": {
+      "title": "Bedøm din leje",
+      "intro": "Tak fordi du lejede {car} hos os. Hvordan var din oplevelse?",
+      "rating": "Din bedømmelse",
+      "stars": "{count, plural, one {# stjerne} other {# stjerner}}",
+      "comment": "Kommentar (valgfri)",
+      "commentHint": "Højst 1.000 tegn.",
+      "displayName": "Vises som",
+      "displayNameHint": "Fx dit fornavn og forbogstav i efternavnet.",
+      "submit": "Send anmeldelse",
+      "thanks": "Tak for din anmeldelse!",
+      "thanksBody": "Vi læser den, før den bliver vist på siden.",
+      "invalid": "Linket virker ikke. Brug linket fra din e-mail.",
+      "done": "Du har allerede anmeldt denne leje. Tak!",
+      "notCompleted": "Du kan anmelde lejen, når bilen er afleveret.",
+      "back": "Til forsiden",
+      "errors": {
+        "rating": "Vælg mellem 1 og 5 stjerner.",
+        "comment": "Højst 1.000 tegn.",
+        "displayName": "Skriv 2–40 tegn."
+      },
+      "notices": {
+        "invalid": "Tjek de markerede felter.",
+        "failed": "Noget gik galt. Prøv igen."
+      }
+    }
+  },
+  "booking": {
+    "title": "Booking",
+    "stepsLabel": "Trin i bookingen",
+    "steps": {
+      "extras": "Ekstraudstyr",
+      "details": "Dine oplysninger",
+      "payment": "Betaling"
+    },
+    "pickup": "Afhentning",
+    "return": "Aflevering",
+    "deliveryTo": "Levering til: {address}",
+    "rental": "Leje",
+    "depositNote": "Depositum på {price} reserveres på dit kort ved afhentning. Det er ikke en del af prisen.",
+    "totalLabel": "I alt",
+    "summaryTitle": "Din booking",
+    "changeCar": "Tilbage til bilen",
+    "extrasTitle": "Tilpas din leje",
+    "incomplete": {
+      "title": "Vælg bil og periode",
+      "body": "Vælg først sted, datoer og en bil. Så kan du booke.",
+      "cta": "Find en bil"
+    },
+    "unavailable": {
+      "title": "Bilen er ikke ledig",
+      "body": "{car} er desværre ikke ledig i den valgte periode. Se andre ledige biler, eller vælg andre datoer.",
+      "cta": "Se ledige biler"
+    },
+    "extras": {
+      "title": "Ekstraudstyr",
+      "none": "Der er intet ekstraudstyr at vælge.",
+      "perDay": "{price} pr. dag",
+      "perBooking": "{price} pr. leje",
+      "max": "højst {price}",
+      "quantity": "antal"
+    },
+    "fulfilment": {
+      "title": "Afhentning eller levering",
+      "pickup": "Hent bilen hos {location}",
+      "delivery": "Levering op til {km} km fra kontoret",
+      "deliveryFee": "Tillæg {price}"
+    },
+    "discount": {
+      "label": "Rabatkode",
+      "hint": "Har du en rabatkode? Skriv den her, og tryk på \"Opdatér pris\".",
+      "invalid": "Rabatkoden kan ikke bruges til denne booking.",
+      "applied": "Rabatkoden {code} er trukket fra."
+    },
+    "updatePrice": "Opdatér pris",
+    "continue": "Fortsæt",
+    "back": "Tilbage",
+    "details": {
+      "title": "Dine oplysninger",
+      "guestNote": "Du behøver ikke en konto for at booke. Har du en konto?",
+      "login": "Log ind",
+      "firstName": "Fornavn",
+      "lastName": "Efternavn",
+      "email": "E-mail",
+      "phone": "Mobilnummer",
+      "phoneHint": "Fx 12 34 56 78. Vi bruger det kun, hvis vi skal kontakte dig om bookingen.",
+      "deliveryAddress": "Leveringsadresse",
+      "deliveryAddressHint": "Gade, nummer, postnummer og by",
+      "terms": "Jeg accepterer <link>lejevilkårene</link>.",
+      "reservedNote": "Når du går videre, holder vi bilen til dig i {minutes} minutter, mens du betaler.",
+      "submit": "Gå til betaling"
+    },
+    "fieldErrors": {
+      "required": "Skal udfyldes.",
+      "email": "Skriv en gyldig e-mailadresse.",
+      "phone": "Skriv et gyldigt mobilnummer, fx 12 34 56 78 eller +46 70 123 45 67.",
+      "deliveryAddress": "Skriv adressen, bilen skal leveres til.",
+      "acceptTerms": "Du skal acceptere lejevilkårene for at booke."
+    },
+    "errors": {
+      "fields": "Tjek de markerede felter.",
+      "generic": "Noget gik galt. Prøv igen, eller skriv til os på WhatsApp.",
+      "searchAgain": "Se ledige biler",
+      "CAR_NO_LONGER_AVAILABLE": "Bilen er netop blevet booket af en anden.",
+      "RATE_LIMITED": "Du har prøvet mange gange. Vent lidt, og prøv igen.",
+      "OUTSIDE_OPENING_HOURS": "Kontoret har lukket på det valgte tidspunkt. Vælg et andet tidspunkt.",
+      "VALIDATION_FAILED": "Perioden kan ikke bookes. Gå tilbage, og vælg andre datoer.",
+      "OUTSIDE_DELIVERY_ZONE": "Vi leverer ikke så langt. Vælg en anden leveringszone eller afhentning.",
+      "PRICE_UNAVAILABLE": "Vi kan ikke beregne en pris for perioden. Skriv til os på WhatsApp."
+    },
+    "pay": {
+      "title": "Betaling",
+      "reservedUntil": "Bilen er reserveret til dig til {time}.",
+      "failed": "Betalingen blev afvist. Prøv igen, eller brug et andet kort.",
+      "unavailable": "Betaling er midlertidigt ikke mulig. Skriv til os på WhatsApp, så hjælper vi dig.",
+      "submit": "Betal {price}",
+      "testTitle": "Testbetaling",
+      "testBody": "Stripe er ikke koblet på endnu. Her kan du afprøve flowet uden at betale.",
+      "testFail": "Afprøv et afvist kort",
+      "secure": "Betalingen håndteres sikkert af Stripe. Vi ser og gemmer aldrig dine kortoplysninger.",
+      "expiredTitle": "Reservationen er udløbet",
+      "expiredBody": "Betalingen blev ikke gennemført inden for {minutes} minutter, så bilen er frigivet igen. Vælg datoer igen for at se, om den stadig er ledig.",
+      "expiredCta": "Vælg datoer igen"
+    },
+    "confirmation": {
+      "metaTitle": "Booking bekræftet",
+      "title": "Tak, {name}! Din booking er bekræftet",
+      "reference": "Bookingnummer",
+      "referenceHint": "Oplys nummeret, hvis du kontakter os.",
+      "nextTitle": "Hvad sker der nu?",
+      "next1": "Medbring dit kørekort og et betalingskort til depositummet.",
+      "next2": "Mød op hos {location} på afhentningstidspunktet.",
+      "next2Delivery": "Vi kommer med bilen til din adresse på det aftalte tidspunkt.",
+      "next3": "Vi gennemgår bilen sammen med dig, før du kører.",
+      "calendar": "Tilføj til kalender",
+      "calendarTitle": "Billeje: {car} ({reference})",
+      "whatsapp": "Skriv til os på WhatsApp",
+      "whatsappPrefill": "Hej, jeg har et spørgsmål om min booking {reference}.",
+      "createAccount": "Opret en konto, så kan du se dine bookinger samlet ét sted.",
+      "createAccountCta": "Opret konto",
+      "refundedTitle": "Bilen var desværre ikke længere ledig",
+      "refundedBody": "Din betaling er refunderet fuldt. Der kan gå nogle dage, før pengene står på din konto. Skriv til os, så finder vi en anden bil til dig.",
+      "pendingTitle": "Vi venter på bekræftelse af betalingen",
+      "pendingBody": "Det tager normalt kun et øjeblik. Siden opdaterer sig selv.",
+      "failedTitle": "Betalingen gik ikke igennem",
+      "failedBody": "Bilen er stadig reserveret til dig et kort øjeblik. Prøv at betale igen.",
+      "retry": "Prøv at betale igen",
+      "manage": "Se eller annullér din booking"
+    }
+  },
+  "notifications": {
+    "common": {
+      "greeting": "Hej {name}",
+      "signature": "Venlig hilsen {company}",
+      "footer": "Du får denne besked, fordi du har booket en bil hos {company}.",
+      "reference": "Bookingnummer",
+      "car": "Bil",
+      "pickup": "Afhentning",
+      "return": "Aflevering",
+      "paid": "Betalt",
+      "bring": "Husk dit kørekort, når du henter bilen.",
+      "bringWithDeposit": "Husk dit kørekort og et betalingskort til depositummet på {deposit}, når du henter bilen.",
+      "questions": "Har du spørgsmål, så skriv til os på WhatsApp, eller svar på denne e-mail.",
+      "whatsappButton": "Skriv til os på WhatsApp",
+      "whatsappPrefill": "Hej, jeg har et spørgsmål om min booking {reference}.",
+      "manage": "Se eller annullér din booking",
+      "refund": "Refunderes",
+      "total": "I alt"
+    },
+    "BOOKING_CONFIRMED": {
+      "subject": "Din booking {reference} er bekræftet",
+      "intro": "Tak for din booking. Vi har modtaget din betaling på {amount}, og bilen er reserveret til dig."
+    },
+    "PAYMENT_RECEIVED": {
+      "subject": "Vi har modtaget din betaling",
+      "intro": "Vi har modtaget {amount} for booking {reference}. Tak!"
+    },
+    "CAR_READY": {
+      "subject": "Din bil er klar",
+      "intro": "Din {car} er gjort klar og venter på dig."
+    },
+    "PICKUP_REMINDER": {
+      "subject": "Påmindelse: du henter din bil snart",
+      "intro": "Om under et døgn skal du hente din bil. Her er det vigtigste."
+    },
+    "RETURN_REMINDER": {
+      "subject": "Din lejeperiode udløber snart",
+      "intro": "Husk at aflevere bilen {time} hos {location}.",
+      "fuel": "Aflever bilen med samme mængde brændstof eller strøm, som da du hentede den."
+    },
+    "THANK_YOU": {
+      "subject": "Tak fordi du lejede bil hos os",
+      "intro": "Bilen er afleveret, og din leje er afsluttet. Tak for denne gang!",
+      "deposit": "Et eventuelt depositum frigives inden for få dage."
+    },
+    "REVIEW_REQUEST": {
+      "subject": "Hvordan var din oplevelse?",
+      "intro": "Vi vil meget gerne høre, hvordan din leje gik. Det tager under et minut.",
+      "button": "Giv en bedømmelse"
+    },
+    "BOOKING_CANCELLED": {
+      "subject": "Din booking {reference} er annulleret",
+      "intro": "Din booking {reference} er annulleret, og bilen er frigivet.",
+      "refund": "Vi refunderer {amount} til dit betalingskort. Der kan gå 5–10 bankdage, før pengene står på din konto.",
+      "noRefund": "Efter annulleringsbetingelserne refunderes der ikke noget for denne booking."
+    },
+    "PAYMENT_REQUEST": {
+      "subject": "Betal din booking {reference}",
+      "intro": "Tak for din booking. Betal {amount} via knappen herunder for at bekræfte den.",
+      "deadline": "Vi holder bilen til dig indtil {deadline}.",
+      "button": "Betal din booking"
+    },
+    "BOOKING_CHANGED": {
+      "subject": "Din booking {reference} er ændret",
+      "intro": "Vi har ændret din booking {reference}. Her er de nye oplysninger."
+    }
+  },
+  "manage": {
+    "title": "Booking {reference}",
+    "summaryTitle": "Din booking",
+    "cancelledTitle": "Din booking er annulleret",
+    "cancelledRefund": "Vi refunderer {amount} til dit betalingskort. Der kan gå 5–10 bankdage, før pengene står på din konto. Du får en kvittering på e-mail.",
+    "cancelledNoRefund": "Efter annulleringsbetingelserne refunderes der ikke noget. Du får en kvittering på e-mail.",
+    "pendingPayment": "Bookingen er ikke betalt endnu.",
+    "payNow": "Betal nu",
+    "whatsapp": "Skriv til os på WhatsApp",
+    "whatsappPrefill": "Hej, jeg har et spørgsmål om min booking {reference}.",
+    "receipt": "Kvittering",
+    "paymentsTitle": "Betalinger",
+    "changeTitle": "Vil du ændre noget?",
+    "changeBody": "Skriv til os på WhatsApp, hvis du vil ændre dato, tid eller bil. Vi tjekker, om det kan lade sig gøre, og fortæller dig, hvad det koster.",
+    "cancel": {
+      "title": "Annullér booking",
+      "free": "Gratis annullering indtil {deadline}. Annullerer du nu, får du hele beløbet tilbage: {amount}.",
+      "late": "Der er under {hours} timer til afhentning. Annullerer du nu, får du {percent} % tilbage: {amount}.",
+      "confirm": "Ja, jeg vil annullere min booking",
+      "submit": "Annullér booking",
+      "errors": {
+        "confirm": "Sæt flueben for at bekræfte, at du vil annullere.",
+        "notAllowed": "Bookingen kan ikke længere annulleres online. Skriv til os på WhatsApp.",
+        "generic": "Noget gik galt. Prøv igen, eller skriv til os på WhatsApp."
+      }
+    },
+    "linkInvalid": {
+      "title": "Linket virker ikke",
+      "body": "Linket til din booking er ugyldigt eller udløbet. Skriv til os på WhatsApp med dit bookingnummer, så hjælper vi dig.",
+      "whatsapp": "Skriv til os på WhatsApp"
+    },
+    "contract": "Lejekontrakt (PDF)"
+  },
+  "receipt": {
+    "title": "Kvittering {reference}",
+    "date": "Dato: {date}",
+    "print": "Print eller gem som PDF",
+    "seller": "Udlejer",
+    "customer": "Kunde",
+    "lines": "Specifikation",
+    "vat": "Heraf moms ({percent} %)",
+    "payments": "Betalinger"
+  },
+  "contract": {
+    "title": "Lejekontrakt",
+    "reference": "Booking {reference}",
+    "termsVersion": "Vilkår version {version}",
+    "landlord": "Udlejer",
+    "renter": "Lejer",
+    "car": "Bil",
+    "registration": "Reg.nr. {number}",
+    "period": "Lejeperiode",
+    "pickup": "Afhentning",
+    "return": "Aflevering",
+    "price": "Pris",
+    "total": "I alt",
+    "included": "Inkluderet",
+    "fees": "Tillæg",
+    "terms": "Lejebetingelser",
+    "signature": "Underskrift",
+    "signedBy": "Underskrevet af {name} {date}",
+    "signedNote": "Underskrevet elektronisk på skærmen ved udleveringen.",
+    "unsigned": "Ikke underskrevet endnu.",
+    "page": "Side {page} af {total}",
+    "download": "Lejekontrakt (PDF)"
+  },
+  "offline": {
+    "title": "Du er offline",
+    "body": "Der er ingen forbindelse til internettet lige nu. Priser og ledige biler kræver forbindelse, så prøv igen, når du er online.",
+    "retry": "Prøv igen"
+  }
+}

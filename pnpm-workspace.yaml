@@ -1,0 +1,11 @@
+ignoredBuiltDependencies:
+  - esbuild
+  - sharp
+  - unrs-resolver
+  - workerd
+
+# Sikkerhedsrettelser i transitive afhængigheder af Prisma-CLI'en (pnpm audit, M15).
+overrides:
+  lodash: ">=4.18.0"
+  mysql2: ">=3.23.1"
+  deepmerge-ts: ">=8.0.0"

@@ -48,6 +48,8 @@ flowchart TD
   F -- hold fejler --> F2[Alternativ: kontant/anden betaling<br/>registreres manuelt, eller afvis udlevering]
 ```
 
+MVP (M11): udlevering kræver en bekræftet og fuldt betalt booking, tidligst afhentningsdagen, og et depositum, hvis modellen har et. Depositum tages før udleveringen på `/admin/bookings/[ref]/deposit`: kunden indtaster kortet på personalets skærm (kun kort, K6), eller personalet registrerer det kontant eller på terminalen. Lejer op til 7 dage reserveres (manuel capture); længere lejer trækkes og betales tilbage ved afregningen. Et afvist kort ændrer ikke lejens betaling. M12: før udleveringen underskriver kunden lejekontrakten på personalets skærm (`/admin/bookings/[ref]/contract`): personalet kan vise kontrakten som PDF-udkast, kunden skriver sit navn, sætter flueben ved vilkårene og underskriver med fingeren. Vilkår, priser og bil gemmes som snapshot, PDF'en gemmes privat med SHA-256, og navn, tidspunkt og en nøglet hash af IP-adressen gemmes (R19). Udleveringen afvises, til kontrakten er underskrevet, så kontrakten kommer før pickup-inspektionen og ikke efter som i diagrammet; tillæggene i kontrakten er de samme, uanset hvad inspektionen viser. Kontrakten laves på dansk, engelsk eller fransk efter bookingens sprog; arabisktalende kunder får den på engelsk, fordi PDF-motoren ikke håndterer arabisk skrift godt. Kørekort og ID kontrolleres manuelt; upload af kørekort er ikke en del af MVP-flowet. Fotos tages på inspektionssiden efter udleveringen; der er ikke et fast minimum af fotos (afventer virksomhedens politik).
+
 ## F2. Aflevering (return)
 
 ```mermaid
@@ -67,6 +69,8 @@ flowchart TD
   K --> L[Notifikationer: 'Tak for din booking' → senere 'Bedøm din oplevelse']
 ```
 
+MVP (M11): aflevering registrerer km, brændstof og bilens næste status, afslutter bookingen og viser udleveringens fotos og skader ved siden af. Nye skader får område, omfang, ansvar og anslået pris. Derefter afregnes bookingen på `/admin/bookings/[ref]/settle`: systemet foreslår tillæg for ekstra km (modellens sats), brændstof og for sen aflevering (satser i `feeRates`, `src/config/rental.ts`), og personalet kan rette beløbene. Nye skader kræver en leder (`damage:approveCost`), der vælger ansvar og godkender beløbet; kun skader med kunden som ansvarlig opkræves. Tillæggene lægges på bookingen som prislinjer, trækkes fra depositummet (capture af reservationen, eller delvis refusion af et trukket depositum), og resten frigives eller betales tilbage kontant. Er tillæggene større end depositummet, står resten som manglende betaling. Kunden får endnu ikke en e-mail om tillæg; de ses på bookingen i kundekontoen. Sammenligningen er pr. inspektion (fotos side om side) og pr. område for skader; fotos tagges ikke med område.
+
 ## F3. Telefon-/skrankebooking
 
 ```
@@ -74,6 +78,7 @@ flowchart TD
 → ekstraudstyr, rabat → vælg betaling: send betalingslink (Stripe) / betal ved skranke / faktura
 → samme booking-service som web (samme regler, samme constraint)
 ```
+MVP (M10): kunden oprettes som gæst (knyttes til en konto ved login). Betalingslinket er gæstens administrér-link; reservationen holdes 24 timer. Faktura er PHASE 2. Levering vælges ikke i telefonbookingen endnu.
 
 ## F4. Bil går i stykker / bliver utilgængelig
 
@@ -86,6 +91,7 @@ flowchart TD
 → AuditLog registrerer handlingen
 ```
 Systemet forhindrer, at en bil sættes i MAINTENANCE i en periode med aktive bookinger uden at håndtere dem først.
+MVP (M11): bilsiden viser bilens kommende bookinger med link til hver. Status kan kun skiftes, når personalet har bekræftet listen; bookingerne beholder bilen, indtil de flyttes med "Skift bil", "Ændr periode" eller "Annullér" på bookingen. En udlejet bil kan ikke skifte status, og et værkstedsbesøg kan ikke lægges oven i en booking (databasen håndhæver det). Automatisk besked til alle berørte kunder og "Opgradér til anden model" i ét trin er PHASE 2.
 
 ## F5. Ændring af dato (efter kundens anmodning)
 
@@ -95,6 +101,7 @@ Booking → "Ændr" → nye datoer → availability-tjek på samme bil (ellers f
 → differencen opkræves (betalingslink) eller refunderes
 → BookingStatusEvent + AuditLog + besked til kunden
 ```
+MVP (M10): en merpris registreres som betaling ved skranken (manuel betaling), en mindrepris refunderes af en leder. Betalingslink til en difference er PHASE 2.
 
 ## F6. Annullering og refundering (MANAGER+)
 
@@ -119,6 +126,10 @@ Booking → "Annullér" → årsag → politik foreslår refusionsbeløb (kan ov
 - **Rabatter:** kode, procent/fast, periode, minimum, maks. brug, begrænsning til kategorier/modeller; viser antal brug.
 - **Lokationer:** opret/redigér/deaktivér, åbningstider + særlige dage, leveringszoner med gebyr.
 
+MVP (M13 del 1): `/admin/pricing` viser kategoriens pristrappe med standardpriser, modelpriser og sæsoner (gyldig fra/til, prioritet), advarer når kategorien mangler en standardpris for 1 dag, og har en forhåndsvisning med samme trappe som prismotoren. `/admin/extras` opretter og retter ekstraudstyr; udstyr, der har været booket, kan kun skjules. Lagerantal gemmes til overblik, men håndhæves ikke ved booking endnu. Begge kræver MANAGER (`catalog:write`) og logges i audit-loggen. Rabatkoder og lokationer følger i del 2, brugere i del 3.
+
+MVP (M13 del 2): `/admin/discounts` opretter, retter, stopper og sletter rabatkoder. Koden gemmes med store bogstaver; procent er 1–100, fast beløb er i DKK. Perioden er hele dage i dansk tid (sidste dag gælder til midnat). En kode, der er brugt i en booking, kan ikke slettes eller omdøbes, kun stoppes. `/admin/locations` opretter og retter lokationer (deaktivering i stedet for sletning), ugens åbningstider (én periode pr. dag eller døgnåbent), særlige dage og leveringszoner. Døgnåbent gemmes som syv rækker 00:00–00:00 (lukketid 00:00 = midnat, også i databasens check), så en særlig dag kun påvirker sin egen dato.
+
 ## F9. Beskeder og notifikationer
 
 - `/admin/messages`: indbakke for kontaktformular (status: ny → i gang → besvaret). Svar sendes pr. e-mail fra systemet og logges.
@@ -133,6 +144,14 @@ Booking → "Annullér" → årsag → politik foreslår refusionsbeløb (kan ov
 → AuditLog
 ```
 
+Implementeret (M15, `src/server/gdpr/`): eksport som JSON-fil (dokumenter listes uden indhold) og anonymisering med bekræftelse, begge MANAGER+ og i audit-loggen. Anonymisering fjerner navn, kontakt, kørekortfelter, leveringsadresse, beskedtekster, anmeldelser, kundens dokumenter og kontraktens underskrift, og lukker login-kontoen. Kontraktens PDF bevares i 5 år efter lejens afslutning (`CONTRACT_RETENTION_YEARS`; afventer advokat) og slettes derefter af det daglige retention-job (`/api/cron/retention`), som også rydder udløbne sessioner, login-links og rate-limit-rækker. Blokeres ved en booking, der ikke er afsluttet, et reserveret depositum eller en skade uden afgjort ansvar.
+
 ## F11. Brugere og roller (SUPER_ADMIN)
 
 Invitér medarbejder via e-mail → vælg rolle → medarbejder sætter password + 2FA (påkrævet for MANAGER og SUPER_ADMIN). Deaktivering lukker alle sessions straks.
+
+MVP (M13 del 3): `/admin/users` (kun SUPER_ADMIN, `users:manage`) viser medarbejdere med rolle, 2FA, seneste login og status (aktiv, inviteret, deaktiveret). Invitationen opretter brugeren med rollen og sender et engangslink (72 timer), hvor medarbejderen vælger password; linket bruger Better Auths nulstillingsflow, og e-mailen regnes som bekræftet, fordi linket kun findes i den. "Send invitation igen" laver et nyt link og gør det gamle ugyldigt. Deaktivering lukker alle sessioner og ubrugte links. Man kan ikke ændre sin egen rolle eller adgang, og den sidste aktive SUPER_ADMIN kan ikke fjernes. Alt logges i audit-loggen.
+
+## F12. Statistik (MANAGER+)
+
+`/admin/statistics` med periode (fra/til, højst 366 dage, genveje: sidste 30 dage, denne måned, i år) og lokation. Nøgletal: omsætning (betalinger minus refusioner i perioden, samme regel som dashboardets KPI), antal bookinger (efter oprettelsesdato; udløbne kurve tæller ikke), gennemsnitlig bookingværdi, belægning (udlejede biltimer delt med bilernes timer i perioden), annulleringer og udeblivelser, gentagne kunder (kunder i perioden med en tidligere leje) samt top 5 biler og kategorier. Alle beløb i DKK (MVP). Logikken ligger i `src/server/admin/stats.ts`.

@@ -24,7 +24,8 @@
 │   ├── ar.json
 │   └── fr.json
 ├── public/
-│   ├── icons/                        # PWA-ikoner
+│   ├── icons/                        # PWA-ikoner (scripts/generate-icons.mjs)
+│   ├── sw.js                         # service worker: offline-side + cache af statiske filer
 │   └── images/placeholders/
 ├── src/
 │   ├── app/
@@ -39,7 +40,7 @@
 │   │   │   ├── v1/                   # REST (route handlers — tynde, kalder services)
 │   │   │   ├── auth/[...all]/        # auth-bibliotekets handler
 │   │   │   ├── webhooks/{stripe,whatsapp,email}/
-│   │   │   └── cron/                 # notifications, expire-reservations, reminders, ...
+│   │   │   └── cron/                 # notifications, expire-reservations, ...
 │   │   ├── sitemap.ts
 │   │   ├── robots.ts
 │   │   └── manifest.ts
@@ -57,6 +58,7 @@
 │   │   ├── fleet/                    # biler, status, vedligehold
 │   │   ├── inspections/              # inspektioner, skader, sammenligning
 │   │   ├── documents/                # storage, kontrakter (PDF), signerede URL'er
+│   │   ├── contracts/                # M12: snapshot, PDF-skabelon og underskrift (samlet her i stedet for documents/ og pdf/)
 │   │   ├── customers/
 │   │   ├── reviews/
 │   │   ├── messages/                 # kontakt, indbakke

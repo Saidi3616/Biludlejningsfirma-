@@ -1,0 +1,2518 @@
+{
+  "meta": {
+    "title": "Location de voitures",
+    "description": "Trouvez votre voiture. Réservez en quelques minutes.",
+    "shortName": "Location de voitures",
+    "tagline": "Louez une voiture en quelques minutes"
+  },
+  "common": {
+    "close": "Fermer",
+    "loading": "Chargement"
+  },
+  "nav": {
+    "skipToContent": "Aller au contenu",
+    "main": "Menu principal",
+    "cars": "Voitures",
+    "pricing": "Tarifs",
+    "locations": "Agences",
+    "about": "À propos",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "login": "Se connecter",
+    "menu": "Menu",
+    "openMenu": "Ouvrir le menu",
+    "account": "Mon compte"
+  },
+  "language": {
+    "label": "Langue",
+    "da": "Dansk",
+    "en": "English",
+    "ar": "العربية",
+    "fr": "Français"
+  },
+  "whatsapp": {
+    "cta": "WhatsApp",
+    "floating": "Écrivez-nous sur WhatsApp",
+    "prefill": "Bonjour, j'ai une question sur la location d'une voiture."
+  },
+  "footer": {
+    "tagline": "Location de voitures professionnelle, sans frais cachés.",
+    "company": "Entreprise",
+    "help": "Aide",
+    "legal": "Mentions légales",
+    "reviews": "Avis",
+    "terms": "Conditions de location",
+    "privacy": "Politique de confidentialité",
+    "cookies": "Politique de cookies",
+    "cookieSettings": "Paramètres des cookies",
+    "rights": "© {year} {name}. Tous droits réservés."
+  },
+  "cookies": {
+    "title": "Nous utilisons des cookies",
+    "body": "Les cookies nécessaires font fonctionner le site. Avec votre accord, nous utilisons aussi des cookies pour les statistiques et le marketing. Vous pouvez modifier votre choix à tout moment.",
+    "acceptAll": "Tout accepter",
+    "necessaryOnly": "Nécessaires uniquement",
+    "settings": "Paramètres",
+    "save": "Enregistrer mes choix",
+    "necessary": "Nécessaires",
+    "necessaryDescription": "Indispensables pour la connexion, la réservation et la sécurité. Ne peuvent pas être désactivés.",
+    "analytics": "Statistiques",
+    "analyticsDescription": "Nous aident à comprendre comment le site est utilisé.",
+    "marketing": "Marketing",
+    "marketingDescription": "Utilisés pour afficher des offres pertinentes.",
+    "policy": "Lire la politique de cookies"
+  },
+  "home": {
+    "title": "Trouvez votre voiture. Réservez en quelques minutes.",
+    "subtitle": "Choisissez le lieu et l'heure, voyez tout de suite le prix total et récupérez une voiture prête à partir.",
+    "searchTitle": "Rechercher des voitures disponibles",
+    "popular": {
+      "title": "Voitures populaires",
+      "description": "Les favorites de nos clients en ce moment.",
+      "all": "Voir toutes les voitures"
+    },
+    "why": {
+      "title": "Pourquoi nos clients louent chez nous",
+      "items": [
+        {
+          "title": "Aucuns frais cachés",
+          "body": "Vous voyez le prix total avant de réserver. TVA et assurance obligatoire toujours incluses."
+        },
+        {
+          "title": "Voitures récentes",
+          "body": "Des voitures bien entretenues, vérifiées et nettoyées avant chaque location."
+        },
+        {
+          "title": "Retrait rapide",
+          "body": "La voiture est prête à votre arrivée. Le retrait ne prend que quelques minutes."
+        },
+        {
+          "title": "De l'aide quand il faut",
+          "body": "Écrivez-nous sur WhatsApp ou appelez-nous en cas de besoin."
+        }
+      ]
+    },
+    "how": {
+      "title": "Comment louer une voiture",
+      "steps": [
+        {
+          "title": "Choisissez voiture et dates",
+          "body": "Recherchez par lieu et dates et voyez les voitures disponibles avec le prix total."
+        },
+        {
+          "title": "Réservez et payez en ligne",
+          "body": "Ajoutez des options et payez par carte, MobilePay, Apple Pay ou Google Pay."
+        },
+        {
+          "title": "Récupérez la voiture",
+          "body": "Présentez votre permis au retrait et vous êtes prêt à partir."
+        }
+      ]
+    },
+    "reviews": {
+      "title": "Ce que disent nos clients",
+      "average": "{average} sur 5 · {count, plural, one {# avis} other {# avis}}"
+    },
+    "whatsappCta": {
+      "title": "Des questions ?",
+      "body": "Écrivez-nous sur WhatsApp. Nous répondons généralement pendant les heures d'ouverture.",
+      "button": "Écrire sur WhatsApp"
+    }
+  },
+  "status": {
+    "booking": {
+      "PENDING_PAYMENT": "En attente de paiement",
+      "CONFIRMED": "Confirmée",
+      "ACTIVE": "En cours",
+      "COMPLETED": "Terminée",
+      "CANCELLED": "Annulée",
+      "EXPIRED": "Expirée",
+      "NO_SHOW": "Non présenté"
+    },
+    "payment": {
+      "UNPAID": "Non payée",
+      "PAID": "Payée",
+      "PARTIALLY_REFUNDED": "Partiellement remboursée",
+      "REFUNDED": "Remboursée",
+      "FAILED": "Paiement échoué"
+    },
+    "car": {
+      "AVAILABLE": "Disponible",
+      "RESERVED": "Réservée",
+      "RENTED": "Louée",
+      "RETURNED": "Restituée",
+      "INSPECTION": "En inspection",
+      "MAINTENANCE": "En entretien",
+      "OUT_OF_SERVICE": "Hors service"
+    }
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "body": "La page a été déplacée ou n'existe pas encore.",
+    "home": "Retour à l'accueil"
+  },
+  "auth": {
+    "fields": {
+      "name": "Nom complet",
+      "email": "E-mail",
+      "password": "Mot de passe",
+      "newPassword": "Nouveau mot de passe",
+      "code": "Code",
+      "backupCode": "Code de secours"
+    },
+    "passwordHint": "Au moins {min} caractères.",
+    "login": {
+      "title": "Se connecter",
+      "intro": "Connectez-vous pour voir vos réservations.",
+      "submit": "Se connecter",
+      "forgot": "Mot de passe oublié ?",
+      "noAccount": "Vous n'avez pas de compte ?",
+      "register": "Créer un compte",
+      "twoFactorTitle": "Confirmer avec un code",
+      "twoFactorIntro": "Saisissez le code à 6 chiffres de votre application d'authentification.",
+      "backupIntro": "Saisissez l'un de vos codes de secours.",
+      "verify": "Confirmer",
+      "useBackupCode": "Utiliser plutôt un code de secours",
+      "useAuthenticator": "Utiliser plutôt le code de l'application"
+    },
+    "register": {
+      "title": "Créer un compte",
+      "intro": "Avec un compte, vous pouvez voir et gérer vos réservations. Vous pouvez aussi réserver sans compte.",
+      "submit": "Créer un compte",
+      "haveAccount": "Vous avez déjà un compte ?",
+      "login": "Se connecter",
+      "sentTitle": "Vérifiez vos e-mails",
+      "sentBody": "Nous avons envoyé un lien à {email}. Cliquez sur le lien pour confirmer votre e-mail et activer votre compte."
+    },
+    "forgot": {
+      "title": "Mot de passe oublié",
+      "intro": "Saisissez votre e-mail et nous vous enverrons un lien pour choisir un nouveau mot de passe.",
+      "submit": "Envoyer le lien",
+      "sentTitle": "Vérifiez vos e-mails",
+      "sentBody": "S'il existe un compte pour {email}, nous avons envoyé un lien pour réinitialiser votre mot de passe. Le lien est valable 1 heure.",
+      "backToLogin": "Retour à la connexion"
+    },
+    "reset": {
+      "title": "Choisir un nouveau mot de passe",
+      "intro": "Choisissez un nouveau mot de passe. Vous serez déconnecté partout ailleurs.",
+      "submit": "Enregistrer",
+      "doneTitle": "Votre mot de passe a été modifié",
+      "doneBody": "Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.",
+      "login": "Se connecter",
+      "requestNew": "Demander un nouveau lien"
+    },
+    "verify": {
+      "successTitle": "Votre e-mail est confirmé",
+      "successBody": "Votre compte est actif et vous êtes connecté.",
+      "continue": "Aller à mon compte",
+      "errorTitle": "Ce lien ne fonctionne pas",
+      "errorBody": "Le lien a expiré ou a déjà été utilisé. Connectez-vous et nous enverrons un nouveau lien à votre e-mail.",
+      "login": "Se connecter"
+    },
+    "logout": "Se déconnecter",
+    "errors": {
+      "invalidCredentials": "E-mail ou mot de passe incorrect.",
+      "emailNotVerified": "Votre e-mail n'est pas encore confirmé. Nous avons envoyé un nouveau lien à votre e-mail.",
+      "rateLimited": "Trop de tentatives. Patientez un instant et réessayez.",
+      "accountDisabled": "Ce compte est désactivé. Contactez-nous s'il s'agit d'une erreur.",
+      "invalidCode": "Le code est incorrect ou a expiré.",
+      "invalidToken": "Le lien a expiré ou a déjà été utilisé.",
+      "passwordTooShort": "Le mot de passe doit contenir au moins {min} caractères.",
+      "nameRequired": "Saisissez votre nom.",
+      "emailInvalid": "Saisissez un e-mail valide.",
+      "required": "Remplissez ce champ.",
+      "generic": "Une erreur s'est produite. Réessayez."
+    }
+  },
+  "account": {
+    "title": "Mon compte",
+    "signedInAs": "Connecté en tant que {name} ({email})",
+    "nav": {
+      "label": "Mon compte",
+      "bookings": "Réservations",
+      "payments": "Paiements",
+      "profile": "Profil",
+      "documents": "Documents",
+      "privacy": "Confidentialité"
+    },
+    "bookings": {
+      "title": "Vos réservations",
+      "upcoming": "À venir",
+      "past": "Passées",
+      "emptyTitle": "Aucune réservation à venir",
+      "emptyBody": "Quand vous réservez une voiture, vous pouvez la consulter et la modifier ici.",
+      "findCar": "Trouver une voiture",
+      "meta": "{reference} · {location}",
+      "back": "Toutes les réservations"
+    },
+    "payments": {
+      "title": "Paiements et reçus",
+      "charge": "Paiement",
+      "refund": "Remboursement",
+      "refundPending": "Remboursement (en cours)",
+      "card": "{brand} •••• {last4}",
+      "methods": {
+        "CARD": "Carte",
+        "MOBILEPAY": "MobilePay",
+        "APPLE_PAY": "Apple Pay",
+        "GOOGLE_PAY": "Google Pay",
+        "CASH": "Espèces",
+        "BANK_TRANSFER": "Virement bancaire"
+      },
+      "booking": "Réservation {reference}",
+      "receipt": "Reçu",
+      "emptyTitle": "Aucun paiement pour l'instant",
+      "emptyBody": "Vos paiements et reçus apparaîtront ici.",
+      "depositCapture": "Prélevé sur la caution"
+    },
+    "profile": {
+      "title": "Profil",
+      "intro": "Nous utilisons ces informations pour vos prochaines réservations et dans nos messages.",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "E-mail",
+      "emailHint": "Contactez-nous si vous souhaitez changer votre e-mail.",
+      "phone": "Numéro de portable",
+      "phoneHint": "Par ex. +33 6 12 34 56 78. Utilisé pour les messages sur vos réservations.",
+      "phoneError": "Saisissez un numéro de portable valide, par ex. 12 34 56 78 ou +46 70 123 45 67.",
+      "locale": "Langue",
+      "localeHint": "Nous vous écrirons dans cette langue.",
+      "submit": "Enregistrer",
+      "saved": "Vos informations ont été enregistrées.",
+      "error": "Une erreur s'est produite. Veuillez réessayer.",
+      "required": "Obligatoire."
+    },
+    "documents": {
+      "title": "Documents",
+      "contract": "Contrat de location {reference}",
+      "meta": "{car} · signé le {date}",
+      "booking": "Voir la réservation",
+      "download": "Télécharger le PDF",
+      "emptyTitle": "Aucun document pour le moment",
+      "emptyBody": "Votre contrat de location apparaîtra ici une fois signé lors de la prise en charge."
+    },
+    "privacy": {
+      "title": "Confidentialité et données",
+      "intro": "Choisissez ce que nous pouvons vous envoyer, téléchargez vos données et supprimez votre compte.",
+      "error": "Une erreur s'est produite. Veuillez réessayer.",
+      "consents": {
+        "title": "Nos messages",
+        "marketing": "Actualités et offres par e-mail",
+        "marketingHint": "Quelques fois par mois au maximum. Vous recevez toujours les messages concernant vos réservations.",
+        "whatsapp": "Actualités et offres sur WhatsApp",
+        "whatsappHint": "Les messages concernant vos réservations peuvent toujours arriver sur WhatsApp si vous avez indiqué un numéro de mobile.",
+        "save": "Enregistrer",
+        "saved": "Vos choix ont été enregistrés."
+      },
+      "export": {
+        "title": "Télécharger vos données",
+        "body": "Recevez un fichier contenant tout ce que nous conservons sur vous : profil, réservations, paiements, messages et consentements.",
+        "download": "Télécharger mes données"
+      },
+      "delete": {
+        "title": "Supprimer le compte",
+        "body": "Nous supprimons votre nom, vos coordonnées, vos messages, vos avis et vos documents, et vous ne pourrez plus vous connecter. Les réservations et paiements sont conservés sans votre nom, comme l'exige la loi comptable.",
+        "confirm": "Je comprends que cette action est irréversible.",
+        "confirmRequired": "Cochez la case pour confirmer.",
+        "submit": "Supprimer mon compte",
+        "done": "Votre compte a été supprimé.",
+        "home": "Retour à l'accueil",
+        "blocked": {
+          "ACTIVE_BOOKING": "Vous avez une réservation en cours. Vous pourrez supprimer votre compte après la location, ou annuler la réservation d'abord.",
+          "OPEN_CLAIM": "Votre dernière location n'est pas encore réglée (dépôt de garantie ou dommage). Contactez-nous, nous vous aiderons."
+        }
+      }
+    }
+  },
+  "admin": {
+    "title": "Administration",
+    "skipToContent": "Aller au contenu",
+    "signedInAs": "Connecté en tant que {email}",
+    "nav": {
+      "label": "Menu admin",
+      "dashboard": "Vue d'ensemble",
+      "security": "Sécurité",
+      "calendar": "Calendrier",
+      "bookings": "Réservations",
+      "customers": "Clients",
+      "fleet": "Flotte",
+      "pricing": "Tarifs",
+      "users": "Utilisateurs",
+      "reviews": "Avis",
+      "statistics": "Statistiques",
+      "auditLog": "Journal d'audit"
+    },
+    "toSite": "Aller au site",
+    "roles": {
+      "CUSTOMER": "Client",
+      "STAFF": "Employé",
+      "MANAGER": "Responsable",
+      "SUPER_ADMIN": "Super administrateur"
+    },
+    "dashboard": {
+      "title": "Vue d'ensemble",
+      "role": "Votre rôle : {role}",
+      "permissionsTitle": "Accès de votre rôle",
+      "permission": "Action",
+      "allowed": "Accès",
+      "yes": "Oui",
+      "no": "Non",
+      "permissions": {
+        "admin:access": "Ouvrir le panneau d'administration",
+        "booking:read": "Voir les réservations et le calendrier",
+        "customer:read": "Voir les clients",
+        "booking:write": "Créer et modifier des réservations",
+        "inspection:write": "Effectuer des inspections",
+        "damage:write": "Enregistrer des dommages",
+        "message:send": "Envoyer des messages aux clients",
+        "booking:requestCancel": "Demander une annulation",
+        "booking:cancel": "Annuler des réservations",
+        "payment:refund": "Rembourser des paiements",
+        "fleet:read": "Voir la flotte",
+        "fleet:setStatus": "Changer le statut d'une voiture",
+        "fleet:write": "Gérer les voitures et modèles",
+        "car:readPurchasePrice": "Voir le prix d'achat des voitures",
+        "catalog:write": "Prix, options, remises et agences",
+        "stats:read": "Voir les statistiques et le chiffre d'affaires",
+        "audit:read": "Voir le journal d'audit",
+        "gdpr:export": "Exporter les données client",
+        "gdpr:anonymize": "Anonymiser des clients",
+        "users:manage": "Gérer les employés et les rôles",
+        "settings:write": "Modifier les paramètres",
+        "damage:approveCost": "Approuver la responsabilité et les montants des dommages",
+        "review:moderate": "Publier et masquer les avis"
+      },
+      "location": "Agence",
+      "allLocations": "Toutes les agences",
+      "show": "Afficher",
+      "counts": {
+        "pickups": "Retraits aujourd'hui",
+        "returns": "Retours aujourd'hui",
+        "active": "En location",
+        "available": "Voitures disponibles",
+        "inService": "À l'atelier"
+      },
+      "attentionTitle": "À traiter",
+      "attention": {
+        "unpaid": "{count} réservations impayées",
+        "pendingRefunds": "{count} remboursements en attente",
+        "failedNotifications": "{count} messages non envoyés",
+        "newMessages": "{count} nouvelles demandes"
+      },
+      "todayTitle": "Aujourd'hui",
+      "todayEmpty": "Aucun retrait ni retour aujourd'hui.",
+      "columns": {
+        "time": "Heure",
+        "what": "Quoi",
+        "booking": "Réservation",
+        "customer": "Client",
+        "car": "Voiture",
+        "status": "Statut"
+      },
+      "kind": {
+        "pickup": "Retrait",
+        "return": "Retour"
+      },
+      "kpiTitle": "Ce mois-ci",
+      "kpi": {
+        "revenue": "Chiffre d'affaires",
+        "outstanding": "Impayés",
+        "newCustomers": "Nouveaux clients"
+      }
+    },
+    "security": {
+      "title": "Sécurité",
+      "required": "Votre rôle exige l'authentification à deux facteurs (2FA). Activez-la pour accéder au panneau d'administration.",
+      "enabled": "L'authentification à deux facteurs est activée.",
+      "disabledInfo": "L'authentification à deux facteurs n'est pas activée. Nous la recommandons à tous les employés.",
+      "step1": "Confirmez votre mot de passe pour commencer.",
+      "start": "Activer la 2FA",
+      "step2": "Scannez le QR code avec une application d'authentification (par exemple Google Authenticator ou 1Password) et saisissez le code à 6 chiffres.",
+      "manualKey": "Impossible de scanner ? Utilisez cette clé :",
+      "qrAlt": "QR code pour l'application d'authentification",
+      "confirm": "Confirmer et activer",
+      "backupTitle": "Enregistrez vos codes de secours",
+      "backupBody": "Chaque code fonctionne une fois si vous perdez votre téléphone. Conservez-les en lieu sûr. Ils ne sont affichés que maintenant.",
+      "done": "J'ai enregistré les codes"
+    },
+    "bookings": {
+      "title": "Réservations",
+      "search": "Rechercher",
+      "searchHint": "Numéro de réservation, nom, e-mail, téléphone ou immatriculation.",
+      "status": "Statut",
+      "allStatuses": "Toutes (sauf expirées)",
+      "location": "Agence",
+      "allLocations": "Toutes les agences",
+      "submit": "Rechercher",
+      "count": "{count, plural, one {# réservation} other {# réservations}}",
+      "empty": "Aucune réservation ne correspond à la recherche.",
+      "columns": {
+        "reference": "Réservation",
+        "customer": "Client",
+        "car": "Voiture",
+        "period": "Période",
+        "status": "Statut",
+        "total": "Montant"
+      },
+      "previous": "Précédent",
+      "next": "Suivant",
+      "page": "Page {page} sur {pages}",
+      "new": "Nouvelle réservation"
+    },
+    "booking": {
+      "back": "Toutes les réservations",
+      "title": "Réservation {reference}",
+      "created": "Créée le {date}",
+      "rentalTitle": "Location",
+      "car": "Voiture",
+      "fulfilment": "Remise",
+      "delivery": "Livraison à {address}",
+      "pickupAtOffice": "Retrait à l'agence",
+      "pickup": "Retrait",
+      "return": "Retour",
+      "discount": "Code promo",
+      "deposit": "Caution",
+      "depositStatus": {
+        "NOT_REQUIRED": "Non requise",
+        "PENDING": "En attente",
+        "HELD": "Bloquée",
+        "CAPTURED": "Encaissée",
+        "RELEASED": "Libérée"
+      },
+      "total": "Total",
+      "paymentsTitle": "Paiements",
+      "noPayments": "Aucun paiement pour l'instant.",
+      "columns": {
+        "date": "Date",
+        "kind": "Type",
+        "status": "Statut",
+        "method": "Moyen",
+        "amount": "Montant",
+        "action": "Action"
+      },
+      "paymentKinds": {
+        "CHARGE": "Paiement",
+        "DEPOSIT_HOLD": "Caution bloquée",
+        "DEPOSIT_CAPTURE": "Caution encaissée",
+        "REFUND": "Remboursement",
+        "MANUAL": "Paiement manuel",
+        "DEPOSIT_RETURN": "Caution restituée"
+      },
+      "paymentStatus": {
+        "PENDING": "En attente",
+        "REQUIRES_ACTION": "Action requise",
+        "SUCCEEDED": "Réussi",
+        "FAILED": "Échoué",
+        "CANCELLED": "Annulé"
+      },
+      "methods": {
+        "CARD": "Carte",
+        "MOBILEPAY": "MobilePay",
+        "APPLE_PAY": "Apple Pay",
+        "GOOGLE_PAY": "Google Pay",
+        "CASH": "Espèces",
+        "BANK_TRANSFER": "Virement"
+      },
+      "historyTitle": "Historique",
+      "system": "Système",
+      "messagesTitle": "Messages et notifications",
+      "noMessages": "Aucun message pour l'instant.",
+      "channels": {
+        "CONTACT_FORM": "Formulaire de contact",
+        "EMAIL": "E-mail",
+        "WHATSAPP": "WhatsApp",
+        "SMS": "SMS",
+        "PHONE_NOTE": "Note d'appel"
+      },
+      "direction": {
+        "INBOUND": "Du client",
+        "OUTBOUND": "Au client"
+      },
+      "templates": {
+        "BOOKING_CONFIRMED": "Confirmation",
+        "PAYMENT_RECEIVED": "Paiement reçu",
+        "CAR_READY": "Voiture prête",
+        "PICKUP_REMINDER": "Rappel de retrait",
+        "RETURN_REMINDER": "Rappel de retour",
+        "THANK_YOU": "Remerciement",
+        "REVIEW_REQUEST": "Avis",
+        "BOOKING_CANCELLED": "Annulation",
+        "PAYMENT_REQUEST": "Lien de paiement",
+        "BOOKING_CHANGED": "Réservation modifiée"
+      },
+      "notificationStatus": {
+        "PENDING": "Planifiée",
+        "SENDING": "En cours d'envoi",
+        "SENT": "Envoyée",
+        "FAILED": "Échouée",
+        "SKIPPED": "Ignorée"
+      },
+      "message": {
+        "title": "Envoyer un e-mail au client",
+        "subject": "Objet",
+        "body": "Message",
+        "bodyHint": "Envoyé avec le modèle dans la langue du client et votre texte. N'écrivez jamais de données de carte ni de mots de passe.",
+        "submit": "Envoyer l'e-mail",
+        "sent": "L'e-mail a été envoyé.",
+        "error": "L'e-mail n'a pas pu être envoyé. Réessayez.",
+        "required": "Champ obligatoire."
+      },
+      "customerTitle": "Client",
+      "email": "E-mail",
+      "phone": "Téléphone",
+      "language": "Langue",
+      "account": "Compte",
+      "hasAccount": "A un compte",
+      "guest": "Invité",
+      "whatsappPrefill": "Bonjour {name}, ici l'agence de location au sujet de votre réservation {reference}.",
+      "call": "Appeler",
+      "whatsapp": "WhatsApp",
+      "sendEmail": "Écrire un e-mail",
+      "reasons": {
+        "customer_free": "Annulée par le client dans le délai gratuit",
+        "customer_late": "Annulée par le client après le délai gratuit",
+        "manual_payment": "Paiement enregistré",
+        "pay_at_counter": "Réservation par téléphone, paiement au comptoir",
+        "rescheduled": "Nouvelle période",
+        "reservation_expired": "Délai de paiement dépassé",
+        "picked_up": "La voiture a été remise",
+        "returned": "La voiture a été restituée"
+      },
+      "actions": {
+        "title": "Actions",
+        "amountHint": "En couronnes, par ex. 450 ou 1.250,50.",
+        "reason": "Motif",
+        "reasonHint": "Affiché dans l'historique de la réservation. N'écrivez jamais de données de carte.",
+        "retryRefund": "Réessayer",
+        "pay": {
+          "title": "Enregistrer un paiement",
+          "status": "Payé :",
+          "balance": "Reste à payer :",
+          "amount": "Montant",
+          "method": "Moyen de paiement",
+          "methods": {
+            "CASH": "Espèces",
+            "CARD": "Carte (terminal)",
+            "MOBILEPAY": "MobilePay",
+            "BANK_TRANSFER": "Virement"
+          },
+          "submit": "Enregistrer le paiement"
+        },
+        "reschedule": {
+          "title": "Modifier la période",
+          "intro": "Choisissez la nouvelle période. La voiture et le prix s'affichent avant la confirmation.",
+          "pickupDate": "Date de retrait",
+          "pickupTime": "Heure de retrait",
+          "returnDate": "Date de retour",
+          "returnTime": "Heure de retour",
+          "price": "Prix",
+          "keep": "Garder le prix",
+          "new": "Calculer un nouveau prix pour la période",
+          "preview": "Voir la modification",
+          "summary": "La réservation deviendra",
+          "newPeriod": "Nouvelle période",
+          "car": "Voiture",
+          "sameCar": "(même voiture)",
+          "otherCar": "(autre voiture du même modèle)",
+          "total": "Prix total",
+          "confirm": "Confirmer la modification"
+        },
+        "reassign": {
+          "title": "Changer de voiture",
+          "none": "Aucune autre voiture de ce modèle n'est disponible sur la période.",
+          "car": "Nouvelle voiture",
+          "submit": "Changer de voiture"
+        },
+        "refund": {
+          "title": "Rembourser",
+          "intro": "Total payé :",
+          "amount": "Montant",
+          "submit": "Rembourser"
+        },
+        "cancel": {
+          "title": "Annuler la réservation",
+          "free": "Le client est dans le délai d'annulation gratuite.",
+          "late": "Le délai d'annulation gratuite est dépassé.",
+          "noPolicy": "La réservation n'est pas confirmée, ou l'heure de retrait est passée.",
+          "suggested": "Remboursement proposé :",
+          "refund": "Remboursement",
+          "refundHint": "En couronnes. Vous pouvez modifier la proposition ; expliquez pourquoi dans le motif.",
+          "confirm": "Oui, annuler la réservation et libérer la voiture",
+          "submit": "Annuler la réservation"
+        },
+        "notices": {
+          "cancelled": "La réservation est annulée, et le client sera prévenu.",
+          "cancelledRefundPending": "La réservation est annulée, mais le remboursement a échoué chez le prestataire de paiement. Réessayez sous Paiements.",
+          "refunded": "Le remboursement est effectué.",
+          "refundPending": "Le remboursement a échoué chez le prestataire de paiement. Réessayez sous Paiements.",
+          "paid": "Le paiement est enregistré.",
+          "rescheduled": "La réservation est déplacée, et le client sera prévenu.",
+          "reassigned": "La réservation a une autre voiture.",
+          "created": "La réservation est créée et confirmée. Le client paie au comptoir.",
+          "linkSent": "La réservation est créée, et le client recevra un lien de paiement par e-mail. Le lien est valable 24 heures.",
+          "invalid": "Vérifiez les champs et réessayez.",
+          "tooSoon": "Le retrait est trop proche.",
+          "carTaken": "Aucune voiture de ce modèle n'est disponible sur la période.",
+          "closed": "L'agence est fermée à cette heure-là.",
+          "forbidden": "Votre rôle n'a pas accès à cette action.",
+          "conflict": "La réservation ne peut pas être modifiée dans son statut actuel, ou elle a été modifiée en même temps. Rechargez la page.",
+          "providerFailed": "Le prestataire de paiement a refusé le remboursement. Réessayez plus tard.",
+          "failed": "Un problème est survenu. Réessayez."
+        },
+        "markRefunded": "Marquer comme remboursé"
+      },
+      "handover": {
+        "title": "Remise et restitution",
+        "pickup": "Remettre la voiture",
+        "return": "Réceptionner la voiture",
+        "types": {
+          "PICKUP": "Remise",
+          "RETURN": "Restitution"
+        },
+        "summary": "{km, number} km · carburant {level}/8 · {photos, plural, one {# photo} other {# photos}} · {damages, plural, one {# dommage} other {# dommages}}",
+        "deposit": "Prendre la caution",
+        "settle": "Clôturer",
+        "settled": "Clôturée le {date}.",
+        "showSettlement": "Voir la clôture",
+        "contract": "Contrat de location",
+        "contractSigned": "Contrat (PDF)"
+      }
+    },
+    "customers": {
+      "title": "Clients",
+      "search": "Rechercher",
+      "searchHint": "Nom, e-mail ou téléphone.",
+      "submit": "Rechercher",
+      "count": "{count, plural, one {# client} other {# clients}}",
+      "empty": "Aucun client ne correspond à la recherche.",
+      "columns": {
+        "name": "Nom",
+        "contact": "Contact",
+        "bookings": "Réservations",
+        "account": "Compte",
+        "created": "Créé le"
+      },
+      "anonymized": "Anonymisé",
+      "hasAccount": "A un compte",
+      "guest": "Invité",
+      "previous": "Précédent",
+      "next": "Suivant",
+      "page": "Page {page} sur {pages}"
+    },
+    "customer": {
+      "metaTitle": "Client",
+      "back": "Tous les clients",
+      "anonymized": "Ce client a été anonymisé.",
+      "bookingsTitle": "Réservations ({count})",
+      "noBookings": "Aucune réservation.",
+      "columns": {
+        "reference": "Réservation",
+        "car": "Voiture",
+        "pickup": "Retrait",
+        "status": "Statut",
+        "total": "Montant"
+      },
+      "messagesTitle": "Derniers messages",
+      "noMessages": "Aucun message.",
+      "profileTitle": "Informations",
+      "lastLogin": "Dernière connexion le {date}",
+      "created": "Créé le",
+      "whatsappPrefill": "Bonjour {name}, ici l'agence de location.",
+      "gdpr": {
+        "title": "RGPD",
+        "export": "Exporter les données (JSON)",
+        "anonymize": "Anonymiser le client",
+        "anonymizeHint": "Nom, coordonnées, messages, avis et documents sont supprimés. Les réservations et paiements sont conservés sous un pseudonyme. Irréversible.",
+        "confirm": "Le client a demandé la suppression et j'ai vérifié son identité.",
+        "blocked": {
+          "ACTIVE_BOOKING": "Impossible d'anonymiser : le client a une réservation en cours.",
+          "OPEN_CLAIM": "Impossible d'anonymiser : un dépôt ou un dommage n'est pas réglé."
+        },
+        "notices": {
+          "anonymized": "L'anonymisation est terminée.",
+          "blocked": "Le client ne peut pas encore être anonymisé.",
+          "confirm": "Cochez la case pour confirmer l'anonymisation.",
+          "forbidden": "Votre rôle n'a pas accès à cette action.",
+          "failed": "Une erreur s'est produite. Veuillez réessayer."
+        }
+      }
+    },
+    "calendar": {
+      "title": "Calendrier",
+      "location": "Agence",
+      "allLocations": "Toutes les agences",
+      "range": "Période",
+      "week": "1 semaine",
+      "twoWeeks": "2 semaines",
+      "show": "Afficher",
+      "previous": "Précédent",
+      "next": "Suivant",
+      "period": "Du {from} au {to}",
+      "car": "Voiture",
+      "empty": "Aucune voiture dans cette agence.",
+      "legend": "Chaque ligne est une voiture. Les réservations et passages à l'atelier couvrent les jours où la voiture est occupée.",
+      "maintenance": {
+        "SERVICE": "Entretien",
+        "INSPECTION_SYN": "Contrôle technique",
+        "TYRES": "Pneus",
+        "REPAIR": "Réparation",
+        "CLEANING": "Nettoyage"
+      }
+    },
+    "newBooking": {
+      "back": "Toutes les réservations",
+      "title": "Nouvelle réservation",
+      "intro": "Pour les réservations par téléphone ou au comptoir. Mêmes règles et prix que sur le site.",
+      "customerTitle": "Client",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "E-mail",
+      "phone": "Numéro de mobile",
+      "phoneHint": "Par ex. 12 34 56 78.",
+      "phoneError": "Saisissez un numéro de mobile valide, par ex. 12 34 56 78.",
+      "locale": "Langue",
+      "localeHint": "Le client reçoit les messages dans cette langue.",
+      "rentalTitle": "Location",
+      "car": "Modèle",
+      "choose": "Choisir",
+      "pickupLocation": "Lieu de retrait",
+      "pickupDate": "Date de retrait",
+      "pickupTime": "Heure de retrait",
+      "returnLocation": "Lieu de retour",
+      "returnDate": "Date de retour",
+      "returnTime": "Heure de retour",
+      "discountCode": "Code promo (facultatif)",
+      "extras": "Options",
+      "paymentTitle": "Paiement",
+      "paymentLink": "Envoyer un lien de paiement",
+      "paymentLinkHint": "Le client reçoit un e-mail avec un lien et a 24 heures pour payer. La voiture est réservée entre-temps.",
+      "paymentCounter": "Paiement au comptoir",
+      "paymentCounterHint": "La réservation est confirmée maintenant. Enregistrez le paiement quand le client paie.",
+      "submit": "Créer la réservation",
+      "required": "Champ obligatoire.",
+      "errors": {
+        "invalid": "Vérifiez les champs signalés.",
+        "tooSoon": "Le retrait est trop proche.",
+        "closed": "L'agence est fermée à cette heure-là.",
+        "carTaken": "Aucune voiture de ce modèle n'est disponible sur la période.",
+        "discount": "Le code promo ne fonctionne pas.",
+        "price": "Il n'y a pas de prix pour cette période.",
+        "failed": "Un problème est survenu. Réessayez."
+      }
+    },
+    "fleet": {
+      "title": "Flotte",
+      "back": "Toutes les voitures",
+      "km": "{km, number} km",
+      "previous": "Précédent",
+      "next": "Suivant",
+      "page": "Page {page} sur {pages}",
+      "amountHint": "En couronnes, par ex. 450 ou 1.250,50.",
+      "tabs": {
+        "label": "Flotte",
+        "cars": "Voitures",
+        "models": "Modèles"
+      },
+      "opStatus": {
+        "ACTIVE": "En service",
+        "INSPECTION": "En contrôle",
+        "MAINTENANCE": "Au garage",
+        "OUT_OF_SERVICE": "Hors service",
+        "RETIRED": "Retirée"
+      },
+      "warnings": {
+        "inspection": "Contrôle technique proche",
+        "service": "Entretien proche",
+        "insurance": "Assurance expire"
+      },
+      "cars": {
+        "new": "Nouvelle voiture",
+        "search": "Rechercher",
+        "searchHint": "Immatriculation ou numéro VIN.",
+        "status": "Statut",
+        "allStatuses": "Toutes (sauf retirées)",
+        "model": "Modèle",
+        "allModels": "Tous les modèles",
+        "location": "Agence",
+        "allLocations": "Toutes les agences",
+        "submit": "Rechercher",
+        "count": "{count, plural, one {# voiture} other {# voitures}}",
+        "empty": "Aucune voiture ne correspond à la recherche.",
+        "columns": {
+          "registration": "Immatriculation",
+          "model": "Modèle",
+          "location": "Agence d'attache",
+          "odometer": "Km",
+          "status": "Statut",
+          "warnings": "Échéances"
+        }
+      },
+      "car": {
+        "bookings": "Réservations à venir",
+        "noBookings": "La voiture n'a aucune réservation à venir.",
+        "bookingsHint": "Si la voiture doit être mise hors service, ouvrez chaque réservation et changez de voiture, modifiez la période ou annulez.",
+        "columns": {
+          "reference": "Réservation",
+          "customer": "Client",
+          "period": "Période",
+          "status": "Statut"
+        },
+        "statusTitle": "Statut d'exploitation",
+        "statusIntro": "Seules les voitures en service peuvent être réservées. Les réservations existantes gardent la voiture jusqu'à ce que vous les déplaciez.",
+        "newStatus": "Nouveau statut",
+        "confirm": "J'ai vu {count, plural, one {la réservation à venir} other {les # réservations à venir}}",
+        "confirmHint": "Elles gardent la voiture jusqu'à ce que vous les déplaciez vers une autre voiture.",
+        "setStatus": "Changer le statut",
+        "odometerTitle": "Kilométrage",
+        "odometer": "Km",
+        "odometerHint": "Ne peut qu'augmenter.",
+        "saveOdometer": "Enregistrer les km",
+        "details": "Informations",
+        "damages": "Dommages",
+        "noDamages": "Aucun dommage enregistré.",
+        "repairedOn": "réparé le {date}",
+        "markRepaired": "Marquer comme réparé",
+        "inspections": "Remises et restitutions"
+      },
+      "notices": {
+        "created": "La voiture est créée.",
+        "saved": "Les modifications sont enregistrées.",
+        "statusChanged": "Le statut est modifié.",
+        "odometerSaved": "Le kilométrage est enregistré.",
+        "maintenanceAdded": "Le passage au garage est planifié. La voiture ne peut pas être réservée sur la période.",
+        "maintenanceUpdated": "Le passage au garage est mis à jour.",
+        "invalid": "Vérifiez les champs et réessayez.",
+        "odometerDown": "Le kilométrage ne peut pas être inférieur à l'ancien.",
+        "endBeforeStart": "La fin doit être après le début.",
+        "rented": "La voiture est louée en ce moment. Changez le statut à son retour.",
+        "hasBookings": "La voiture a des réservations à venir. Cochez la case pour confirmer, ou déplacez-les d'abord :",
+        "bookingsInPeriod": "La voiture est réservée sur la période. Déplacez d'abord ces réservations :",
+        "maintenanceOverlap": "La voiture a déjà un passage au garage sur la période.",
+        "conflict": "Impossible de modifier maintenant, ou une modification a eu lieu en même temps. Rechargez la page.",
+        "forbidden": "Votre rôle n'a pas accès à cette action.",
+        "notFound": "Cet élément n'existe plus.",
+        "failed": "Une erreur s'est produite. Réessayez.",
+        "damageRepaired": "Le dommage est marqué comme réparé."
+      },
+      "maintenance": {
+        "title": "Garage",
+        "empty": "Aucun passage au garage pour l'instant.",
+        "columns": {
+          "type": "Type",
+          "period": "Période",
+          "vendor": "Garage",
+          "cost": "Coût",
+          "status": "Statut",
+          "action": "Action"
+        },
+        "types": {
+          "SERVICE": "Entretien",
+          "INSPECTION_SYN": "Contrôle technique",
+          "TYRES": "Changement de pneus",
+          "REPAIR": "Réparation",
+          "CLEANING": "Nettoyage"
+        },
+        "statuses": {
+          "PLANNED": "Planifié",
+          "IN_PROGRESS": "En cours",
+          "DONE": "Terminé",
+          "CANCELLED": "Annulé"
+        },
+        "to": {
+          "IN_PROGRESS": "Démarrer",
+          "DONE": "Terminé",
+          "CANCELLED": "Annuler"
+        },
+        "add": "Planifier un passage au garage",
+        "addIntro": "La voiture ne peut pas être réservée sur la période. Si elle a des réservations sur la période, déplacez-les d'abord.",
+        "type": "Type",
+        "vendor": "Garage (facultatif)",
+        "startDate": "Date de début",
+        "startTime": "Heure de début",
+        "endDate": "Date de fin",
+        "endTime": "Heure de fin",
+        "cost": "Coût (facultatif)",
+        "notes": "Note (facultative)",
+        "submit": "Planifier"
+      },
+      "form": {
+        "identity": "Voiture",
+        "carModelId": "Modèle",
+        "homeLocationId": "Agence d'attache",
+        "registrationNumber": "Immatriculation",
+        "registrationHint": "Par ex. AB 12 345.",
+        "vin": "Numéro VIN",
+        "vinHint": "11 à 17 caractères, sans I, O ni Q.",
+        "color": "Couleur (facultative)",
+        "odometerKm": "Km",
+        "tyreType": "Pneus (facultatif)",
+        "tyreHint": "Par ex. été, hiver ou toutes saisons.",
+        "deadlines": "Échéances",
+        "nextInspectionDue": "Prochain contrôle technique",
+        "nextServiceDue": "Prochain entretien (date)",
+        "nextServiceKm": "Prochain entretien (km)",
+        "insurancePolicy": "Police d'assurance (facultative)",
+        "insuranceExpiresAt": "Fin de l'assurance",
+        "purchase": "Achat",
+        "purchaseDate": "Date d'achat",
+        "purchasePrice": "Prix d'achat",
+        "amountHint": "En couronnes, par ex. 189.000.",
+        "choose": "Choisir",
+        "save": "Enregistrer",
+        "create": "Créer la voiture",
+        "duplicate": "Déjà utilisé par une autre voiture.",
+        "odometerDown": "Ne peut pas être inférieur à l'ancien.",
+        "invalid": "Vérifiez le champ.",
+        "errors": {
+          "invalid": "Vérifiez les champs signalés.",
+          "duplicate": "L'immatriculation ou le numéro VIN existe déjà.",
+          "odometerDown": "Le kilométrage ne peut pas être inférieur à l'ancien.",
+          "hasBookings": "Le modèle et l'agence ne peuvent pas changer tant que la voiture a des réservations à venir :",
+          "forbidden": "Votre rôle n'a pas accès à cette action.",
+          "failed": "Une erreur s'est produite. Réessayez."
+        }
+      },
+      "models": {
+        "title": "Modèles",
+        "new": "Nouveau modèle",
+        "edit": "Modifier le modèle",
+        "back": "Tous les modèles",
+        "empty": "Aucun modèle pour l'instant.",
+        "columns": {
+          "model": "Modèle",
+          "category": "Catégorie",
+          "cars": "Voitures",
+          "visibility": "Visibilité"
+        },
+        "active": "Affiché",
+        "inactive": "Masqué",
+        "featured": "Mis en avant",
+        "notices": {
+          "created": "Le modèle est créé.",
+          "saved": "Les modifications sont enregistrées.",
+          "imageDeleted": "L'image est supprimée.",
+          "imageFirst": "L'image principale est modifiée.",
+          "forbidden": "Votre rôle n'a pas accès à cette action.",
+          "failed": "Une erreur s'est produite. Réessayez."
+        },
+        "images": "Images",
+        "imagesHint": "Affichées dans le catalogue ; la première est l'image principale. {max} images au maximum. Utilisez des images en paysage, idéalement 16:10.",
+        "noImages": "Aucune image pour l'instant. Le catalogue affiche un espace réservé.",
+        "imageAlt": "{name}, image {n}",
+        "firstImage": "Image principale",
+        "makeFirst": "Utiliser comme image principale",
+        "deleteImage": "Supprimer",
+        "addImages": "Ajouter des images"
+      },
+      "modelForm": {
+        "basics": "Modèle",
+        "brand": "Marque",
+        "model": "Modèle",
+        "year": "Année",
+        "categoryId": "Catégorie",
+        "choose": "Choisir",
+        "slug": "Adresse",
+        "slugHint": "Utilisée dans le lien, par ex. toyota-yaris-hybrid. Minuscules, chiffres et tirets.",
+        "specs": "Caractéristiques",
+        "transmission": "Boîte de vitesses",
+        "fuel": "Carburant",
+        "seats": "Places",
+        "doors": "Portes",
+        "bags": "Bagages",
+        "airConditioning": "Climatisation",
+        "terms": "Km et caution",
+        "termsHint": "S'applique aux nouvelles réservations. Le prix par jour est fixé par catégorie.",
+        "includedKmPerDay": "Km inclus par jour",
+        "extraKmFee": "Prix par km supplémentaire",
+        "deposit": "Caution",
+        "amountHint": "En couronnes, par ex. 2,50 ou 3.000.",
+        "descriptions": "Description",
+        "descriptionsHint": "Le danois est obligatoire. Si une langue manque, le texte danois s'affiche.",
+        "descriptionDa": "Danois",
+        "descriptionEn": "Anglais",
+        "descriptionFr": "Français",
+        "descriptionAr": "Arabe",
+        "visibility": "Visibilité",
+        "isActive": "Afficher dans le catalogue",
+        "isActiveHint": "Les clients peuvent voir et réserver le modèle.",
+        "isFeatured": "Mettre en avant sur l'accueil",
+        "isFeaturedHint": "Affiché parmi les voitures populaires.",
+        "save": "Enregistrer",
+        "create": "Créer le modèle",
+        "invalid": "Vérifiez le champ.",
+        "duplicate": "L'adresse est déjà utilisée par un autre modèle.",
+        "errors": {
+          "invalid": "Vérifiez les champs signalés.",
+          "duplicate": "L'adresse est déjà utilisée par un autre modèle.",
+          "forbidden": "Votre rôle n'a pas accès à cette action.",
+          "failed": "Une erreur s'est produite. Réessayez."
+        }
+      }
+    },
+    "photos": {
+      "hint": "Prenez des photos avec le téléphone ou choisissez dans la galerie. Elles sont enregistrées sans position ni autres métadonnées.",
+      "uploading": "Envoi {done} sur {total} …",
+      "errors": {
+        "notImage": "L'un des fichiers n'est pas une image.",
+        "tooLarge": "L'un des fichiers est trop volumineux.",
+        "tooMany": "Il n'y a plus de place pour d'autres images.",
+        "forbidden": "Votre rôle ne permet pas d'envoyer des fichiers.",
+        "failed": "Une image n'a pas pu être enregistrée. Réessayez."
+      }
+    },
+    "handover": {
+      "back": "Retour à {reference}",
+      "odometer": "Kilométrage",
+      "odometerHint": "Au moins {km, number} km.",
+      "fuel": "Carburant ou batterie",
+      "fuelHint": "Lisez la jauge en huitièmes.",
+      "fuelLevel": "{level, plural, =0 {Vide (0/{max})} =8 {Plein ({max}/{max})} other {#/{max}}}",
+      "notes": "Remarques (facultatives)",
+      "notesHint": "Par ex. rayures, nettoyage ou clé de secours. N'écrivez jamais de données de carte.",
+      "knownDamages": "Dommages connus",
+      "noKnownDamages": "La voiture n'a aucun dommage connu.",
+      "pickup": {
+        "title": "Remettre la voiture",
+        "notAllowed": "Seules les réservations confirmées peuvent être remises.",
+        "unpaidTitle": "La réservation n'est pas payée",
+        "unpaid": "Enregistrez le paiement sur la réservation avant la remise. Reste à payer :",
+        "damagesHint": "Faites le tour de la voiture avec le client. Les nouveaux constats sont enregistrés comme dommages à la page suivante, avec photos.",
+        "submit": "Remettre la voiture",
+        "depositTitle": "Caution manquante",
+        "deposit": "Prenez la caution avant de remettre la voiture :",
+        "takeDeposit": "Prendre la caution",
+        "contractTitle": "Le contrat n'est pas signé",
+        "contract": "Le client doit signer le contrat de location avant la remise de la voiture.",
+        "signContract": "Signer le contrat"
+      },
+      "return": {
+        "title": "Réceptionner la voiture",
+        "notAllowed": "Seules les réservations remises peuvent être restituées.",
+        "damagesHint": "Comparez avec la remise. Les nouveaux dommages sont enregistrés à la page suivante, avec photos.",
+        "submit": "Réceptionner la voiture",
+        "carStatus": "La voiture ensuite",
+        "statuses": {
+          "ACTIVE": "Prête pour le client suivant",
+          "INSPECTION": "À contrôler ou nettoyer d'abord",
+          "MAINTENANCE": "Doit aller au garage"
+        }
+      },
+      "notices": {
+        "invalid": "Vérifiez les champs et réessayez.",
+        "odometerDown": "Le kilométrage ne peut pas être inférieur à l'ancien.",
+        "unpaid": "La réservation n'est pas payée. Enregistrez d'abord le paiement.",
+        "tooEarly": "La voiture peut être remise au plus tôt le jour du retrait.",
+        "conflict": "La réservation a été modifiée entre-temps. Rechargez la page.",
+        "forbidden": "Votre rôle n'a pas accès à cette action.",
+        "notFound": "La réservation n'existe pas.",
+        "failed": "Une erreur s'est produite. Réessayez.",
+        "depositMissing": "La caution manque. Prenez d'abord la caution.",
+        "contractMissing": "Le contrat n'est pas signé. Faites-le signer au client d'abord."
+      }
+    },
+    "damage": {
+      "areas": {
+        "front": "Avant",
+        "front-left": "Avant gauche",
+        "front-right": "Avant droit",
+        "left": "Côté gauche",
+        "right": "Côté droit",
+        "rear": "Arrière",
+        "rear-left": "Arrière gauche",
+        "rear-right": "Arrière droit",
+        "roof": "Toit",
+        "windscreen": "Pare-brise",
+        "wheels": "Roues et jantes",
+        "interior": "Habitacle",
+        "other": "Autre"
+      },
+      "severities": {
+        "MINOR": "Léger",
+        "MODERATE": "Moyen",
+        "MAJOR": "Important"
+      },
+      "liabilities": {
+        "CUSTOMER": "Client",
+        "INTERNAL": "Nous-mêmes",
+        "THIRD_PARTY": "Tiers",
+        "UNDECIDED": "Non déterminé"
+      }
+    },
+    "inspection": {
+      "metaTitle": "Inspection",
+      "types": {
+        "PICKUP": "Remise",
+        "RETURN": "Restitution"
+      },
+      "backToBooking": "Retour à {reference}",
+      "notices": {
+        "pickedUp": "La voiture est remise. Prenez des photos de tous les côtés.",
+        "returned": "La voiture est réceptionnée et la réservation est terminée. Prenez des photos et enregistrez les nouveaux dommages éventuels.",
+        "damageAdded": "Le dommage est enregistré. Ajoutez des photos si possible.",
+        "damageRepaired": "Le dommage est marqué comme réparé.",
+        "invalid": "Vérifiez les champs et réessayez.",
+        "conflict": "Impossible de modifier maintenant. Rechargez la page.",
+        "forbidden": "Votre rôle n'a pas accès à cette action.",
+        "notFound": "Cet élément n'existe plus.",
+        "failed": "Une erreur s'est produite. Réessayez."
+      },
+      "odometer": "Kilométrage",
+      "km": "{km, number} km",
+      "driven": "{km, number} km parcourus",
+      "fuel": "Carburant",
+      "fuelLevel": "{level, plural, =0 {Vide (0/{max})} =8 {Plein ({max}/{max})} other {#/{max}}}",
+      "fuelAtPickup": "À la remise : {fuel}",
+      "performed": "Effectuée",
+      "notes": "Remarques",
+      "photos": "Photos",
+      "photosHint": "Prenez au moins une photo de chaque côté, de l'avant, de l'arrière et de l'habitacle.",
+      "noPhotos": "Aucune photo pour l'instant.",
+      "addPhotos": "Prendre ou choisir des photos",
+      "photoAlt": "Photo {n} de la voiture",
+      "compare": "Pour comparaison : {type}",
+      "open": "Ouvrir",
+      "otherPhotoAlt": "{type}, photo {n}",
+      "damages": "Dommages",
+      "noDamages": "Aucun dommage enregistré.",
+      "newDamage": "Nouveau dommage",
+      "existingDamage": "Dommage connu",
+      "repaired": "Réparé",
+      "estimatedCost": "Coût estimé :",
+      "damagePhotoAlt": "Dommage, {area}, photo {n}",
+      "addDamagePhotos": "Photos du dommage",
+      "markRepaired": "Marquer comme réparé",
+      "addDamage": "Enregistrer un dommage",
+      "addDamageReturn": "Un nouveau dommage est lié à la réservation. Un responsable approuve la responsabilité et le montant à la clôture.",
+      "addDamagePickup": "Un dommage constaté à la remise appartient à la voiture et n'est pas facturé au client.",
+      "area": "Zone",
+      "severity": "Gravité",
+      "liability": "Responsabilité",
+      "liabilityHint": "Un responsable l'approuve à la clôture.",
+      "estimatedCostLabel": "Coût estimé (facultatif)",
+      "amountHint": "En couronnes, par ex. 1.500.",
+      "description": "Description",
+      "descriptionHint": "Par ex. « rayure de 10 cm sous la poignée de porte ».",
+      "saveDamage": "Enregistrer le dommage",
+      "settleTitle": "Étape suivante : clôture",
+      "settleHint": "Prenez d'abord les photos et enregistrez les nouveaux dommages. Clôturez ensuite les frais et la caution.",
+      "settle": "Aller à la clôture"
+    },
+    "tableLabel": "Tableau : {name}",
+    "deposit": {
+      "title": "Caution",
+      "back": "Retour à {reference}",
+      "notices": {
+        "held": "La caution est enregistrée.",
+        "card": "La carte a été envoyée pour validation.",
+        "invalid": "Vérifiez les champs et réessayez.",
+        "conflict": "La caution ne peut pas être prise maintenant. Rechargez la page.",
+        "forbidden": "Votre rôle n'a pas accès à cette action.",
+        "failed": "Une erreur s'est produite. Réessayez."
+      },
+      "declined": "La carte a été refusée. Essayez une autre carte ou prenez la caution en espèces.",
+      "held": "La caution est en place. La voiture peut être remise.",
+      "toPickup": "Remettre la voiture",
+      "notDue": "La réservation n'a pas besoin de caution maintenant.",
+      "waiting": "En attente de l'émetteur de la carte. Rechargez la page dans un instant.",
+      "cardTitle": "Par carte",
+      "cardHold": "Le client saisit sa carte ici. Le montant est bloqué et n'est prélevé qu'en cas de frais au retour.",
+      "cardCharge": "La location dure plus longtemps qu'un blocage sur carte, donc le montant est prélevé maintenant et remboursé au retour.",
+      "unavailable": "Le paiement par carte n'est pas configuré. Prenez la caution en espèces ou sur le terminal.",
+      "cardSubmit": "Bloquer {price}",
+      "testBody": "Environnement de test : aucun argent réel n'est prélevé.",
+      "manualTitle": "Au comptoir",
+      "manualHint": "En espèces ou sur le terminal de paiement. L'argent est rendu à la clôture.",
+      "method": "Moyen de paiement",
+      "terminal": "Carte (terminal)",
+      "manualSubmit": "Enregistrer {price} reçus"
+    },
+    "settlement": {
+      "title": "Clôture",
+      "back": "Retour à {reference}",
+      "notices": {
+        "settled": "La réservation est clôturée.",
+        "invalid": "Vérifiez les montants et choisissez la responsabilité pour chaque dommage.",
+        "conflict": "La réservation ne peut pas être clôturée maintenant. Rechargez la page.",
+        "forbidden": "Votre rôle n'a pas accès à cette action.",
+        "provider": "L'émetteur de la carte a refusé la caution. Réessayez dans un instant.",
+        "failed": "Une erreur s'est produite. Réessayez."
+      },
+      "settledAt": "Clôturée le {date}.",
+      "captured": "Prélevé sur la caution",
+      "returned": "Caution rendue au client",
+      "balance": "Le client doit payer",
+      "cashBack": "Rendez {amount} en espèces au client.",
+      "owed": "Enregistrez le paiement sur la réservation une fois que le client a payé.",
+      "notReturned": "La réservation est clôturée après le retour de la voiture.",
+      "feesTitle": "Frais",
+      "feesHint": "La proposition est calculée à partir de la remise et du retour. Modifiez le montant si vous convenez d'autre chose avec le client ; saisissez 0 pour aucun frais.",
+      "extraKm": "Km supplémentaires (DKK)",
+      "extraKmHint": "{driven, number} km parcourus, dont {included, number} km inclus : {extra, number} km à {rate} DKK.",
+      "fuel": "Carburant (DKK)",
+      "fuelHint": "Remise à {pickup}/{max}, retour à {returned}/{max}. {rate} DKK par huitième.",
+      "late": "Retour tardif (DKK)",
+      "lateHint": "{minutes, plural, =0 {Retour à l'heure.} other {# minutes de retard.}} Après {grace} minutes : {hours, plural, one {# heure} other {# heures}} à {rate} DKK.",
+      "damagesTitle": "Nouveaux dommages",
+      "noDamages": "Aucun nouveau dommage pendant la location.",
+      "damagesHint": "Choisissez la responsabilité. Le montant n'est facturé que si le client est responsable.",
+      "needsManager": "Un responsable doit approuver la responsabilité et les montants des dommages. La caution est conservée jusque-là.",
+      "liability": "Responsabilité",
+      "chooseLiability": "Choisir la responsabilité",
+      "damageAmount": "Montant (DKK)",
+      "damageAmountHint": "Le montant approuvé que le client paie.",
+      "depositTitle": "Caution",
+      "depositHeld": "{amount} sont en caution. Les frais y sont prélevés et le reste est rendu au client.",
+      "noDeposit": "Il n'y a pas de caution. Le client doit payer les frais.",
+      "credit": "Le client a payé {amount} de trop ; c'est déduit des frais.",
+      "submit": "Clôturer la réservation"
+    },
+    "contract": {
+      "title": "Contrat de location",
+      "back": "Retour à {reference}",
+      "intro": "Parcourez le contrat avec le client. Le client saisit son nom et signe avec le doigt.",
+      "preview": "Voir le contrat (PDF)",
+      "signerName": "Nom complet du client",
+      "signerHint": "Tel qu'indiqué sur le permis de conduire.",
+      "signature": "Signature",
+      "signatureHint": "Dessinez avec le doigt ou la souris dans le cadre.",
+      "clear": "Effacer la signature",
+      "accept": "Le client a lu et accepte les conditions de location et les prix du contrat.",
+      "submit": "Signer le contrat",
+      "signed": "Signé par {name} le {date}.",
+      "download": "Télécharger le contrat (PDF)",
+      "toPickup": "Remettre la voiture",
+      "notDue": "Le contrat ne peut être signé que pour une réservation confirmée, avant la remise de la voiture.",
+      "notices": {
+        "signed": "Le contrat a été signé.",
+        "invalid": "Vérifiez les champs et réessayez.",
+        "signatureMissing": "Le client doit signer dans le cadre.",
+        "conflict": "Le contrat ne peut pas être signé maintenant. Rechargez la page.",
+        "forbidden": "Votre rôle n'a pas accès à cette action.",
+        "failed": "Une erreur s'est produite. Réessayez."
+      }
+    },
+    "catalog": {
+      "tabs": {
+        "label": "Catalogue",
+        "pricing": "Tarifs",
+        "extras": "Options",
+        "discounts": "Codes promo",
+        "locations": "Agences"
+      }
+    },
+    "pricing": {
+      "title": "Tarifs",
+      "intro": "Les prix sont TTC. Les modifications ne s'appliquent qu'aux nouvelles réservations ; les réservations existantes gardent leur prix.",
+      "categories": "Catégories",
+      "noCategories": "Il n'y a pas encore de catégories.",
+      "rulesTitle": "Grille tarifaire pour {category}",
+      "empty": "La catégorie n'a pas encore de prix.",
+      "wholeCategory": "Toute la catégorie",
+      "always": "Toute l'année",
+      "season": "{from} – {to}",
+      "days": "{days, plural, one {# jour} other {# jours}}",
+      "edit": "Modifier",
+      "editLabel": "Modifier le prix pour {days, plural, one {# jour} other {# jours}}, {scope}",
+      "columns": {
+        "scope": "S'applique à",
+        "season": "Période",
+        "minDays": "À partir de",
+        "package": "Prix forfaitaire",
+        "perDay": "Prix par jour",
+        "priority": "Priorité",
+        "actions": "Actions"
+      },
+      "warnings": {
+        "noBase": "La catégorie n'a pas de prix standard. Les clients ne peuvent pas y réserver de voiture tant qu'il n'y a pas de prix sans modèle ni période.",
+        "noOneDay": "La catégorie n'a pas de prix standard pour 1 jour. Les clients ne peuvent pas réserver de courtes locations tant qu'il n'est pas créé."
+      },
+      "preview": {
+        "title": "Tester un prix",
+        "model": "Modèle",
+        "days": "Nombre de jours",
+        "date": "Date de prise en charge",
+        "submit": "Calculer",
+        "result": "Un client qui loue pour {days, plural, one {# jour} other {# jours}} paie :",
+        "package": "C'est le prix forfaitaire pour {days, plural, one {# jour} other {# jours}}.",
+        "perDay": "Le prix par jour du palier de {days, plural, one {# jour} other {# jours}}.",
+        "capped": "Le prix est ramené à un forfait plus long, car il est moins cher.",
+        "none": "Il n'y a pas de prix pour {days, plural, one {# jour} other {# jours}}. Créez un prix standard pour 1 jour.",
+        "invalid": "Choisissez un modèle, un nombre de jours (1–365) et une date."
+      },
+      "newTitle": "Nouveau prix",
+      "editTitle": "Modifier le prix",
+      "editIntro": "La modification ne s'applique qu'aux nouvelles réservations.",
+      "back": "Retour à {category}",
+      "delete": "Supprimer le prix",
+      "notices": {
+        "created": "Le prix a été créé.",
+        "saved": "Le prix a été enregistré.",
+        "deleted": "Le prix a été supprimé.",
+        "forbidden": "Votre rôle n'a pas accès à cette action.",
+        "failed": "Une erreur s'est produite. Réessayez."
+      },
+      "form": {
+        "categoryId": "Catégorie",
+        "carModelId": "S'applique à",
+        "carModelIdHint": "Choisissez un modèle pour lui donner son propre prix.",
+        "wholeCategory": "Toute la catégorie",
+        "inactiveModel": "{name} (masqué)",
+        "minDays": "À partir de (jours)",
+        "minDaysHint": "Par ex. 1, 3, 7 ou 30.",
+        "packagePrice": "Prix forfaitaire",
+        "packagePriceHint": "Le prix pour exactement ce nombre de jours.",
+        "perDayPrice": "Prix par jour",
+        "perDayPriceHint": "Par jour jusqu'au palier suivant.",
+        "validFrom": "Date de début",
+        "validTo": "Date de fin",
+        "seasonHint": "Vide = toute l'année. Utilisez des dates pour les prix saisonniers.",
+        "priority": "Priorité",
+        "priorityHint": "La plus élevée l'emporte si deux prix s'appliquent le même jour.",
+        "create": "Créer le prix",
+        "save": "Enregistrer",
+        "errors": {
+          "categoryId": "Vérifiez le champ.",
+          "carModelId": "Le modèle n'appartient pas à la catégorie.",
+          "minDays": "Vérifiez le champ.",
+          "packagePrice": "Vérifiez le champ.",
+          "perDayPrice": "Vérifiez le champ.",
+          "validFrom": "Vérifiez le champ.",
+          "validTo": "La date doit être après la date de début.",
+          "priority": "Vérifiez le champ."
+        },
+        "notices": {
+          "invalid": "Vérifiez les champs signalés.",
+          "forbidden": "Votre rôle n'a pas accès à cette action.",
+          "failed": "Une erreur s'est produite. Réessayez."
+        }
+      }
+    },
+    "extras": {
+      "title": "Options",
+      "intro": "Équipements que le client peut ajouter à la réservation. Les nouveaux prix ne s'appliquent qu'aux nouvelles réservations. Une option déjà réservée ne peut pas être supprimée, mais peut être masquée.",
+      "new": "Nouvelle option",
+      "back": "Toutes les options",
+      "editTitle": "Modifier l'option",
+      "empty": "Il n'y a pas encore d'options.",
+      "active": "Disponible",
+      "inactive": "Masquée",
+      "max": "max.",
+      "per": {
+        "PER_DAY": "par jour",
+        "PER_BOOKING": "par location"
+      },
+      "delete": "Supprimer l'option",
+      "usedNote": "L'option a été utilisée dans {count, plural, one {# réservation} other {# réservations}} et ne peut pas être supprimée. Décochez « Disponible » pour la masquer.",
+      "columns": {
+        "name": "Option",
+        "price": "Prix",
+        "maxQuantity": "Quantité max.",
+        "used": "Réservée",
+        "status": "Statut"
+      },
+      "notices": {
+        "created": "L'option a été créée.",
+        "saved": "L'option a été enregistrée.",
+        "deleted": "L'option a été supprimée.",
+        "inUse": "L'option a été utilisée dans des réservations et ne peut pas être supprimée. Masquez-la plutôt.",
+        "forbidden": "Votre rôle n'a pas accès à cette action.",
+        "failed": "Une erreur s'est produite. Réessayez."
+      },
+      "form": {
+        "names": "Nom",
+        "namesHint": "Le danois est obligatoire. Si une langue manque, le texte danois est affiché.",
+        "nameDa": "Danois",
+        "nameEn": "Anglais",
+        "nameFr": "Français",
+        "nameAr": "Arabe",
+        "code": "Code",
+        "codeHint": "Code interne, par ex. child_seat. Minuscules, chiffres et tirets bas.",
+        "price": "Prix",
+        "pricing": "Prix par",
+        "pricingOptions": {
+          "PER_DAY": "Jour",
+          "PER_BOOKING": "Location"
+        },
+        "amountHint": "En couronnes, par ex. 75 ou 2,50.",
+        "maxPrice": "Plafond",
+        "maxPriceHint": "Prix par jour uniquement : le prix maximal pour toute la location.",
+        "maxQuantity": "Max. par réservation",
+        "maxQuantityHint": "1 = le client coche une case.",
+        "stock": "Quantité en stock",
+        "stockHint": "Pour votre suivi uniquement. Vide = illimité.",
+        "sortOrder": "Ordre",
+        "sortOrderHint": "Le plus bas s'affiche en premier.",
+        "descriptions": "Description (facultative)",
+        "descriptionsHint": "Affichée sous le nom dans la réservation.",
+        "descriptionDa": "Danois",
+        "descriptionEn": "Anglais",
+        "descriptionFr": "Français",
+        "descriptionAr": "Arabe",
+        "isActive": "Disponible",
+        "isActiveHint": "Les clients peuvent choisir l'option dans la réservation.",
+        "create": "Créer l'option",
+        "save": "Enregistrer",
+        "duplicate": "Le code est déjà utilisé par une autre option.",
+        "errors": {
+          "code": "Utilisez des minuscules, des chiffres et des tirets bas (2 à 40 caractères).",
+          "nameDa": "Vérifiez le champ.",
+          "nameEn": "Vérifiez le champ.",
+          "nameAr": "Vérifiez le champ.",
+          "nameFr": "Vérifiez le champ.",
+          "descriptionDa": "Vérifiez le champ.",
+          "descriptionEn": "Vérifiez le champ.",
+          "descriptionAr": "Vérifiez le champ.",
+          "descriptionFr": "Vérifiez le champ.",
+          "pricing": "Vérifiez le champ.",
+          "price": "Vérifiez le champ.",
+          "maxPrice": "Le plafond doit être au moins égal au prix et uniquement pour un prix par jour.",
+          "maxQuantity": "Vérifiez le champ.",
+          "stock": "Vérifiez le champ.",
+          "sortOrder": "Vérifiez le champ.",
+          "isActive": "Vérifiez le champ."
+        },
+        "notices": {
+          "invalid": "Vérifiez les champs signalés.",
+          "duplicate": "Le code est déjà utilisé par une autre option.",
+          "forbidden": "Votre rôle n'a pas accès à cette action.",
+          "failed": "Une erreur s'est produite. Réessayez."
+        }
+      }
+    },
+    "discounts": {
+      "title": "Codes promo",
+      "intro": "Codes que le client peut saisir lors de la réservation. Les modifications ne s'appliquent qu'aux nouvelles réservations. Un code utilisé ne peut pas être supprimé, mais peut être arrêté.",
+      "new": "Nouveau code promo",
+      "back": "Tous les codes promo",
+      "editTitle": "Modifier le code promo",
+      "empty": "Aucun code promo pour l'instant.",
+      "active": "Actif",
+      "inactive": "Arrêté",
+      "percent": "{value} %",
+      "always": "Toujours",
+      "from": "À partir du {date}",
+      "until": "Jusqu'au {date}",
+      "usedOf": "{used} sur {max}",
+      "restricted": "Voitures sélectionnées",
+      "given": "Remise totale accordée : ",
+      "delete": "Supprimer le code promo",
+      "usedNote": "Le code a été utilisé dans {count, plural, one {# réservation} other {# réservations}} et ne peut pas être supprimé. Décochez « Actif » pour l'arrêter.",
+      "columns": {
+        "code": "Code",
+        "value": "Remise",
+        "period": "Période",
+        "used": "Utilisé",
+        "status": "Statut"
+      },
+      "notices": {
+        "created": "Le code promo a été créé.",
+        "saved": "Le code promo a été enregistré.",
+        "deleted": "Le code promo a été supprimé.",
+        "inUse": "Le code a été utilisé et ne peut pas être supprimé. Arrêtez-le plutôt.",
+        "forbidden": "Votre rôle n'a pas accès à cette action.",
+        "failed": "Une erreur s'est produite. Veuillez réessayer."
+      },
+      "form": {
+        "basics": "Remise",
+        "code": "Code",
+        "codeHint": "Ce que le client saisit, p. ex. ETE25. Lettres, chiffres, - et _ (3 à 30 caractères).",
+        "codeLocked": "Le code a été utilisé et ne peut pas être modifié.",
+        "type": "Type",
+        "typeOptions": {
+          "PERCENT": "Pourcentage",
+          "FIXED": "Montant fixe"
+        },
+        "value": "Remise",
+        "valueHint": "Pourcentage : 1 à 100. Montant fixe : en couronnes.",
+        "period": "Période (facultatif)",
+        "periodHint": "Journées entières, heure danoise. Vide = sans limite.",
+        "validFrom": "Premier jour",
+        "validTo": "Dernier jour",
+        "limits": "Conditions (facultatif)",
+        "limitHint": "Vide = sans limite.",
+        "minBooking": "Montant de location minimum",
+        "minBookingHint": "En couronnes, hors options.",
+        "minDays": "Nombre de jours minimum",
+        "maxUses": "Utilisations maximum au total",
+        "maxUsesPerCustomer": "Maximum par client",
+        "cars": "S'applique à",
+        "carsHint": "Rien de sélectionné = toutes les voitures. Une catégorie couvre tous ses modèles.",
+        "category": "Toute la catégorie",
+        "isActive": "Actif",
+        "isActiveHint": "Les clients peuvent utiliser le code.",
+        "create": "Créer le code promo",
+        "save": "Enregistrer",
+        "duplicate": "Ce code existe déjà.",
+        "errors": {
+          "code": "Utilisez lettres, chiffres, - et _ (3 à 30 caractères).",
+          "type": "Vérifiez ce champ.",
+          "value": "Le pourcentage doit être entre 1 et 100 ; un montant fixe d'au moins 1 kr.",
+          "validFrom": "Vérifiez ce champ.",
+          "validTo": "Le dernier jour doit être après le premier.",
+          "minBooking": "Vérifiez ce champ.",
+          "minDays": "Vérifiez ce champ.",
+          "maxUses": "Vérifiez ce champ.",
+          "maxUsesPerCustomer": "Vérifiez ce champ.",
+          "categoryIds": "Choisissez uniquement des voitures de la liste.",
+          "carModelIds": "Vérifiez ce champ.",
+          "isActive": "Vérifiez ce champ."
+        },
+        "notices": {
+          "invalid": "Vérifiez les champs indiqués.",
+          "duplicate": "Ce code existe déjà.",
+          "inUse": "Le code a été utilisé et ne peut pas être modifié.",
+          "forbidden": "Votre rôle n'a pas accès à cette action.",
+          "failed": "Une erreur s'est produite. Veuillez réessayer."
+        }
+      }
+    },
+    "locations": {
+      "title": "Agences",
+      "intro": "Lieux où les clients prennent et rendent les voitures. Une agence peut être fermée aux nouvelles réservations, mais pas supprimée.",
+      "new": "Nouvelle agence",
+      "back": "Toutes les agences",
+      "editTitle": "Modifier l'agence",
+      "empty": "Aucune agence pour l'instant.",
+      "active": "Ouverte aux réservations",
+      "inactive": "Fermée aux réservations",
+      "delivery": "Livraison",
+      "types": {
+        "OFFICE": "Agence",
+        "AIRPORT": "Aéroport",
+        "PARTNER": "Partenaire"
+      },
+      "columns": {
+        "name": "Agence",
+        "type": "Type",
+        "cars": "Voitures",
+        "upcoming": "Retraits à venir",
+        "status": "Statut"
+      },
+      "notices": {
+        "created": "L'agence a été créée. Définissez les horaires ci-dessous.",
+        "saved": "L'agence a été enregistrée.",
+        "hoursSaved": "Les horaires ont été enregistrés.",
+        "hoursInvalid": "Vérifiez les horaires : chaque jour ouvert doit avoir une heure d'ouverture et une heure de fermeture plus tardive.",
+        "daySaved": "Le jour spécial a été enregistré.",
+        "dayInvalid": "Vérifiez la date et les heures.",
+        "dayRemoved": "Le jour spécial a été supprimé.",
+        "zoneSaved": "La zone a été enregistrée.",
+        "zoneInvalid": "Vérifiez la distance (1 à 500 km) et le prix.",
+        "zoneRemoved": "La zone a été supprimée.",
+        "forbidden": "Votre rôle n'a pas accès à cette action.",
+        "failed": "Une erreur s'est produite. Veuillez réessayer."
+      },
+      "form": {
+        "details": "Informations",
+        "name": "Nom",
+        "slug": "Adresse de la page",
+        "slugHint": "Minuscules, chiffres et tirets, p. ex. aeroport-kastrup.",
+        "type": "Type",
+        "address": "Adresse",
+        "postalCode": "Code postal",
+        "city": "Ville",
+        "country": "Pays",
+        "countryHint": "Deux lettres, p. ex. DK.",
+        "lat": "Latitude",
+        "lng": "Longitude",
+        "coordsHint": "Depuis Google Maps : clic droit sur le lieu et copiez les chiffres.",
+        "timezone": "Fuseau horaire",
+        "timezoneHint": "P. ex. Europe/Copenhagen.",
+        "contact": "Contact (facultatif)",
+        "phone": "Téléphone",
+        "whatsapp": "WhatsApp",
+        "email": "E-mail",
+        "operations": "Exploitation",
+        "bufferBeforeMinutes": "Préparation avant la location (minutes)",
+        "bufferAfterMinutes": "Préparation après la location (minutes)",
+        "bufferHint": "La voiture est bloquée ce temps avant et après chaque location.",
+        "oneWayFee": "Frais d'aller simple",
+        "oneWayFeeHint": "En couronnes. Facturés lorsque la voiture est rendue ici mais a été prise ailleurs. Vide = aucuns frais.",
+        "deliveryEnabled": "Livraison",
+        "deliveryEnabledHint": "Les clients peuvent se faire livrer la voiture. Définissez les prix dans les zones de livraison.",
+        "isActive": "Ouverte aux réservations",
+        "isActiveHint": "Peut être choisie pour les nouvelles réservations. Les réservations à venir ne sont pas affectées.",
+        "create": "Créer l'agence",
+        "save": "Enregistrer",
+        "duplicate": "Une autre agence utilise déjà cette adresse.",
+        "errors": {
+          "name": "Vérifiez ce champ.",
+          "slug": "Utilisez minuscules, chiffres et tirets.",
+          "type": "Vérifiez ce champ.",
+          "address": "Vérifiez ce champ.",
+          "postalCode": "Vérifiez ce champ.",
+          "city": "Vérifiez ce champ.",
+          "country": "Saisissez le code pays à deux lettres, p. ex. DK.",
+          "lat": "Saisissez un nombre entre -90 et 90.",
+          "lng": "Saisissez un nombre entre -180 et 180.",
+          "timezone": "Fuseau horaire inconnu. P. ex. Europe/Copenhagen.",
+          "phone": "Vérifiez ce champ.",
+          "whatsapp": "Vérifiez ce champ.",
+          "email": "Vérifiez l'adresse e-mail.",
+          "bufferBeforeMinutes": "0 à 1440 minutes.",
+          "bufferAfterMinutes": "0 à 1440 minutes.",
+          "oneWayFee": "Vérifiez ce champ.",
+          "deliveryEnabled": "Vérifiez ce champ.",
+          "isActive": "Vérifiez ce champ."
+        },
+        "notices": {
+          "invalid": "Vérifiez les champs indiqués.",
+          "duplicate": "Une autre agence utilise déjà cette adresse.",
+          "forbidden": "Votre rôle n'a pas accès à cette action.",
+          "failed": "Une erreur s'est produite. Veuillez réessayer."
+        }
+      },
+      "hours": {
+        "title": "Horaires",
+        "hint": "Les clients ne peuvent prendre et rendre la voiture que pendant les heures d'ouverture. Fermeture à 00:00 = minuit.",
+        "open24h": "Ouvert 24 h/24 tous les jours",
+        "open24hHint": "P. ex. libre-service avec boîte à clés.",
+        "opensAt": "Ouvre",
+        "closesAt": "Ferme",
+        "closed": "Fermé",
+        "save": "Enregistrer les horaires"
+      },
+      "special": {
+        "title": "Jours spéciaux",
+        "hint": "Jours fériés et jours aux horaires différents. Remplace les horaires du jour de la semaine.",
+        "empty": "Aucun jour spécial à venir.",
+        "date": "Date",
+        "closed": "Fermé toute la journée",
+        "opensAt": "Ouvre",
+        "closesAt": "Ferme",
+        "add": "Enregistrer le jour",
+        "remove": "Supprimer",
+        "closedLabel": "Fermé"
+      },
+      "zones": {
+        "title": "Zones de livraison",
+        "hint": "Prix de livraison jusqu'à une distance de l'agence. La même distance remplace le prix.",
+        "empty": "Aucune zone pour l'instant.",
+        "maxDistanceKm": "Jusqu'à (km)",
+        "fee": "Prix",
+        "feeHint": "En couronnes.",
+        "add": "Enregistrer la zone",
+        "remove": "Supprimer",
+        "upTo": "Jusqu'à {km} km",
+        "deliveryOff": "La livraison est désactivée. Les zones ne sont utilisées qu'une fois la livraison activée ci-dessus."
+      }
+    },
+    "users": {
+      "title": "Utilisateurs",
+      "intro": "Employés ayant accès à l'administration. Les responsables et administrateurs doivent activer la connexion en deux étapes (2FA) lors de leur première connexion.",
+      "invite": "Inviter un employé",
+      "back": "Tous les utilisateurs",
+      "empty": "Aucun employé pour l'instant.",
+      "roles": {
+        "STAFF": "Employé",
+        "MANAGER": "Responsable",
+        "SUPER_ADMIN": "Administrateur"
+      },
+      "roleHints": {
+        "STAFF": "Réservations, clients, remise et retour.",
+        "MANAGER": "Aussi tarifs, remboursements, flotte et statistiques. Nécessite la 2FA.",
+        "SUPER_ADMIN": "Tout, y compris utilisateurs et paramètres. Nécessite la 2FA."
+      },
+      "status": {
+        "active": "Actif",
+        "invited": "Invité",
+        "disabled": "Désactivé"
+      },
+      "columns": {
+        "name": "Nom",
+        "role": "Rôle",
+        "twoFactor": "2FA",
+        "lastLogin": "Dernière connexion",
+        "status": "Statut"
+      },
+      "on": "Activée",
+      "off": "Désactivée",
+      "never": "Jamais",
+      "you": "vous",
+      "notices": {
+        "invited": "L'invitation a été envoyée. Le lien est valable 72 heures.",
+        "inviteNotSent": "L'utilisateur a été créé, mais l'e-mail n'a pas pu être envoyé. Essayez « Renvoyer l'invitation ».",
+        "reinvited": "L'invitation a été renvoyée. L'ancien lien ne fonctionne plus.",
+        "roleSaved": "Le rôle a été enregistré.",
+        "disabled": "L'utilisateur a été désactivé et toutes ses sessions fermées.",
+        "enabled": "L'utilisateur est de nouveau actif.",
+        "self": "Vous ne pouvez pas modifier votre propre accès.",
+        "lastSuperAdmin": "Il doit rester au moins un administrateur actif.",
+        "forbidden": "Votre rôle n'a pas accès à cette action.",
+        "failed": "Une erreur s'est produite. Veuillez réessayer."
+      },
+      "form": {
+        "name": "Nom",
+        "email": "E-mail",
+        "role": "Rôle",
+        "submit": "Envoyer l'invitation",
+        "duplicate": "Cet e-mail a déjà un compte.",
+        "errors": {
+          "name": "Saisissez le nom (2 à 80 caractères).",
+          "email": "Vérifiez l'adresse e-mail.",
+          "role": "Choisissez un rôle."
+        },
+        "notices": {
+          "invalid": "Vérifiez les champs indiqués.",
+          "duplicate": "Cet e-mail a déjà un compte.",
+          "forbidden": "Votre rôle n'a pas accès à cette action.",
+          "failed": "Une erreur s'est produite. Veuillez réessayer."
+        }
+      },
+      "detail": {
+        "role": "Rôle",
+        "saveRole": "Enregistrer le rôle",
+        "access": "Accès",
+        "disable": "Désactiver l'utilisateur",
+        "disableHint": "L'utilisateur est déconnecté partout immédiatement et ne peut plus se connecter.",
+        "enable": "Réactiver l'utilisateur",
+        "resend": "Renvoyer l'invitation",
+        "invitedHint": "L'utilisateur n'a pas encore choisi de mot de passe.",
+        "selfNote": "C'est vous. Votre propre rôle et accès ne peuvent être modifiés que par un autre administrateur.",
+        "twoFactor": "2FA",
+        "lastLogin": "Dernière connexion",
+        "created": "Créé le"
+      }
+    },
+    "reviews": {
+      "title": "Avis",
+      "intro": "Seuls les clients ayant terminé une location peuvent laisser un avis. Les nouveaux avis n'apparaissent sur le site qu'une fois publiés. Le texte ne peut pas être modifié.",
+      "tabs": {
+        "label": "Statut",
+        "PENDING": "En attente",
+        "PUBLISHED": "Publiés",
+        "HIDDEN": "Masqués"
+      },
+      "empty": "Aucun avis ici.",
+      "noComment": "Pas de commentaire.",
+      "booking": "Réservation {reference}",
+      "publish": "Publier",
+      "hide": "Masquer",
+      "notices": {
+        "published": "L'avis a été publié.",
+        "hidden": "L'avis a été masqué.",
+        "forbidden": "Votre rôle n'a pas accès à cette action.",
+        "failed": "Une erreur s'est produite. Veuillez réessayer."
+      }
+    },
+    "statistics": {
+      "title": "Statistiques",
+      "intro": "Chiffres clés pour la période choisie. Les réservations sont comptées selon leur date de création.",
+      "from": "Du",
+      "to": "Au",
+      "location": "Agence",
+      "allLocations": "Toutes les agences",
+      "show": "Afficher",
+      "invalidPeriod": "La période n'est pas valide (366 jours au maximum, et la date de fin doit suivre la date de début). Affichage des 30 derniers jours.",
+      "presets": {
+        "label": "Période",
+        "last30": "30 derniers jours",
+        "month": "Ce mois-ci",
+        "year": "Cette année"
+      },
+      "cards": {
+        "revenue": "Chiffre d'affaires",
+        "bookings": "Réservations",
+        "averageValue": "Valeur moyenne",
+        "occupancy": "Taux d'occupation",
+        "cancellations": "Annulations",
+        "repeatCustomers": "Clients fidèles"
+      },
+      "hints": {
+        "refunds": "Après {amount} de remboursements",
+        "cars": "{count, plural, one {# voiture} other {# voitures}} dans la flotte",
+        "cancellations": "{rate} des réservations · {noShows} non présentés",
+        "repeatCustomers": "sur {count} clients de la période"
+      },
+      "popularModels": {
+        "title": "Voitures populaires",
+        "name": "Voiture"
+      },
+      "popularCategories": {
+        "title": "Catégories populaires",
+        "name": "Catégorie"
+      },
+      "columns": {
+        "bookings": "Réservations",
+        "value": "Valeur"
+      },
+      "empty": "Aucune réservation sur la période.",
+      "footnote": "Le chiffre d'affaires correspond aux paiements moins les remboursements de la période. Le taux d'occupation correspond aux heures louées divisées par les heures des voitures. Un client fidèle a déjà loué chez nous avant la période."
+    },
+    "auditLog": {
+      "title": "Journal d'audit",
+      "intro": "Toutes les modifications faites dans l'administration et par les clients pour le RGPD. Aucune donnée personnelle n'est stockée dans le journal.",
+      "entity": "Type",
+      "allEntities": "Tous les types",
+      "action": "Action",
+      "actionHint": "Par ex. booking. ou customer.anonymize",
+      "submit": "Filtrer",
+      "count": "{count, plural, one {# événement} other {# événements}}",
+      "empty": "Aucun événement.",
+      "system": "Système",
+      "show": "Voir les détails",
+      "previous": "Précédent",
+      "next": "Suivant",
+      "page": "Page {page} sur {pages}",
+      "columns": {
+        "time": "Heure",
+        "who": "Qui",
+        "action": "Action",
+        "entity": "Quoi",
+        "details": "Détails"
+      }
+    }
+  },
+  "email": {
+    "greeting": "Bonjour {name}",
+    "signature": "Cordialement, {company}",
+    "verify": {
+      "subject": "Confirmez votre e-mail",
+      "body": "Merci pour votre inscription. Confirmez votre e-mail pour activer votre compte.",
+      "button": "Confirmer l'e-mail",
+      "note": "Le lien est valable 24 heures. Si vous n'avez pas créé de compte, ignorez cet e-mail."
+    },
+    "reset": {
+      "subject": "Réinitialisez votre mot de passe",
+      "body": "Nous avons reçu une demande de réinitialisation de votre mot de passe.",
+      "button": "Choisir un nouveau mot de passe",
+      "note": "Le lien est valable 1 heure. Si vous n'avez rien demandé, ignorez cet e-mail. Votre mot de passe n'a pas changé."
+    },
+    "existing": {
+      "subject": "Vous avez déjà un compte",
+      "body": "Quelqu'un a essayé de créer un compte avec votre e-mail. Vous avez déjà un compte, vous pouvez donc simplement vous connecter. Si vous avez oublié votre mot de passe, vous pouvez le réinitialiser sur la page de connexion.",
+      "button": "Se connecter",
+      "note": "Si ce n'était pas vous, ignorez cet e-mail. Votre compte n'a pas changé."
+    },
+    "invite": {
+      "subject": "Vous êtes invité à l'administration",
+      "body": "Vous avez été ajouté comme employé chez {company}. Choisissez un mot de passe pour commencer.",
+      "button": "Choisir un mot de passe",
+      "note": "Le lien est valable 72 heures. Les responsables et administrateurs doivent aussi activer la connexion en deux étapes lors de leur première connexion."
+    }
+  },
+  "search": {
+    "pickupLocation": "Retrait",
+    "returnLocation": "Retour",
+    "sameAsPickup": "Même lieu que le retrait",
+    "chooseLocation": "Choisir un lieu",
+    "pickupDate": "Date de retrait",
+    "pickupTime": "Heure",
+    "returnDate": "Date de retour",
+    "returnTime": "Heure",
+    "submit": "Trouver des voitures",
+    "update": "Mettre à jour"
+  },
+  "cars": {
+    "title": "Voitures",
+    "description": "Découvrez toutes nos voitures. Choisissez un lieu et des dates pour voir ce qui est disponible et à quel prix.",
+    "searchTitle": "Voitures disponibles",
+    "filters": "Filtres",
+    "category": "Catégorie",
+    "transmission": "Boîte de vitesses",
+    "fuel": "Carburant",
+    "seats": "Places",
+    "seatsMin": "Au moins {count}",
+    "any": "Toutes",
+    "apply": "Afficher",
+    "reset": "Réinitialiser les filtres",
+    "sort": "Trier",
+    "sortOptions": {
+      "recommended": "Recommandées",
+      "price_asc": "Prix croissant",
+      "price_desc": "Prix décroissant",
+      "popular": "Les plus populaires",
+      "newest": "Les plus récentes"
+    },
+    "results": "{count, plural, one {# voiture} other {# voitures}}",
+    "period": "{from} – {to} · {days, plural, one {# jour} other {# jours}}",
+    "fromPerDay": "à partir de {price}",
+    "perDay": "par jour",
+    "total": "{price} au total",
+    "details": "Voir la voiture",
+    "searchHint": "Choisissez un lieu et des dates pour voir les voitures disponibles et le prix total.",
+    "empty": {
+      "title": "Aucune voiture ne correspond",
+      "body": "Essayez d'autres dates, un autre lieu ou moins de filtres."
+    },
+    "errors": {
+      "OUTSIDE_OPENING_HOURS": "Le lieu est fermé à l'heure choisie. Choisissez une heure pendant les heures d'ouverture.",
+      "TOO_SOON": "Le retrait est trop proche. Réservez au moins {hours, plural, one {# heure} other {# heures}} à l'avance.",
+      "VALIDATION_FAILED": "Vérifiez les dates. Le retour doit être après le retrait et la location ne peut dépasser {days} jours.",
+      "generic": "La recherche est impossible pour le moment. Réessayez dans un instant."
+    },
+    "specs": {
+      "seats": "{count} places",
+      "bags": "{count, plural, one {# valise} other {# valises}}",
+      "doors": "{count} portes",
+      "airConditioning": "Climatisation",
+      "year": "Année {year}"
+    },
+    "transmissionNames": {
+      "MANUAL": "Manuelle",
+      "AUTOMATIC": "Automatique"
+    },
+    "fuelNames": {
+      "PETROL": "Essence",
+      "DIESEL": "Diesel",
+      "HYBRID": "Hybride",
+      "ELECTRIC": "Électrique"
+    },
+    "imagePlaceholder": "{name}, vue de profil, fond clair"
+  },
+  "car": {
+    "back": "Toutes les voitures",
+    "specsTitle": "Caractéristiques",
+    "pricesTitle": "Tarifs",
+    "pricesIntro": "Plus vous louez longtemps, plus le prix par jour baisse. Le prix ne dépasse jamais le forfait suivant.",
+    "days": "{count, plural, one {# jour} other {# jours}}",
+    "package": "Forfait",
+    "perDay": "Par jour",
+    "includedTitle": "Inclus",
+    "includedKm": "{km} km par jour",
+    "insurance": "Assurance responsabilité civile et dommages obligatoire",
+    "vat": "TVA",
+    "notIncludedTitle": "Non inclus",
+    "extraKm": "Kilomètres supplémentaires : {price} par km",
+    "fuel": "Carburant ou recharge. Rendez la voiture avec le même niveau qu'au retrait.",
+    "deposit": "Caution : {price}",
+    "depositNote": "La caution est bloquée sur votre carte au retrait et libérée au retour de la voiture sans dommage. Pour les locations de plus de {days} jours, le montant est débité puis remboursé.",
+    "availabilityTitle": "Vérifier la disponibilité et le prix",
+    "availabilityHint": "Choisissez un lieu et des dates pour savoir si la voiture est disponible et combien elle coûte au total.",
+    "available": "Disponible pour ces dates",
+    "unavailable": "La voiture n'est pas disponible pour les dates choisies.",
+    "nextAvailable": "Disponible à partir du :",
+    "alternatives": "Autres voitures disponibles pour ces dates",
+    "priceSummary": "Récapitulatif du prix",
+    "lines": {
+      "RENTAL": "Location, {days, plural, one {# jour} other {# jours}}",
+      "DELIVERY_FEE": "Livraison",
+      "ONE_WAY_FEE": "Retour dans un autre lieu",
+      "DISCOUNT": "Remise",
+      "EXTRA": "Options",
+      "FEE": "Frais",
+      "EXTRA_KM": "Kilomètres supplémentaires",
+      "FUEL": "Carburant ou recharge",
+      "LATE_FEE": "Retour tardif",
+      "DAMAGE": "Dommage"
+    },
+    "totalLabel": "Total",
+    "vatIncluded": "Dont TVA {price}",
+    "book": "Réserver cette voiture",
+    "askWhatsapp": "Poser une question sur WhatsApp",
+    "whatsappPrefill": "Bonjour, je suis intéressé(e) par la {name}.",
+    "whatsappPrefillPeriod": "Bonjour, je suis intéressé(e) par la {name} du {from} au {to}.",
+    "locationsTitle": "Disponible à",
+    "rentalPeriod": "Durée",
+    "fuelFee": "Carburant ou charge manquant : {price} par huitième de réservoir",
+    "lateFee": "Retour tardif : {price} par heure entamée après {minutes} minutes"
+  },
+  "pricing": {
+    "title": "Tarifs",
+    "description": "Tous les prix sont en couronnes danoises, TVA et assurance obligatoire incluses.",
+    "ladderTitle": "Tarifs par catégorie",
+    "ladderNote": "Si vous louez un nombre de jours entre deux forfaits, vous payez le prix par jour du plus petit forfait, mais jamais plus que le plus grand.",
+    "days": "{count, plural, one {# jour} other {# jours}}",
+    "package": "Forfait",
+    "perDay": "Par jour",
+    "extrasTitle": "Options",
+    "extraPerDay": "{price} par jour",
+    "extraPerBooking": "{price} par location",
+    "extraMax": "max. {price}",
+    "feesTitle": "Livraison et retour dans un autre lieu",
+    "oneWay": "Retour à {location} : {price}",
+    "delivery": "Livraison depuis {location}, jusqu'à {km} km : {price}",
+    "noFees": "Aucuns frais de livraison ou de retour dans un autre lieu.",
+    "cta": "Trouver une voiture disponible"
+  },
+  "locations": {
+    "title": "Agences",
+    "description": "Où retirer et rendre nos voitures.",
+    "openingHours": "Horaires d'ouverture",
+    "closed": "Fermé",
+    "address": "Adresse",
+    "showMap": "Voir sur la carte",
+    "delivery": "Nous pouvons livrer la voiture à votre adresse.",
+    "types": {
+      "OFFICE": "Agence",
+      "AIRPORT": "Aéroport",
+      "PARTNER": "Partenaire"
+    },
+    "findCars": "Voitures à {name}",
+    "contact": "Contact",
+    "pageDescription": "Location de voitures à {name}, {address}. Consultez les horaires et réservez une voiture à retirer ici."
+  },
+  "about": {
+    "title": "À propos",
+    "description": "Nous rendons la location de voiture simple et sûre.",
+    "sections": [
+      {
+        "title": "Qui nous sommes",
+        "body": "Nous sommes un loueur local qui mise sur des voitures bien entretenues, des prix clairs et un service personnel."
+      },
+      {
+        "title": "Notre promesse",
+        "body": "Vous voyez toujours le prix total avant de réserver. Aucune surprise au comptoir."
+      },
+      {
+        "title": "Nous contacter",
+        "body": "Pour toute question, écrivez-nous sur WhatsApp, envoyez un e-mail ou appelez-nous."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "description": "Les réponses aux questions les plus courantes.",
+    "items": [
+      {
+        "q": "Que dois-je apporter pour retirer la voiture ?",
+        "a": "Un permis de conduire valide, une carte de paiement au nom du locataire pour la caution et votre confirmation de réservation."
+      },
+      {
+        "q": "Comment fonctionne la caution ?",
+        "a": "Le montant est bloqué sur votre carte au retrait et libéré au retour de la voiture sans dommage. Pour les longues locations, il est débité puis remboursé après le retour."
+      },
+      {
+        "q": "L'assurance est-elle incluse ?",
+        "a": "Oui. L'assurance responsabilité civile et dommages obligatoire est toujours incluse. La franchise figure dans les conditions de location."
+      },
+      {
+        "q": "Combien de kilomètres puis-je parcourir ?",
+        "a": "Chaque voiture inclut un nombre de kilomètres par jour. Le prix des kilomètres supplémentaires figure sur la page de la voiture."
+      },
+      {
+        "q": "Et le carburant ?",
+        "a": "La voiture est remise avec un certain niveau de carburant ou de charge et doit être rendue au même niveau."
+      },
+      {
+        "q": "Puis-je annuler ?",
+        "a": "Oui. Les règles d'annulation figurent dans les conditions de location et dans votre confirmation."
+      },
+      {
+        "q": "La voiture peut-elle être livrée à mon adresse ?",
+        "a": "Depuis certaines agences, oui. Le prix dépend de la distance et s'affiche avant le paiement."
+      },
+      {
+        "q": "Puis-je rendre la voiture dans une autre agence ?",
+        "a": "Oui, entre nos agences. Les frais s'affichent dans le récapitulatif avant la réservation."
+      }
+    ]
+  },
+  "legal": {
+    "draftNotice": "Brouillon : ce texte doit être relu et approuvé par l'entreprise avant la mise en ligne."
+  },
+  "terms": {
+    "title": "Conditions de location",
+    "description": "Les conditions pour louer une voiture chez nous.",
+    "sections": [
+      {
+        "title": "Locataire et permis",
+        "body": "Le locataire doit être titulaire d'un permis de conduire valide. Les exigences d'âge et d'ancienneté du permis sont indiquées lors de la réservation."
+      },
+      {
+        "title": "Réservation et paiement",
+        "body": "La réservation est ferme une fois le paiement effectué. Le prix comprend la location, les options choisies et les frais affichés lors de la réservation."
+      },
+      {
+        "title": "Caution",
+        "body": "Une caution est bloquée sur la carte du locataire au retrait. Elle est libérée lorsque la voiture est rendue dans le même état."
+      },
+      {
+        "title": "Kilomètres et carburant",
+        "body": "Les kilomètres inclus figurent sur la page de la voiture. Les kilomètres supplémentaires sont facturés au tarif indiqué. Rendez la voiture avec le même niveau de carburant ou de charge."
+      },
+      {
+        "title": "Assurance et franchise",
+        "body": "La voiture est couverte par une assurance responsabilité civile et dommages obligatoire. En cas de dommage, le locataire paie la franchise."
+      },
+      {
+        "title": "Annulation",
+        "body": "Annulez via le lien de votre confirmation ou depuis votre compte. Les règles de remboursement sont affichées lors de la réservation."
+      },
+      {
+        "title": "Dommages et accidents",
+        "body": "Signalez immédiatement tout dommage ou accident. La voiture est inspectée au retrait et au retour."
+      },
+      {
+        "title": "Retour",
+        "body": "La voiture est restituée au lieu et à l'heure convenus. En cas de retard au-delà de la tolérance, un supplément est facturé par heure entamée, comme indiqué dans le contrat."
+      }
+    ]
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "description": "Comment nous traitons vos données personnelles.",
+    "sections": [
+      {
+        "title": "Responsable du traitement",
+        "body": "La société de location est responsable des données que vous nous fournissez. Vous pouvez nous joindre via la page contact."
+      },
+      {
+        "title": "Données traitées",
+        "body": "Nom, coordonnées, informations de permis, réservations, paiements et messages."
+      },
+      {
+        "title": "Finalités",
+        "body": "Exécuter le contrat de location, respecter nos obligations légales (comptabilité) et répondre à vos demandes."
+      },
+      {
+        "title": "Paiement",
+        "body": "Les paiements sont gérés par notre prestataire. Nous ne conservons jamais vos données de carte."
+      },
+      {
+        "title": "Conservation",
+        "body": "Nous conservons les données le temps nécessaire ou exigé par la loi, puis nous les supprimons."
+      },
+      {
+        "title": "Vos droits",
+        "body": "Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation et de portabilité, ainsi que d'un droit d'opposition."
+      },
+      {
+        "title": "Réclamation",
+        "body": "Vous pouvez saisir l'autorité danoise de protection des données (Datatilsynet)."
+      }
+    ]
+  },
+  "cookiePolicy": {
+    "title": "Politique de cookies",
+    "description": "Les cookies que nous utilisons et comment modifier votre consentement.",
+    "sections": [
+      {
+        "title": "Cookies nécessaires",
+        "body": "Utilisés pour la connexion, la langue, la sécurité et la mémorisation de votre choix. Ils ne peuvent pas être désactivés."
+      },
+      {
+        "title": "Statistiques",
+        "body": "Nous aident à comprendre l'utilisation du site. Déposés uniquement avec votre accord."
+      },
+      {
+        "title": "Marketing",
+        "body": "Servent à mesurer les publicités. Déposés uniquement avec votre accord."
+      }
+    ],
+    "change": "Vous pouvez modifier votre choix à tout moment :"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Écrivez, appelez ou passez nous voir. Nous sommes là pour vous aider.",
+    "phone": "Téléphone",
+    "email": "E-mail",
+    "whatsapp": "WhatsApp",
+    "formTitle": "Envoyez-nous un message",
+    "form": {
+      "name": "Nom",
+      "email": "E-mail",
+      "phone": "Téléphone (facultatif)",
+      "subject": "Objet (facultatif)",
+      "message": "Message",
+      "website": "Laissez ce champ vide",
+      "privacy": "Nous utilisons vos coordonnées uniquement pour vous répondre.",
+      "submit": "Envoyer",
+      "success": "Merci pour votre message. Nous vous répondrons au plus vite.",
+      "errors": {
+        "fields": "Vérifiez les champs signalés.",
+        "rateLimited": "Vous avez envoyé beaucoup de messages. Réessayez plus tard.",
+        "generic": "Le message n'a pas pu être envoyé. Réessayez ou écrivez-nous sur WhatsApp."
+      },
+      "fieldErrors": {
+        "name": "Indiquez votre nom.",
+        "email": "Indiquez une adresse e-mail valide.",
+        "phone": "Indiquez un numéro de téléphone valide.",
+        "message": "Écrivez au moins 10 caractères."
+      }
+    }
+  },
+  "reviews": {
+    "title": "Avis",
+    "description": "Les avis de clients qui ont loué une voiture chez nous.",
+    "empty": "Aucun avis pour le moment.",
+    "rating": "{rating} étoiles sur 5",
+    "new": {
+      "title": "Évaluez votre location",
+      "intro": "Merci d'avoir loué {car} chez nous. Comment s'est passée votre expérience ?",
+      "rating": "Votre note",
+      "stars": "{count, plural, one {# étoile} other {# étoiles}}",
+      "comment": "Commentaire (facultatif)",
+      "commentHint": "1 000 caractères maximum.",
+      "displayName": "Affiché sous le nom",
+      "displayNameHint": "P. ex. votre prénom et l'initiale de votre nom.",
+      "submit": "Envoyer l'avis",
+      "thanks": "Merci pour votre avis !",
+      "thanksBody": "Nous le lisons avant qu'il soit publié sur le site.",
+      "invalid": "Le lien ne fonctionne pas. Utilisez le lien de votre e-mail.",
+      "done": "Vous avez déjà évalué cette location. Merci !",
+      "notCompleted": "Vous pourrez évaluer la location une fois la voiture rendue.",
+      "back": "Retour à l'accueil",
+      "errors": {
+        "rating": "Choisissez entre 1 et 5 étoiles.",
+        "comment": "1 000 caractères maximum.",
+        "displayName": "Saisissez 2 à 40 caractères."
+      },
+      "notices": {
+        "invalid": "Vérifiez les champs indiqués.",
+        "failed": "Une erreur s'est produite. Veuillez réessayer."
+      }
+    }
+  },
+  "booking": {
+    "title": "Réservation",
+    "stepsLabel": "Étapes de la réservation",
+    "steps": {
+      "extras": "Options",
+      "details": "Vos coordonnées",
+      "payment": "Paiement"
+    },
+    "pickup": "Prise en charge",
+    "return": "Restitution",
+    "deliveryTo": "Livraison à : {address}",
+    "rental": "Location",
+    "depositNote": "Une caution de {price} est bloquée sur votre carte lors de la prise en charge. Elle ne fait pas partie du prix.",
+    "totalLabel": "Total",
+    "summaryTitle": "Votre réservation",
+    "changeCar": "Retour à la voiture",
+    "extrasTitle": "Personnalisez votre location",
+    "incomplete": {
+      "title": "Choisissez une voiture et des dates",
+      "body": "Choisissez d'abord un lieu, des dates et une voiture. Vous pourrez ensuite réserver.",
+      "cta": "Trouver une voiture"
+    },
+    "unavailable": {
+      "title": "La voiture n'est pas disponible",
+      "body": "Désolé, {car} n'est pas disponible aux dates choisies. Voyez les autres voitures disponibles ou choisissez d'autres dates.",
+      "cta": "Voir les voitures disponibles"
+    },
+    "extras": {
+      "title": "Options",
+      "none": "Aucune option n'est disponible.",
+      "perDay": "{price} par jour",
+      "perBooking": "{price} par location",
+      "max": "max. {price}",
+      "quantity": "quantité"
+    },
+    "fulfilment": {
+      "title": "Prise en charge ou livraison",
+      "pickup": "Récupérer la voiture chez {location}",
+      "delivery": "Livraison jusqu'à {km} km de l'agence",
+      "deliveryFee": "Supplément {price}"
+    },
+    "discount": {
+      "label": "Code promo",
+      "hint": "Vous avez un code promo ? Saisissez-le et appuyez sur « Mettre à jour le prix ».",
+      "invalid": "Ce code promo ne peut pas être utilisé pour cette réservation.",
+      "applied": "Le code promo {code} a été appliqué."
+    },
+    "updatePrice": "Mettre à jour le prix",
+    "continue": "Continuer",
+    "back": "Retour",
+    "details": {
+      "title": "Vos coordonnées",
+      "guestNote": "Pas besoin de compte pour réserver. Vous avez un compte ?",
+      "login": "Se connecter",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "E-mail",
+      "phone": "Numéro de mobile",
+      "phoneHint": "Avec l'indicatif du pays, p. ex. +33 6 12 34 56 78. Nous ne l'utilisons que pour vous contacter au sujet de la réservation.",
+      "deliveryAddress": "Adresse de livraison",
+      "deliveryAddressHint": "Rue, numéro, code postal et ville",
+      "terms": "J'accepte les <link>conditions de location</link>.",
+      "reservedNote": "En continuant, nous vous réservons la voiture pendant {minutes} minutes le temps du paiement.",
+      "submit": "Passer au paiement"
+    },
+    "fieldErrors": {
+      "required": "Champ obligatoire.",
+      "email": "Saisissez une adresse e-mail valide.",
+      "phone": "Saisissez un numéro de mobile valide, p. ex. +33 6 12 34 56 78.",
+      "deliveryAddress": "Saisissez l'adresse de livraison de la voiture.",
+      "acceptTerms": "Vous devez accepter les conditions de location pour réserver."
+    },
+    "errors": {
+      "fields": "Vérifiez les champs signalés.",
+      "generic": "Une erreur s'est produite. Réessayez ou écrivez-nous sur WhatsApp.",
+      "searchAgain": "Voir les voitures disponibles",
+      "CAR_NO_LONGER_AVAILABLE": "La voiture vient d'être réservée par quelqu'un d'autre.",
+      "RATE_LIMITED": "Vous avez fait trop d'essais. Patientez un peu et réessayez.",
+      "OUTSIDE_OPENING_HOURS": "L'agence est fermée à l'heure choisie. Choisissez une autre heure.",
+      "VALIDATION_FAILED": "Ces dates ne peuvent pas être réservées. Revenez en arrière et choisissez d'autres dates.",
+      "OUTSIDE_DELIVERY_ZONE": "Nous ne livrons pas aussi loin. Choisissez une autre zone de livraison ou la prise en charge.",
+      "PRICE_UNAVAILABLE": "Nous ne pouvons pas calculer de prix pour ces dates. Écrivez-nous sur WhatsApp."
+    },
+    "pay": {
+      "title": "Paiement",
+      "reservedUntil": "La voiture vous est réservée jusqu'au {time}.",
+      "failed": "Le paiement a été refusé. Réessayez ou utilisez une autre carte.",
+      "unavailable": "Le paiement est temporairement indisponible. Écrivez-nous sur WhatsApp, nous vous aiderons.",
+      "submit": "Payer {price}",
+      "testTitle": "Paiement de test",
+      "testBody": "Stripe n'est pas encore connecté. Vous pouvez essayer le parcours ici sans payer.",
+      "testFail": "Essayer une carte refusée",
+      "secure": "Le paiement est traité en toute sécurité par Stripe. Nous ne voyons ni ne conservons jamais vos données de carte.",
+      "expiredTitle": "La réservation a expiré",
+      "expiredBody": "Le paiement n'a pas été effectué dans les {minutes} minutes, la voiture a donc été libérée. Choisissez à nouveau des dates pour voir si elle est toujours disponible.",
+      "expiredCta": "Choisir à nouveau des dates"
+    },
+    "confirmation": {
+      "metaTitle": "Réservation confirmée",
+      "title": "Merci, {name} ! Votre réservation est confirmée",
+      "reference": "Numéro de réservation",
+      "referenceHint": "Indiquez ce numéro si vous nous contactez.",
+      "nextTitle": "Et maintenant ?",
+      "next1": "Apportez votre permis de conduire et une carte de paiement pour la caution.",
+      "next2": "Rendez-vous chez {location} à l'heure de prise en charge.",
+      "next2Delivery": "Nous livrons la voiture à votre adresse à l'heure convenue.",
+      "next3": "Nous faisons le tour de la voiture avec vous avant le départ.",
+      "calendar": "Ajouter au calendrier",
+      "calendarTitle": "Location de voiture : {car} ({reference})",
+      "whatsapp": "Écrivez-nous sur WhatsApp",
+      "whatsappPrefill": "Bonjour, j'ai une question sur ma réservation {reference}.",
+      "createAccount": "Créez un compte pour retrouver toutes vos réservations au même endroit.",
+      "createAccountCta": "Créer un compte",
+      "refundedTitle": "Désolé, la voiture n'était plus disponible",
+      "refundedBody": "Votre paiement a été intégralement remboursé. Il peut falloir quelques jours avant que l'argent ne revienne sur votre compte. Écrivez-nous, nous vous trouverons une autre voiture.",
+      "pendingTitle": "Nous attendons la confirmation du paiement",
+      "pendingBody": "Cela ne prend généralement qu'un instant. La page se met à jour automatiquement.",
+      "failedTitle": "Le paiement n'a pas abouti",
+      "failedBody": "La voiture vous est encore réservée pendant un court moment. Réessayez de payer.",
+      "retry": "Réessayer de payer",
+      "manage": "Voir ou annuler votre réservation"
+    }
+  },
+  "notifications": {
+    "common": {
+      "greeting": "Bonjour {name}",
+      "signature": "Cordialement, {company}",
+      "footer": "Vous recevez ce message parce que vous avez réservé une voiture chez {company}.",
+      "reference": "Numéro de réservation",
+      "car": "Voiture",
+      "pickup": "Prise en charge",
+      "return": "Restitution",
+      "paid": "Payé",
+      "bring": "N'oubliez pas votre permis de conduire lors de la prise en charge.",
+      "bringWithDeposit": "N'oubliez pas votre permis de conduire et une carte de paiement pour la caution de {deposit} lors de la prise en charge.",
+      "questions": "Pour toute question, écrivez-nous sur WhatsApp ou répondez à cet e-mail.",
+      "whatsappButton": "Écrivez-nous sur WhatsApp",
+      "whatsappPrefill": "Bonjour, j'ai une question sur ma réservation {reference}.",
+      "manage": "Voir ou annuler votre réservation",
+      "refund": "Remboursement",
+      "total": "Total"
+    },
+    "BOOKING_CONFIRMED": {
+      "subject": "Votre réservation {reference} est confirmée",
+      "intro": "Merci pour votre réservation. Nous avons reçu votre paiement de {amount} et la voiture vous est réservée."
+    },
+    "PAYMENT_RECEIVED": {
+      "subject": "Nous avons reçu votre paiement",
+      "intro": "Nous avons reçu {amount} pour la réservation {reference}. Merci !"
+    },
+    "CAR_READY": {
+      "subject": "Votre voiture est prête",
+      "intro": "Votre {car} a été préparée et vous attend."
+    },
+    "PICKUP_REMINDER": {
+      "subject": "Rappel : vous récupérez bientôt votre voiture",
+      "intro": "Dans moins de 24 heures, vous récupérez votre voiture. Voici l'essentiel."
+    },
+    "RETURN_REMINDER": {
+      "subject": "Votre location se termine bientôt",
+      "intro": "Pensez à rendre la voiture le {time} chez {location}.",
+      "fuel": "Rendez la voiture avec le même niveau de carburant ou de charge qu'au départ."
+    },
+    "THANK_YOU": {
+      "subject": "Merci d'avoir loué chez nous",
+      "intro": "La voiture a été rendue et votre location est terminée. Merci !",
+      "deposit": "La caution éventuelle sera libérée sous quelques jours."
+    },
+    "REVIEW_REQUEST": {
+      "subject": "Comment s'est passée votre location ?",
+      "intro": "Nous aimerions savoir comment s'est passée votre location. Cela prend moins d'une minute.",
+      "button": "Donner un avis"
+    },
+    "BOOKING_CANCELLED": {
+      "subject": "Votre réservation {reference} est annulée",
+      "intro": "Votre réservation {reference} est annulée et la voiture a été libérée.",
+      "refund": "Nous remboursons {amount} sur votre carte de paiement. Le délai peut être de 5 à 10 jours ouvrés.",
+      "noRefund": "Selon les conditions d'annulation, aucun remboursement n'est effectué pour cette réservation."
+    },
+    "PAYMENT_REQUEST": {
+      "subject": "Payez votre réservation {reference}",
+      "intro": "Merci pour votre réservation. Payez {amount} avec le bouton ci-dessous pour la confirmer.",
+      "deadline": "Nous vous réservons la voiture jusqu'au {deadline}.",
+      "button": "Payer votre réservation"
+    },
+    "BOOKING_CHANGED": {
+      "subject": "Votre réservation {reference} a été modifiée",
+      "intro": "Nous avons modifié votre réservation {reference}. Voici les nouvelles informations."
+    }
+  },
+  "manage": {
+    "title": "Réservation {reference}",
+    "summaryTitle": "Votre réservation",
+    "cancelledTitle": "Votre réservation est annulée",
+    "cancelledRefund": "Nous remboursons {amount} sur votre carte de paiement. Le délai peut être de 5 à 10 jours ouvrés. Vous recevrez un reçu par e-mail.",
+    "cancelledNoRefund": "Selon les conditions d'annulation, aucun remboursement n'est effectué. Vous recevrez un reçu par e-mail.",
+    "pendingPayment": "Cette réservation n'est pas encore payée.",
+    "payNow": "Payer maintenant",
+    "whatsapp": "Écrivez-nous sur WhatsApp",
+    "whatsappPrefill": "Bonjour, j'ai une question sur ma réservation {reference}.",
+    "receipt": "Reçu",
+    "paymentsTitle": "Paiements",
+    "changeTitle": "Besoin de modifier quelque chose ?",
+    "changeBody": "Écrivez-nous sur WhatsApp pour changer la date, l'heure ou la voiture. Nous vérifions si c'est possible et vous indiquons le prix.",
+    "cancel": {
+      "title": "Annuler la réservation",
+      "free": "Annulation gratuite jusqu'au {deadline}. Si vous annulez maintenant, vous êtes remboursé intégralement : {amount}.",
+      "late": "La prise en charge a lieu dans moins de {hours} heures. Si vous annulez maintenant, vous êtes remboursé à {percent} % : {amount}.",
+      "confirm": "Oui, je veux annuler ma réservation",
+      "submit": "Annuler la réservation",
+      "errors": {
+        "confirm": "Cochez la case pour confirmer l'annulation.",
+        "notAllowed": "Cette réservation ne peut plus être annulée en ligne. Écrivez-nous sur WhatsApp.",
+        "generic": "Une erreur s'est produite. Réessayez ou écrivez-nous sur WhatsApp."
+      }
+    },
+    "linkInvalid": {
+      "title": "Ce lien ne fonctionne pas",
+      "body": "Le lien vers votre réservation est invalide ou a expiré. Écrivez-nous sur WhatsApp avec votre numéro de réservation et nous vous aiderons.",
+      "whatsapp": "Écrivez-nous sur WhatsApp"
+    },
+    "contract": "Contrat de location (PDF)"
+  },
+  "receipt": {
+    "title": "Reçu {reference}",
+    "date": "Date : {date}",
+    "print": "Imprimer ou enregistrer en PDF",
+    "seller": "Loueur",
+    "customer": "Client",
+    "lines": "Détail",
+    "vat": "Dont TVA ({percent} %)",
+    "payments": "Paiements"
+  },
+  "contract": {
+    "title": "Contrat de location",
+    "reference": "Réservation {reference}",
+    "termsVersion": "Conditions version {version}",
+    "landlord": "Loueur",
+    "renter": "Locataire",
+    "car": "Voiture",
+    "registration": "Immatriculation {number}",
+    "period": "Période de location",
+    "pickup": "Prise en charge",
+    "return": "Restitution",
+    "price": "Prix",
+    "total": "Total",
+    "included": "Inclus",
+    "fees": "Suppléments",
+    "terms": "Conditions de location",
+    "signature": "Signature",
+    "signedBy": "Signé par {name} le {date}",
+    "signedNote": "Signé électroniquement à l'écran lors de la prise en charge.",
+    "unsigned": "Pas encore signé.",
+    "page": "Page {page} sur {total}",
+    "download": "Contrat de location (PDF)"
+  },
+  "offline": {
+    "title": "Vous êtes hors ligne",
+    "body": "Il n'y a pas de connexion Internet pour le moment. Les prix et les voitures disponibles nécessitent une connexion : réessayez une fois en ligne.",
+    "retry": "Réessayer"
+  }
+}

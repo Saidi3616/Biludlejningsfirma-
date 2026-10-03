@@ -1,0 +1,2518 @@
+{
+  "meta": {
+    "title": "Car rental",
+    "description": "Find your car. Book in minutes.",
+    "shortName": "Car rental",
+    "tagline": "Rent a car in minutes"
+  },
+  "common": {
+    "close": "Close",
+    "loading": "Loading"
+  },
+  "nav": {
+    "skipToContent": "Skip to content",
+    "main": "Main menu",
+    "cars": "Cars",
+    "pricing": "Pricing",
+    "locations": "Locations",
+    "about": "About us",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "login": "Log in",
+    "menu": "Menu",
+    "openMenu": "Open menu",
+    "account": "My account"
+  },
+  "language": {
+    "label": "Language",
+    "da": "Dansk",
+    "en": "English",
+    "ar": "العربية",
+    "fr": "Français"
+  },
+  "whatsapp": {
+    "cta": "WhatsApp",
+    "floating": "Message us on WhatsApp",
+    "prefill": "Hi, I have a question about renting a car."
+  },
+  "footer": {
+    "tagline": "Professional car rental with no hidden fees.",
+    "company": "Company",
+    "help": "Help",
+    "legal": "Legal",
+    "reviews": "Reviews",
+    "terms": "Rental terms",
+    "privacy": "Privacy policy",
+    "cookies": "Cookie policy",
+    "cookieSettings": "Cookie settings",
+    "rights": "© {year} {name}. All rights reserved."
+  },
+  "cookies": {
+    "title": "We use cookies",
+    "body": "Necessary cookies make the site work. With your consent we also use cookies for statistics and marketing. You can change your choice at any time.",
+    "acceptAll": "Accept all",
+    "necessaryOnly": "Necessary only",
+    "settings": "Settings",
+    "save": "Save choices",
+    "necessary": "Necessary",
+    "necessaryDescription": "Required for login, booking and security. Cannot be turned off.",
+    "analytics": "Statistics",
+    "analyticsDescription": "Helps us understand how the site is used.",
+    "marketing": "Marketing",
+    "marketingDescription": "Used to show relevant offers.",
+    "policy": "Read the cookie policy"
+  },
+  "home": {
+    "title": "Find your car. Book in minutes.",
+    "subtitle": "Choose a place and time, see the full price straight away, and pick up a car that is ready to go.",
+    "searchTitle": "Search for available cars",
+    "popular": {
+      "title": "Popular cars",
+      "description": "Our customers' favourites right now.",
+      "all": "See all cars"
+    },
+    "why": {
+      "title": "Why customers rent with us",
+      "items": [
+        {
+          "title": "No hidden fees",
+          "body": "You see the full price before you book. VAT and mandatory insurance are always included."
+        },
+        {
+          "title": "Newer cars",
+          "body": "Well-kept cars, checked and cleaned before every rental."
+        },
+        {
+          "title": "Quick pickup",
+          "body": "The car is ready when you arrive. Picking it up takes just a few minutes."
+        },
+        {
+          "title": "Help when you need it",
+          "body": "Message us on WhatsApp or call if anything comes up."
+        }
+      ]
+    },
+    "how": {
+      "title": "How to rent a car",
+      "steps": [
+        {
+          "title": "Choose car and dates",
+          "body": "Search by place and dates and see available cars with the total price."
+        },
+        {
+          "title": "Book and pay online",
+          "body": "Add extras and pay by card, MobilePay, Apple Pay or Google Pay."
+        },
+        {
+          "title": "Pick up the car",
+          "body": "Show your driving licence at pickup and you are ready to drive."
+        }
+      ]
+    },
+    "reviews": {
+      "title": "What customers say",
+      "average": "{average} out of 5 · {count, plural, one {# review} other {# reviews}}"
+    },
+    "whatsappCta": {
+      "title": "Any questions?",
+      "body": "Message us on WhatsApp. We usually reply within opening hours.",
+      "button": "Message on WhatsApp"
+    }
+  },
+  "status": {
+    "booking": {
+      "PENDING_PAYMENT": "Awaiting payment",
+      "CONFIRMED": "Confirmed",
+      "ACTIVE": "Active",
+      "COMPLETED": "Completed",
+      "CANCELLED": "Cancelled",
+      "EXPIRED": "Expired",
+      "NO_SHOW": "No-show"
+    },
+    "payment": {
+      "UNPAID": "Unpaid",
+      "PAID": "Paid",
+      "PARTIALLY_REFUNDED": "Partially refunded",
+      "REFUNDED": "Refunded",
+      "FAILED": "Payment failed"
+    },
+    "car": {
+      "AVAILABLE": "Available",
+      "RESERVED": "Reserved",
+      "RENTED": "Rented",
+      "RETURNED": "Returned",
+      "INSPECTION": "In inspection",
+      "MAINTENANCE": "In maintenance",
+      "OUT_OF_SERVICE": "Out of service"
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page has moved or does not exist yet.",
+    "home": "Go to the homepage"
+  },
+  "auth": {
+    "fields": {
+      "name": "Full name",
+      "email": "Email",
+      "password": "Password",
+      "newPassword": "New password",
+      "code": "Code",
+      "backupCode": "Backup code"
+    },
+    "passwordHint": "At least {min} characters.",
+    "login": {
+      "title": "Log in",
+      "intro": "Log in to see your bookings.",
+      "submit": "Log in",
+      "forgot": "Forgot password?",
+      "noAccount": "Don't have an account?",
+      "register": "Create account",
+      "twoFactorTitle": "Confirm with a code",
+      "twoFactorIntro": "Enter the 6-digit code from your authenticator app.",
+      "backupIntro": "Enter one of your backup codes.",
+      "verify": "Confirm",
+      "useBackupCode": "Use a backup code instead",
+      "useAuthenticator": "Use a code from the app instead"
+    },
+    "register": {
+      "title": "Create account",
+      "intro": "With an account you can see and manage your bookings. You can also book without one.",
+      "submit": "Create account",
+      "haveAccount": "Already have an account?",
+      "login": "Log in",
+      "sentTitle": "Check your email",
+      "sentBody": "We have sent a link to {email}. Click the link to confirm your email and activate your account."
+    },
+    "forgot": {
+      "title": "Forgot password",
+      "intro": "Enter your email and we will send you a link to choose a new password.",
+      "submit": "Send link",
+      "sentTitle": "Check your email",
+      "sentBody": "If there is an account for {email}, we have sent a link to reset your password. The link works for 1 hour.",
+      "backToLogin": "Back to log in"
+    },
+    "reset": {
+      "title": "Choose a new password",
+      "intro": "Choose a new password for your account. You will be logged out everywhere else.",
+      "submit": "Save password",
+      "doneTitle": "Your password has been changed",
+      "doneBody": "You can now log in with your new password.",
+      "login": "Log in",
+      "requestNew": "Request a new link"
+    },
+    "verify": {
+      "successTitle": "Your email is confirmed",
+      "successBody": "Your account is active and you are logged in.",
+      "continue": "Go to my account",
+      "errorTitle": "This link does not work",
+      "errorBody": "The link has expired or was already used. Log in and we will send a new link to your email.",
+      "login": "Log in"
+    },
+    "logout": "Log out",
+    "errors": {
+      "invalidCredentials": "Wrong email or password.",
+      "emailNotVerified": "Your email is not confirmed yet. We have sent a new link to your email.",
+      "rateLimited": "Too many attempts. Please wait a moment and try again.",
+      "accountDisabled": "This account is disabled. Contact us if this is a mistake.",
+      "invalidCode": "The code is wrong or has expired.",
+      "invalidToken": "The link has expired or was already used.",
+      "passwordTooShort": "Password must be at least {min} characters.",
+      "nameRequired": "Enter your name.",
+      "emailInvalid": "Enter a valid email.",
+      "required": "Fill in this field.",
+      "generic": "Something went wrong. Please try again."
+    }
+  },
+  "account": {
+    "title": "My account",
+    "signedInAs": "Signed in as {name} ({email})",
+    "nav": {
+      "label": "My account",
+      "bookings": "Bookings",
+      "payments": "Payments",
+      "profile": "Profile",
+      "documents": "Documents",
+      "privacy": "Privacy"
+    },
+    "bookings": {
+      "title": "Your bookings",
+      "upcoming": "Upcoming",
+      "past": "Past",
+      "emptyTitle": "No upcoming bookings",
+      "emptyBody": "When you book a car, you can see and change it here.",
+      "findCar": "Find a car",
+      "meta": "{reference} · {location}",
+      "back": "All bookings"
+    },
+    "payments": {
+      "title": "Payments and receipts",
+      "charge": "Payment",
+      "refund": "Refund",
+      "refundPending": "Refund (processing)",
+      "card": "{brand} •••• {last4}",
+      "methods": {
+        "CARD": "Card",
+        "MOBILEPAY": "MobilePay",
+        "APPLE_PAY": "Apple Pay",
+        "GOOGLE_PAY": "Google Pay",
+        "CASH": "Cash",
+        "BANK_TRANSFER": "Bank transfer"
+      },
+      "booking": "Booking {reference}",
+      "receipt": "Receipt",
+      "emptyTitle": "No payments yet",
+      "emptyBody": "Your payments and receipts will appear here.",
+      "depositCapture": "Taken from deposit"
+    },
+    "profile": {
+      "title": "Profile",
+      "intro": "We use these details for your upcoming bookings and in our messages to you.",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "emailHint": "Contact us if you want to change your email.",
+      "phone": "Mobile number",
+      "phoneHint": "E.g. +45 12 34 56 78. Used for messages about your bookings.",
+      "phoneError": "Enter a valid mobile number, e.g. 12 34 56 78 or +46 70 123 45 67.",
+      "locale": "Language",
+      "localeHint": "We will write to you in this language.",
+      "submit": "Save",
+      "saved": "Your details have been saved.",
+      "error": "Something went wrong. Please try again.",
+      "required": "Required."
+    },
+    "documents": {
+      "title": "Documents",
+      "contract": "Rental agreement {reference}",
+      "meta": "{car} · signed {date}",
+      "booking": "View booking",
+      "download": "Download PDF",
+      "emptyTitle": "No documents yet",
+      "emptyBody": "Your rental agreement appears here once you have signed it at pick-up."
+    },
+    "privacy": {
+      "title": "Privacy and data",
+      "intro": "Choose what we may send you, download your data and delete your account.",
+      "error": "Something went wrong. Please try again.",
+      "consents": {
+        "title": "Messages from us",
+        "marketing": "News and offers by email",
+        "marketingHint": "A few times a month at most. You always get messages about your bookings.",
+        "whatsapp": "News and offers on WhatsApp",
+        "whatsappHint": "Messages about your bookings may still come on WhatsApp if you gave us a mobile number.",
+        "save": "Save choices",
+        "saved": "Your choices have been saved."
+      },
+      "export": {
+        "title": "Download your data",
+        "body": "Get a file with everything we store about you: profile, bookings, payments, messages and consents.",
+        "download": "Download my data"
+      },
+      "delete": {
+        "title": "Delete account",
+        "body": "We delete your name, contact details, messages, reviews and documents, and you can no longer sign in. Bookings and payments are kept without your name because accounting law requires it.",
+        "confirm": "I understand that this cannot be undone.",
+        "confirmRequired": "Tick the box to confirm.",
+        "submit": "Delete my account",
+        "done": "Your account has been deleted.",
+        "home": "Go to the home page",
+        "blocked": {
+          "ACTIVE_BOOKING": "You have a booking that has not finished. You can delete your account after the rental, or cancel the booking first.",
+          "OPEN_CLAIM": "Your latest rental has not been settled yet (deposit or damage). Contact us and we will help."
+        }
+      }
+    }
+  },
+  "admin": {
+    "title": "Administration",
+    "skipToContent": "Skip to content",
+    "signedInAs": "Logged in as {email}",
+    "nav": {
+      "label": "Admin menu",
+      "dashboard": "Overview",
+      "security": "Security",
+      "calendar": "Calendar",
+      "bookings": "Bookings",
+      "customers": "Customers",
+      "fleet": "Fleet",
+      "pricing": "Prices",
+      "users": "Users",
+      "reviews": "Reviews",
+      "statistics": "Statistics",
+      "auditLog": "Audit log"
+    },
+    "toSite": "Go to website",
+    "roles": {
+      "CUSTOMER": "Customer",
+      "STAFF": "Staff",
+      "MANAGER": "Manager",
+      "SUPER_ADMIN": "Super administrator"
+    },
+    "dashboard": {
+      "title": "Overview",
+      "role": "Your role: {role}",
+      "permissionsTitle": "Access for your role",
+      "permission": "Action",
+      "allowed": "Access",
+      "yes": "Yes",
+      "no": "No",
+      "permissions": {
+        "admin:access": "Open the admin panel",
+        "booking:read": "See bookings and calendar",
+        "customer:read": "See customers",
+        "booking:write": "Create and change bookings",
+        "inspection:write": "Carry out inspections",
+        "damage:write": "Record damage",
+        "message:send": "Send messages to customers",
+        "booking:requestCancel": "Request a cancellation",
+        "booking:cancel": "Cancel bookings",
+        "payment:refund": "Refund payments",
+        "fleet:read": "See the fleet",
+        "fleet:setStatus": "Change a car's status",
+        "fleet:write": "Manage cars and models",
+        "car:readPurchasePrice": "See car purchase prices",
+        "catalog:write": "Prices, extras, discounts and locations",
+        "stats:read": "See statistics and revenue",
+        "audit:read": "See the audit log",
+        "gdpr:export": "Export customer data",
+        "gdpr:anonymize": "Anonymise customers",
+        "users:manage": "Manage staff and roles",
+        "settings:write": "Change settings",
+        "damage:approveCost": "Approve liability and amounts for damage",
+        "review:moderate": "Publish and hide reviews"
+      },
+      "location": "Location",
+      "allLocations": "All locations",
+      "show": "Show",
+      "counts": {
+        "pickups": "Pickups today",
+        "returns": "Returns today",
+        "active": "On rent now",
+        "available": "Available cars",
+        "inService": "In the workshop"
+      },
+      "attentionTitle": "Needs action",
+      "attention": {
+        "unpaid": "{count} unpaid bookings",
+        "pendingRefunds": "{count} refunds pending",
+        "failedNotifications": "{count} messages failed to send",
+        "newMessages": "{count} new enquiries"
+      },
+      "todayTitle": "Today",
+      "todayEmpty": "No pickups or returns today.",
+      "columns": {
+        "time": "Time",
+        "what": "What",
+        "booking": "Booking",
+        "customer": "Customer",
+        "car": "Car",
+        "status": "Status"
+      },
+      "kind": {
+        "pickup": "Pickup",
+        "return": "Return"
+      },
+      "kpiTitle": "This month",
+      "kpi": {
+        "revenue": "Revenue",
+        "outstanding": "Outstanding",
+        "newCustomers": "New customers"
+      }
+    },
+    "security": {
+      "title": "Security",
+      "required": "Your role requires two-factor authentication (2FA). Turn it on to access the admin panel.",
+      "enabled": "Two-factor authentication is on.",
+      "disabledInfo": "Two-factor authentication is off. We recommend it for all staff.",
+      "step1": "Confirm your password to start.",
+      "start": "Turn on 2FA",
+      "step2": "Scan the QR code with an authenticator app (for example Google Authenticator or 1Password) and enter the 6-digit code.",
+      "manualKey": "Can't scan? Use this key:",
+      "qrAlt": "QR code for authenticator app",
+      "confirm": "Confirm and turn on",
+      "backupTitle": "Save your backup codes",
+      "backupBody": "Each code works once if you lose your phone. Keep them somewhere safe. They are only shown now.",
+      "done": "I have saved the codes"
+    },
+    "bookings": {
+      "title": "Bookings",
+      "search": "Search",
+      "searchHint": "Booking number, name, email, phone or registration.",
+      "status": "Status",
+      "allStatuses": "All (except expired)",
+      "location": "Location",
+      "allLocations": "All locations",
+      "submit": "Search",
+      "count": "{count, plural, one {# booking} other {# bookings}}",
+      "empty": "No bookings match the search.",
+      "columns": {
+        "reference": "Booking",
+        "customer": "Customer",
+        "car": "Car",
+        "period": "Period",
+        "status": "Status",
+        "total": "Amount"
+      },
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {page} of {pages}",
+      "new": "New booking"
+    },
+    "booking": {
+      "back": "All bookings",
+      "title": "Booking {reference}",
+      "created": "Created {date}",
+      "rentalTitle": "Rental",
+      "car": "Car",
+      "fulfilment": "Handover",
+      "delivery": "Delivery to {address}",
+      "pickupAtOffice": "Pickup at the office",
+      "pickup": "Pickup",
+      "return": "Return",
+      "discount": "Discount code",
+      "deposit": "Deposit",
+      "depositStatus": {
+        "NOT_REQUIRED": "Not required",
+        "PENDING": "Pending",
+        "HELD": "Held",
+        "CAPTURED": "Captured",
+        "RELEASED": "Released"
+      },
+      "total": "Total",
+      "paymentsTitle": "Payments",
+      "noPayments": "No payments yet.",
+      "columns": {
+        "date": "Date",
+        "kind": "Type",
+        "status": "Status",
+        "method": "Method",
+        "amount": "Amount",
+        "action": "Action"
+      },
+      "paymentKinds": {
+        "CHARGE": "Payment",
+        "DEPOSIT_HOLD": "Deposit held",
+        "DEPOSIT_CAPTURE": "Deposit captured",
+        "REFUND": "Refund",
+        "MANUAL": "Manual payment",
+        "DEPOSIT_RETURN": "Deposit returned"
+      },
+      "paymentStatus": {
+        "PENDING": "Pending",
+        "REQUIRES_ACTION": "Requires action",
+        "SUCCEEDED": "Succeeded",
+        "FAILED": "Failed",
+        "CANCELLED": "Cancelled"
+      },
+      "methods": {
+        "CARD": "Card",
+        "MOBILEPAY": "MobilePay",
+        "APPLE_PAY": "Apple Pay",
+        "GOOGLE_PAY": "Google Pay",
+        "CASH": "Cash",
+        "BANK_TRANSFER": "Bank transfer"
+      },
+      "historyTitle": "History",
+      "system": "System",
+      "messagesTitle": "Messages and notifications",
+      "noMessages": "No messages yet.",
+      "channels": {
+        "CONTACT_FORM": "Contact form",
+        "EMAIL": "Email",
+        "WHATSAPP": "WhatsApp",
+        "SMS": "SMS",
+        "PHONE_NOTE": "Phone note"
+      },
+      "direction": {
+        "INBOUND": "From the customer",
+        "OUTBOUND": "To the customer"
+      },
+      "templates": {
+        "BOOKING_CONFIRMED": "Confirmation",
+        "PAYMENT_RECEIVED": "Payment received",
+        "CAR_READY": "Car ready",
+        "PICKUP_REMINDER": "Pickup reminder",
+        "RETURN_REMINDER": "Return reminder",
+        "THANK_YOU": "Thank you",
+        "REVIEW_REQUEST": "Review",
+        "BOOKING_CANCELLED": "Cancellation",
+        "PAYMENT_REQUEST": "Payment link",
+        "BOOKING_CHANGED": "Booking changed"
+      },
+      "notificationStatus": {
+        "PENDING": "Scheduled",
+        "SENDING": "Sending",
+        "SENT": "Sent",
+        "FAILED": "Failed",
+        "SKIPPED": "Skipped"
+      },
+      "message": {
+        "title": "Email the customer",
+        "subject": "Subject",
+        "body": "Message",
+        "bodyHint": "Sent in the customer's language template with your text. Never include card details or passwords.",
+        "submit": "Send email",
+        "sent": "The email has been sent.",
+        "error": "The email could not be sent. Try again.",
+        "required": "Required."
+      },
+      "customerTitle": "Customer",
+      "email": "Email",
+      "phone": "Phone",
+      "language": "Language",
+      "account": "Account",
+      "hasAccount": "Has an account",
+      "guest": "Guest",
+      "whatsappPrefill": "Hi {name}, this is the rental company about your booking {reference}.",
+      "call": "Call",
+      "whatsapp": "WhatsApp",
+      "sendEmail": "Write email",
+      "reasons": {
+        "customer_free": "Customer cancelled within the free period",
+        "customer_late": "Customer cancelled after the free period",
+        "manual_payment": "Payment recorded",
+        "pay_at_counter": "Phone booking, paid at the counter",
+        "rescheduled": "New period",
+        "reservation_expired": "Payment deadline passed",
+        "picked_up": "The car was handed over",
+        "returned": "The car was returned"
+      },
+      "actions": {
+        "title": "Actions",
+        "amountHint": "In kroner, e.g. 450 or 1,250.50.",
+        "reason": "Reason",
+        "reasonHint": "Shown in the booking history. Never write card details.",
+        "retryRefund": "Try again",
+        "pay": {
+          "title": "Record payment",
+          "status": "Paid:",
+          "balance": "Outstanding:",
+          "amount": "Amount",
+          "method": "Payment method",
+          "methods": {
+            "CASH": "Cash",
+            "CARD": "Card (terminal)",
+            "MOBILEPAY": "MobilePay",
+            "BANK_TRANSFER": "Bank transfer"
+          },
+          "submit": "Record payment"
+        },
+        "reschedule": {
+          "title": "Change period",
+          "intro": "Choose the new period. You will see the car and price before you confirm.",
+          "pickupDate": "Pickup date",
+          "pickupTime": "Pickup time",
+          "returnDate": "Return date",
+          "returnTime": "Return time",
+          "price": "Price",
+          "keep": "Keep the price",
+          "new": "Calculate a new price for the period",
+          "preview": "Preview the change",
+          "summary": "The booking will look like this",
+          "newPeriod": "New period",
+          "car": "Car",
+          "sameCar": "(same car)",
+          "otherCar": "(another car of the same model)",
+          "total": "Total price",
+          "confirm": "Confirm the change"
+        },
+        "reassign": {
+          "title": "Change car",
+          "none": "No other cars of this model are available in the period.",
+          "car": "New car",
+          "submit": "Change car"
+        },
+        "refund": {
+          "title": "Refund",
+          "intro": "Paid in total:",
+          "amount": "Amount",
+          "submit": "Refund"
+        },
+        "cancel": {
+          "title": "Cancel booking",
+          "free": "The customer is within the free cancellation period.",
+          "late": "The free cancellation period has passed.",
+          "noPolicy": "The booking is not confirmed, or the pickup time has passed.",
+          "suggested": "Suggested refund:",
+          "refund": "Refund",
+          "refundHint": "In kroner. You can change the suggestion; explain why in the reason.",
+          "confirm": "Yes, cancel the booking and release the car",
+          "submit": "Cancel booking"
+        },
+        "notices": {
+          "cancelled": "The booking is cancelled, and the customer will be notified.",
+          "cancelledRefundPending": "The booking is cancelled, but the refund failed at the payment provider. Try again under Payments.",
+          "refunded": "The refund is complete.",
+          "refundPending": "The refund failed at the payment provider. Try again under Payments.",
+          "paid": "The payment is recorded.",
+          "rescheduled": "The booking is moved, and the customer will be notified.",
+          "reassigned": "The booking has a different car.",
+          "created": "The booking is created and confirmed. The customer pays at the counter.",
+          "linkSent": "The booking is created, and the customer will get a payment link by email. The link works for 24 hours.",
+          "invalid": "Check the fields and try again.",
+          "tooSoon": "The pickup is too soon.",
+          "carTaken": "No car of this model is available in the period.",
+          "closed": "The location is closed at that time.",
+          "forbidden": "Your role does not have access to that action.",
+          "conflict": "The booking cannot be changed in its current status, or it was changed at the same time. Reload the page.",
+          "providerFailed": "The payment provider declined the refund. Try again later.",
+          "failed": "Something went wrong. Try again."
+        },
+        "markRefunded": "Mark as paid back"
+      },
+      "handover": {
+        "title": "Handover and return",
+        "pickup": "Hand over car",
+        "return": "Receive car",
+        "types": {
+          "PICKUP": "Handover",
+          "RETURN": "Return"
+        },
+        "summary": "{km, number} km · fuel {level}/8 · {photos, plural, one {# photo} other {# photos}} · {damages, plural, one {# damage} other {# damages}}",
+        "deposit": "Take deposit",
+        "settle": "Settle",
+        "settled": "Settled {date}.",
+        "showSettlement": "View settlement",
+        "contract": "Rental agreement",
+        "contractSigned": "Agreement (PDF)"
+      }
+    },
+    "customers": {
+      "title": "Customers",
+      "search": "Search",
+      "searchHint": "Name, email or phone.",
+      "submit": "Search",
+      "count": "{count, plural, one {# customer} other {# customers}}",
+      "empty": "No customers match the search.",
+      "columns": {
+        "name": "Name",
+        "contact": "Contact",
+        "bookings": "Bookings",
+        "account": "Account",
+        "created": "Created"
+      },
+      "anonymized": "Anonymised",
+      "hasAccount": "Has an account",
+      "guest": "Guest",
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {page} of {pages}"
+    },
+    "customer": {
+      "metaTitle": "Customer",
+      "back": "All customers",
+      "anonymized": "This customer has been anonymised.",
+      "bookingsTitle": "Bookings ({count})",
+      "noBookings": "No bookings.",
+      "columns": {
+        "reference": "Booking",
+        "car": "Car",
+        "pickup": "Pickup",
+        "status": "Status",
+        "total": "Amount"
+      },
+      "messagesTitle": "Latest messages",
+      "noMessages": "No messages.",
+      "profileTitle": "Details",
+      "lastLogin": "Last signed in {date}",
+      "created": "Created",
+      "whatsappPrefill": "Hi {name}, this is the rental company.",
+      "gdpr": {
+        "title": "GDPR",
+        "export": "Export data (JSON)",
+        "anonymize": "Anonymise customer",
+        "anonymizeHint": "Name, contact details, messages, reviews and documents are deleted. Bookings and payments are kept under a pseudonym. Cannot be undone.",
+        "confirm": "The customer asked for deletion and I have checked their identity.",
+        "blocked": {
+          "ACTIVE_BOOKING": "Cannot be anonymised: the customer has a booking that has not finished.",
+          "OPEN_CLAIM": "Cannot be anonymised: a deposit or damage is not settled."
+        },
+        "notices": {
+          "anonymized": "The anonymisation is complete.",
+          "blocked": "The customer cannot be anonymised yet.",
+          "confirm": "Tick the box to confirm the anonymisation.",
+          "forbidden": "Your role does not have access to that action.",
+          "failed": "Something went wrong. Please try again."
+        }
+      }
+    },
+    "calendar": {
+      "title": "Calendar",
+      "location": "Location",
+      "allLocations": "All locations",
+      "range": "Period",
+      "week": "1 week",
+      "twoWeeks": "2 weeks",
+      "show": "Show",
+      "previous": "Previous",
+      "next": "Next",
+      "period": "{from} to {to}",
+      "car": "Car",
+      "empty": "No cars at this location.",
+      "legend": "Each row is a car. Bookings and workshop visits span the days the car is taken.",
+      "maintenance": {
+        "SERVICE": "Service",
+        "INSPECTION_SYN": "Inspection",
+        "TYRES": "Tyre change",
+        "REPAIR": "Repair",
+        "CLEANING": "Cleaning"
+      }
+    },
+    "newBooking": {
+      "back": "All bookings",
+      "title": "New booking",
+      "intro": "For bookings by phone or at the counter. Same rules and prices as the website.",
+      "customerTitle": "Customer",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "phone": "Mobile number",
+      "phoneHint": "E.g. 12 34 56 78.",
+      "phoneError": "Enter a valid mobile number, e.g. 12 34 56 78.",
+      "locale": "Language",
+      "localeHint": "The customer gets messages in this language.",
+      "rentalTitle": "Rental",
+      "car": "Car model",
+      "choose": "Choose",
+      "pickupLocation": "Pickup location",
+      "pickupDate": "Pickup date",
+      "pickupTime": "Pickup time",
+      "returnLocation": "Return location",
+      "returnDate": "Return date",
+      "returnTime": "Return time",
+      "discountCode": "Discount code (optional)",
+      "extras": "Extras",
+      "paymentTitle": "Payment",
+      "paymentLink": "Send payment link",
+      "paymentLinkHint": "The customer gets an email with a link and has 24 hours to pay. The car is held meanwhile.",
+      "paymentCounter": "Paid at the counter",
+      "paymentCounterHint": "The booking is confirmed now. Record the payment when the customer pays.",
+      "submit": "Create booking",
+      "required": "Required.",
+      "errors": {
+        "invalid": "Check the marked fields.",
+        "tooSoon": "The pickup is too soon.",
+        "closed": "The location is closed at that time.",
+        "carTaken": "No car of this model is available in the period.",
+        "discount": "The discount code does not work.",
+        "price": "There is no price for the period.",
+        "failed": "Something went wrong. Try again."
+      }
+    },
+    "fleet": {
+      "title": "Fleet",
+      "back": "All cars",
+      "km": "{km, number} km",
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {page} of {pages}",
+      "amountHint": "In kroner, e.g. 450 or 1,250.50.",
+      "tabs": {
+        "label": "Fleet",
+        "cars": "Cars",
+        "models": "Models"
+      },
+      "opStatus": {
+        "ACTIVE": "In service",
+        "INSPECTION": "Being checked",
+        "MAINTENANCE": "At the workshop",
+        "OUT_OF_SERVICE": "Out of service",
+        "RETIRED": "Retired"
+      },
+      "warnings": {
+        "inspection": "Inspection due",
+        "service": "Service due",
+        "insurance": "Insurance expiring"
+      },
+      "cars": {
+        "new": "New car",
+        "search": "Search",
+        "searchHint": "Registration or VIN.",
+        "status": "Status",
+        "allStatuses": "All (except retired)",
+        "model": "Model",
+        "allModels": "All models",
+        "location": "Location",
+        "allLocations": "All locations",
+        "submit": "Search",
+        "count": "{count, plural, one {# car} other {# cars}}",
+        "empty": "No cars match the search.",
+        "columns": {
+          "registration": "Registration",
+          "model": "Model",
+          "location": "Home location",
+          "odometer": "Km",
+          "status": "Status",
+          "warnings": "Deadlines"
+        }
+      },
+      "car": {
+        "bookings": "Upcoming bookings",
+        "noBookings": "The car has no upcoming bookings.",
+        "bookingsHint": "If the car must go out of service, open each booking and change the car, change the period or cancel.",
+        "columns": {
+          "reference": "Booking",
+          "customer": "Customer",
+          "period": "Period",
+          "status": "Status"
+        },
+        "statusTitle": "Operating status",
+        "statusIntro": "Only cars in service can be booked. Bookings the car already has keep it until you move them.",
+        "newStatus": "New status",
+        "confirm": "I have seen {count, plural, one {the upcoming booking} other {the # upcoming bookings}}",
+        "confirmHint": "They keep the car until you move them to another car.",
+        "setStatus": "Change status",
+        "odometerTitle": "Odometer",
+        "odometer": "Km",
+        "odometerHint": "Can only go up.",
+        "saveOdometer": "Save km",
+        "details": "Details",
+        "damages": "Damage",
+        "noDamages": "No recorded damage.",
+        "repairedOn": "repaired {date}",
+        "markRepaired": "Mark as repaired",
+        "inspections": "Handovers and returns"
+      },
+      "notices": {
+        "created": "The car is created.",
+        "saved": "The changes are saved.",
+        "statusChanged": "The status is changed.",
+        "odometerSaved": "The odometer is saved.",
+        "maintenanceAdded": "The workshop visit is planned. The car cannot be booked in the period.",
+        "maintenanceUpdated": "The workshop visit is updated.",
+        "invalid": "Check the fields and try again.",
+        "odometerDown": "The odometer cannot be lower than before.",
+        "endBeforeStart": "The end must be after the start.",
+        "rented": "The car is rented out right now. Change the status when it is returned.",
+        "hasBookings": "The car has upcoming bookings. Tick the box to confirm, or move them first:",
+        "bookingsInPeriod": "The car is booked in the period. Move these bookings first:",
+        "maintenanceOverlap": "The car already has a workshop visit in the period.",
+        "conflict": "It cannot be changed now, or it was changed at the same time. Reload the page.",
+        "forbidden": "Your role does not have access to that action.",
+        "notFound": "It no longer exists.",
+        "failed": "Something went wrong. Try again.",
+        "damageRepaired": "The damage is marked as repaired."
+      },
+      "maintenance": {
+        "title": "Workshop",
+        "empty": "No workshop visits yet.",
+        "columns": {
+          "type": "Type",
+          "period": "Period",
+          "vendor": "Workshop",
+          "cost": "Cost",
+          "status": "Status",
+          "action": "Action"
+        },
+        "types": {
+          "SERVICE": "Service",
+          "INSPECTION_SYN": "Inspection",
+          "TYRES": "Tyre change",
+          "REPAIR": "Repair",
+          "CLEANING": "Cleaning"
+        },
+        "statuses": {
+          "PLANNED": "Planned",
+          "IN_PROGRESS": "In progress",
+          "DONE": "Done",
+          "CANCELLED": "Cancelled"
+        },
+        "to": {
+          "IN_PROGRESS": "Start",
+          "DONE": "Done",
+          "CANCELLED": "Cancel"
+        },
+        "add": "Plan a workshop visit",
+        "addIntro": "The car cannot be booked in the period. If it has bookings in the period, move them first.",
+        "type": "Type",
+        "vendor": "Workshop (optional)",
+        "startDate": "Start date",
+        "startTime": "Start time",
+        "endDate": "End date",
+        "endTime": "End time",
+        "cost": "Cost (optional)",
+        "notes": "Note (optional)",
+        "submit": "Plan"
+      },
+      "form": {
+        "identity": "Car",
+        "carModelId": "Model",
+        "homeLocationId": "Home location",
+        "registrationNumber": "Registration",
+        "registrationHint": "E.g. AB 12 345.",
+        "vin": "VIN",
+        "vinHint": "11–17 characters, without I, O and Q.",
+        "color": "Colour (optional)",
+        "odometerKm": "Km",
+        "tyreType": "Tyres (optional)",
+        "tyreHint": "E.g. summer, winter or all-season.",
+        "deadlines": "Deadlines",
+        "nextInspectionDue": "Next inspection",
+        "nextServiceDue": "Next service (date)",
+        "nextServiceKm": "Next service (km)",
+        "insurancePolicy": "Insurance policy (optional)",
+        "insuranceExpiresAt": "Insurance expires",
+        "purchase": "Purchase",
+        "purchaseDate": "Purchase date",
+        "purchasePrice": "Purchase price",
+        "amountHint": "In kroner, e.g. 189,000.",
+        "choose": "Choose",
+        "save": "Save changes",
+        "create": "Create car",
+        "duplicate": "Already used by another car.",
+        "odometerDown": "Cannot be lower than before.",
+        "invalid": "Check the field.",
+        "errors": {
+          "invalid": "Check the marked fields.",
+          "duplicate": "The registration or VIN already exists.",
+          "odometerDown": "The odometer cannot be lower than before.",
+          "hasBookings": "Model and home location cannot change while the car has upcoming bookings:",
+          "forbidden": "Your role does not have access to that action.",
+          "failed": "Something went wrong. Try again."
+        }
+      },
+      "models": {
+        "title": "Models",
+        "new": "New model",
+        "edit": "Edit model",
+        "back": "All models",
+        "empty": "No models yet.",
+        "columns": {
+          "model": "Model",
+          "category": "Category",
+          "cars": "Cars",
+          "visibility": "Visibility"
+        },
+        "active": "Shown",
+        "inactive": "Hidden",
+        "featured": "Featured",
+        "notices": {
+          "created": "The model is created.",
+          "saved": "The changes are saved.",
+          "imageDeleted": "The image is deleted.",
+          "imageFirst": "The main image is changed.",
+          "forbidden": "Your role does not have access to that action.",
+          "failed": "Something went wrong. Try again."
+        },
+        "images": "Images",
+        "imagesHint": "Shown in the catalogue; the first is the main image. At most {max} images. Use landscape images, ideally 16:10.",
+        "noImages": "No images yet. The catalogue shows a placeholder.",
+        "imageAlt": "{name}, image {n}",
+        "firstImage": "Main image",
+        "makeFirst": "Use as main image",
+        "deleteImage": "Delete",
+        "addImages": "Add images"
+      },
+      "modelForm": {
+        "basics": "Model",
+        "brand": "Make",
+        "model": "Model",
+        "year": "Year",
+        "categoryId": "Category",
+        "choose": "Choose",
+        "slug": "Address",
+        "slugHint": "Used in the link, e.g. toyota-yaris-hybrid. Lowercase letters, digits and hyphens.",
+        "specs": "Specifications",
+        "transmission": "Transmission",
+        "fuel": "Fuel",
+        "seats": "Seats",
+        "doors": "Doors",
+        "bags": "Bags",
+        "airConditioning": "Air conditioning",
+        "terms": "Km and deposit",
+        "termsHint": "Applies to new bookings. The daily price is set per category.",
+        "includedKmPerDay": "Included km per day",
+        "extraKmFee": "Price per extra km",
+        "deposit": "Deposit",
+        "amountHint": "In kroner, e.g. 2.50 or 3,000.",
+        "descriptions": "Description",
+        "descriptionsHint": "Danish is required. If a language is missing, the Danish text is shown.",
+        "descriptionDa": "Danish",
+        "descriptionEn": "English",
+        "descriptionFr": "French",
+        "descriptionAr": "Arabic",
+        "visibility": "Visibility",
+        "isActive": "Show in the catalogue",
+        "isActiveHint": "Customers can see and book the model.",
+        "isFeatured": "Feature on the home page",
+        "isFeaturedHint": "Shown among the popular cars.",
+        "save": "Save changes",
+        "create": "Create model",
+        "invalid": "Check the field.",
+        "duplicate": "The address is already used by another model.",
+        "errors": {
+          "invalid": "Check the marked fields.",
+          "duplicate": "The address is already used by another model.",
+          "forbidden": "Your role does not have access to that action.",
+          "failed": "Something went wrong. Try again."
+        }
+      }
+    },
+    "photos": {
+      "hint": "Take photos with the phone or choose from the gallery. They are stored without location and other metadata.",
+      "uploading": "Uploading {done} of {total} …",
+      "errors": {
+        "notImage": "One of the files is not an image.",
+        "tooLarge": "One of the files is too large.",
+        "tooMany": "There is no room for more images.",
+        "forbidden": "Your role does not have access to upload.",
+        "failed": "An image could not be saved. Try again."
+      }
+    },
+    "handover": {
+      "back": "Back to {reference}",
+      "odometer": "Odometer",
+      "odometerHint": "At least {km, number} km.",
+      "fuel": "Fuel or battery",
+      "fuelHint": "Read the gauge in eighths.",
+      "fuelLevel": "{level, plural, =0 {Empty (0/{max})} =8 {Full ({max}/{max})} other {#/{max}}}",
+      "notes": "Notes (optional)",
+      "notesHint": "E.g. scratches, cleaning or a spare key. Never write card details.",
+      "knownDamages": "Known damage",
+      "noKnownDamages": "The car has no known damage.",
+      "pickup": {
+        "title": "Hand over car",
+        "notAllowed": "Only confirmed bookings can be handed over.",
+        "unpaidTitle": "The booking is not paid",
+        "unpaid": "Record the payment on the booking before handover. Outstanding:",
+        "damagesHint": "Walk around the car with the customer. New findings are recorded as damage on the next page, with photos.",
+        "submit": "Hand over the car",
+        "depositTitle": "Deposit missing",
+        "deposit": "Take the deposit before handing over the car:",
+        "takeDeposit": "Take deposit",
+        "contractTitle": "The agreement is not signed",
+        "contract": "The customer must sign the rental agreement before the car is handed over.",
+        "signContract": "Sign agreement"
+      },
+      "return": {
+        "title": "Receive car",
+        "notAllowed": "Only bookings that have been handed over can be returned.",
+        "damagesHint": "Compare with the handover. New damage is recorded on the next page, with photos.",
+        "submit": "Receive the car",
+        "carStatus": "The car afterwards",
+        "statuses": {
+          "ACTIVE": "Ready for the next customer",
+          "INSPECTION": "Needs a check or cleaning first",
+          "MAINTENANCE": "Needs the workshop"
+        }
+      },
+      "notices": {
+        "invalid": "Check the fields and try again.",
+        "odometerDown": "The odometer cannot be lower than before.",
+        "unpaid": "The booking is not paid. Record the payment first.",
+        "tooEarly": "The car can be handed over on the pickup day at the earliest.",
+        "conflict": "The booking has changed in the meantime. Reload the page.",
+        "forbidden": "Your role does not have access to that action.",
+        "notFound": "The booking does not exist.",
+        "failed": "Something went wrong. Try again.",
+        "depositMissing": "The deposit is missing. Take the deposit first.",
+        "contractMissing": "The agreement is not signed. Have the customer sign it first."
+      }
+    },
+    "damage": {
+      "areas": {
+        "front": "Front",
+        "front-left": "Front left",
+        "front-right": "Front right",
+        "left": "Left side",
+        "right": "Right side",
+        "rear": "Rear",
+        "rear-left": "Rear left",
+        "rear-right": "Rear right",
+        "roof": "Roof",
+        "windscreen": "Windscreen",
+        "wheels": "Wheels and rims",
+        "interior": "Interior",
+        "other": "Other"
+      },
+      "severities": {
+        "MINOR": "Minor",
+        "MODERATE": "Moderate",
+        "MAJOR": "Major"
+      },
+      "liabilities": {
+        "CUSTOMER": "Customer",
+        "INTERNAL": "Ourselves",
+        "THIRD_PARTY": "Third party",
+        "UNDECIDED": "Undecided"
+      }
+    },
+    "inspection": {
+      "metaTitle": "Inspection",
+      "types": {
+        "PICKUP": "Handover",
+        "RETURN": "Return"
+      },
+      "backToBooking": "Back to {reference}",
+      "notices": {
+        "pickedUp": "The car is handed over. Take photos of the car from all sides.",
+        "returned": "The car is received, and the booking is completed. Take photos and record any new damage.",
+        "damageAdded": "The damage is recorded. Add photos if you can.",
+        "damageRepaired": "The damage is marked as repaired.",
+        "invalid": "Check the fields and try again.",
+        "conflict": "It cannot be changed now. Reload the page.",
+        "forbidden": "Your role does not have access to that action.",
+        "notFound": "It no longer exists.",
+        "failed": "Something went wrong. Try again."
+      },
+      "odometer": "Odometer",
+      "km": "{km, number} km",
+      "driven": "Driven {km, number} km",
+      "fuel": "Fuel",
+      "fuelLevel": "{level, plural, =0 {Empty (0/{max})} =8 {Full ({max}/{max})} other {#/{max}}}",
+      "fuelAtPickup": "At handover: {fuel}",
+      "performed": "Performed",
+      "notes": "Notes",
+      "photos": "Photos",
+      "photosHint": "Take at least one photo of each side, the front, the rear and the interior.",
+      "noPhotos": "No photos yet.",
+      "addPhotos": "Take or choose photos",
+      "photoAlt": "Photo {n} of the car",
+      "compare": "For comparison: {type}",
+      "open": "Open",
+      "otherPhotoAlt": "{type}, photo {n}",
+      "damages": "Damage",
+      "noDamages": "No damage recorded.",
+      "newDamage": "New damage",
+      "existingDamage": "Known damage",
+      "repaired": "Repaired",
+      "estimatedCost": "Estimated cost:",
+      "damagePhotoAlt": "Damage, {area}, photo {n}",
+      "addDamagePhotos": "Photos of the damage",
+      "markRepaired": "Mark as repaired",
+      "addDamage": "Record damage",
+      "addDamageReturn": "New damage is linked to the booking. A manager approves liability and amount at settlement.",
+      "addDamagePickup": "Damage found at handover belongs to the car and is not charged to the customer.",
+      "area": "Area",
+      "severity": "Severity",
+      "liability": "Liability",
+      "liabilityHint": "A manager approves this at settlement.",
+      "estimatedCostLabel": "Estimated cost (optional)",
+      "amountHint": "In kroner, e.g. 1,500.",
+      "description": "Description",
+      "descriptionHint": "E.g. \"10 cm scratch below the door handle\".",
+      "saveDamage": "Record damage",
+      "settleTitle": "Next: settlement",
+      "settleHint": "Take photos and record new damage first. Then settle fees and the deposit.",
+      "settle": "Go to settlement"
+    },
+    "tableLabel": "Table: {name}",
+    "deposit": {
+      "title": "Deposit",
+      "back": "Back to {reference}",
+      "notices": {
+        "held": "The deposit has been recorded.",
+        "card": "The card has been sent for approval.",
+        "invalid": "Check the fields and try again.",
+        "conflict": "The deposit cannot be taken now. Reload the page.",
+        "forbidden": "Your role does not have access to that action.",
+        "failed": "Something went wrong. Try again."
+      },
+      "declined": "The card was declined. Try another card, or take the deposit in cash.",
+      "held": "The deposit is in place. The car can be handed over.",
+      "toPickup": "Hand over car",
+      "notDue": "The booking does not need a deposit now.",
+      "waiting": "Waiting for the card provider. Reload the page in a moment.",
+      "cardTitle": "By card",
+      "cardHold": "The customer enters the card here. The amount is reserved and only charged if there are fees at return.",
+      "cardCharge": "The rental is longer than a card reservation lasts, so the amount is charged now and paid back at return.",
+      "unavailable": "Card payment is not set up. Take the deposit in cash or on the terminal.",
+      "cardSubmit": "Reserve {price}",
+      "testBody": "Test environment: no real money is charged.",
+      "manualTitle": "At the counter",
+      "manualHint": "Cash or on the payment terminal. The money is paid back at settlement.",
+      "method": "Payment method",
+      "terminal": "Card (terminal)",
+      "manualSubmit": "Record {price} received"
+    },
+    "settlement": {
+      "title": "Settlement",
+      "back": "Back to {reference}",
+      "notices": {
+        "settled": "The booking has been settled.",
+        "invalid": "Check the amounts and choose liability for all damage.",
+        "conflict": "The booking cannot be settled now. Reload the page.",
+        "forbidden": "Your role does not have access to that action.",
+        "provider": "The card provider rejected the deposit. Try again shortly.",
+        "failed": "Something went wrong. Try again."
+      },
+      "settledAt": "Settled {date}.",
+      "captured": "Taken from deposit",
+      "returned": "Deposit returned to customer",
+      "balance": "Customer owes",
+      "cashBack": "Give the customer {amount} back in cash.",
+      "owed": "Record the payment on the booking once the customer has paid.",
+      "notReturned": "The booking is settled once the car has been returned.",
+      "feesTitle": "Fees",
+      "feesHint": "The suggestion is based on pickup and return. Change the amount if you agree something else with the customer; enter 0 for no fee.",
+      "extraKm": "Extra km (DKK)",
+      "extraKmHint": "Driven {driven, number} km, of which {included, number} km included: {extra, number} km at {rate} DKK.",
+      "fuel": "Fuel (DKK)",
+      "fuelHint": "Handed over at {pickup}/{max}, returned at {returned}/{max}. {rate} DKK per eighth.",
+      "late": "Late return (DKK)",
+      "lateHint": "{minutes, plural, =0 {Returned on time.} other {# minutes late.}} After {grace} minutes: {hours, plural, one {# hour} other {# hours}} at {rate} DKK.",
+      "damagesTitle": "New damage",
+      "noDamages": "No new damage from the rental.",
+      "damagesHint": "Choose liability. The amount is only charged when the customer is liable.",
+      "needsManager": "A manager must approve liability and amounts for the damage. The deposit is held until then.",
+      "liability": "Liability",
+      "chooseLiability": "Choose liability",
+      "damageAmount": "Amount (DKK)",
+      "damageAmountHint": "The approved amount the customer pays.",
+      "depositTitle": "Deposit",
+      "depositHeld": "{amount} is held as deposit. Fees are taken from it, and the rest goes back to the customer.",
+      "noDeposit": "There is no deposit. The customer must pay the fees.",
+      "credit": "The customer has paid {amount} too much; it is offset against the fees.",
+      "submit": "Settle booking"
+    },
+    "contract": {
+      "title": "Rental agreement",
+      "back": "Back to {reference}",
+      "intro": "Go through the agreement with the customer. The customer types their name and signs with their finger.",
+      "preview": "View the agreement (PDF)",
+      "signerName": "Customer's full name",
+      "signerHint": "As shown on the driving licence.",
+      "signature": "Signature",
+      "signatureHint": "Draw with your finger or the mouse in the box.",
+      "clear": "Clear signature",
+      "accept": "The customer has read and accepts the rental terms and the prices in the agreement.",
+      "submit": "Sign the agreement",
+      "signed": "Signed by {name} {date}.",
+      "download": "Download the agreement (PDF)",
+      "toPickup": "Hand over car",
+      "notDue": "The agreement can only be signed on a confirmed booking before the car is handed over.",
+      "notices": {
+        "signed": "The agreement has been signed.",
+        "invalid": "Check the fields and try again.",
+        "signatureMissing": "The customer must sign in the box.",
+        "conflict": "The agreement cannot be signed now. Reload the page.",
+        "forbidden": "Your role does not have access to that action.",
+        "failed": "Something went wrong. Please try again."
+      }
+    },
+    "catalog": {
+      "tabs": {
+        "label": "Catalogue",
+        "pricing": "Prices",
+        "extras": "Extras",
+        "discounts": "Discount codes",
+        "locations": "Locations"
+      }
+    },
+    "pricing": {
+      "title": "Prices",
+      "intro": "Prices include VAT. Changes only apply to new bookings; existing bookings keep their price.",
+      "categories": "Categories",
+      "noCategories": "There are no categories yet.",
+      "rulesTitle": "Price ladder for {category}",
+      "empty": "The category has no prices yet.",
+      "wholeCategory": "Whole category",
+      "always": "All year",
+      "season": "{from} – {to}",
+      "days": "{days, plural, one {# day} other {# days}}",
+      "edit": "Edit",
+      "editLabel": "Edit the price for {days, plural, one {# day} other {# days}}, {scope}",
+      "columns": {
+        "scope": "Applies to",
+        "season": "Period",
+        "minDays": "From",
+        "package": "Package price",
+        "perDay": "Daily price",
+        "priority": "Priority",
+        "actions": "Actions"
+      },
+      "warnings": {
+        "noBase": "The category has no standard price. Customers cannot book cars in it until there is a price without a model and period.",
+        "noOneDay": "The category has no standard price for 1 day. Customers cannot book short rentals until it is created."
+      },
+      "preview": {
+        "title": "Try a price",
+        "model": "Model",
+        "days": "Number of days",
+        "date": "Pick-up date",
+        "submit": "Calculate",
+        "result": "A customer renting for {days, plural, one {# day} other {# days}} pays:",
+        "package": "This is the package price for {days, plural, one {# day} other {# days}}.",
+        "perDay": "The daily price from the {days, plural, one {# day} other {# days}} step.",
+        "capped": "The price is lowered to a larger package because it is cheaper.",
+        "none": "There is no price for {days, plural, one {# day} other {# days}}. Create a standard price for 1 day.",
+        "invalid": "Choose a model, a number of days (1–365) and a date."
+      },
+      "newTitle": "New price",
+      "editTitle": "Edit price",
+      "editIntro": "The change only applies to new bookings.",
+      "back": "Back to {category}",
+      "delete": "Delete the price",
+      "notices": {
+        "created": "The price has been created.",
+        "saved": "The price has been saved.",
+        "deleted": "The price has been deleted.",
+        "forbidden": "Your role does not have access to that action.",
+        "failed": "Something went wrong. Please try again."
+      },
+      "form": {
+        "categoryId": "Category",
+        "carModelId": "Applies to",
+        "carModelIdHint": "Choose a model to give it its own price.",
+        "wholeCategory": "Whole category",
+        "inactiveModel": "{name} (hidden)",
+        "minDays": "From number of days",
+        "minDaysHint": "E.g. 1, 3, 7 or 30.",
+        "packagePrice": "Package price",
+        "packagePriceHint": "The price for exactly that number of days.",
+        "perDayPrice": "Daily price",
+        "perDayPriceHint": "Per day until the next step.",
+        "validFrom": "From date",
+        "validTo": "To date",
+        "seasonHint": "Empty = all year. Use dates for seasonal prices.",
+        "priority": "Priority",
+        "priorityHint": "The highest wins if two prices apply on the same day.",
+        "create": "Create price",
+        "save": "Save changes",
+        "errors": {
+          "categoryId": "Check the field.",
+          "carModelId": "The model is not in the category.",
+          "minDays": "Check the field.",
+          "packagePrice": "Check the field.",
+          "perDayPrice": "Check the field.",
+          "validFrom": "Check the field.",
+          "validTo": "The date must be after the from date.",
+          "priority": "Check the field."
+        },
+        "notices": {
+          "invalid": "Check the highlighted fields.",
+          "forbidden": "Your role does not have access to that action.",
+          "failed": "Something went wrong. Please try again."
+        }
+      }
+    },
+    "extras": {
+      "title": "Extras",
+      "intro": "Equipment the customer can add to the booking. New prices only apply to new bookings. Extras that have been booked cannot be deleted, but they can be hidden.",
+      "new": "New extra",
+      "back": "All extras",
+      "editTitle": "Edit extra",
+      "empty": "There are no extras yet.",
+      "active": "Available",
+      "inactive": "Hidden",
+      "max": "max",
+      "per": {
+        "PER_DAY": "per day",
+        "PER_BOOKING": "per rental"
+      },
+      "delete": "Delete the extra",
+      "usedNote": "The extra has been used in {count, plural, one {# booking} other {# bookings}} and cannot be deleted. Untick \"Available\" to hide it.",
+      "columns": {
+        "name": "Extra",
+        "price": "Price",
+        "maxQuantity": "Max quantity",
+        "used": "Booked",
+        "status": "Status"
+      },
+      "notices": {
+        "created": "The extra has been created.",
+        "saved": "The extra has been saved.",
+        "deleted": "The extra has been deleted.",
+        "inUse": "The extra has been used in bookings and cannot be deleted. Hide it instead.",
+        "forbidden": "Your role does not have access to that action.",
+        "failed": "Something went wrong. Please try again."
+      },
+      "form": {
+        "names": "Name",
+        "namesHint": "Danish is required. If a language is missing, the Danish text is shown.",
+        "nameDa": "Danish",
+        "nameEn": "English",
+        "nameFr": "French",
+        "nameAr": "Arabic",
+        "code": "Code",
+        "codeHint": "Internal code, e.g. child_seat. Lowercase letters, digits and underscores.",
+        "price": "Price",
+        "pricing": "Price per",
+        "pricingOptions": {
+          "PER_DAY": "Day",
+          "PER_BOOKING": "Rental"
+        },
+        "amountHint": "In kroner, e.g. 75 or 2.50.",
+        "maxPrice": "Cap",
+        "maxPriceHint": "Daily price only: the highest price for the whole rental.",
+        "maxQuantity": "Max per booking",
+        "maxQuantityHint": "1 = the customer ticks a box.",
+        "stock": "Quantity in stock",
+        "stockHint": "For your overview only. Empty = unlimited.",
+        "sortOrder": "Order",
+        "sortOrderHint": "Lowest is shown first.",
+        "descriptions": "Description (optional)",
+        "descriptionsHint": "Shown under the name in the booking.",
+        "descriptionDa": "Danish",
+        "descriptionEn": "English",
+        "descriptionFr": "French",
+        "descriptionAr": "Arabic",
+        "isActive": "Available",
+        "isActiveHint": "Customers can choose the extra in the booking.",
+        "create": "Create extra",
+        "save": "Save changes",
+        "duplicate": "The code is already used by another extra.",
+        "errors": {
+          "code": "Use lowercase letters, digits and underscores (2–40 characters).",
+          "nameDa": "Check the field.",
+          "nameEn": "Check the field.",
+          "nameAr": "Check the field.",
+          "nameFr": "Check the field.",
+          "descriptionDa": "Check the field.",
+          "descriptionEn": "Check the field.",
+          "descriptionAr": "Check the field.",
+          "descriptionFr": "Check the field.",
+          "pricing": "Check the field.",
+          "price": "Check the field.",
+          "maxPrice": "The cap must be at least the price and only for a daily price.",
+          "maxQuantity": "Check the field.",
+          "stock": "Check the field.",
+          "sortOrder": "Check the field.",
+          "isActive": "Check the field."
+        },
+        "notices": {
+          "invalid": "Check the highlighted fields.",
+          "duplicate": "The code is already used by another extra.",
+          "forbidden": "Your role does not have access to that action.",
+          "failed": "Something went wrong. Please try again."
+        }
+      }
+    },
+    "discounts": {
+      "title": "Discount codes",
+      "intro": "Codes the customer can enter when booking. Changes only apply to new bookings. A used code cannot be deleted, but it can be stopped.",
+      "new": "New discount code",
+      "back": "All discount codes",
+      "editTitle": "Edit discount code",
+      "empty": "There are no discount codes yet.",
+      "active": "Active",
+      "inactive": "Stopped",
+      "percent": "{value}%",
+      "always": "Always",
+      "from": "From {date}",
+      "until": "Until {date}",
+      "usedOf": "{used} of {max}",
+      "restricted": "Selected cars only",
+      "given": "Total discount given: ",
+      "delete": "Delete discount code",
+      "usedNote": "The code has been used in {count, plural, one {# booking} other {# bookings}} and cannot be deleted. Untick \"Active\" to stop it.",
+      "columns": {
+        "code": "Code",
+        "value": "Discount",
+        "period": "Period",
+        "used": "Used",
+        "status": "Status"
+      },
+      "notices": {
+        "created": "The discount code has been created.",
+        "saved": "The discount code has been saved.",
+        "deleted": "The discount code has been deleted.",
+        "inUse": "The code has been used and cannot be deleted. Stop it instead.",
+        "forbidden": "Your role does not have access to that action.",
+        "failed": "Something went wrong. Please try again."
+      },
+      "form": {
+        "basics": "Discount",
+        "code": "Code",
+        "codeHint": "What the customer types, e.g. SUMMER25. Letters, digits, - and _ (3–30 characters).",
+        "codeLocked": "The code has been used and cannot be changed.",
+        "type": "Type",
+        "typeOptions": {
+          "PERCENT": "Percent",
+          "FIXED": "Fixed amount"
+        },
+        "value": "Discount",
+        "valueHint": "Percent: 1–100. Fixed amount: in kroner.",
+        "period": "Period (optional)",
+        "periodHint": "Whole days in Danish time. Empty = no limit.",
+        "validFrom": "First day",
+        "validTo": "Last day",
+        "limits": "Conditions (optional)",
+        "limitHint": "Empty = no limit.",
+        "minBooking": "Minimum rental amount",
+        "minBookingHint": "In kroner, before extras.",
+        "minDays": "Minimum number of days",
+        "maxUses": "Maximum uses in total",
+        "maxUsesPerCustomer": "Maximum per customer",
+        "cars": "Applies to",
+        "carsHint": "Nothing selected = all cars. A category covers all its models.",
+        "category": "Whole category",
+        "isActive": "Active",
+        "isActiveHint": "Customers can use the code.",
+        "create": "Create discount code",
+        "save": "Save changes",
+        "duplicate": "The code already exists.",
+        "errors": {
+          "code": "Use letters, digits, - and _ (3–30 characters).",
+          "type": "Check this field.",
+          "value": "Percent must be 1–100; a fixed amount at least 1 kr.",
+          "validFrom": "Check this field.",
+          "validTo": "The last day must be after the first day.",
+          "minBooking": "Check this field.",
+          "minDays": "Check this field.",
+          "maxUses": "Check this field.",
+          "maxUsesPerCustomer": "Check this field.",
+          "categoryIds": "Only choose cars from the list.",
+          "carModelIds": "Check this field.",
+          "isActive": "Check this field."
+        },
+        "notices": {
+          "invalid": "Check the highlighted fields.",
+          "duplicate": "The code already exists.",
+          "inUse": "The code has been used and cannot be changed.",
+          "forbidden": "Your role does not have access to that action.",
+          "failed": "Something went wrong. Please try again."
+        }
+      }
+    },
+    "locations": {
+      "title": "Locations",
+      "intro": "Places where customers pick up and return cars. A location can be closed for new bookings, but not deleted.",
+      "new": "New location",
+      "back": "All locations",
+      "editTitle": "Edit location",
+      "empty": "There are no locations yet.",
+      "active": "Open for booking",
+      "inactive": "Closed for booking",
+      "delivery": "Delivery",
+      "types": {
+        "OFFICE": "Office",
+        "AIRPORT": "Airport",
+        "PARTNER": "Partner"
+      },
+      "columns": {
+        "name": "Location",
+        "type": "Type",
+        "cars": "Cars",
+        "upcoming": "Upcoming pickups",
+        "status": "Status"
+      },
+      "notices": {
+        "created": "The location has been created. Set the opening hours below.",
+        "saved": "The location has been saved.",
+        "hoursSaved": "The opening hours have been saved.",
+        "hoursInvalid": "Check the opening hours: each open day needs an opening time and a later closing time.",
+        "daySaved": "The special day has been saved.",
+        "dayInvalid": "Check the date and times.",
+        "dayRemoved": "The special day has been removed.",
+        "zoneSaved": "The zone has been saved.",
+        "zoneInvalid": "Check the distance (1–500 km) and the price.",
+        "zoneRemoved": "The zone has been removed.",
+        "forbidden": "Your role does not have access to that action.",
+        "failed": "Something went wrong. Please try again."
+      },
+      "form": {
+        "details": "Details",
+        "name": "Name",
+        "slug": "Page address",
+        "slugHint": "Lowercase letters, digits and hyphens, e.g. kastrup-airport.",
+        "type": "Type",
+        "address": "Address",
+        "postalCode": "Postcode",
+        "city": "City",
+        "country": "Country",
+        "countryHint": "Two letters, e.g. DK.",
+        "lat": "Latitude",
+        "lng": "Longitude",
+        "coordsHint": "From Google Maps: right-click the place and copy the numbers.",
+        "timezone": "Time zone",
+        "timezoneHint": "E.g. Europe/Copenhagen.",
+        "contact": "Contact (optional)",
+        "phone": "Phone",
+        "whatsapp": "WhatsApp",
+        "email": "Email",
+        "operations": "Operations",
+        "bufferBeforeMinutes": "Preparation before rental (minutes)",
+        "bufferAfterMinutes": "Preparation after rental (minutes)",
+        "bufferHint": "The car is blocked this long before and after each rental.",
+        "oneWayFee": "One-way fee",
+        "oneWayFeeHint": "In kroner. Charged when the car is returned here but was picked up elsewhere. Empty = no fee.",
+        "deliveryEnabled": "Delivery",
+        "deliveryEnabledHint": "Customers can have the car delivered. Set prices under delivery zones.",
+        "isActive": "Open for booking",
+        "isActiveHint": "Can be chosen for new bookings. Upcoming bookings are not affected.",
+        "create": "Create location",
+        "save": "Save changes",
+        "duplicate": "Another location already uses this address.",
+        "errors": {
+          "name": "Check this field.",
+          "slug": "Use lowercase letters, digits and hyphens.",
+          "type": "Check this field.",
+          "address": "Check this field.",
+          "postalCode": "Check this field.",
+          "city": "Check this field.",
+          "country": "Enter the two-letter country code, e.g. DK.",
+          "lat": "Enter a number between -90 and 90.",
+          "lng": "Enter a number between -180 and 180.",
+          "timezone": "Unknown time zone. E.g. Europe/Copenhagen.",
+          "phone": "Check this field.",
+          "whatsapp": "Check this field.",
+          "email": "Check the email address.",
+          "bufferBeforeMinutes": "0–1440 minutes.",
+          "bufferAfterMinutes": "0–1440 minutes.",
+          "oneWayFee": "Check this field.",
+          "deliveryEnabled": "Check this field.",
+          "isActive": "Check this field."
+        },
+        "notices": {
+          "invalid": "Check the highlighted fields.",
+          "duplicate": "Another location already uses this address.",
+          "forbidden": "Your role does not have access to that action.",
+          "failed": "Something went wrong. Please try again."
+        }
+      },
+      "hours": {
+        "title": "Opening hours",
+        "hint": "Customers can only pick up and return while open. Closing at 00:00 means midnight.",
+        "open24h": "Open 24 hours every day",
+        "open24hHint": "E.g. self-service with a key box.",
+        "opensAt": "Opens",
+        "closesAt": "Closes",
+        "closed": "Closed",
+        "save": "Save opening hours"
+      },
+      "special": {
+        "title": "Special days",
+        "hint": "Public holidays and days with different hours. Replaces the weekday's hours on that day.",
+        "empty": "No upcoming special days.",
+        "date": "Date",
+        "closed": "Closed all day",
+        "opensAt": "Opens",
+        "closesAt": "Closes",
+        "add": "Save day",
+        "remove": "Remove",
+        "closedLabel": "Closed"
+      },
+      "zones": {
+        "title": "Delivery zones",
+        "hint": "Delivery price up to a distance from the location. The same distance again replaces the price.",
+        "empty": "No zones yet.",
+        "maxDistanceKm": "Up to (km)",
+        "fee": "Price",
+        "feeHint": "In kroner.",
+        "add": "Save zone",
+        "remove": "Remove",
+        "upTo": "Up to {km} km",
+        "deliveryOff": "Delivery is turned off. The zones are only used once delivery is turned on above."
+      }
+    },
+    "users": {
+      "title": "Users",
+      "intro": "Staff with access to the admin. Managers and administrators must turn on two-step login (2FA) the first time they log in.",
+      "invite": "Invite staff",
+      "back": "All users",
+      "empty": "There are no staff yet.",
+      "roles": {
+        "STAFF": "Staff",
+        "MANAGER": "Manager",
+        "SUPER_ADMIN": "Administrator"
+      },
+      "roleHints": {
+        "STAFF": "Bookings, customers, pickup and return.",
+        "MANAGER": "Also prices, refunds, fleet and statistics. Requires 2FA.",
+        "SUPER_ADMIN": "Everything, including users and settings. Requires 2FA."
+      },
+      "status": {
+        "active": "Active",
+        "invited": "Invited",
+        "disabled": "Disabled"
+      },
+      "columns": {
+        "name": "Name",
+        "role": "Role",
+        "twoFactor": "2FA",
+        "lastLogin": "Last login",
+        "status": "Status"
+      },
+      "on": "On",
+      "off": "Off",
+      "never": "Never",
+      "you": "you",
+      "notices": {
+        "invited": "The invitation has been sent. The link works for 72 hours.",
+        "inviteNotSent": "The user has been created, but the email could not be sent. Try \"Send invitation again\".",
+        "reinvited": "The invitation has been sent again. The old link no longer works.",
+        "roleSaved": "The role has been saved.",
+        "disabled": "The user has been disabled and all sessions closed.",
+        "enabled": "The user is active again.",
+        "self": "You cannot change your own access.",
+        "lastSuperAdmin": "There must be at least one active administrator.",
+        "forbidden": "Your role does not have access to that action.",
+        "failed": "Something went wrong. Please try again."
+      },
+      "form": {
+        "name": "Name",
+        "email": "Email",
+        "role": "Role",
+        "submit": "Send invitation",
+        "duplicate": "This email already has an account.",
+        "errors": {
+          "name": "Enter the name (2–80 characters).",
+          "email": "Check the email address.",
+          "role": "Choose a role."
+        },
+        "notices": {
+          "invalid": "Check the highlighted fields.",
+          "duplicate": "This email already has an account.",
+          "forbidden": "Your role does not have access to that action.",
+          "failed": "Something went wrong. Please try again."
+        }
+      },
+      "detail": {
+        "role": "Role",
+        "saveRole": "Save role",
+        "access": "Access",
+        "disable": "Disable user",
+        "disableHint": "The user is logged out everywhere immediately and cannot log in again.",
+        "enable": "Enable user again",
+        "resend": "Send invitation again",
+        "invitedHint": "The user has not chosen a password yet.",
+        "selfNote": "This is you. Your own role and access can only be changed by another administrator.",
+        "twoFactor": "2FA",
+        "lastLogin": "Last login",
+        "created": "Created"
+      }
+    },
+    "reviews": {
+      "title": "Reviews",
+      "intro": "Only customers with a completed rental can review. New reviews appear on the site only once published. The text cannot be changed.",
+      "tabs": {
+        "label": "Status",
+        "PENDING": "Pending",
+        "PUBLISHED": "Published",
+        "HIDDEN": "Hidden"
+      },
+      "empty": "No reviews here.",
+      "noComment": "No comment.",
+      "booking": "Booking {reference}",
+      "publish": "Publish",
+      "hide": "Hide",
+      "notices": {
+        "published": "The review has been published.",
+        "hidden": "The review has been hidden.",
+        "forbidden": "Your role does not have access to that action.",
+        "failed": "Something went wrong. Please try again."
+      }
+    },
+    "statistics": {
+      "title": "Statistics",
+      "intro": "Key figures for the selected period. Bookings are counted by the day they were created.",
+      "from": "From",
+      "to": "To",
+      "location": "Location",
+      "allLocations": "All locations",
+      "show": "Show",
+      "invalidPeriod": "The period is invalid (at most 366 days, and the end date must be after the start date). Showing the last 30 days.",
+      "presets": {
+        "label": "Period",
+        "last30": "Last 30 days",
+        "month": "This month",
+        "year": "This year"
+      },
+      "cards": {
+        "revenue": "Revenue",
+        "bookings": "Bookings",
+        "averageValue": "Avg. booking value",
+        "occupancy": "Occupancy",
+        "cancellations": "Cancellations",
+        "repeatCustomers": "Repeat customers"
+      },
+      "hints": {
+        "refunds": "After {amount} in refunds",
+        "cars": "{count, plural, one {# car} other {# cars}} in the fleet",
+        "cancellations": "{rate} of bookings · {noShows} no-shows",
+        "repeatCustomers": "of {count} customers in the period"
+      },
+      "popularModels": {
+        "title": "Popular cars",
+        "name": "Car"
+      },
+      "popularCategories": {
+        "title": "Popular categories",
+        "name": "Category"
+      },
+      "columns": {
+        "bookings": "Bookings",
+        "value": "Value"
+      },
+      "empty": "No bookings in the period.",
+      "footnote": "Revenue is payments minus refunds in the period. Occupancy is rented hours divided by the cars' hours. A repeat customer has rented from us before the period."
+    },
+    "auditLog": {
+      "title": "Audit log",
+      "intro": "Every change made in the admin and by customers in GDPR matters. Personal data is not stored in the log.",
+      "entity": "Type",
+      "allEntities": "All types",
+      "action": "Action",
+      "actionHint": "E.g. booking. or customer.anonymize",
+      "submit": "Filter",
+      "count": "{count, plural, one {# event} other {# events}}",
+      "empty": "No events.",
+      "system": "System",
+      "show": "Show details",
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {page} of {pages}",
+      "columns": {
+        "time": "Time",
+        "who": "Who",
+        "action": "Action",
+        "entity": "What",
+        "details": "Details"
+      }
+    }
+  },
+  "email": {
+    "greeting": "Hi {name}",
+    "signature": "Kind regards, {company}",
+    "verify": {
+      "subject": "Confirm your email",
+      "body": "Thank you for signing up. Confirm your email to activate your account.",
+      "button": "Confirm email",
+      "note": "The link works for 24 hours. If you did not create an account, you can ignore this email."
+    },
+    "reset": {
+      "subject": "Reset your password",
+      "body": "We received a request to reset your password.",
+      "button": "Choose a new password",
+      "note": "The link works for 1 hour. If you did not ask for this, you can ignore this email. Your password has not changed."
+    },
+    "existing": {
+      "subject": "You already have an account",
+      "body": "Someone tried to create an account with your email. You already have an account, so you can just log in. If you forgot your password, you can reset it on the login page.",
+      "button": "Log in",
+      "note": "If this was not you, you can ignore this email. Your account has not changed."
+    },
+    "invite": {
+      "subject": "You are invited to the admin",
+      "body": "You have been added as staff at {company}. Choose a password to get started.",
+      "button": "Choose password",
+      "note": "The link works for 72 hours. Managers and administrators must also turn on two-step login the first time they log in."
+    }
+  },
+  "search": {
+    "pickupLocation": "Pickup",
+    "returnLocation": "Return",
+    "sameAsPickup": "Same as pickup",
+    "chooseLocation": "Choose location",
+    "pickupDate": "Pickup date",
+    "pickupTime": "Time",
+    "returnDate": "Return date",
+    "returnTime": "Time",
+    "submit": "Find cars",
+    "update": "Update search"
+  },
+  "cars": {
+    "title": "Cars",
+    "description": "See all our cars. Choose a place and dates to see what is available and what it costs.",
+    "searchTitle": "Available cars",
+    "filters": "Filters",
+    "category": "Category",
+    "transmission": "Transmission",
+    "fuel": "Fuel",
+    "seats": "Seats",
+    "seatsMin": "At least {count}",
+    "any": "Any",
+    "apply": "Show cars",
+    "reset": "Reset filters",
+    "sort": "Sort",
+    "sortOptions": {
+      "recommended": "Recommended",
+      "price_asc": "Price, lowest first",
+      "price_desc": "Price, highest first",
+      "popular": "Most popular",
+      "newest": "Newest"
+    },
+    "results": "{count, plural, one {# car} other {# cars}}",
+    "period": "{from} – {to} · {days, plural, one {# day} other {# days}}",
+    "fromPerDay": "from {price}",
+    "perDay": "per day",
+    "total": "{price} total",
+    "details": "View car",
+    "searchHint": "Choose a place and dates to see available cars and the total price.",
+    "empty": {
+      "title": "No cars match",
+      "body": "Try other dates, another location or fewer filters."
+    },
+    "errors": {
+      "OUTSIDE_OPENING_HOURS": "The location is closed at the selected time. Choose a time within opening hours.",
+      "TOO_SOON": "Pickup is too soon. Book at least {hours, plural, one {# hour} other {# hours}} ahead.",
+      "VALIDATION_FAILED": "Check the dates. Return must be after pickup, and a rental can last at most {days} days.",
+      "generic": "We could not search right now. Please try again shortly."
+    },
+    "specs": {
+      "seats": "{count} seats",
+      "bags": "{count, plural, one {# suitcase} other {# suitcases}}",
+      "doors": "{count} doors",
+      "airConditioning": "Air conditioning",
+      "year": "Model year {year}"
+    },
+    "transmissionNames": {
+      "MANUAL": "Manual",
+      "AUTOMATIC": "Automatic"
+    },
+    "fuelNames": {
+      "PETROL": "Petrol",
+      "DIESEL": "Diesel",
+      "HYBRID": "Hybrid",
+      "ELECTRIC": "Electric"
+    },
+    "imagePlaceholder": "{name}, side view, light background"
+  },
+  "car": {
+    "back": "All cars",
+    "specsTitle": "Specifications",
+    "pricesTitle": "Prices",
+    "pricesIntro": "The longer you rent, the lower the daily price. The price never exceeds the next package.",
+    "days": "{count, plural, one {# day} other {# days}}",
+    "package": "Package price",
+    "perDay": "Per day",
+    "includedTitle": "Included",
+    "includedKm": "{km} km per day",
+    "insurance": "Mandatory third-party and collision insurance",
+    "vat": "VAT",
+    "notIncludedTitle": "Not included",
+    "extraKm": "Extra kilometres: {price} per km",
+    "fuel": "Fuel or charging. Return the car with the same level as at pickup.",
+    "deposit": "Deposit: {price}",
+    "depositNote": "The deposit is reserved on your card at pickup and released when the car is returned undamaged. For rentals over {days} days the amount is charged and refunded.",
+    "availabilityTitle": "Check availability and price",
+    "availabilityHint": "Choose a place and dates to see if the car is available and what it costs in total.",
+    "available": "Available for these dates",
+    "unavailable": "The car is not available for the selected dates.",
+    "nextAvailable": "Available from:",
+    "alternatives": "Other cars available for these dates",
+    "priceSummary": "Price summary",
+    "lines": {
+      "RENTAL": "Rental, {days, plural, one {# day} other {# days}}",
+      "DELIVERY_FEE": "Delivery",
+      "ONE_WAY_FEE": "Return at another location",
+      "DISCOUNT": "Discount",
+      "EXTRA": "Extras",
+      "FEE": "Fee",
+      "EXTRA_KM": "Extra kilometres",
+      "FUEL": "Fuel or charge",
+      "LATE_FEE": "Late return",
+      "DAMAGE": "Damage"
+    },
+    "totalLabel": "Total",
+    "vatIncluded": "Including VAT {price}",
+    "book": "Book this car",
+    "askWhatsapp": "Ask about this car on WhatsApp",
+    "whatsappPrefill": "Hi, I am interested in the {name}.",
+    "whatsappPrefillPeriod": "Hi, I am interested in the {name} from {from} to {to}.",
+    "locationsTitle": "Available at",
+    "rentalPeriod": "Rental period",
+    "fuelFee": "Missing fuel or charge: {price} per eighth of a tank",
+    "lateFee": "Late return: {price} per started hour after {minutes} minutes"
+  },
+  "pricing": {
+    "title": "Pricing",
+    "description": "All prices are in Danish kroner including VAT and mandatory insurance.",
+    "ladderTitle": "Prices by category",
+    "ladderNote": "If you rent for a number of days between two packages, you pay the daily price of the smaller package, but never more than the larger package.",
+    "days": "{count, plural, one {# day} other {# days}}",
+    "package": "Package price",
+    "perDay": "Per day",
+    "extrasTitle": "Extras",
+    "extraPerDay": "{price} per day",
+    "extraPerBooking": "{price} per rental",
+    "extraMax": "max. {price}",
+    "feesTitle": "Delivery and one-way rentals",
+    "oneWay": "Return at {location}: {price}",
+    "delivery": "Delivery from {location}, up to {km} km: {price}",
+    "noFees": "There are no fees for delivery or one-way rentals.",
+    "cta": "Find an available car"
+  },
+  "locations": {
+    "title": "Locations",
+    "description": "Where you can pick up and return our cars.",
+    "openingHours": "Opening hours",
+    "closed": "Closed",
+    "address": "Address",
+    "showMap": "Show on map",
+    "delivery": "We can deliver the car to your address.",
+    "types": {
+      "OFFICE": "Office",
+      "AIRPORT": "Airport",
+      "PARTNER": "Partner"
+    },
+    "findCars": "Find cars in {name}",
+    "contact": "Contact",
+    "pageDescription": "Car rental at {name}, {address}. See opening hours and book a car for pick-up here."
+  },
+  "about": {
+    "title": "About us",
+    "description": "We make renting a car easy and safe.",
+    "sections": [
+      {
+        "title": "Who we are",
+        "body": "We are a local car rental company focused on well-kept cars, clear prices and personal service."
+      },
+      {
+        "title": "Our promise",
+        "body": "You always see the full price before you book. No surprises at the counter."
+      },
+      {
+        "title": "Get in touch",
+        "body": "If you have questions, message us on WhatsApp, send an email or call."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "description": "Answers to what customers ask most often.",
+    "items": [
+      {
+        "q": "What do I need to bring when I pick up the car?",
+        "a": "A valid driving licence, a payment card in the renter's name for the deposit and your booking confirmation."
+      },
+      {
+        "q": "How does the deposit work?",
+        "a": "The amount is reserved on your card at pickup and released when the car is returned undamaged. For long rentals the amount is charged and refunded after return."
+      },
+      {
+        "q": "Is insurance included?",
+        "a": "Yes. Mandatory third-party and collision insurance are always included. The excess is stated in the rental terms."
+      },
+      {
+        "q": "How many kilometres can I drive?",
+        "a": "Each car includes a number of kilometres per day. The price for extra kilometres is shown on the car's page."
+      },
+      {
+        "q": "What about fuel?",
+        "a": "The car is handed over with a certain level of fuel or charge and must be returned with the same level."
+      },
+      {
+        "q": "Can I cancel?",
+        "a": "Yes. The cancellation rules are in the rental terms and your booking confirmation."
+      },
+      {
+        "q": "Can the car be delivered to my address?",
+        "a": "From some locations we can deliver the car. The price depends on the distance and is shown before you pay."
+      },
+      {
+        "q": "Can I return the car at another location?",
+        "a": "Yes, between our locations. The fee is shown in the price summary before you book."
+      }
+    ]
+  },
+  "legal": {
+    "draftNotice": "Draft: this text must be reviewed and approved by the company before the site goes live."
+  },
+  "terms": {
+    "title": "Rental terms",
+    "description": "The terms for renting a car from us.",
+    "sections": [
+      {
+        "title": "Renter and driving licence",
+        "body": "The renter must hold a valid driving licence. Requirements for age and how long you have held a licence are shown when booking."
+      },
+      {
+        "title": "Booking and payment",
+        "body": "The booking is binding once payment is completed. The price covers rental, chosen extras and fees as shown when booking."
+      },
+      {
+        "title": "Deposit",
+        "body": "A deposit is reserved on the renter's payment card at pickup. It is released when the car is returned in the same condition."
+      },
+      {
+        "title": "Kilometres and fuel",
+        "body": "The included kilometres are shown on the car's page. Extra kilometres are charged at the stated rate. Return the car with the same fuel or charge level as at pickup."
+      },
+      {
+        "title": "Insurance and excess",
+        "body": "The car is covered by mandatory third-party and collision insurance. In case of damage, the renter pays the excess."
+      },
+      {
+        "title": "Cancellation",
+        "body": "Cancel via the link in your booking confirmation or in your account. Refund rules are shown when booking."
+      },
+      {
+        "title": "Damage and accidents",
+        "body": "Report damage and accidents to us immediately. The car is inspected at pickup and return."
+      },
+      {
+        "title": "Return",
+        "body": "Return the car at the agreed place and time. If you are later than the grace period, a fee is charged for each started hour, as stated in the agreement."
+      }
+    ]
+  },
+  "privacy": {
+    "title": "Privacy policy",
+    "description": "How we process your personal data.",
+    "sections": [
+      {
+        "title": "Data controller",
+        "body": "The car rental company is the data controller for the information you give us. You can contact us via the contact page."
+      },
+      {
+        "title": "What we process",
+        "body": "Name, contact details, driving licence details, bookings, payments and messages to us."
+      },
+      {
+        "title": "Purpose",
+        "body": "We use the data to carry out the rental agreement, meet legal requirements (such as bookkeeping) and answer your enquiries."
+      },
+      {
+        "title": "Payment",
+        "body": "Payments are handled by our payment provider. We never store your card details."
+      },
+      {
+        "title": "Retention",
+        "body": "We keep the data as long as needed for the purpose or required by law, and delete it afterwards."
+      },
+      {
+        "title": "Your rights",
+        "body": "You have the right of access, rectification, erasure, restriction and data portability. You can also object to the processing."
+      },
+      {
+        "title": "Complaints",
+        "body": "You can complain to the Danish Data Protection Agency if you are unhappy with how we process your data."
+      }
+    ]
+  },
+  "cookiePolicy": {
+    "title": "Cookie policy",
+    "description": "Which cookies we use and how to change your consent.",
+    "sections": [
+      {
+        "title": "Necessary cookies",
+        "body": "Used for login, language, security and remembering your cookie choice. They cannot be turned off."
+      },
+      {
+        "title": "Statistics",
+        "body": "Helps us understand how the site is used. Only set if you say yes."
+      },
+      {
+        "title": "Marketing",
+        "body": "Used to measure ads. Only set if you say yes."
+      }
+    ],
+    "change": "You can change your choice at any time:"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Write, call or drop by. We are happy to help.",
+    "phone": "Phone",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "formTitle": "Send us a message",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "subject": "Subject (optional)",
+      "message": "Message",
+      "website": "Leave this field empty",
+      "privacy": "We only use your details to reply to you.",
+      "submit": "Send message",
+      "success": "Thank you for your message. We will get back to you as soon as possible.",
+      "errors": {
+        "fields": "Check the highlighted fields.",
+        "rateLimited": "You have sent many messages. Please try again later.",
+        "generic": "The message could not be sent. Try again or message us on WhatsApp."
+      },
+      "fieldErrors": {
+        "name": "Enter your name.",
+        "email": "Enter a valid email address.",
+        "phone": "Enter a valid phone number.",
+        "message": "Write at least 10 characters."
+      }
+    }
+  },
+  "reviews": {
+    "title": "Reviews",
+    "description": "Reviews from customers who rented a car from us.",
+    "empty": "There are no reviews yet.",
+    "rating": "{rating} out of 5 stars",
+    "new": {
+      "title": "Rate your rental",
+      "intro": "Thank you for renting {car} with us. How was your experience?",
+      "rating": "Your rating",
+      "stars": "{count, plural, one {# star} other {# stars}}",
+      "comment": "Comment (optional)",
+      "commentHint": "Up to 1,000 characters.",
+      "displayName": "Shown as",
+      "displayNameHint": "E.g. your first name and last initial.",
+      "submit": "Send review",
+      "thanks": "Thank you for your review!",
+      "thanksBody": "We read it before it appears on the site.",
+      "invalid": "The link does not work. Use the link from your email.",
+      "done": "You have already reviewed this rental. Thank you!",
+      "notCompleted": "You can review the rental once the car has been returned.",
+      "back": "Go to the front page",
+      "errors": {
+        "rating": "Choose between 1 and 5 stars.",
+        "comment": "Up to 1,000 characters.",
+        "displayName": "Enter 2–40 characters."
+      },
+      "notices": {
+        "invalid": "Check the highlighted fields.",
+        "failed": "Something went wrong. Please try again."
+      }
+    }
+  },
+  "booking": {
+    "title": "Booking",
+    "stepsLabel": "Booking steps",
+    "steps": {
+      "extras": "Extras",
+      "details": "Your details",
+      "payment": "Payment"
+    },
+    "pickup": "Pick-up",
+    "return": "Return",
+    "deliveryTo": "Delivery to: {address}",
+    "rental": "Rental",
+    "depositNote": "A deposit of {price} is held on your card at pick-up. It is not part of the price.",
+    "totalLabel": "Total",
+    "summaryTitle": "Your booking",
+    "changeCar": "Back to the car",
+    "extrasTitle": "Customise your rental",
+    "incomplete": {
+      "title": "Choose a car and dates",
+      "body": "First choose a location, dates and a car. Then you can book.",
+      "cta": "Find a car"
+    },
+    "unavailable": {
+      "title": "The car is not available",
+      "body": "Sorry, {car} is not available for the selected dates. See other available cars or choose other dates.",
+      "cta": "See available cars"
+    },
+    "extras": {
+      "title": "Extras",
+      "none": "There are no extras to choose from.",
+      "perDay": "{price} per day",
+      "perBooking": "{price} per rental",
+      "max": "max. {price}",
+      "quantity": "quantity"
+    },
+    "fulfilment": {
+      "title": "Pick-up or delivery",
+      "pickup": "Pick up the car at {location}",
+      "delivery": "Delivery up to {km} km from the office",
+      "deliveryFee": "Surcharge {price}"
+    },
+    "discount": {
+      "label": "Discount code",
+      "hint": "Have a discount code? Enter it and tap \"Update price\".",
+      "invalid": "The discount code can't be used for this booking.",
+      "applied": "The discount code {code} has been applied."
+    },
+    "updatePrice": "Update price",
+    "continue": "Continue",
+    "back": "Back",
+    "details": {
+      "title": "Your details",
+      "guestNote": "You don't need an account to book. Have an account?",
+      "login": "Log in",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "phone": "Mobile number",
+      "phoneHint": "Include the country code, e.g. +44 7700 900123. We only use it if we need to contact you about the booking.",
+      "deliveryAddress": "Delivery address",
+      "deliveryAddressHint": "Street, number, postcode and city",
+      "terms": "I accept the <link>rental terms</link>.",
+      "reservedNote": "When you continue, we hold the car for you for {minutes} minutes while you pay.",
+      "submit": "Go to payment"
+    },
+    "fieldErrors": {
+      "required": "This field is required.",
+      "email": "Enter a valid email address.",
+      "phone": "Enter a valid mobile number, e.g. +44 7700 900123.",
+      "deliveryAddress": "Enter the address the car should be delivered to.",
+      "acceptTerms": "You must accept the rental terms to book."
+    },
+    "errors": {
+      "fields": "Check the highlighted fields.",
+      "generic": "Something went wrong. Try again, or message us on WhatsApp.",
+      "searchAgain": "See available cars",
+      "CAR_NO_LONGER_AVAILABLE": "The car has just been booked by someone else.",
+      "RATE_LIMITED": "You have tried many times. Wait a moment and try again.",
+      "OUTSIDE_OPENING_HOURS": "The office is closed at the selected time. Choose another time.",
+      "VALIDATION_FAILED": "These dates can't be booked. Go back and choose other dates.",
+      "OUTSIDE_DELIVERY_ZONE": "We don't deliver that far. Choose another delivery zone or pick-up.",
+      "PRICE_UNAVAILABLE": "We can't calculate a price for these dates. Message us on WhatsApp."
+    },
+    "pay": {
+      "title": "Payment",
+      "reservedUntil": "The car is reserved for you until {time}.",
+      "failed": "The payment was declined. Try again, or use another card.",
+      "unavailable": "Payment is temporarily unavailable. Message us on WhatsApp and we'll help you.",
+      "submit": "Pay {price}",
+      "testTitle": "Test payment",
+      "testBody": "Stripe is not connected yet. You can try the flow here without paying.",
+      "testFail": "Try a declined card",
+      "secure": "Payment is handled securely by Stripe. We never see or store your card details.",
+      "expiredTitle": "The reservation has expired",
+      "expiredBody": "The payment was not completed within {minutes} minutes, so the car has been released. Choose dates again to see if it is still available.",
+      "expiredCta": "Choose dates again"
+    },
+    "confirmation": {
+      "metaTitle": "Booking confirmed",
+      "title": "Thank you, {name}! Your booking is confirmed",
+      "reference": "Booking number",
+      "referenceHint": "Please quote this number if you contact us.",
+      "nextTitle": "What happens next?",
+      "next1": "Bring your driving licence and a payment card for the deposit.",
+      "next2": "Come to {location} at the pick-up time.",
+      "next2Delivery": "We bring the car to your address at the agreed time.",
+      "next3": "We go through the car with you before you drive off.",
+      "calendar": "Add to calendar",
+      "calendarTitle": "Car rental: {car} ({reference})",
+      "whatsapp": "Message us on WhatsApp",
+      "whatsappPrefill": "Hi, I have a question about my booking {reference}.",
+      "createAccount": "Create an account to see all your bookings in one place.",
+      "createAccountCta": "Create account",
+      "refundedTitle": "Sorry, the car was no longer available",
+      "refundedBody": "Your payment has been refunded in full. It may take a few days before the money is back in your account. Message us and we'll find you another car.",
+      "pendingTitle": "We're waiting for the payment to be confirmed",
+      "pendingBody": "This usually only takes a moment. The page updates itself.",
+      "failedTitle": "The payment didn't go through",
+      "failedBody": "The car is still reserved for you for a short while. Try paying again.",
+      "retry": "Try paying again",
+      "manage": "View or cancel your booking"
+    }
+  },
+  "notifications": {
+    "common": {
+      "greeting": "Hi {name}",
+      "signature": "Kind regards, {company}",
+      "footer": "You are receiving this message because you booked a car with {company}.",
+      "reference": "Booking number",
+      "car": "Car",
+      "pickup": "Pick-up",
+      "return": "Return",
+      "paid": "Paid",
+      "bring": "Remember your driving licence when you pick up the car.",
+      "bringWithDeposit": "Remember your driving licence and a payment card for the deposit of {deposit} when you pick up the car.",
+      "questions": "If you have any questions, message us on WhatsApp or reply to this email.",
+      "whatsappButton": "Message us on WhatsApp",
+      "whatsappPrefill": "Hi, I have a question about my booking {reference}.",
+      "manage": "View or cancel your booking",
+      "refund": "Refund",
+      "total": "Total"
+    },
+    "BOOKING_CONFIRMED": {
+      "subject": "Your booking {reference} is confirmed",
+      "intro": "Thank you for your booking. We have received your payment of {amount}, and the car is reserved for you."
+    },
+    "PAYMENT_RECEIVED": {
+      "subject": "We have received your payment",
+      "intro": "We have received {amount} for booking {reference}. Thank you!"
+    },
+    "CAR_READY": {
+      "subject": "Your car is ready",
+      "intro": "Your {car} has been prepared and is waiting for you."
+    },
+    "PICKUP_REMINDER": {
+      "subject": "Reminder: you pick up your car soon",
+      "intro": "In less than a day you pick up your car. Here are the key details."
+    },
+    "RETURN_REMINDER": {
+      "subject": "Your rental period ends soon",
+      "intro": "Remember to return the car {time} at {location}.",
+      "fuel": "Return the car with the same fuel or charge level as when you picked it up."
+    },
+    "THANK_YOU": {
+      "subject": "Thank you for renting with us",
+      "intro": "The car has been returned and your rental is complete. Thank you!",
+      "deposit": "Any deposit will be released within a few days."
+    },
+    "REVIEW_REQUEST": {
+      "subject": "How was your experience?",
+      "intro": "We would love to hear how your rental went. It takes less than a minute.",
+      "button": "Leave a review"
+    },
+    "BOOKING_CANCELLED": {
+      "subject": "Your booking {reference} has been cancelled",
+      "intro": "Your booking {reference} has been cancelled and the car has been released.",
+      "refund": "We are refunding {amount} to your payment card. It can take 5–10 business days before the money is in your account.",
+      "noRefund": "Under the cancellation terms, nothing is refunded for this booking."
+    },
+    "PAYMENT_REQUEST": {
+      "subject": "Pay for your booking {reference}",
+      "intro": "Thank you for your booking. Pay {amount} using the button below to confirm it.",
+      "deadline": "We are holding the car for you until {deadline}.",
+      "button": "Pay for your booking"
+    },
+    "BOOKING_CHANGED": {
+      "subject": "Your booking {reference} has changed",
+      "intro": "We have changed your booking {reference}. Here are the new details."
+    }
+  },
+  "manage": {
+    "title": "Booking {reference}",
+    "summaryTitle": "Your booking",
+    "cancelledTitle": "Your booking has been cancelled",
+    "cancelledRefund": "We are refunding {amount} to your payment card. It can take 5–10 business days before the money is in your account. You will receive a receipt by email.",
+    "cancelledNoRefund": "Under the cancellation terms, nothing is refunded. You will receive a receipt by email.",
+    "pendingPayment": "This booking has not been paid yet.",
+    "payNow": "Pay now",
+    "whatsapp": "Message us on WhatsApp",
+    "whatsappPrefill": "Hi, I have a question about my booking {reference}.",
+    "receipt": "Receipt",
+    "paymentsTitle": "Payments",
+    "changeTitle": "Need to change something?",
+    "changeBody": "Message us on WhatsApp if you want to change the date, time or car. We will check whether it is possible and tell you what it costs.",
+    "cancel": {
+      "title": "Cancel booking",
+      "free": "Free cancellation until {deadline}. If you cancel now, you get the full amount back: {amount}.",
+      "late": "Pick-up is less than {hours} hours away. If you cancel now, you get {percent}% back: {amount}.",
+      "confirm": "Yes, I want to cancel my booking",
+      "submit": "Cancel booking",
+      "errors": {
+        "confirm": "Tick the box to confirm that you want to cancel.",
+        "notAllowed": "This booking can no longer be cancelled online. Please message us on WhatsApp.",
+        "generic": "Something went wrong. Please try again or message us on WhatsApp."
+      }
+    },
+    "linkInvalid": {
+      "title": "This link does not work",
+      "body": "The link to your booking is invalid or has expired. Message us on WhatsApp with your booking number and we will help you.",
+      "whatsapp": "Message us on WhatsApp"
+    },
+    "contract": "Rental agreement (PDF)"
+  },
+  "receipt": {
+    "title": "Receipt {reference}",
+    "date": "Date: {date}",
+    "print": "Print or save as PDF",
+    "seller": "Rental company",
+    "customer": "Customer",
+    "lines": "Details",
+    "vat": "Including VAT ({percent}%)",
+    "payments": "Payments"
+  },
+  "contract": {
+    "title": "Rental agreement",
+    "reference": "Booking {reference}",
+    "termsVersion": "Terms version {version}",
+    "landlord": "Rental company",
+    "renter": "Renter",
+    "car": "Car",
+    "registration": "Reg. no. {number}",
+    "period": "Rental period",
+    "pickup": "Pick-up",
+    "return": "Return",
+    "price": "Price",
+    "total": "Total",
+    "included": "Included",
+    "fees": "Extra charges",
+    "terms": "Rental terms",
+    "signature": "Signature",
+    "signedBy": "Signed by {name} {date}",
+    "signedNote": "Signed electronically on screen at pick-up.",
+    "unsigned": "Not signed yet.",
+    "page": "Page {page} of {total}",
+    "download": "Rental agreement (PDF)"
+  },
+  "offline": {
+    "title": "You are offline",
+    "body": "There is no internet connection right now. Prices and available cars need a connection, so try again when you are online.",
+    "retry": "Try again"
+  }
+}

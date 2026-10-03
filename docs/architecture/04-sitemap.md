@@ -37,7 +37,9 @@ Hver side får `hreflang`-links og canonical URL. Se [K11](13-konflikter.md#k11-
 │   ├── ?step=review
 │   └── ?step=payment
 ├── /booking/confirmation        Bekræftelse (efter betaling; kan genindlæses)
-├── /booking/manage/[token]      Gæst: se/annullér booking via sikkert link  [tilføjet — se K7]
+├── /booking/manage/[token]      Gæst: sikkert link fra e-mail → sætter adgang og sender til /booking/[reference]  [tilføjet — se K7]
+├── /booking/[reference]         Gæst: se/annullér booking (efter linket eller i samme browser)
+├── /booking/[reference]/receipt Kvittering (print/PDF)
 │
 ├── /login
 ├── /register
@@ -48,9 +50,9 @@ Hver side får `hreflang`-links og canonical URL. Se [K11](13-konflikter.md#k11-
     ├── /account/bookings        Kommende + tidligere
     │   └── /account/bookings/[reference]   Detaljer, kontrakt, kvittering, annullér, WhatsApp
     ├── /account/payments        Betalinger og fakturaer/kvitteringer
-    ├── /account/documents       Kontrakter, kørekort (upload)
+    ├── /account/documents       Kontrakter, kørekort (upload)  [M12: underskrevne kontrakter som PDF; kørekort-upload senere]
     ├── /account/profile         Profil + kontaktoplysninger + kørekort
-    ├── /account/privacy         Samtykker, dataeksport, slet konto
+    ├── /account/privacy         Samtykker, dataeksport, slet konto  [M15]
     └── /account/saved           Gemte biler  [PHASE 2]
 ```
 
@@ -94,6 +96,8 @@ Tekniske ruter: `/sitemap.xml`, `/robots.txt`, `/manifest.webmanifest`, `/offlin
 | Dashboard, kalender, bookinger, kunder (læs) | | ✓ | ✓ | ✓ |
 | Opret/ændr booking, inspektioner, skader, beskeder | | ✓ | ✓ | ✓ |
 | Annullér + refundér | | – (kan anmode) | ✓ | ✓ |
+| Depositum og afregning efter aflevering | | ✓ | ✓ | ✓ |
+| Godkend ansvar og beløb for skader | | | ✓ | ✓ |
 | Flåde, service | | læs + status | ✓ | ✓ |
 | Priser, ekstraudstyr, rabatter, lokationer | | | ✓ | ✓ |
 | Statistik / omsætning | | | ✓ | ✓ |
