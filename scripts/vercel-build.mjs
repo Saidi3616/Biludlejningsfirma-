@@ -35,6 +35,9 @@ if (process.env.APP_ENV !== "production") {
   const needsLogin =
     Boolean(password) &&
     !(login[0]?.password && (await verifyPassword({ hash: login[0].password, password })));
+  if (!password) console.log("Demo-login: SEED_ADMIN_PASSWORD findes ikke i dette miljø.");
+  else if (needsLogin) console.log("Demo-login: adgangskoden sættes fra SEED_ADMIN_PASSWORD.");
+  else console.log("Demo-login: adgangskoden passer allerede med SEED_ADMIN_PASSWORD.");
   if (rows[0].count === 0 || needsLogin) run("pnpm exec prisma db seed");
 }
 
