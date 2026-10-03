@@ -1,6 +1,7 @@
 // Build-kommando på Vercel (se vercel.json): opretter/opdaterer databasetabellerne,
 // lægger demo-data i en tom database uden for produktion og bygger derefter appen.
 import { execSync } from "node:child_process";
+import { verifyPassword } from "better-auth/crypto";
 import pg from "pg";
 
 const run = (command, env = process.env) => execSync(command, { stdio: "inherit", env });
@@ -22,14 +23,18 @@ if (process.env.APP_ENV !== "production") {
   const client = new pg.Client({ connectionString: process.env.DATABASE_URL });
   await client.connect();
   const { rows } = await client.query('SELECT COUNT(*)::int AS count FROM "Location"');
-  // Demo-admin uden adgangskode: SEED_ADMIN_PASSWORD blev sat efter første seed.
-  const { rows: missingLogin } = await client.query(
-    `SELECT 1 FROM "User" u WHERE u.email = 'admin@example.com' AND NOT EXISTS
-       (SELECT 1 FROM "Account" a WHERE a."userId" = u.id AND a."providerId" = 'credential')`,
+  // Demo-admin uden adgangskode, eller SEED_ADMIN_PASSWORD er ændret siden sidste seed.
+  const { rows: login } = await client.query(
+    `SELECT a.password FROM "User" u JOIN "Account" a
+       ON a."userId" = u.id AND a."providerId" = 'credential'
+     WHERE u.email = 'admin@example.com'`,
   );
   await client.end();
+  const password = process.env.SEED_ADMIN_PASSWORD;
   // Kun når det er nødvendigt: seed overskriver ellers ændringer, der er lavet i admin.
-  const needsLogin = missingLogin.length > 0 && Boolean(process.env.SEED_ADMIN_PASSWORD);
+  const needsLogin =
+    Boolean(password) &&
+    !(login[0]?.password && (await verifyPassword({ hash: login[0].password, password })));
   if (rows[0].count === 0 || needsLogin) run("pnpm exec prisma db seed");
 }
 
