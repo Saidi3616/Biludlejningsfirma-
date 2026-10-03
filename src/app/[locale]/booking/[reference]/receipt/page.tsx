@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
 import { rentalRules } from "@/config/rental";
 import { site } from "@/config/site";
+import { getSiteContact } from "@/server/settings";
 import { Container } from "@/components/ui/layout";
 import { Price } from "@/components/ui/price";
 import { BookingItems } from "@/components/features/booking/booking-items";
@@ -35,7 +36,7 @@ export default async function ReceiptPage({
   const charges = booking.payments.filter((payment) => payment.kind !== "REFUND");
   if (charges.length === 0) notFound();
 
-  const t = await getTranslations("receipt");
+  const [t, contact] = await Promise.all([getTranslations("receipt"), getSiteContact()]);
   const paidAt = charges[charges.length - 1]!.createdAt;
   // Alle priser er inkl. moms; momsen udregnes af totalen.
   const vatMinor =
@@ -62,8 +63,9 @@ export default async function ReceiptPage({
             {t("seller")}
           </h2>
           <p>{site.name}</p>
-          <p>{site.email}</p>
-          <p>{site.phone}</p>
+          {contact.address ? <p>{contact.address}</p> : null}
+          <p>{contact.email}</p>
+          <p>{contact.phone}</p>
         </section>
         <section aria-labelledby="buyer" className="flex flex-col gap-1 text-base text-ink-700">
           <h2 id="buyer" className="font-semibold text-ink-900">

@@ -8,6 +8,7 @@ import { localizedPath } from "@/i18n/paths";
 import type { Locale } from "@/i18n/routing";
 import { feeRates, rentalRules } from "@/config/rental";
 import { whatsappLink } from "@/config/site";
+import { getSiteContact } from "@/server/settings";
 import { Alert } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -60,11 +61,12 @@ export default async function CarPage({
   if (!car) notFound();
 
   const search = parseCarSearch(await searchParams);
-  const [t, locations, availability, period] = await Promise.all([
+  const [t, locations, availability, period, contact] = await Promise.all([
     getTranslations(),
     searchLocations(),
     carAvailability(car, search, { locale }),
     resolvePeriod(search),
+    getSiteContact(),
   ]);
   const query = periodQuery(search);
   const whatsappText = period
@@ -149,7 +151,11 @@ export default async function CarPage({
                 timeZone={period?.pickupTimeZone ?? "Europe/Copenhagen"}
               />
               <Button asChild variant="whatsapp" fullWidth>
-                <a href={whatsappLink(whatsappText)} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={whatsappLink(contact.whatsappNumber, whatsappText)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <WhatsAppIcon />
                   {t("car.askWhatsapp")}
                 </a>

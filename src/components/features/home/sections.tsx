@@ -53,7 +53,7 @@ export function HowItWorks() {
   );
 }
 
-export function WhatsAppCta() {
+export function WhatsAppCta({ whatsappNumber }: { whatsappNumber: string }) {
   const t = useTranslations();
   return (
     <section className="bg-brand-800 py-12 text-white sm:py-16">
@@ -63,7 +63,11 @@ export function WhatsAppCta() {
           <p className="text-lg text-brand-100">{t("home.whatsappCta.body")}</p>
         </div>
         <Button asChild variant="whatsapp" size="lg">
-          <a href={whatsappLink(t("whatsapp.prefill"))} target="_blank" rel="noopener noreferrer">
+          <a
+            href={whatsappLink(whatsappNumber, t("whatsapp.prefill"))}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <WhatsAppIcon />
             {t("home.whatsappCta.button")}
           </a>

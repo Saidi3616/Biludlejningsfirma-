@@ -11,7 +11,7 @@ import { WhatsAppIcon } from "./whatsapp-icon";
 import { LanguageSwitcher } from "./language-switcher";
 import { mainNav } from "./nav-links";
 
-export function MobileMenu() {
+export function MobileMenu({ whatsappNumber }: { whatsappNumber: string }) {
   const t = useTranslations();
   const [open, setOpen] = useState(false);
 
@@ -46,7 +46,11 @@ export function MobileMenu() {
             </Link>
           </Button>
           <Button asChild variant="whatsapp" size="lg" fullWidth>
-            <a href={whatsappLink(t("whatsapp.prefill"))} target="_blank" rel="noopener noreferrer">
+            <a
+              href={whatsappLink(whatsappNumber, t("whatsapp.prefill"))}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <WhatsAppIcon />
               {t("whatsapp.floating")}
             </a>

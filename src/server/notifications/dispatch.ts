@@ -6,6 +6,7 @@ import { routing } from "@/i18n/routing";
 import { serverEnv } from "@/lib/env";
 import { logger } from "@/lib/logger";
 import { receivedMinor, refundedMinor } from "@/lib/payments";
+import { getSiteContact } from "@/server/settings";
 import { manageTokenFor, reviewTokenFor } from "@/server/booking/tokens";
 import { db } from "@/server/db";
 import { sendEmail } from "@/server/email/send";
@@ -105,6 +106,7 @@ async function deliver(id: string, now: Date): Promise<keyof DispatchResult> {
     depositMinor: booking.depositMinor,
     expiresAt: booking.expiresAt,
     currency: booking.currency,
+    whatsappNumber: (await getSiteContact()).whatsappNumber,
   };
   const locale = hasLocale(routing.locales, notification.locale)
     ? notification.locale

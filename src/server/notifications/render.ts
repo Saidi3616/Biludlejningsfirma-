@@ -39,6 +39,8 @@ export type NotificationContext = {
   /** Signeret token til anmeldelsessiden (E8). */
   reviewToken: string;
   currency: string;
+  /** Firmaets WhatsApp-nummer fra /admin/settings. */
+  whatsappNumber: string;
 };
 
 type Content = {
@@ -85,7 +87,10 @@ export function renderNotification(
       : t("common.bring");
   const whatsappButton = {
     label: t("common.whatsappButton"),
-    url: whatsappLink(t("common.whatsappPrefill", { reference: ctx.reference })),
+    url: whatsappLink(
+      ctx.whatsappNumber,
+      t("common.whatsappPrefill", { reference: ctx.reference }),
+    ),
   };
   const reviewUrl = new URL(localizedPath(locale, "/reviews/new"), baseUrl);
   reviewUrl.searchParams.set("token", ctx.reviewToken);

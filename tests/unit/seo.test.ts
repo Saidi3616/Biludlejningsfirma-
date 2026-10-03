@@ -121,10 +121,12 @@ describe("JSON-LD", () => {
         ],
       },
       "https://www.example.dk/locations/aarhus",
+      { phone: "+45 11 22 33 44", email: "kontakt@example.dk" },
     );
     expect(data).toMatchObject({
       "@type": "AutoRental",
       email: "aarhus@example.com",
+      telephone: "+45 11 22 33 44",
       address: { postalCode: "8000", addressCountry: "DK" },
       geo: { latitude: 56.1496, longitude: 10.2045 },
     });
@@ -145,6 +147,8 @@ describe("JSON-LD", () => {
         },
       ],
     });
-    expect(organizationJsonLd()).toMatchObject({ "@type": "AutoRental" });
+    expect(
+      organizationJsonLd({ phone: "+45 11 22 33 44", email: "kontakt@example.dk" }),
+    ).toMatchObject({ "@type": "AutoRental", telephone: "+45 11 22 33 44" });
   });
 });

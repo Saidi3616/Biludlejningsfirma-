@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Mail, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import type { Locale } from "@/i18n/routing";
 import { pageMetadata } from "@/lib/seo";
-import { site, whatsappLink } from "@/config/site";
+import { whatsappLink } from "@/config/site";
+import { getSiteContact } from "@/server/settings";
 import { Card, CardBody } from "@/components/ui/card";
 import { Container } from "@/components/ui/layout";
 import { ContactForm } from "@/components/features/contact/contact-form";
@@ -24,16 +25,21 @@ export async function generateMetadata({
 export default async function ContactPage({ params }: PageProps<"/[locale]/contact">) {
   const { locale } = (await params) as { locale: Locale };
   setRequestLocale(locale);
-  const t = await getTranslations();
+  const [t, contact] = await Promise.all([getTranslations(), getSiteContact()]);
   const channels = [
     {
       icon: Phone,
       label: t("contact.phone"),
-      value: site.phone,
-      href: `tel:${site.phone.replace(/\s/g, "")}`,
+      value: contact.phone,
+      href: `tel:${contact.phone.replace(/\s/g, "")}`,
       ltr: true,
     },
-    { icon: Mail, label: t("contact.email"), value: site.email, href: `mailto:${site.email}` },
+    {
+      icon: Mail,
+      label: t("contact.email"),
+      value: contact.email,
+      href: `mailto:${contact.email}`,
+    },
   ];
 
   return (
@@ -61,12 +67,21 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
               </div>
             </li>
           ))}
+          {contact.address ? (
+            <li className="flex items-start gap-3">
+              <MapPin className="mt-1 size-5 text-ink-500" aria-hidden />
+              <div className="flex flex-col">
+                <span className="text-sm text-muted">{t("contact.address")}</span>
+                <span className="text-base font-medium text-ink-900">{contact.address}</span>
+              </div>
+            </li>
+          ) : null}
           <li className="flex items-start gap-3">
             <WhatsAppIcon className="mt-1 size-5 text-ink-500" />
             <div className="flex flex-col">
               <span className="text-sm text-muted">{t("contact.whatsapp")}</span>
               <a
-                href={whatsappLink(t("whatsapp.prefill"))}
+                href={whatsappLink(contact.whatsappNumber, t("whatsapp.prefill"))}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-base font-medium text-ink-900 hover:underline"

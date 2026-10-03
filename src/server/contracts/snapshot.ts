@@ -4,6 +4,7 @@ import { feeRates, rentalRules } from "@/config/rental";
 import { site } from "@/config/site";
 import { AppError } from "@/lib/errors";
 import { db } from "@/server/db";
+import { getSiteContact } from "@/server/settings";
 import da from "../../../messages/da.json";
 import en from "../../../messages/en.json";
 import fr from "../../../messages/fr.json";
@@ -61,6 +62,7 @@ const PLAIN = new Set([
 ]);
 
 export async function buildContractSnapshot(bookingId: string): Promise<ContractSnapshot> {
+  const contact = await getSiteContact();
   const booking = await db.booking.findUnique({
     where: { id: bookingId },
     select: {
@@ -100,7 +102,7 @@ export async function buildContractSnapshot(bookingId: string): Promise<Contract
     termsVersion: booking.termsVersion ?? rentalRules.termsVersion,
     locale,
     reference: booking.reference,
-    landlord: { name: site.name, phone: site.phone, email: site.email },
+    landlord: { name: site.name, phone: contact.phone, email: contact.email },
     renter: {
       name: `${booking.customer.firstName} ${booking.customer.lastName}`,
       email: booking.customer.email,
