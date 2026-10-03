@@ -12,6 +12,7 @@ import { ReviewCard } from "@/components/features/reviews/review-card";
 import { JsonLd } from "@/components/features/seo/json-ld";
 import { pageMetadata } from "@/lib/seo";
 import { organizationJsonLd } from "@/lib/structured-data";
+import { getSiteContact } from "@/server/settings";
 import { SearchForm } from "@/components/features/search/search-form";
 import {
   businessToday,
@@ -36,15 +37,16 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const { locale } = (await params) as { locale: Locale };
   setRequestLocale(locale);
   const t = await getTranslations();
-  const [locations, cars, reviews] = await Promise.all([
+  const [locations, cars, reviews, contact] = await Promise.all([
     searchLocations(),
     featuredCars({ locale, limit: 3 }),
     publishedReviews(3),
+    getSiteContact(),
   ]);
 
   return (
     <>
-      <JsonLd data={organizationJsonLd()} />
+      <JsonLd data={organizationJsonLd(contact)} />
       <section className="bg-brand-900 text-white">
         <Container className="grid grid-cols-1 gap-10 py-12 sm:py-16 lg:grid-cols-[minmax(0,1fr)_28rem] lg:items-center lg:py-20">
           <div className="flex flex-col gap-4">
@@ -102,7 +104,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         </Section>
       ) : null}
 
-      <WhatsAppCta />
+      <WhatsAppCta whatsappNumber={contact.whatsappNumber} />
     </>
   );
 }

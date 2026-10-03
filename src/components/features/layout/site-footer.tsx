@@ -2,9 +2,10 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/ui/layout";
 import { site, whatsappLink } from "@/config/site";
+import type { SiteContact } from "@/server/settings";
 import { CookieSettingsButton } from "./cookie-banner";
 
-export function SiteFooter() {
+export function SiteFooter({ contact }: { contact: SiteContact }) {
   const t = useTranslations();
 
   const columns = [
@@ -42,23 +43,24 @@ export function SiteFooter() {
           <p className="text-lg font-bold text-ink-900">{site.name}</p>
           <p className="text-base text-muted">{t("footer.tagline")}</p>
           <ul className="flex flex-col gap-1 text-base text-ink-700">
+            {contact.address ? <li>{contact.address}</li> : null}
             <li>
               <a
-                href={`tel:${site.phone.replace(/\s/g, "")}`}
+                href={`tel:${contact.phone.replace(/\s/g, "")}`}
                 className="hover:underline"
                 dir="ltr"
               >
-                {site.phone}
+                {contact.phone}
               </a>
             </li>
             <li>
-              <a href={`mailto:${site.email}`} className="hover:underline">
-                {site.email}
+              <a href={`mailto:${contact.email}`} className="hover:underline">
+                {contact.email}
               </a>
             </li>
             <li>
               <a
-                href={whatsappLink()}
+                href={whatsappLink(contact.whatsappNumber)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline"

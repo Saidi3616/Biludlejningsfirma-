@@ -340,7 +340,8 @@
       "users": "Users",
       "reviews": "Reviews",
       "statistics": "Statistics",
-      "auditLog": "Audit log"
+      "auditLog": "Audit log",
+      "settings": "Settings"
     },
     "toSite": "Go to website",
     "roles": {
@@ -1861,6 +1862,31 @@
         "entity": "What",
         "details": "Details"
       }
+    },
+    "settings": {
+      "title": "Settings",
+      "intro": "The company's contact details. They are shown on the website, on receipts, in rental contracts and in messages to customers. Changes take effect immediately.",
+      "contact": "Contact details",
+      "phone": "Phone",
+      "phoneHint": "With country code, e.g. +45 12 34 56 78.",
+      "email": "Email",
+      "whatsappNumber": "WhatsApp number",
+      "whatsappHint": "With country code, e.g. +45 12 34 56 78. Customers write to this number.",
+      "address": "Address",
+      "addressHint": "Optional. Shown on the contact page, in the footer and on receipts.",
+      "save": "Save settings",
+      "notices": {
+        "saved": "Settings saved.",
+        "invalid": "Check the highlighted fields.",
+        "forbidden": "You do not have access to change settings.",
+        "failed": "Something went wrong. Please try again."
+      },
+      "errors": {
+        "phone": "Enter a phone number, e.g. +45 12 34 56 78.",
+        "email": "Enter a valid email address.",
+        "whatsappNumber": "Enter the number with country code, e.g. +45 12 34 56 78.",
+        "address": "At most 200 characters."
+      }
     }
   },
   "email": {
@@ -2197,6 +2223,7 @@
     "description": "Write, call or drop by. We are happy to help.",
     "phone": "Phone",
     "email": "Email",
+    "address": "Address",
     "whatsapp": "WhatsApp",
     "formTitle": "Send us a message",
     "form": {

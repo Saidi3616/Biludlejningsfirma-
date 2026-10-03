@@ -340,7 +340,8 @@
       "users": "Utilisateurs",
       "reviews": "Avis",
       "statistics": "Statistiques",
-      "auditLog": "Journal d'audit"
+      "auditLog": "Journal d'audit",
+      "settings": "Paramètres"
     },
     "toSite": "Aller au site",
     "roles": {
@@ -1861,6 +1862,31 @@
         "entity": "Quoi",
         "details": "Détails"
       }
+    },
+    "settings": {
+      "title": "Paramètres",
+      "intro": "Les coordonnées de l'entreprise. Elles apparaissent sur le site, sur les reçus, dans les contrats de location et dans les messages aux clients. Les modifications s'appliquent immédiatement.",
+      "contact": "Coordonnées",
+      "phone": "Téléphone",
+      "phoneHint": "Avec l'indicatif du pays, p. ex. +45 12 34 56 78.",
+      "email": "E-mail",
+      "whatsappNumber": "Numéro WhatsApp",
+      "whatsappHint": "Avec l'indicatif du pays, p. ex. +45 12 34 56 78. Les clients écrivent à ce numéro.",
+      "address": "Adresse",
+      "addressHint": "Facultatif. Affichée sur la page de contact, en bas de page et sur les reçus.",
+      "save": "Enregistrer les paramètres",
+      "notices": {
+        "saved": "Paramètres enregistrés.",
+        "invalid": "Vérifiez les champs signalés.",
+        "forbidden": "Vous n'avez pas accès à la modification des paramètres.",
+        "failed": "Une erreur s'est produite. Réessayez."
+      },
+      "errors": {
+        "phone": "Saisissez un numéro de téléphone, p. ex. +45 12 34 56 78.",
+        "email": "Saisissez une adresse e-mail valide.",
+        "whatsappNumber": "Saisissez le numéro avec l'indicatif du pays, p. ex. +45 12 34 56 78.",
+        "address": "200 caractères maximum."
+      }
     }
   },
   "email": {
@@ -2197,6 +2223,7 @@
     "description": "Écrivez, appelez ou passez nous voir. Nous sommes là pour vous aider.",
     "phone": "Téléphone",
     "email": "E-mail",
+    "address": "Adresse",
     "whatsapp": "WhatsApp",
     "formTitle": "Envoyez-nous un message",
     "form": {

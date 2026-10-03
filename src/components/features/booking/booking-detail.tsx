@@ -5,6 +5,7 @@ import { localizedPath } from "@/i18n/paths";
 import type { Locale } from "@/i18n/routing";
 import { cancellationPolicy } from "@/config/rental";
 import { whatsappLink } from "@/config/site";
+import { getSiteContact } from "@/server/settings";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card, CardBody } from "@/components/ui/card";
@@ -36,7 +37,7 @@ export async function BookingDetail({
   /** Kunden har netop annulleret (vis kvittering øverst). */
   cancelled: boolean;
 }) {
-  const t = await getTranslations("manage");
+  const [t, contact] = await Promise.all([getTranslations("manage"), getSiteContact()]);
   const money = (amount: number) => formatMoney(amount, booking.currency, locale);
   const { reference } = booking;
   const refunded = booking.payments
@@ -82,7 +83,7 @@ export async function BookingDetail({
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <Button asChild variant="whatsapp">
             <a
-              href={whatsappLink(t("whatsappPrefill", { reference }))}
+              href={whatsappLink(contact.whatsappNumber, t("whatsappPrefill", { reference }))}
               target="_blank"
               rel="noopener noreferrer"
             >
