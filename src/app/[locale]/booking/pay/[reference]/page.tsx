@@ -84,7 +84,7 @@ export default async function PayPage({ params }: PageProps<"/[locale]/booking/p
     <Container className="flex flex-col gap-8 py-8 sm:py-10">
       <HideWhatsAppButton />
       <BookingSteps current="payment" />
-      <div className="grid gap-8 lg:grid-cols-[1fr_24rem] lg:items-start">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-start">
         <div className="flex min-w-0 flex-col gap-6">
           <h1 className="text-3xl font-semibold tracking-tight text-ink-900">{t("pay.title")}</h1>
           {booking.expiresAt ? (

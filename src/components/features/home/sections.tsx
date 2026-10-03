@@ -12,7 +12,7 @@ export function WhyUs() {
   const items = t.raw("items") as { title: string; body: string }[];
   return (
     <Section title={t("title")} className="bg-ink-50">
-      <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {items.map((item, index) => {
           const Icon = whyIcons[index] ?? BadgeCheck;
           return (
@@ -35,7 +35,7 @@ export function HowItWorks() {
   const steps = t.raw("steps") as { title: string; body: string }[];
   return (
     <Section title={t("title")}>
-      <ol className="grid gap-6 sm:grid-cols-3">
+      <ol className="grid grid-cols-1 gap-6 sm:grid-cols-3">
         {steps.map((step, index) => (
           <li key={step.title} className="flex flex-col gap-3">
             <span

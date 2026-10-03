@@ -50,4 +50,6 @@ Gennemgået 2026-10-02. Punkter markeret ⏳ kræver adgang til hosting, Stripe 
 - ⏳ Stripe live-nøgler og webhook-secret i production.
 - ⏳ Tjek headers på production-domænet (fx securityheaders.com) og HSTS preload.
 - ⏳ Cron-jobs med `CRON_SECRET`: expire-reservations og notifications hvert minut, retention dagligt.
-- ⏳ Backup og restore-test af databasen.
+- ⏳ Backup og restore-test af databasen (`scripts/restore-test.sh`, testet lokalt 2026-10-02).
+
+Hele lanceringslisten står i [lancering.md](lancering.md).

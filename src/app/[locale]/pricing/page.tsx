@@ -46,7 +46,7 @@ export default async function PricingPage({ params }: PageProps<"/[locale]/prici
           {t("ladderTitle")}
         </h2>
         <p className="max-w-3xl text-base text-ink-700">{t("ladderNote")}</p>
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
           {overview.categories.map((category) => (
             <Card key={category.slug}>
               <CardHeader>
@@ -69,7 +69,7 @@ export default async function PricingPage({ params }: PageProps<"/[locale]/prici
           <h2 id="extras" className="text-2xl font-semibold text-ink-900">
             {t("extrasTitle")}
           </h2>
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {overview.extras.map((extra) => (
               <li
                 key={extra.code}

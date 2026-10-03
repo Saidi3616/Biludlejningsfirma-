@@ -46,7 +46,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
     <>
       <JsonLd data={organizationJsonLd()} />
       <section className="bg-brand-900 text-white">
-        <Container className="grid gap-10 py-12 sm:py-16 lg:grid-cols-[1fr_28rem] lg:items-center lg:py-20">
+        <Container className="grid grid-cols-1 gap-10 py-12 sm:py-16 lg:grid-cols-[minmax(0,1fr)_28rem] lg:items-center lg:py-20">
           <div className="flex flex-col gap-4">
             <h1 className="text-(length:--text-display) leading-(--text-display--line-height) font-semibold tracking-(--text-display--letter-spacing)">
               {t("home.title")}
@@ -68,7 +68,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
 
       {cars.length > 0 ? (
         <Section title={t("home.popular.title")} description={t("home.popular.description")}>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {cars.map((car) => (
               <CarCard key={car.id} car={car} />
             ))}
@@ -94,7 +94,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
           })}
           className="bg-ink-50"
         >
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {reviews.reviews.map((review) => (
               <ReviewCard key={review.id} review={review} />
             ))}

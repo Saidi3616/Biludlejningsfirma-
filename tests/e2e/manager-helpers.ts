@@ -10,7 +10,7 @@ import { E2E_PASSWORD, e2eUsers } from "./users";
 export async function logInAsManager(
   page: Page,
   info: TestInfo,
-  who: "manager" | "catalog" | "reviews" | "gdpr" | "admin" = "manager",
+  who: "manager" | "catalog" | "reviews" | "gdpr" | "fleet" | "admin" = "manager",
   next = "/admin",
 ) {
   const user = e2eUsers[`${who}-${info.project.name === "mobile" ? "mobile" : "desktop"}`];
@@ -20,8 +20,15 @@ export async function logInAsManager(
   await page.getByRole("button", { name: "Log ind" }).click();
   await expect(page).toHaveURL(/\/admin\/security$/);
   await page.getByLabel("Password").fill(E2E_PASSWORD);
-  await page.getByRole("button", { name: "Slå 2FA til" }).click();
-  const secret = (await page.locator("code").textContent())!.trim();
+  // Et klik før siden er klar kan gå tabt, når mange tests kører samtidig; så klikkes der igen.
+  const code = page.locator("code");
+  await expect(async () => {
+    if (!(await code.isVisible())) {
+      await page.getByRole("button", { name: "Slå 2FA til" }).click();
+    }
+    await expect(code).toBeVisible({ timeout: 5_000 });
+  }).toPass({ timeout: 20_000 });
+  const secret = (await code.textContent())!.trim();
   await page.getByLabel("Kode").fill(totp(secret));
   await page.getByRole("button", { name: "Bekræft og slå til" }).click();
   await page.getByRole("button", { name: "Jeg har gemt koderne" }).click();

@@ -36,7 +36,7 @@ export default async function LocationsPage({ params }: PageProps<"/[locale]/loc
         </h1>
         <p className="text-lg text-muted">{t("description")}</p>
       </header>
-      <ul className="grid gap-6 md:grid-cols-2">
+      <ul className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {locations.map((location) => (
           <li key={location.id} className="flex">
             <Card className="w-full">

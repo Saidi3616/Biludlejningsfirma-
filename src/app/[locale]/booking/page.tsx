@@ -93,7 +93,7 @@ export default async function BookingPage({
         <BookingSteps current={step} />
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-[1fr_24rem] lg:items-start">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-start">
         <div className="flex flex-col gap-6 lg:col-start-2 lg:row-start-1">
           <CheckoutSummary trip={trip} quote={checkout.quote} extraNames={extraNames} />
         </div>

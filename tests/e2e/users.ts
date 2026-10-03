@@ -29,6 +29,8 @@ export const e2eUsers = {
   },
   "gdpr-mobile": { email: "e2e-gdpr-mobile@example.com", name: "E2E Leder", role: "MANAGER" },
   "gdpr-desktop": { email: "e2e-gdpr-desktop@example.com", name: "E2E Leder", role: "MANAGER" },
+  "fleet-mobile": { email: "e2e-fleet-mobile@example.com", name: "E2E Leder", role: "MANAGER" },
+  "fleet-desktop": { email: "e2e-fleet-desktop@example.com", name: "E2E Leder", role: "MANAGER" },
   "admin-mobile": { email: "e2e-admin-mobile@example.com", name: "E2E Admin", role: "SUPER_ADMIN" },
   "admin-desktop": {
     email: "e2e-admin-desktop@example.com",

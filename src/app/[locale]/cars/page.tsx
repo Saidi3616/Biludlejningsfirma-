@@ -106,7 +106,7 @@ export default async function CarsPage({ params, searchParams }: PageProps<"/[lo
         {result.cars.length === 0 ? (
           <EmptyState title={t("cars.empty.title")} description={t("cars.empty.body")} />
         ) : (
-          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {result.cars.map((car) => (
               <li key={car.id} className="flex">
                 <CarCard car={car} quote={"quote" in car ? car.quote : undefined} query={query} />

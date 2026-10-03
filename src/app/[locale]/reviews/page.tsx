@@ -39,7 +39,7 @@ export default async function ReviewsPage({ params }: PageProps<"/[locale]/revie
       {data.reviews.length === 0 ? (
         <EmptyState title={t("reviews.empty")} />
       ) : (
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {data.reviews.map((review) => (
             <ReviewCard key={review.id} review={review} />
           ))}

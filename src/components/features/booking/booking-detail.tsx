@@ -47,7 +47,7 @@ export async function BookingDetail({
   const pickupZone = booking.pickupLocation.timezone;
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[1fr_24rem] lg:items-start">
+    <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-start">
       <div className="flex min-w-0 flex-col gap-6">
         <header className="flex flex-col gap-3">
           <h1 className="text-3xl font-semibold tracking-tight text-ink-900">
