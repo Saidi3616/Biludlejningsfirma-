@@ -86,7 +86,7 @@ export default async function CarPage({
         {t("car.back")}
       </Link>
 
-      <div className="grid gap-10 lg:grid-cols-[1fr_26rem] lg:items-start">
+      <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_26rem] lg:items-start">
         <div className="flex flex-col gap-8 lg:col-start-1">
           {car.image ? (
             <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-border bg-ink-50">
@@ -173,7 +173,7 @@ export default async function CarPage({
             <PriceLadder tiers={car.tiers} currency={car.currency} label={t("car.pricesTitle")} />
           </section>
 
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <section aria-labelledby="included" className="flex flex-col gap-3">
               <h2 id="included" className="text-xl font-semibold text-ink-900">
                 {t("car.includedTitle")}

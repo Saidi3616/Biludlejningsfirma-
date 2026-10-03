@@ -156,7 +156,7 @@ export default async function StyleguidePage({ params }: PageProps<"/[locale]/st
       </Block>
 
       <Block title="Kort">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <Card>
             <ImagePlaceholder
               subject="Toyota Corolla Hybrid, hvid, 3/4 forfra, lys studiebaggrund"
@@ -342,7 +342,7 @@ export default async function StyleguidePage({ params }: PageProps<"/[locale]/st
       </Block>
 
       <Block title="Indlæsning og tomme tilstande">
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="flex flex-col gap-2">
             <Skeleton className="h-40" />
             <Skeleton className="h-5 w-2/3" />

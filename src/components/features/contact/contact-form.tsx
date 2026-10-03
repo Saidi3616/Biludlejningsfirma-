@@ -30,7 +30,7 @@ export function ContactForm({ action }: { action: Action }) {
       {state.status === "error" && state.error ? (
         <Alert tone="danger">{t(`errors.${state.error}`)}</Alert>
       ) : null}
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <Field label={t("name")} required error={invalid("name")}>
           {(props) => (
             <Input name="name" autoComplete="name" defaultValue={value("name")} {...props} />

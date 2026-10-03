@@ -37,7 +37,7 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
   ];
 
   return (
-    <Container className="grid gap-10 py-12 lg:grid-cols-[22rem_1fr] lg:items-start">
+    <Container className="grid grid-cols-1 gap-10 py-12 lg:grid-cols-[22rem_minmax(0,1fr)] lg:items-start">
       <div className="flex flex-col gap-6">
         <header className="flex flex-col gap-3">
           <h1 className="text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl">

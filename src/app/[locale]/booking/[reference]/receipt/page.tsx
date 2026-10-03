@@ -56,7 +56,7 @@ export default async function ReceiptPage({
         <PrintButton label={t("print")} />
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <section aria-labelledby="seller" className="flex flex-col gap-1 text-base text-ink-700">
           <h2 id="seller" className="font-semibold text-ink-900">
             {t("seller")}

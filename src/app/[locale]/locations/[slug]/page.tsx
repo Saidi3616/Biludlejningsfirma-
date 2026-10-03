@@ -45,7 +45,7 @@ export default async function LocationPage({ params }: PageProps<"/[locale]/loca
   const mapUrl = `https://www.openstreetmap.org/?mlat=${location.lat}&mlon=${location.lng}#map=16/${location.lat}/${location.lng}`;
 
   return (
-    <Container className="grid gap-10 py-12 lg:grid-cols-[1fr_26rem] lg:items-start">
+    <Container className="grid grid-cols-1 gap-10 py-12 lg:grid-cols-[minmax(0,1fr)_26rem] lg:items-start">
       <JsonLd
         data={locationJsonLd(location, absoluteUrl(localizedPath(locale, `/locations/${slug}`)))}
       />

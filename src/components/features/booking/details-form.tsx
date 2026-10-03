@@ -72,7 +72,7 @@ export function DetailsForm({
         </p>
       ) : null}
 
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <Field label={t("details.firstName")} required error={invalid("firstName", "required")}>
           {(props) => (
             <Input

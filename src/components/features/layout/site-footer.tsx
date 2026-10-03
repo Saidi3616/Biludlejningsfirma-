@@ -37,7 +37,7 @@ export function SiteFooter() {
   return (
     // Ekstra bundafstand på mobil, så den flydende WhatsApp-knap ikke dækker indhold.
     <footer className="mt-auto border-t border-border bg-ink-50 pb-24 lg:pb-0 print:hidden">
-      <Container className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
+      <Container className="grid grid-cols-1 gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div className="flex flex-col gap-3">
           <p className="text-lg font-bold text-ink-900">{site.name}</p>
           <p className="text-base text-muted">{t("footer.tagline")}</p>

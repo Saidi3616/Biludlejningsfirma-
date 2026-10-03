@@ -192,4 +192,10 @@ Hvert miljø skal have sit eget `AUTH_SECRET` og et `AUTH_URL`, der er præcis d
 
 Cron-jobbet `/api/cron/expire-reservations` skal sættes op til at køre hvert minut med `CRON_SECRET` (mindst 16 tegn, forskellig pr. miljø).
 
-Se [02-tech-stack.md](docs/architecture/02-tech-stack.md#hosting--deployment) for backup og miljøer.
+Se [02-tech-stack.md](docs/architecture/02-tech-stack.md#hosting--deployment) for backup og miljøer, og [docs/lancering.md](docs/lancering.md) for tjeklisten før launch.
+
+### Kvalitet før launch
+
+- [docs/qa/acceptkriterier.md](docs/qa/acceptkriterier.md) viser, hvilke tests der dækker hvert af de 34 acceptkriterier.
+- `node scripts/load-test.mjs <adresse> [samtidige] [sekunder]` belastningstester ledighedssøgningen.
+- `scripts/restore-test.sh` lægger et dump af en database ind i en tom database og sammenligner rækkerne.
